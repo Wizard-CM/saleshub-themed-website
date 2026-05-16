@@ -1,0 +1,1061 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>The Houses — SalesHub.Nepal</title>
+<meta name="description" content="The four houses we carry — Carlsberg Group, Red Bull, Nepal Distilleries, and Annapurna Craft. Pick a house to see its full lineup." />
+
+<!-- Theme: apply saved theme ASAP to prevent FOUC -->
+<script>
+  (function(){
+    var k = 'saleshub-theme';
+    var t = localStorage.getItem(k);
+    if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
+<link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="entry-gate.css">
+<script src="entry-gate.js"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --cream:#FFFFFF; --cream-2:#F8F6F1; --cream-3:#EDE9DE;
+    --ink:#0B0B0D; --paper:#FAF6EE;
+    --coral:#FF5C3A; --coral-soft:#F5BFB0;
+    --indigo:#2D24C9; --indigo-soft:#C9C5FF;
+    --forest:#16332A; --forest-2:#0E261E;
+    --amber:#D9A26B; --mute:#6A6A6A;
+    --line:rgba(11,11,13,.12);
+    --maxw:1320px;
+    --pad-x: clamp(20px, 4vw, 56px);
+  }
+  *{ box-sizing:border-box }
+  html,body{ margin:0; padding:0 }
+  html{ scroll-behavior:smooth; -webkit-text-size-adjust:100% }
+  body{
+    font-family:'Bricolage Grotesque', system-ui, sans-serif;
+    background:var(--cream); color:var(--ink);
+    font-size:17px; line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{ color:inherit; text-decoration:none }
+  button{ font:inherit; cursor:pointer; border:0; background:none; color:inherit }
+  img,svg{ display:block; max-width:100% }
+  ::selection{ background:var(--coral); color:#fff }
+
+  .mono{ font-family:'JetBrains Mono', ui-monospace, monospace; font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; font-weight:500 }
+  .serif{ font-family:'Instrument Serif', serif; font-style:italic; font-weight:400 }
+  .container{ max-width:var(--maxw); margin:0 auto; padding:0 var(--pad-x) }
+
+  /* ─── nav ─── */
+  .nav-wrap{ position:sticky; top:18px; z-index:60; padding:0 var(--pad-x); pointer-events:none }
+  .nav{
+    pointer-events:auto; margin:0 auto; max-width:1080px;
+    display:flex; align-items:center; gap:14px;
+    background:rgba(11,11,13,.86);
+    backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:999px; padding:8px 8px 8px 22px;
+    color:#F4EFE3;
+  }
+  .nav .brand{ font-weight:700; font-size:17px; letter-spacing:-.01em }
+  .nav .brand .dot{ color:var(--coral) }
+  .nav ul{ list-style:none; margin:0; padding:0; display:flex; gap:6px; flex:1; justify-content:center }
+  .nav ul a{ display:inline-block; padding:10px 14px; border-radius:999px; font-size:15px; color:#D7D1C2; transition:.2s background, .2s color }
+  .nav ul a:hover{ background:rgba(255,255,255,.06); color:#fff }
+  .nav ul a.active{ color:#fff; background:rgba(255,255,255,.08) }
+  .nav .cta{ background:#fff; color:var(--ink); padding:12px 18px 12px 20px; border-radius:999px; font-weight:600; font-size:14px; display:inline-flex; align-items:center; gap:10px; transition:.2s transform }
+  .nav .cta:hover{ transform:translateY(-1px) }
+  .nav .cta .arr{ width:26px; height:26px; border-radius:999px; background:var(--ink); color:#fff; display:grid; place-items:center; font-size:13px }
+  .nav .menu-btn{ display:none; width:42px; height:42px; border-radius:999px; background:rgba(255,255,255,.08); align-items:center; justify-content:center }
+  .nav .menu-btn span{ width:14px; height:1.5px; background:#fff; box-shadow:0 -5px 0 #fff, 0 5px 0 #fff }
+  @media (max-width:820px){
+    .nav ul, .nav .cta{ display:none }
+    .nav .menu-btn{ display:inline-flex; margin-left:auto }
+    .nav{ padding:8px 8px 8px 18px }
+  }
+
+  /* ─── chips ─── */
+  .chip{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:9px 16px 9px 14px; border-radius:999px;
+    border:1px solid rgba(11,11,13,.16);
+    background:rgba(250,246,238,.6); backdrop-filter:blur(8px);
+  }
+  .chip .bullet{ width:8px; height:8px; border-radius:999px; background:var(--coral) }
+  .chip.indigo .bullet{ background:var(--indigo) }
+
+  /* ─── HERO: Now Pouring · 4 Houses ─── */
+  .hero{
+    position:relative;
+    padding: 24px 0 60px;
+    overflow:hidden;
+  }
+  .hero .meta-row{
+    display:flex; justify-content:space-between; align-items:center;
+    gap:16px; flex-wrap:wrap; margin: 28px 0 26px;
+  }
+  .pour{
+    position:relative;
+    background: var(--ink);
+    border-radius: 32px;
+    padding: clamp(28px, 4vw, 56px);
+    color: #F4EFE3;
+    display:grid;
+    grid-template-columns: 1.05fr 1fr 1fr;
+    gap: 40px;
+    min-height: 600px;
+    overflow:hidden;
+  }
+  .pour::before{
+    content:""; position:absolute; inset:0;
+    background:
+      radial-gradient(circle at 50% 38%, rgba(255,255,255,.10), transparent 50%),
+      radial-gradient(circle at 50% 0%, rgba(255,92,58,.18), transparent 40%);
+    pointer-events:none;
+  }
+  .pour::after{
+    content:""; position:absolute; inset:0;
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,.05) 1px, transparent 0);
+    background-size: 18px 18px;
+    pointer-events:none;
+  }
+  .pour .copy{ position:relative; z-index:2; display:flex; flex-direction:column }
+  .pour .now-pouring{
+    display:inline-flex; align-items:center; gap:10px;
+    font-family:'JetBrains Mono', monospace; font-size:11px;
+    letter-spacing:.32em; text-transform:uppercase; color:#A29A85;
+    margin-bottom: 14px;
+  }
+  .pour .now-pouring .pulse{
+    display:inline-block; width:8px; height:8px; border-radius:999px;
+    background: var(--coral);
+    box-shadow: 0 0 0 0 rgba(255,92,58,.6);
+    animation: pourPulse 1.8s ease-out infinite;
+  }
+  @keyframes pourPulse{
+    0%{ box-shadow:0 0 0 0 rgba(255,92,58,.7) }
+    100%{ box-shadow:0 0 0 12px rgba(255,92,58,0) }
+  }
+  @media (prefers-reduced-motion: reduce){ .pour .now-pouring .pulse{ animation:none } }
+  .pour .cat{
+    font-family:'Instrument Serif', serif; font-style:italic;
+    font-size: clamp(18px, 1.6vw, 22px); color: var(--coral-soft);
+    margin-bottom: 8px; transition: opacity .4s;
+  }
+  .pour h1{
+    margin: 0 0 18px;
+    font-size: clamp(56px, 9vw, 144px);
+    font-weight: 800; line-height: .86; letter-spacing: -.04em;
+    color: #F4EFE3;
+    transition: opacity .4s;
+  }
+  .pour h1 .serif{
+    font-family:'Instrument Serif', serif; font-style: italic;
+    font-weight: 400; color: var(--coral); padding: 0 .02em;
+    font-size: 1.06em;
+  }
+  .pour .tagline{
+    font-family:'Instrument Serif', serif; font-style:italic;
+    font-size: clamp(20px, 1.6vw, 24px); line-height: 1.3;
+    color: #D6CFB8; max-width: 28ch; margin: 0 0 30px;
+    transition: opacity .4s;
+  }
+  .pour .specs{
+    display:grid; grid-template-columns: repeat(3, 1fr);
+    gap: 0; max-width: 460px;
+    border-top: 1px solid rgba(255,255,255,.10);
+    border-bottom: 1px solid rgba(255,255,255,.10);
+    padding: 14px 0; margin-bottom: 26px;
+  }
+  .pour .specs .cell{
+    padding: 0 16px 0 0; border-right: 1px dashed rgba(255,255,255,.12);
+    transition: opacity .4s;
+  }
+  .pour .specs .cell:last-child{ border-right: 0 }
+  .pour .specs .lbl{
+    font-family:'JetBrains Mono', monospace; font-size:10px;
+    letter-spacing:.16em; text-transform:uppercase; color:#7A7361;
+  }
+  .pour .specs .val{
+    font-family:'Bricolage Grotesque'; font-weight:700;
+    font-size: clamp(18px, 1.6vw, 22px);
+    margin-top: 4px; line-height:1; color: #F4EFE3;
+  }
+  .pour .specs .val .small{
+    font-family:'Instrument Serif', serif; font-style:italic; font-weight:400;
+    font-size:.72em; color: #A29A85; padding-left: 4px;
+  }
+  .pour .actions{ display:flex; gap:12px; flex-wrap:wrap; margin-top: auto }
+  .pour .actions .btn-light{
+    display:inline-flex; align-items:center; gap:10px;
+    background:#fff; color: var(--ink);
+    padding: 14px 20px 14px 22px; border-radius:999px;
+    font-weight:600; font-size:14px; transition:.2s transform;
+  }
+  .pour .actions .btn-light:hover{ transform: translateY(-1px) }
+  .pour .actions .btn-light .arr{ width:26px; height:26px; border-radius:999px; background: var(--coral); color:#fff; display:grid; place-items:center; font-size:13px }
+  .pour .actions .btn-ghost{
+    display:inline-flex; align-items:center; gap:10px;
+    background: rgba(255,255,255,.08); color:#fff;
+    border: 1px solid rgba(255,255,255,.14);
+    padding: 14px 20px; border-radius:999px;
+    font-weight:600; font-size:14px;
+  }
+
+  /* CENTER stage */
+  .pour .stage{
+    position:relative; z-index:2;
+    display:flex; align-items:center; justify-content:center;
+    padding: 20px 0 40px;
+  }
+  .pour .stage-disc{
+    position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+    width: 100%; max-width: 380px; aspect-ratio: 1/1;
+    border-radius:999px;
+    background:
+      radial-gradient(circle at 50% 50%, rgba(255,255,255,.06), transparent 60%),
+      conic-gradient(from 0deg, rgba(255,255,255,.04), rgba(255,255,255,.10), rgba(255,255,255,.04));
+    border: 1px solid rgba(255,255,255,.06);
+  }
+  .pour .stage-disc::before, .pour .stage-disc::after{
+    content:""; position:absolute; inset: 14%;
+    border: 1px solid rgba(255,255,255,.06); border-radius:999px;
+  }
+  .pour .stage-disc::after{ inset: 30%; border-color: rgba(255,255,255,.04) }
+
+  .pour .stage-ring{
+    position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+    width: 110%; max-width: 440px; aspect-ratio: 1/1;
+    z-index: 1;
+    animation: spotSpin 28s linear infinite;
+  }
+  .pour .stage-ring text{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: .32em; fill: rgba(255,255,255,.45);
+    text-transform: uppercase;
+  }
+  @keyframes spotSpin{ to{ transform: translate(-50%,-50%) rotate(360deg) } }
+  @media (prefers-reduced-motion: reduce){ .pour .stage-ring{ animation:none } }
+
+  .pour .brew-img{
+    position:relative; z-index: 2;
+    width: 70%; max-width: 240px; aspect-ratio: 1/1.35;
+    background: var(--brew-img, none) center/cover no-repeat #1A1A1E;
+    border-radius: 18px;
+    box-shadow: 0 30px 60px rgba(0,0,0,.5), 0 0 0 1px rgba(255,255,255,.06);
+    transition: opacity .5s, transform .5s;
+  }
+  .pour .brew-img.swap{ opacity: 0; transform: translateY(10px) }
+
+  .pour .museum-tag{
+    position:absolute; left: clamp(8px, 1.5vw, 24px); bottom: clamp(8px, 1.5vw, 24px);
+    z-index: 3;
+    background: var(--paper); color: var(--ink);
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-family:'JetBrains Mono', monospace; font-size: 10px;
+    letter-spacing: .18em; text-transform: uppercase;
+    transform: rotate(-4deg);
+    box-shadow: 0 8px 18px rgba(0,0,0,.4);
+    display:flex; align-items:center; gap:8px;
+  }
+  .pour .museum-tag .hole{ width:8px; height:8px; border-radius:999px; background: var(--ink); opacity:.2 }
+
+  /* RIGHT rail (4 brewery options) */
+  .pour .rail{
+    position:relative; z-index: 2;
+    display:flex; flex-direction:column; gap: 10px;
+  }
+  .pour .rail-head{
+    font-family:'JetBrains Mono', monospace; font-size:11px;
+    letter-spacing:.32em; text-transform:uppercase; color: #A29A85;
+    margin-bottom: 8px;
+    display:flex; justify-content:space-between; align-items:center;
+  }
+  .pour .rail-head .of{ color: #6E6856 }
+  .pour .queue{ display:flex; flex-direction:column; gap: 10px }
+  .queue-item{
+    display:grid; grid-template-columns: 56px 1fr auto; gap: 14px;
+    align-items:center;
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.06);
+    border-radius: 16px;
+    padding: 12px 14px;
+    cursor: pointer;
+    transition: .2s background, .2s transform;
+    text-align: left;
+  }
+  .queue-item:hover{ background: rgba(255,255,255,.08); transform: translateX(-3px) }
+  .queue-item.active{
+    background: rgba(255,92,58,.10);
+    border-color: rgba(255,92,58,.30);
+  }
+  .queue-item .mini{
+    width: 56px; height: 56px; border-radius: 12px;
+    background: var(--mini-bg, rgba(255,255,255,.06)) center/cover no-repeat;
+  }
+  .queue-item .qmeta .cat{
+    font-family:'JetBrains Mono', monospace; font-size:9.5px;
+    letter-spacing:.16em; text-transform:uppercase; color: #7A7361;
+    margin-bottom: 3px;
+  }
+  .queue-item .qmeta .name{
+    font-family:'Instrument Serif', serif; font-style: italic; font-weight: 400;
+    font-size: 19px; letter-spacing:-.01em; color: #F4EFE3;
+    line-height: 1;
+  }
+  .queue-item .qmeta .est{
+    font-family:'JetBrains Mono', monospace; font-size: 9.5px;
+    letter-spacing:.14em; color: #A29A85; margin-top: 4px;
+  }
+  .queue-item .go{
+    width: 32px; height: 32px; border-radius:999px;
+    background: rgba(255,255,255,.06); color:#fff;
+    display:grid; place-items:center; font-size:14px;
+    border:1px solid rgba(255,255,255,.06);
+    transition:.2s background, .2s transform;
+  }
+  .queue-item:hover .go{ background: var(--coral); border-color: transparent; transform: rotate(-30deg) }
+  .queue-item.active .go{ background: var(--coral); border-color: transparent }
+
+  .pour-progress{
+    position:absolute; left: clamp(28px, 4vw, 56px); right: clamp(28px, 4vw, 56px);
+    bottom: 14px;
+    height: 2px; border-radius:999px;
+    background: rgba(255,255,255,.06);
+    overflow:hidden; z-index: 3;
+  }
+  .pour-progress .bar{
+    position:absolute; left:0; top:0; bottom:0; width: 0%;
+    background: linear-gradient(90deg, var(--coral), var(--coral-soft));
+    transition: width .15s linear;
+  }
+
+  @media (max-width: 1100px){
+    .pour{ grid-template-columns: 1fr 1fr; min-height: 0 }
+    .pour .rail{ grid-column: span 2; flex-direction: row; flex-wrap: wrap }
+    .pour .rail .queue{ flex-direction: row; flex-wrap: wrap; gap: 10px; flex: 1 }
+    .queue-item{ flex: 1 1 calc(50% - 6px); min-width: 0 }
+    .pour .rail-head{ flex: 0 0 100% }
+  }
+  @media (max-width: 720px){
+    .pour{ grid-template-columns: 1fr; gap: 24px }
+    .pour .rail{ grid-column: auto }
+    .pour h1{ font-size: 56px }
+    .queue-item{ flex: 1 1 100% }
+    .pour .museum-tag{ display: none }
+  }
+
+  /* ─── HOUSES section (the 4 brewery cards) ─── */
+  .houses{
+    padding: 80px 0 100px;
+    position: relative;
+  }
+  .houses .watermark{
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-family:'Instrument Serif', serif; font-style: italic;
+    font-size: clamp(180px, 26vw, 420px);
+    color: rgba(11,11,13,.035);
+    white-space: nowrap; pointer-events: none;
+    z-index: 0; user-select: none; line-height: 1;
+  }
+  .houses .container{ position: relative; z-index: 1 }
+
+  .houses .sec-head{
+    display:flex; justify-content:space-between; align-items:end;
+    gap:16px; flex-wrap:wrap;
+    margin-bottom: 40px; padding-bottom: 18px;
+    border-bottom: 1px dashed var(--line);
+  }
+  .houses .sec-head h2{
+    margin: 0;
+    font-size: clamp(48px, 7vw, 104px);
+    font-weight: 800; letter-spacing: -.035em; line-height: .92;
+    text-wrap: balance;
+  }
+  .houses .sec-head h2 .serif{
+    font-family:'Instrument Serif', serif; font-style: italic; font-weight: 400;
+    color: var(--coral); padding: 0 .03em; font-size: 1.06em;
+  }
+  .houses .sec-head .right{
+    color: var(--mute);
+    font-family:'JetBrains Mono', monospace; font-size: 11px;
+    letter-spacing: .18em; text-transform: uppercase;
+    max-width: 40ch; line-height: 1.5;
+  }
+
+  .houses-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .house-card{
+    position: relative; overflow: hidden;
+    border-radius: 32px;
+    min-height: 460px;
+    cursor: pointer;
+    background: #1A1A1E; color: #F4EFE3;
+    isolation: isolate;
+    transition: transform .4s cubic-bezier(.2,.7,.2,1.4), box-shadow .4s;
+    box-shadow: 0 8px 24px rgba(11,11,13,.08);
+    display: block;
+  }
+  .house-card:hover{ transform: translateY(-8px); box-shadow: 0 32px 64px rgba(11,11,13,.22) }
+  .hc-bg{
+    position: absolute; inset: 0; z-index: 0;
+    background: var(--bg, none) center/cover no-repeat #1A1A1E;
+    transition: transform .9s cubic-bezier(.2,.7,.2,1), filter .35s;
+    filter: saturate(.9);
+  }
+  .house-card:hover .hc-bg{ transform: scale(1.06); filter: saturate(1.1) }
+  .hc-shade{
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(180deg, rgba(11,11,13,.20) 0%, rgba(11,11,13,.30) 40%, rgba(11,11,13,.85) 100%);
+  }
+  .hc-num{
+    position: absolute; top: 22px; left: 22px; z-index: 3;
+    background: rgba(255,255,255,.95);
+    padding: 7px 14px; border-radius: 999px;
+    font-family:'JetBrains Mono', monospace; font-size: 10.5px;
+    letter-spacing: .22em; text-transform: uppercase;
+    color: #0B0B0D;
+    border: 1px solid rgba(11,11,13,.06);
+  }
+  .hc-arr{
+    position: absolute; top: 18px; right: 18px; z-index: 3;
+    width: 50px; height: 50px; border-radius: 999px;
+    background: rgba(255,255,255,.95); color: #0B0B0D;
+    border: 0; display: grid; place-items: center; font-size: 20px;
+    box-shadow: 0 8px 18px rgba(11,11,13,.18);
+    transition: .25s background, .25s color, .4s transform;
+  }
+  .house-card:hover .hc-arr{ background: var(--coral); color: #fff; transform: rotate(-35deg) scale(1.06) }
+  .hc-body{
+    position: absolute; left: clamp(24px, 3vw, 36px); right: clamp(24px, 3vw, 36px);
+    bottom: clamp(24px, 3vw, 36px);
+    z-index: 3; color: #fff;
+  }
+  .hc-body .est{
+    display:inline-flex; align-items: center; gap: 8px;
+    font-family:'JetBrains Mono', monospace; font-size: 10px;
+    letter-spacing: .22em; text-transform: uppercase;
+    color: rgba(255,255,255,.78); margin-bottom: 10px;
+  }
+  .hc-body .est .dot{ width: 7px; height: 7px; border-radius: 999px; background: var(--coral) }
+  .hc-body h3{
+    margin: 0;
+    font-family:'Instrument Serif', serif; font-style: italic; font-weight: 400;
+    font-size: clamp(48px, 5.6vw, 92px);
+    line-height: .92; letter-spacing: -.02em; color: #fff;
+    text-shadow: 0 2px 8px rgba(0,0,0,.3);
+  }
+  .hc-body .tagline{
+    margin-top: 12px;
+    font-size: clamp(15px, 1.2vw, 17px);
+    line-height: 1.5; color: rgba(255,255,255,.85);
+    max-width: 36ch;
+  }
+  .hc-body .footer-row{
+    margin-top: 22px; padding-top: 18px;
+    border-top: 1px dashed rgba(255,255,255,.18);
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 14px; flex-wrap: wrap;
+  }
+  .hc-body .footer-row .count{
+    font-family:'JetBrains Mono', monospace; font-size: 10.5px;
+    letter-spacing: .22em; text-transform: uppercase;
+    color: rgba(255,255,255,.85);
+  }
+  .hc-body .footer-row .count strong{
+    font-family:'Instrument Serif', serif; font-style: italic; font-weight: 400;
+    font-size: 24px; letter-spacing: -.01em; color: #fff;
+    margin-right: 4px; vertical-align: -2px;
+  }
+  .hc-body .footer-row .explore{
+    display:inline-flex; align-items: center; gap: 8px;
+    font-family:'Bricolage Grotesque'; font-weight: 600;
+    font-size: 14px; color: #fff;
+  }
+  .hc-body .footer-row .explore .arr{
+    width: 26px; height: 26px; border-radius: 999px;
+    background: var(--coral); color: #fff;
+    display: grid; place-items: center; font-size: 13px;
+    transition: transform .3s;
+  }
+  .house-card:hover .hc-body .footer-row .explore .arr{ transform: rotate(-45deg) }
+
+  /* coral seal sticker on each card */
+  .hc-seal{
+    position: absolute; z-index: 4;
+    width: 96px; height: 96px;
+    top: 22px; right: 88px;
+    transform: rotate(-12deg);
+    pointer-events: none;
+    transition: transform .35s cubic-bezier(.2,.7,.2,1.4);
+  }
+  .house-card:hover .hc-seal{ transform: rotate(10deg) scale(1.08) }
+  .hc-seal .disc{
+    width: 100%; height: 100%; border-radius: 999px;
+    background: conic-gradient(from 220deg, var(--coral), #FF8260, var(--coral));
+    display: grid; place-items: center;
+    color: #fff;
+    font-family:'Instrument Serif', serif; font-style: italic; font-size: 22px;
+    line-height: 1;
+    text-align: center;
+    box-shadow: 0 12px 24px rgba(255,92,58,.45), inset 0 0 0 3px rgba(255,255,255,.4);
+  }
+  .hc-seal .disc .small{
+    display: block; font-family:'JetBrains Mono', monospace; font-style: normal;
+    font-size: 8px; letter-spacing: .22em; opacity: .9; margin-top: 4px;
+  }
+  .hc-seal.indigo .disc{ background: conic-gradient(from 220deg, var(--indigo), #4A38FF, var(--indigo)); box-shadow: 0 12px 24px rgba(45,36,201,.45), inset 0 0 0 3px rgba(255,255,255,.4) }
+  .hc-seal.forest .disc{ background: conic-gradient(from 220deg, var(--forest), #2D6B57, var(--forest)); box-shadow: 0 12px 24px rgba(22,51,42,.45), inset 0 0 0 3px rgba(255,255,255,.4) }
+  .hc-seal.amber .disc{ background: conic-gradient(from 220deg, var(--amber), #E2B984, var(--amber)); box-shadow: 0 12px 24px rgba(217,162,107,.45), inset 0 0 0 3px rgba(255,255,255,.4) }
+
+  /* variant: tall vs default */
+  .house-card.tall{ min-height: 540px }
+  .house-card.feature h3{ font-size: clamp(56px, 7vw, 116px) }
+
+  @media (max-width: 920px){
+    .houses-grid{ grid-template-columns: 1fr }
+    .hc-seal{ width: 80px; height: 80px; right: 80px; top: 16px }
+    .hc-seal .disc{ font-size: 18px }
+  }
+
+  /* ─── CTA ─── */
+  .cta-strip{
+    margin: 80px var(--pad-x) 40px; border-radius: 32px;
+    background: linear-gradient(135deg, #D9A26B, #FF8A6E 50%, #FF5C3A);
+    padding: clamp(36px, 6vw, 80px) clamp(28px, 5vw, 60px);
+    position:relative; overflow:hidden; color:#fff;
+  }
+  .cta-strip::before{ content:""; position:absolute; inset:0; background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,.20) 1px, transparent 0); background-size: 18px 18px; opacity:.4 }
+  .cta-strip .meta-row{ display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; color: rgba(255,255,255,.85) }
+  .cta-strip h3{ margin: 26px 0 18px; font-size: clamp(40px, 7vw, 100px); font-weight:800; letter-spacing:-.03em; line-height:.95; max-width: 14ch; color:#fff }
+  .cta-strip h3 .serif{ font-style:italic; color:rgba(255,255,255,.95); font-weight:400; padding:0 .03em }
+  .cta-strip p{ max-width: 480px; color: rgba(255,255,255,.92); margin: 0 0 28px; font-size:17px; line-height:1.5 }
+  .cta-strip .actions{ display:flex; gap:14px; flex-wrap:wrap; align-items:center; position:relative; z-index:2 }
+  .btn{ display:inline-flex; align-items:center; gap:10px; padding: 16px 22px 16px 24px; border-radius:999px; background:#fff; color:var(--ink); font-weight:600; font-size:15px; transition:.2s transform }
+  .btn:hover{ transform:translateY(-1px) }
+  .btn .arr{ width:26px; height:26px; border-radius:999px; background:var(--ink); color:#fff; display:grid; place-items:center; font-size:13px }
+  .btn.ghost{ background:rgba(255,255,255,.18); color:#fff; backdrop-filter:blur(6px) }
+  .btn.ghost .arr{ background:#fff; color:var(--ink) }
+
+  /* footer */
+  footer{ background: var(--ink); color: #C9C2B0; border-radius: 32px 32px 0 0; margin-top: 40px; padding: 56px var(--pad-x) 36px }
+  footer .row{ display:grid; grid-template-columns: 1.3fr repeat(4, 1fr); gap:36px }
+  footer h6{ color:var(--coral); margin: 0 0 18px; font-size:12px; letter-spacing:.16em; text-transform:uppercase; font-family:'JetBrains Mono', monospace; font-weight:500 }
+  footer ul{ list-style:none; margin:0; padding:0; display:grid; gap:10px }
+  footer a:hover{ color:#fff }
+  footer .brand{ color:#fff; font-size:24px; font-weight:700; letter-spacing:-.01em }
+  footer .brand .dot{ color:var(--coral) }
+  footer .blurb{ font-size:14px; line-height:1.5; color:#928B79; max-width: 280px; margin-top: 14px }
+  footer .bottom{ margin-top: 48px; padding-top: 22px; border-top:1px solid rgba(255,255,255,.08); display:flex; justify-content:space-between; gap:18px; flex-wrap:wrap; font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#7A7361 }
+  @media (max-width:900px){ footer .row{ grid-template-columns: 1fr 1fr } }
+
+  /* ─────────── ANIMATION SYSTEM ─────────── */
+
+  /* Nav entrance */
+
+  /* Hero meta chips */
+  .hero > .meta-row{
+    opacity: 0;
+    animation: fadeSlideUp .6s cubic-bezier(.22,1,.36,1) .15s forwards;
+  }
+
+  /* Pour section entrance */
+  .pour{
+    opacity: 0; transform: translateY(30px);
+    animation: fadeSlideUp .8s cubic-bezier(.22,1,.36,1) .35s forwards;
+  }
+
+  @keyframes fadeSlideUp{
+    to{ opacity:1; transform: translateY(0) }
+  }
+
+  /* ─── Scroll-triggered reveals ─── */
+  .s-reveal{
+    opacity: 0;
+    transform: translateY(60px);
+    transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1);
+  }
+  .s-reveal.visible{
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Section heading reveal */
+  .sec-head.s-reveal{
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  .sec-head.s-reveal.visible{
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* House cards — staggered scale entrance */
+  .house-card.s-reveal{
+    opacity: 0;
+    transform: translateY(50px) scale(.96);
+  }
+  .house-card.s-reveal.visible{
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  .house-card.s-reveal:nth-child(1){ transition-delay: .0s }
+  .house-card.s-reveal:nth-child(2){ transition-delay: .12s }
+  .house-card.s-reveal:nth-child(3){ transition-delay: .22s }
+  .house-card.s-reveal:nth-child(4){ transition-delay: .32s }
+
+  /* CTA strip entrance */
+  .cta-strip.s-reveal{
+    opacity: 0;
+    transform: translateY(40px) scale(.97);
+  }
+  .cta-strip.s-reveal.visible{
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  /* Footer columns stagger */
+  footer .row.s-stagger > *{
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .6s cubic-bezier(.22,1,.36,1), transform .6s cubic-bezier(.22,1,.36,1);
+  }
+  footer .row.s-stagger.visible > *{
+    opacity: 1;
+    transform: translateY(0);
+  }
+  footer .row.s-stagger.visible > *:nth-child(1){ transition-delay: .05s }
+  footer .row.s-stagger.visible > *:nth-child(2){ transition-delay: .12s }
+  footer .row.s-stagger.visible > *:nth-child(3){ transition-delay: .19s }
+  footer .row.s-stagger.visible > *:nth-child(4){ transition-delay: .26s }
+  footer .row.s-stagger.visible > *:nth-child(5){ transition-delay: .33s }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    .hero > .meta-row, .pour,
+    .s-reveal, .sec-head.s-reveal, .house-card.s-reveal,
+    .cta-strip.s-reveal, footer .row.s-stagger > *{
+      opacity: 1 !important;
+      transform: none !important;
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── Nav ── -->
+<div class="nav-wrap">
+  <nav class="nav" aria-label="primary">
+    <a href="index.html" class="brand">SalesHub<span class="dot">.</span>Nepal</a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="journey.html">Journey</a></li>
+      <li><a href="products.html" class="active">Products</a></li>
+      <li><a href="#">Blogs</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="theme-toggle" aria-label="Toggle theme">
+      <span class="ic moon" aria-hidden="true">☾</span>
+      <span class="ic sun" aria-hidden="true">☀</span>
+    </button>
+    <a href="contact.html" class="cta">GET IN TOUCH <span class="arr">↗</span></a>
+    <button class="menu-btn" aria-label="menu"><span></span></button>
+  </nav>
+</div>
+
+<!-- ── Hero: Now Pouring · 4 Houses ── -->
+<header class="hero container">
+  <div class="meta-row">
+    <span class="chip"><span class="bullet"></span><span class="mono">The Houses · 04</span></span>
+    <span class="chip indigo"><span class="bullet"></span><span class="mono">Curated, not collected</span></span>
+  </div>
+
+  <div class="pour" id="pourStage">
+
+    <!-- LEFT — house copy -->
+    <div class="copy">
+      <span class="now-pouring"><span class="pulse"></span> Now featuring · <span id="pourIdx">01</span> of 04</span>
+      <div class="cat" id="pourCat">Pilsner, Lager &amp; Cider · Denmark · est. 1847</div>
+      <h1 id="pourName">Carlsberg<span class="serif">.</span></h1>
+      <p class="tagline" id="pourTag">"Probably the best beer in the world — and the freshness we built our cold chain around."</p>
+
+      <div class="specs">
+        <div class="cell"><div class="lbl">Founded</div><div class="val" id="pourYear">1847</div></div>
+        <div class="cell"><div class="lbl">Labels</div><div class="val" id="pourCount">06</div></div>
+        <div class="cell"><div class="lbl">Origin</div><div class="val" id="pourOrigin">Copenhagen <span class="small">DK</span></div></div>
+      </div>
+
+      <div class="actions">
+        <a class="btn-light" id="pourHouseLink" href="brewery-carlsberg.html">Enter the house <span class="arr">→</span></a>
+        <a class="btn-ghost" href="#houses">All 04 →</a>
+      </div>
+    </div>
+
+    <!-- CENTER — visual -->
+    <div class="stage" id="stage">
+      <span class="stage-disc"></span>
+      <svg class="stage-ring" viewBox="0 0 440 440" aria-hidden="true">
+        <defs>
+          <path id="ringPath" d="M 220,220 m -200,0 a 200,200 0 1,1 400,0 a 200,200 0 1,1 -400,0" />
+        </defs>
+        <text>
+          <textPath href="#ringPath">★ SALESHUB · NEPAL · FOUR HOUSES · 12 LABELS · ★ SALESHUB · NEPAL · FOUR HOUSES · 12 LABELS · </textPath>
+        </text>
+      </svg>
+
+      <div class="brew-img" id="brewImg" style="--brew-img:url('https://images.unsplash.com/photo-1608270586620-248524c67de9?w=900&amp;auto=format&amp;fit=crop&amp;q=80')"></div>
+
+      <span class="museum-tag" id="museumTag">
+        <span class="hole"></span>
+        <span id="pourTagText">HOUSE 01 / KTM</span>
+      </span>
+    </div>
+
+    <!-- RIGHT — rail (4 houses) -->
+    <div class="rail">
+      <div class="rail-head"><span>The Roster</span><span class="of">04 / 04</span></div>
+      <div class="queue" id="pourQueue">
+        <button class="queue-item active" data-i="0">
+          <span class="mini" style="background-image:url('https://images.unsplash.com/photo-1608270586620-248524c67de9?w=200&amp;auto=format&amp;fit=crop&amp;q=80')"></span>
+          <span class="qmeta"><span class="cat">Denmark · Beer &amp; Cider</span><span class="name">Carlsberg Group</span><span class="est">est. 1847 · 06 labels</span></span>
+          <span class="go">↗</span>
+        </button>
+        <button class="queue-item" data-i="1">
+          <span class="mini" style="background-image:url('https://images.unsplash.com/photo-1622543925917-763c34d1a86e?w=200&amp;auto=format&amp;fit=crop&amp;q=80')"></span>
+          <span class="qmeta"><span class="cat">Austria · Energy</span><span class="name">Red Bull GmbH</span><span class="est">est. 1987 · 03 labels</span></span>
+          <span class="go">↗</span>
+        </button>
+        <button class="queue-item" data-i="2">
+          <span class="mini" style="background-image:url('https://images.unsplash.com/photo-1569529465841-dfecdab7503b?w=200&amp;auto=format&amp;fit=crop&amp;q=80')"></span>
+          <span class="qmeta"><span class="cat">Nepal · Spirits</span><span class="name">Nepal Distilleries</span><span class="est">est. 1959 · 03 labels</span></span>
+          <span class="go">↗</span>
+        </button>
+        <button class="queue-item" data-i="3">
+          <span class="mini" style="background-image:url('https://images.unsplash.com/photo-1582819509237-d6c2c3a8dd6e?w=200&amp;auto=format&amp;fit=crop&amp;q=80')"></span>
+          <span class="qmeta"><span class="cat">Nepal · Craft</span><span class="name">Annapurna Craft</span><span class="est">est. 2019 · 03 labels</span></span>
+          <span class="go">↗</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="pour-progress" aria-hidden="true"><div class="bar" id="pourBar"></div></div>
+  </div>
+</header>
+
+<!-- ── HOUSES section (4 brewery cards) ── -->
+<section class="houses" id="houses">
+  <div class="watermark" aria-hidden="true">Houses.</div>
+  <div class="container">
+
+    <div class="sec-head s-reveal">
+      <h2>Four <span class="serif">houses.</span><br>Twelve labels we trust.</h2>
+      <div class="right">Each one signed our freshness pledge. Pick a house to see its full lineup — every label, every story, every reason it's on our truck.</div>
+    </div>
+
+    <div class="houses-grid">
+
+      <!-- House 01: Carlsberg Group -->
+      <a class="house-card tall feature s-reveal" href="brewery-carlsberg.html" style="--bg:url('https://images.unsplash.com/photo-1608270586620-248524c67de9?w=1400&amp;auto=format&amp;fit=crop&amp;q=80')">
+        <div class="hc-bg"></div>
+        <div class="hc-shade"></div>
+        <span class="hc-num">HOUSE № 01</span>
+        <span class="hc-arr" aria-hidden="true">↗</span>
+        <div class="hc-seal"><div class="disc">1847<span class="small">EST.</span></div></div>
+        <div class="hc-body">
+          <div class="est"><span class="dot"></span>Copenhagen · Denmark · est. 1847</div>
+          <h3>Carlsberg<span style="color: var(--coral-soft); padding: 0 .04em">.</span></h3>
+          <div class="tagline">Six classic labels: the green-bottle pilsner that started the dynasty, plus Tuborg, Smooth, Strong, and the Somersbys.</div>
+          <div class="footer-row">
+            <span class="count"><strong>06</strong>labels</span>
+            <span class="explore">Enter the house <span class="arr">→</span></span>
+          </div>
+        </div>
+      </a>
+
+      <!-- House 02: Red Bull GmbH -->
+      <a class="house-card s-reveal" href="brewery-redbull.html" style="--bg:url('https://images.unsplash.com/photo-1622543925917-763c34d1a86e?w=1200&amp;auto=format&amp;fit=crop&amp;q=80')">
+        <div class="hc-bg"></div>
+        <div class="hc-shade"></div>
+        <span class="hc-num">HOUSE № 02</span>
+        <span class="hc-arr" aria-hidden="true">↗</span>
+        <div class="hc-seal indigo"><div class="disc">1987<span class="small">EST.</span></div></div>
+        <div class="hc-body">
+          <div class="est"><span class="dot"></span>Fuschl am See · Austria · est. 1987</div>
+          <h3>Red Bull<span style="color: var(--coral-soft); padding: 0 .04em">.</span></h3>
+          <div class="tagline">Three energy SKUs across the original, sugar-free, and seasonal tropical edition. Behind every late shift in town.</div>
+          <div class="footer-row">
+            <span class="count"><strong>03</strong>labels</span>
+            <span class="explore">Enter the house <span class="arr">→</span></span>
+          </div>
+        </div>
+      </a>
+
+      <!-- House 03: Nepal Distilleries -->
+      <a class="house-card s-reveal" href="brewery-nepal-distilleries.html" style="--bg:url('https://images.unsplash.com/photo-1569529465841-dfecdab7503b?w=1200&amp;auto=format&amp;fit=crop&amp;q=80')">
+        <div class="hc-bg"></div>
+        <div class="hc-shade"></div>
+        <span class="hc-num">HOUSE № 03</span>
+        <span class="hc-arr" aria-hidden="true">↗</span>
+        <div class="hc-seal amber"><div class="disc">1959<span class="small">EST.</span></div></div>
+        <div class="hc-body">
+          <div class="est"><span class="dot"></span>Birgunj · Nepal · est. 1959</div>
+          <h3>Nepal<br><span style="font-style: italic">Distilleries.</span></h3>
+          <div class="tagline">The country's quiet pride. Old Durbar whisky, Sherpa Spice rum, and a clean Himalayan vodka — distilled within view of the foothills.</div>
+          <div class="footer-row">
+            <span class="count"><strong>03</strong>labels</span>
+            <span class="explore">Enter the house <span class="arr">→</span></span>
+          </div>
+        </div>
+      </a>
+
+      <!-- House 04: Annapurna Craft -->
+      <a class="house-card tall s-reveal" href="brewery-annapurna-craft.html" style="--bg:url('https://images.unsplash.com/photo-1582819509237-d6c2c3a8dd6e?w=1200&amp;auto=format&amp;fit=crop&amp;q=80')">
+        <div class="hc-bg"></div>
+        <div class="hc-shade"></div>
+        <span class="hc-num">HOUSE № 04</span>
+        <span class="hc-arr" aria-hidden="true">↗</span>
+        <div class="hc-seal forest"><div class="disc">2019<span class="small">EST.</span></div></div>
+        <div class="hc-body">
+          <div class="est"><span class="dot"></span>Pokhara · Nepal · est. 2019</div>
+          <h3>Annapurna<br><span style="font-style: italic">Craft.</span></h3>
+          <div class="tagline">Three hand-pressed labels from a small-batch distillery at the foot of the Annapurna range — botanical gin, mountain tonic, and real-root ginger beer.</div>
+          <div class="footer-row">
+            <span class="count"><strong>03</strong>labels</span>
+            <span class="explore">Enter the house <span class="arr">→</span></span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section style="padding: 30px 0 0">
+  <div class="cta-strip s-reveal">
+    <div class="meta-row">
+      <span class="mono">— Wholesale enquiries —</span>
+      <span class="mono">2026 / Open</span>
+    </div>
+    <h3>Put a <span class="serif">house</span> behind your bar.</h3>
+    <p>HoReCa partners, retail accounts, and event leads — get in touch for pricing, MOQs, and a same-week sample drop. Pick one house or all four.</p>
+    <div class="actions">
+      <a href="contact.html" class="btn">Request a sample crate <span class="arr">→</span></a>
+      <a href="about.html" class="btn ghost">Why us <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer>
+  <div class="row s-stagger">
+    <div>
+      <div class="brand">SalesHub<span class="dot">.</span>Nepal</div>
+      <p class="blurb">Nepal's premier beverage distribution network — connecting world-class brands with local markets since 2014.</p>
+    </div>
+    <div>
+      <h6>Navigate</h6>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">Our story</a></li>
+        <li><a href="journey.html">Journey</a></li>
+        <li><a href="products.html">The Houses</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h6>Wholesale</h6>
+      <ul>
+        <li><a href="#">HoReCa partners</a></li>
+        <li><a href="#">Retail accounts</a></li>
+        <li><a href="#">Logistics</a></li>
+        <li><a href="#">Compliance</a></li>
+      </ul>
+    </div>
+    <div>
+      <h6>Houses</h6>
+      <ul>
+        <li><a href="brewery-carlsberg.html">Carlsberg Group</a></li>
+        <li><a href="brewery-redbull.html">Red Bull GmbH</a></li>
+        <li><a href="brewery-nepal-distilleries.html">Nepal Distilleries</a></li>
+        <li><a href="brewery-annapurna-craft.html">Annapurna Craft</a></li>
+      </ul>
+    </div>
+    <div>
+      <h6>Reach</h6>
+      <ul>
+        <li>hello@saleshub.np</li>
+        <li>+977 1 423 7800</li>
+        <li>Balaju, Kathmandu</li>
+        <li>Kathmandu 44600</li>
+      </ul>
+    </div>
+  </div>
+  <div class="bottom">
+    <span>© 2014–2026 SalesHub Distribution Pvt. Ltd.</span>
+    <span>Drink responsibly · 21+</span>
+    <span>Built in Kathmandu</span>
+  </div>
+</footer>
+
+<script>
+  // ─── Now Pouring rotator (4 houses)
+  (function(){
+    const houses = [
+      { name:'Carlsberg', dot:'.', cat:'Pilsner, Lager &amp; Cider · Denmark · est. 1847',
+        tag:'"Probably the best beer in the world — and the freshness we built our cold chain around."',
+        year:'1847', count:'06', origin:'Copenhagen <span class="small">DK</span>',
+        tagText:'HOUSE 01 / KTM · CARLSBERG GROUP', link:'brewery-carlsberg.html',
+        img:'https://images.unsplash.com/photo-1608270586620-248524c67de9?w=900&auto=format&fit=crop&q=80' },
+      { name:'Red Bull', dot:'.', cat:'Energy · Austria · est. 1987',
+        tag:'"Three SKUs. Twelve hours of focus. Built for the late shift and the after-party."',
+        year:'1987', count:'03', origin:'Fuschl <span class="small">AT</span>',
+        tagText:'HOUSE 02 / KTM · RED BULL GMBH', link:'brewery-redbull.html',
+        img:'https://images.unsplash.com/photo-1622543925917-763c34d1a86e?w=900&auto=format&fit=crop&q=80' },
+      { name:'Nepal Distilleries', dot:'.', cat:'Whisky, Rum &amp; Vodka · Nepal · est. 1959',
+        tag:'"The country\'s quiet pride. Distilled in Birgunj, aged within view of the foothills."',
+        year:'1959', count:'03', origin:'Birgunj <span class="small">NP</span>',
+        tagText:'HOUSE 03 / KTM · NEPAL DISTILLERIES', link:'brewery-nepal-distilleries.html',
+        img:'https://images.unsplash.com/photo-1569529465841-dfecdab7503b?w=900&auto=format&fit=crop&q=80' },
+      { name:'Annapurna Craft', dot:'.', cat:'Gin, Tonic &amp; Mixers · Nepal · est. 2019',
+        tag:'"Hand-pressed, small-batch, hill-bottled. Three labels at the foot of the Annapurna range."',
+        year:'2019', count:'03', origin:'Pokhara <span class="small">NP</span>',
+        tagText:'HOUSE 04 / KTM · ANNAPURNA CRAFT', link:'brewery-annapurna-craft.html',
+        img:'https://images.unsplash.com/photo-1582819509237-d6c2c3a8dd6e?w=900&auto=format&fit=crop&q=80' },
+    ];
+    const els = {
+      idx: document.getElementById('pourIdx'),
+      cat: document.getElementById('pourCat'),
+      name: document.getElementById('pourName'),
+      tag: document.getElementById('pourTag'),
+      year: document.getElementById('pourYear'),
+      count: document.getElementById('pourCount'),
+      origin: document.getElementById('pourOrigin'),
+      tagText: document.getElementById('pourTagText'),
+      img: document.getElementById('brewImg'),
+      link: document.getElementById('pourHouseLink'),
+      bar: document.getElementById('pourBar'),
+    };
+    const queue = document.querySelectorAll('#pourQueue .queue-item');
+
+    let i = 0;
+    function show(n, isManual){
+      const L = houses[n]; if (!L) return;
+      els.img.classList.add('swap');
+      [els.cat, els.name, els.tag, els.year, els.count, els.origin].forEach(el => el.style.opacity = 0);
+      setTimeout(() => {
+        els.img.style.setProperty('--brew-img', `url('${L.img}')`);
+        els.idx.textContent = String(n+1).padStart(2,'0');
+        els.cat.innerHTML = L.cat;
+        els.name.innerHTML = L.name + '<span class="serif">' + L.dot + '</span>';
+        els.tag.textContent = L.tag;
+        els.year.textContent = L.year;
+        els.count.textContent = L.count;
+        els.origin.innerHTML = L.origin;
+        els.tagText.textContent = L.tagText;
+        els.link.href = L.link;
+        queue.forEach((q, qi) => q.classList.toggle('active', qi === n));
+        els.img.classList.remove('swap');
+        [els.cat, els.name, els.tag, els.year, els.count, els.origin].forEach(el => el.style.opacity = 1);
+      }, 320);
+      i = n;
+      if (isManual) restartProgress();
+    }
+    queue.forEach(q => q.addEventListener('click', () => show(+q.dataset.i, true)));
+
+    // progress + auto-advance
+    const stage = document.getElementById('pourStage');
+    const DUR = 6500;
+    let t0 = performance.now();
+    let paused = false;
+    stage.addEventListener('pointerenter', () => paused = true);
+    stage.addEventListener('pointerleave', () => { paused = false; t0 = performance.now() - (parseFloat(els.bar.dataset.elapsed)||0) * DUR; });
+    function restartProgress(){ t0 = performance.now() }
+    function tick(now){
+      if (!paused){
+        const elapsed = (now - t0) / DUR;
+        els.bar.dataset.elapsed = Math.min(1, elapsed);
+        els.bar.style.width = Math.min(100, elapsed*100) + '%';
+        if (elapsed >= 1){
+          show((i + 1) % houses.length, false);
+          t0 = now;
+        }
+      }
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  })();
+
+  // ─── scroll-triggered reveal system ─────────────────────────
+  (function(){
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const els = document.querySelectorAll('.s-reveal, .s-stagger');
+    if (!els.length) return;
+
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting){
+          e.target.classList.add('visible');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    els.forEach(el => obs.observe(el));
+  })();
+
+  // ─── 3D tilt on house cards ────────────────────────────────
+  (function(){
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    document.querySelectorAll('.house-card').forEach(card => {
+      card.addEventListener('pointermove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - .5;
+        const y = (e.clientY - rect.top) / rect.height - .5;
+        card.style.transform = `translateY(-8px) perspective(800px) rotateY(${x * 6}deg) rotateX(${-y * 4}deg)`;
+      });
+      card.addEventListener('pointerleave', () => {
+        card.style.transform = '';
+      });
+    });
+  })();
+
+  // ─── CTA interactive gradient ──────────────────────────────
+  (function(){
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const card = document.querySelector('.cta-strip');
+    if (!card) return;
+    card.addEventListener('pointermove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width * 100).toFixed(1);
+      const y = ((e.clientY - rect.top) / rect.height * 100).toFixed(1);
+      card.style.background =
+        `radial-gradient(circle at ${x}% ${y}%, rgba(255,255,255,.15), transparent 40%),
+         linear-gradient(135deg, #D9A26B, #FF8A6E 50%, #FF5C3A)`;
+    });
+    card.addEventListener('pointerleave', () => {
+      card.style.background = '';
+    });
+  })();
+</script>
+
+<script src="theme.js" defer></script>
+</body>
+</html>

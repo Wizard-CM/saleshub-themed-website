@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+
+# Build artifacts
+_build/
+
+# Design canvas files
+design-canvas.jsx
+.design-canvas.state.json
+
+# Uploaded screenshots
+uploads/
+
+# Claude config
+.claude/

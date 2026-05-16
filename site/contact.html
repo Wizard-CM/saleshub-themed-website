@@ -1,0 +1,1071 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Contact — SalesHub.Nepal</title>
+
+<!-- Theme: apply saved theme ASAP to prevent FOUC -->
+<script>
+  (function(){
+    var k = 'saleshub-theme';
+    var t = localStorage.getItem(k);
+    if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
+<link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="entry-gate.css">
+<script src="entry-gate.js"></script>
+<meta name="description" content="Reach the SalesHub team in Balaju, Kathmandu. We reply to every message within a business day." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+  /* ─────────── tokens (shared) ─────────── */
+  :root{
+    --cream:#FFFFFF; --cream-2:#F8F6F1; --cream-3:#EDE9DE;
+    --ink:#0B0B0D; --paper:#FAF6EE;
+    --coral:#FF5C3A; --coral-soft:#F5BFB0;
+    --indigo:#2D24C9; --indigo-soft:#C9C5FF;
+    --forest:#16332A; --forest-2:#0E261E;
+    --mute:#6A6A6A;
+    --line:rgba(11,11,13,.12);
+    --maxw:1320px;
+    --pad-x: clamp(20px, 4vw, 56px);
+  }
+  *{ box-sizing:border-box }
+  html,body{ margin:0; padding:0 }
+  html{ scroll-behavior:smooth; -webkit-text-size-adjust:100% }
+  body{
+    font-family:'Bricolage Grotesque', system-ui, sans-serif;
+    background: var(--cream); color: var(--ink);
+    font-size:17px; line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    background-image:
+      radial-gradient(900px 500px at 100% 0%, rgba(45,36,201,.10), transparent 55%),
+      radial-gradient(1100px 600px at 0% 100%, rgba(255,92,58,.14), transparent 55%),
+      radial-gradient(circle at 1px 1px, rgba(11,11,13,.06) 1px, transparent 0);
+    background-size: auto, auto, 22px 22px;
+    background-attachment: fixed, fixed, fixed;
+  }
+  a{ color:inherit; text-decoration:none }
+  button{ font:inherit; cursor:pointer; border:0; background:none; color:inherit }
+  img,svg{ display:block; max-width:100% }
+  input, textarea, select{ font:inherit; color:inherit }
+  ::selection{ background:var(--coral); color:#fff }
+
+  .mono{ font-family:'JetBrains Mono', ui-monospace, monospace; font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; font-weight:500 }
+  .serif{ font-family:'Instrument Serif', serif; font-style:italic; font-weight:400 }
+  .container{ max-width:var(--maxw); margin:0 auto; padding:0 var(--pad-x) }
+
+  /* ─────────── nav ─────────── */
+  .nav-wrap{ position:sticky; top:18px; z-index:60; padding:0 var(--pad-x); pointer-events:none }
+  .nav{
+    pointer-events:auto; margin:0 auto; max-width:1080px;
+    display:flex; align-items:center; gap:18px;
+    background:rgba(11,11,13,.86);
+    backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:999px; padding:8px 8px 8px 22px;
+    color:#F4EFE3;
+  }
+  .nav .brand{ font-weight:700; font-size:17px; letter-spacing:-.01em }
+  .nav .brand .dot{ color:var(--coral) }
+  .nav ul{ list-style:none; margin:0; padding:0; display:flex; gap:6px; flex:1; justify-content:center }
+  .nav ul a{ display:inline-block; padding:10px 14px; border-radius:999px; font-size:15px; color:#D7D1C2; transition:.2s background, .2s color }
+  .nav ul a:hover{ background:rgba(255,255,255,.06); color:#fff }
+  .nav ul a.active{ color:#fff; background:rgba(255,255,255,.08) }
+  .nav .cta{ background:#fff; color:var(--ink); padding:12px 18px 12px 20px; border-radius:999px; font-weight:600; font-size:14px; display:inline-flex; align-items:center; gap:10px; transition:.2s transform }
+  .nav .cta:hover{ transform:translateY(-1px) }
+  .nav .cta .arr{ width:26px; height:26px; border-radius:999px; background:var(--ink); color:#fff; display:grid; place-items:center; font-size:13px }
+  .nav .menu-btn{ display:none; width:42px; height:42px; border-radius:999px; background:rgba(255,255,255,.08); align-items:center; justify-content:center }
+  .nav .menu-btn span{ width:14px; height:1.5px; background:#fff; box-shadow:0 -5px 0 #fff, 0 5px 0 #fff }
+  @media (max-width:820px){
+    .nav ul, .nav .cta{ display:none }
+    .nav .menu-btn{ display:inline-flex; margin-left:auto }
+    .nav{ padding:8px 8px 8px 18px }
+  }
+
+  /* chips */
+  .chip{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:9px 16px 9px 14px; border-radius:999px;
+    border:1px solid rgba(11,11,13,.16);
+    background:rgba(250,246,238,.6); backdrop-filter:blur(8px);
+  }
+  .chip .bullet{ width:8px; height:8px; border-radius:999px; background:var(--coral) }
+  .chip.indigo .bullet{ background:var(--indigo) }
+  .chip.green .bullet{ background:#1F8A5B; animation: live 2.5s ease-in-out infinite }
+  @keyframes live{ 0%,80%,100%{ opacity:1 } 90%{ opacity:.35 } }
+
+  /* ─────────── hero ─────────── */
+  .hero{ padding: 30px 0 40px }
+  .hero .meta-row{
+    display:flex; justify-content:space-between; align-items:center;
+    gap:14px; flex-wrap:wrap; margin: 28px 0 26px;
+  }
+  .hero h1{
+    margin: 0;
+    font-size: clamp(48px, 9vw, 144px);
+    line-height:.92; letter-spacing:-.035em; font-weight:800;
+    text-wrap: balance;
+  }
+  .hero h1 .serif{ color: var(--coral); padding: 0 .03em }
+  .hero h1 .hl{
+    background: var(--indigo); color:#fff;
+    border-radius: 14px; padding: 0 .08em;
+    display:inline-block; transform: rotate(-1.5deg);
+  }
+  .hero p.lede{
+    margin: 28px 0 0; max-width: 620px;
+    font-size: clamp(16px, 1.3vw, 19px); line-height: 1.55;
+    color: var(--ink); opacity: .82;
+  }
+
+  /* ─────────── main two-col ─────────── */
+  .contact-main{ padding: 40px 0 60px }
+  .cc-grid{
+    display:grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    gap: 32px;
+    align-items: stretch;
+  }
+  @media (max-width: 1000px){
+    .cc-grid{ grid-template-columns: 1fr; gap: 24px }
+  }
+
+  /* ─────────── form (left) ─────────── */
+  .form-card{
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 28px;
+    padding: clamp(24px, 3vw, 40px);
+    position: relative;
+    overflow: hidden;
+  }
+  .form-card::before{
+    /* subtle dot grid */
+    content:""; position:absolute; inset:0;
+    background-image: radial-gradient(circle at 1px 1px, rgba(11,11,13,.05) 1px, transparent 0);
+    background-size: 18px 18px; opacity: .8; pointer-events: none;
+  }
+  .form-card > *{ position: relative }
+
+  .form-head{
+    display:flex; justify-content:space-between; align-items:center;
+    gap: 12px;
+    padding-bottom: 20px; margin-bottom: 24px;
+    border-bottom: 1px dashed var(--line);
+  }
+  .form-head h2{
+    margin: 0;
+    font-size: clamp(24px, 2.4vw, 32px);
+    letter-spacing: -.015em; font-weight: 700;
+  }
+  .form-head h2 .serif{ color: var(--coral); padding: 0 .04em; font-size: 1.05em }
+  .form-head .stamp-tiny{
+    width: 60px; height: 60px; border-radius:999px;
+    background: conic-gradient(from 220deg, var(--coral), #FF8260, var(--coral));
+    display:grid; place-items:center; color: #fff;
+    font-family:'Instrument Serif', serif; font-style:italic; font-size: 18px;
+    box-shadow: 0 10px 20px rgba(255,92,58,.3);
+    transform: rotate(-8deg);
+  }
+
+  /* form fields */
+  .field-grid{
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .field{ position:relative; display:flex; flex-direction:column; gap: 6px }
+  .field.full{ grid-column: span 2 }
+  .field label{
+    font-family:'JetBrains Mono', monospace; font-size: 10.5px;
+    letter-spacing: .16em; text-transform: uppercase; color: var(--mute);
+    display:flex; justify-content:space-between; align-items:center;
+  }
+  .field label .req{ color: var(--coral); font-family:'Bricolage Grotesque'; font-style:normal; font-size: 12px; letter-spacing: 0 }
+  .field label .opt{ color: rgba(11,11,13,.4); font-family:'Bricolage Grotesque'; text-transform: none; letter-spacing: 0; font-style: italic; font-size: 12px }
+  .field input,
+  .field textarea,
+  .field select{
+    width: 100%;
+    background: #fff;
+    border: 1px solid var(--line); border-radius: 14px;
+    padding: 14px 16px;
+    font-size: 15px; color: var(--ink);
+    transition: border-color .2s, box-shadow .2s, transform .15s;
+  }
+  .field input:focus,
+  .field textarea:focus,
+  .field select:focus{
+    outline: none;
+    border-color: var(--ink);
+    box-shadow: 0 0 0 4px rgba(11,11,13,.06);
+  }
+  .field input::placeholder, .field textarea::placeholder{ color: rgba(11,11,13,.35) }
+  .field textarea{ resize: vertical; min-height: 130px; line-height: 1.5; font-family: inherit }
+  .field select{ appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--ink) 50%), linear-gradient(135deg, var(--ink) 50%, transparent 50%); background-position: calc(100% - 18px) 50%, calc(100% - 14px) 50%; background-size: 4px 4px; background-repeat: no-repeat; padding-right: 36px }
+
+  /* reason chips (radio-style) */
+  .reason-row{
+    display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px;
+  }
+  .reason-row label{
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 9px 14px;
+    background: #fff;
+    border: 1px solid var(--line); border-radius: 999px;
+    font-size: 13px; color: var(--ink);
+    cursor: pointer; transition: .2s background, .2s border-color, .2s color;
+    text-transform: none; letter-spacing: 0; font-family: inherit;
+  }
+  .reason-row label:hover{ background: var(--cream-2) }
+  .reason-row input{ position: absolute; opacity: 0; width: 0; height: 0 }
+  .reason-row label .ic{
+    width: 18px; height: 18px; border-radius:999px;
+    border: 1.5px solid var(--line);
+    display: inline-grid; place-items: center;
+    transition: .2s border-color, .2s background;
+  }
+  .reason-row label .ic::after{
+    content:""; width: 8px; height: 8px; border-radius:999px;
+    background: var(--coral); opacity: 0; transition: .2s opacity, .2s transform;
+    transform: scale(.5);
+  }
+  .reason-row input:checked + label{
+    background: var(--ink); color: #fff; border-color: transparent;
+  }
+  .reason-row input:checked + label .ic{ border-color: rgba(255,255,255,.4); background: transparent }
+  .reason-row input:checked + label .ic::after{ opacity: 1; transform: scale(1) }
+
+  /* contact-by toggle */
+  .toggle-row{
+    display: flex; align-items: center; gap: 10px;
+    padding: 6px;
+    background: #fff; border:1px solid var(--line); border-radius: 999px;
+    width: max-content;
+  }
+  .toggle-row label{ position: relative; cursor: pointer }
+  .toggle-row input{ position: absolute; opacity: 0; pointer-events: none }
+  .toggle-row label span{
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 8px 14px; border-radius: 999px;
+    font-size: 13px; color: var(--mute);
+    transition: .2s background, .2s color;
+  }
+  .toggle-row input:checked + span{ background: var(--ink); color: #fff }
+
+  /* submit row */
+  .submit-row{
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 14px; flex-wrap: wrap;
+    margin-top: 22px;
+  }
+  .privacy{
+    font-size: 12.5px; color: var(--mute); line-height: 1.4;
+    max-width: 320px;
+  }
+  .privacy a{ text-decoration: underline; text-decoration-color: rgba(11,11,13,.3); text-underline-offset: 2px }
+  .btn-submit{
+    display: inline-flex; align-items: center; gap: 12px;
+    background: var(--ink); color: #fff;
+    padding: 16px 22px 16px 26px;
+    border-radius: 999px;
+    font-weight: 600; font-size: 15px;
+    transition: .2s transform;
+  }
+  .btn-submit:hover{ transform: translateY(-1px) }
+  .btn-submit .arr{
+    width: 28px; height: 28px; border-radius:999px;
+    background: var(--coral); color:#fff;
+    display:grid; place-items:center; font-size:13px;
+  }
+
+  /* success state */
+  .form-success{
+    display:none;
+    text-align: center; padding: 40px 20px;
+  }
+  .form-success.show{ display: block }
+  .form-success .big-tick{
+    width: 80px; height: 80px; border-radius:999px;
+    background: var(--coral); color: #fff;
+    display:grid; place-items: center; font-size: 38px;
+    margin: 0 auto 20px;
+    box-shadow: 0 12px 24px rgba(255,92,58,.3);
+  }
+  .form-success h3{ margin: 0 0 10px; font-size: 28px; letter-spacing: -.02em }
+  .form-success h3 .serif{ color: var(--coral); padding: 0 .04em }
+  .form-success p{ margin: 0 auto; max-width: 40ch; color: var(--mute); line-height: 1.5 }
+
+  /* ─────────── map (Google iframe) ─────────── */
+  .map-card{
+    border-radius: 28px; overflow: hidden;
+    position: relative;
+    background: var(--cream-3);
+    border: 1px solid var(--line);
+    min-height: 620px;
+  }
+  .map-card iframe{ pointer-events: auto }
+
+  /* floating info card */
+  .map-info-card{
+    position: absolute; top: 70px; left: 22px;
+    z-index: 5;
+    background: #fff;
+    border-radius: 18px;
+    border: 1px solid var(--line);
+    padding: 16px 18px;
+    width: 260px;
+    box-shadow: 0 18px 36px rgba(11,11,13,.18);
+    transform: rotate(-1deg);
+    transition: transform .3s;
+  }
+  .map-info-card:hover{ transform: rotate(0) translateY(-2px) }
+  .map-info-card .head{
+    display:flex; align-items:center; gap: 8px;
+    font-family:'JetBrains Mono', monospace; font-size: 10px;
+    letter-spacing: .22em; text-transform: uppercase;
+    color: var(--coral); margin-bottom: 8px;
+  }
+  .map-info-card .head .pulse-dot{
+    width: 8px; height: 8px; border-radius: 999px; background: var(--coral);
+    box-shadow: 0 0 0 0 rgba(255,92,58,.5);
+    animation: mapPulse 2s ease-out infinite;
+  }
+  @keyframes mapPulse{
+    0%{ box-shadow: 0 0 0 0 rgba(255,92,58,.55) }
+    100%{ box-shadow: 0 0 0 10px rgba(255,92,58,0) }
+  }
+  @media (prefers-reduced-motion: reduce){ .map-info-card .head .pulse-dot{ animation: none } }
+  .map-info-card .name{
+    font-size: 20px; font-weight: 700; letter-spacing: -.01em; line-height: 1.05;
+  }
+  .map-info-card .name .serif{ color: var(--coral); padding: 0 .03em }
+  .map-info-card .addr{
+    margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--ink); opacity: .72;
+  }
+  .map-info-card .open{
+    margin-top: 12px; padding-top: 10px;
+    border-top: 1px dashed var(--line);
+    display:flex; align-items:center; gap: 8px;
+    font-family:'JetBrains Mono', monospace; font-size: 10px;
+    letter-spacing: .18em; text-transform: uppercase;
+    color: #1F8A5B;
+  }
+  .map-info-card .open .open-dot{
+    width: 7px; height: 7px; border-radius: 999px; background: #1F8A5B;
+    animation: live 2.5s ease-in-out infinite;
+  }
+  @media (max-width: 600px){
+    .map-info-card{ width: calc(100% - 44px); left: 22px; right: 22px; top: 64px }
+  }
+  /* faux topo grid */
+  .map-card .grid-lines{
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(to right, rgba(11,11,13,.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(11,11,13,.06) 1px, transparent 1px);
+    background-size: 36px 36px;
+  }
+  /* roads */
+  .roads{ position:absolute; inset:0 }
+  /* Bishnumati river */
+  .river{
+    position:absolute; left: 28%; top: 0; bottom: 0; width: 14px;
+    transform: skewX(-3deg);
+    background: #6FA4D6;
+    opacity: .35;
+    box-shadow: 0 0 30px rgba(45,36,201,.18);
+  }
+  .river::after{
+    content:""; position:absolute; inset: 0;
+    background: repeating-linear-gradient(180deg, rgba(255,255,255,.4) 0 12px, transparent 12px 24px);
+  }
+  /* Ring Road — a curved ring */
+  .ring-road{
+    position:absolute; left: 6%; right: 6%; top: 8%; bottom: 8%;
+    border: 14px solid var(--indigo);
+    border-radius: 50%;
+    opacity: .85;
+    transform: rotate(-6deg);
+  }
+  .ring-road::after{
+    content:""; position:absolute; inset: -8px;
+    border-radius: 50%;
+    background: repeating-linear-gradient(60deg, transparent 0 14px, rgba(255,255,255,.0) 14px 16px);
+  }
+  .ring-label{
+    position:absolute; bottom: 10%; left: 50%; transform: translateX(-50%) rotate(-3deg);
+    background:#fff; border:1px solid var(--line); border-radius:999px;
+    padding: 6px 12px; font-family:'JetBrains Mono', monospace; font-size:10px;
+    letter-spacing:.18em; text-transform:uppercase; color: var(--ink);
+    box-shadow: 0 6px 12px rgba(11,11,13,.10);
+  }
+  /* Nagarjun hill (west of Balaju) */
+  .hill{
+    position:absolute; left: -6%; top: 18%;
+    width: 0; height: 0;
+    border-left: 70px solid transparent;
+    border-right: 70px solid transparent;
+    border-bottom: 120px solid #B4AA8E;
+  }
+  .hill.h2{ left: 4%; top: 28%; border-left-width: 50px; border-right-width: 50px; border-bottom-color: #C5BC9E; border-bottom-width: 90px }
+  .hill.h3{ right: -4%; bottom: 28%; left: auto; border-left-width: 60px; border-right-width: 60px; border-bottom-color: #BDB397; border-bottom-width: 100px }
+  .hill-label{
+    position:absolute; left: 4%; top: 32%;
+    font-family:'Instrument Serif', serif; font-style: italic;
+    font-size: 14px; color: var(--ink); opacity: .55;
+    transform: rotate(-8deg);
+  }
+
+  /* trees / dots */
+  .veg{
+    position:absolute; width: 8px; height: 8px; border-radius:999px;
+    background: var(--forest); opacity: .4;
+  }
+
+  /* neighbourhood pills */
+  .nbh{
+    position:absolute;
+    background: rgba(250,246,238,.85);
+    border: 1px solid var(--line);
+    backdrop-filter: blur(6px);
+    padding: 6px 11px; border-radius: 999px;
+    font-family:'JetBrains Mono', monospace; font-size: 10.5px;
+    letter-spacing: .14em; text-transform: uppercase;
+    color: var(--mute);
+  }
+  .nbh.thamel{ top: 50%; left: 38%; }
+  .nbh.lazimpat{ top: 40%; right: 26%; }
+  .nbh.maharajgunj{ top: 18%; right: 14%; }
+  .nbh.swayambhu{ bottom: 26%; left: 26%; transform: rotate(-3deg) }
+  .nbh.bouddha{ top: 26%; right: 6%; transform: rotate(2deg) }
+
+  /* — BALAJU pin (our HQ) — */
+  .hq{
+    position:absolute;
+    left: 26%; top: 28%;
+    transform: translate(-50%, -50%);
+    z-index: 4;
+    pointer-events: none;
+  }
+  .hq .pulse{
+    position:absolute; left:50%; top:50%; width: 26px; height: 26px;
+    transform: translate(-50%,-50%);
+    border-radius:999px;
+    border: 2px solid var(--coral);
+    animation: cpulse 2.4s cubic-bezier(.2,.7,.2,1) infinite;
+    opacity:.7;
+  }
+  .hq .pulse.delay{ animation-delay: 1.2s }
+  @keyframes cpulse{
+    0%{ width:26px; height:26px; opacity:.7 }
+    100%{ width: 120px; height: 120px; opacity: 0 }
+  }
+  @media (prefers-reduced-motion: reduce){ .hq .pulse{ display:none } }
+  .hq .dot{
+    position:relative;
+    width: 26px; height: 26px;
+    border-radius:999px;
+    background: var(--coral);
+    box-shadow: 0 0 0 6px rgba(255,92,58,.16), 0 8px 18px rgba(255,92,58,.5);
+  }
+  .hq .dot::after{
+    content:""; position:absolute; left:50%; top:100%; transform:translateX(-50%);
+    border:6px solid transparent; border-top:10px solid var(--coral);
+  }
+
+  /* HQ label card hovering near pin */
+  .hq-card{
+    position: absolute;
+    left: calc(26% + 30px);
+    top: calc(28% - 64px);
+    z-index: 5;
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid var(--line);
+    padding: 14px 16px 14px 18px;
+    width: 240px;
+    box-shadow: 0 18px 36px rgba(11,11,13,.12);
+    transform: rotate(-1.5deg);
+  }
+  .hq-card::before{
+    content:""; position:absolute; left: -8px; top: 50%; transform: translateY(-50%) rotate(45deg);
+    width: 14px; height: 14px; background: #fff; border-left: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  }
+  .hq-card .top{
+    font-family:'JetBrains Mono', monospace; font-size: 10px;
+    letter-spacing: .22em; text-transform: uppercase;
+    color: var(--coral); margin-bottom: 6px;
+    display:flex; align-items:center; gap: 6px;
+  }
+  .hq-card .top .dot-sm{ width: 7px; height: 7px; border-radius:999px; background: var(--coral) }
+  .hq-card .name{
+    font-size: 18px; font-weight: 700; letter-spacing: -.01em; line-height: 1.1;
+  }
+  .hq-card .name .serif{ color: var(--coral); padding: 0 .03em }
+  .hq-card .addr{
+    margin-top: 6px; font-size: 13px; line-height: 1.45; color: var(--ink); opacity: .72;
+  }
+  .hq-card .open{
+    margin-top: 10px; display: flex; align-items: center; gap: 8px;
+    font-family:'JetBrains Mono', monospace; font-size: 10px;
+    letter-spacing: .18em; text-transform: uppercase;
+    color: #1F8A5B;
+  }
+  .hq-card .open .dot-sm{ width: 7px; height: 7px; border-radius:999px; background: #1F8A5B; animation: live 2.5s ease-in-out infinite }
+
+  /* — Map overlay UI — */
+  .map-overlay{
+    position: absolute; top: 18px; left: 18px; right: 18px;
+    display:flex; justify-content:space-between; gap: 12px;
+    flex-wrap: wrap;
+    z-index: 6;
+  }
+  .map-overlay .crumb{
+    background: rgba(11,11,13,.85); color:#fff; backdrop-filter: blur(10px);
+    border-radius: 999px; padding: 8px 14px;
+    font-family:'JetBrains Mono', monospace; font-size: 10.5px;
+    letter-spacing: .18em; text-transform: uppercase;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .map-overlay .crumb .ic{ font-style: normal }
+  .map-overlay .compass{
+    width: 44px; height: 44px; border-radius: 999px;
+    background: var(--paper); border: 1px solid var(--line);
+    display: grid; place-items: center;
+    font-family:'Bricolage Grotesque'; font-weight: 700; font-size: 12px;
+    color: var(--ink);
+    box-shadow: 0 6px 12px rgba(11,11,13,.08);
+    position: relative;
+  }
+  .map-overlay .compass::before{
+    content:""; position:absolute; left:50%; top: 4px; transform:translateX(-50%);
+    width: 0; height: 0;
+    border-left: 6px solid transparent; border-right: 6px solid transparent;
+    border-bottom: 12px solid var(--coral);
+  }
+  /* bottom overlay */
+  .map-bottom{
+    position:absolute; left: 18px; right: 18px; bottom: 18px;
+    z-index: 6;
+    display: flex; justify-content: space-between; align-items: flex-end;
+    gap: 12px; flex-wrap: wrap;
+  }
+  .map-coords{
+    background: rgba(11,11,13,.85); color:#fff; backdrop-filter: blur(10px);
+    border-radius: 14px; padding: 12px 16px;
+    font-family:'JetBrains Mono', monospace; font-size: 11px;
+    letter-spacing: .14em; text-transform: uppercase;
+    line-height: 1.5;
+  }
+  .map-coords .l{ color: #A29A85; font-size: 9.5px }
+  .map-coords .v{ color: #fff }
+  .map-actions{ display:flex; gap: 8px; flex-wrap: wrap }
+  .map-actions a{
+    background: var(--paper); color: var(--ink);
+    border: 1px solid var(--line); border-radius: 999px;
+    padding: 10px 14px; font-size: 12.5px; font-weight: 500;
+    display: inline-flex; align-items: center; gap: 6px;
+    transition: .2s background;
+  }
+  .map-actions a:hover{ background: #fff }
+  .map-actions a.primary{
+    background: var(--ink); color: #fff; border-color: transparent;
+  }
+  .map-actions a.primary:hover{ background: #1c1c20 }
+
+  /* ─────────── below-the-fold contact tiles ─────────── */
+  .contact-tiles{
+    margin-top: 32px;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+  }
+  .tile{
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 22px 22px 24px;
+    display: flex; flex-direction: column; gap: 6px;
+    transition: .2s transform, .2s background;
+  }
+  .tile:hover{ transform: translateY(-3px); background: #fff }
+  .tile .ic{
+    width: 38px; height: 38px; border-radius:999px;
+    background: var(--cream-3); display: grid; place-items: center;
+    color: var(--ink); font-size: 16px;
+    margin-bottom: 6px;
+  }
+  .tile .lbl{
+    font-family:'JetBrains Mono', monospace; font-size: 10.5px;
+    letter-spacing: .16em; text-transform: uppercase; color: var(--mute);
+  }
+  .tile .val{
+    font-size: 18px; font-weight: 700; letter-spacing: -.01em;
+  }
+  .tile .val .small{
+    display: block; font-family:'Instrument Serif', serif; font-style: italic;
+    font-weight: 400; color: var(--mute); font-size: 14px; margin-top: 2px;
+  }
+  .tile.dark{ background: var(--ink); color: #F4EFE3; border-color: transparent }
+  .tile.dark:hover{ background: #1c1c20 }
+  .tile.dark .lbl{ color: #A29A85 }
+  .tile.dark .ic{ background: rgba(255,255,255,.08); color:#F4EFE3 }
+  @media (max-width: 900px){
+    .contact-tiles{ grid-template-columns: 1fr 1fr }
+  }
+
+  /* ─────────── ANIMATION SYSTEM ─────────── */
+
+  /* Nav entrance */
+
+  /* Hero on-load */
+  .hero .meta-row{
+    opacity: 0;
+    animation: fadeSlideUp .6s cubic-bezier(.22,1,.36,1) .15s forwards;
+  }
+  .hero h1{
+    opacity: 0; transform: translateY(50px);
+    animation: fadeSlideUp .8s cubic-bezier(.22,1,.36,1) .3s forwards;
+  }
+  .hero p.lede{
+    opacity: 0; transform: translateY(24px);
+    animation: fadeSlideUp .7s cubic-bezier(.22,1,.36,1) .55s forwards;
+  }
+  @keyframes fadeSlideUp{
+    to{ opacity:1; transform: translateY(0) }
+  }
+
+  /* ─── Scroll-triggered reveals ─── */
+  .s-reveal{
+    opacity: 0;
+    transform: translateY(60px);
+    transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1);
+  }
+  .s-reveal.visible{
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Form card — slide up + scale */
+  .form-card.s-reveal{
+    opacity: 0;
+    transform: translateY(40px) scale(.98);
+  }
+  .form-card.s-reveal.visible{
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  /* Map card — slide up */
+  .map-card.s-reveal{
+    opacity: 0;
+    transform: translateY(40px) scale(.98);
+    transition-delay: .12s;
+  }
+  .map-card.s-reveal.visible{
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  /* Contact tiles — staggered pop */
+  .tile.s-reveal{
+    opacity: 0;
+    transform: translateY(20px) scale(.92);
+  }
+  .tile.s-reveal.visible{
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  .tile.s-reveal:nth-child(1){ transition-delay: .05s }
+  .tile.s-reveal:nth-child(2){ transition-delay: .14s }
+  .tile.s-reveal:nth-child(3){ transition-delay: .23s }
+  .tile.s-reveal:nth-child(4){ transition-delay: .32s }
+
+  /* Map inner elements — sequential entrance */
+  .map-info-card{
+    opacity: 0; transform: rotate(-1deg) translateY(15px) scale(.9);
+    transition: opacity .5s cubic-bezier(.22,1,.36,1), transform .5s cubic-bezier(.22,1,.36,1);
+  }
+  .map-card.s-reveal.visible .map-info-card{
+    opacity: 1; transform: rotate(-1deg) translateY(0) scale(1);
+    transition-delay: .3s;
+  }
+  .map-overlay{
+    opacity: 0; transform: translateY(-10px);
+    transition: opacity .4s ease, transform .4s ease;
+  }
+  .map-card.s-reveal.visible .map-overlay{
+    opacity: 1; transform: translateY(0);
+    transition-delay: .2s;
+  }
+  .map-bottom{
+    opacity: 0; transform: translateY(10px);
+    transition: opacity .4s ease, transform .4s ease;
+  }
+  .map-card.s-reveal.visible .map-bottom{
+    opacity: 1; transform: translateY(0);
+    transition-delay: .4s;
+  }
+
+  /* Footer columns stagger */
+  footer .row.s-stagger > *{
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .6s cubic-bezier(.22,1,.36,1), transform .6s cubic-bezier(.22,1,.36,1);
+  }
+  footer .row.s-stagger.visible > *{
+    opacity: 1;
+    transform: translateY(0);
+  }
+  footer .row.s-stagger.visible > *:nth-child(1){ transition-delay: .05s }
+  footer .row.s-stagger.visible > *:nth-child(2){ transition-delay: .12s }
+  footer .row.s-stagger.visible > *:nth-child(3){ transition-delay: .19s }
+  footer .row.s-stagger.visible > *:nth-child(4){ transition-delay: .26s }
+  footer .row.s-stagger.visible > *:nth-child(5){ transition-delay: .33s }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    .hero .meta-row, .hero h1, .hero p.lede,
+    .s-reveal, .form-card.s-reveal, .map-card.s-reveal, .tile.s-reveal,
+    .map-info-card, .map-overlay, .map-bottom,
+    footer .row.s-stagger > *{
+      opacity: 1 !important;
+      transform: none !important;
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+
+  /* ─────────── footer ─────────── */
+  footer{ background: var(--ink); color: #C9C2B0; border-radius: 32px 32px 0 0; margin-top: 60px; padding: 56px var(--pad-x) 36px }
+  footer .row{ display:grid; grid-template-columns: 1.3fr repeat(4, 1fr); gap:36px }
+  footer h6{ color:var(--coral); margin: 0 0 18px; font-size:12px; letter-spacing:.16em; text-transform:uppercase; font-family:'JetBrains Mono', monospace; font-weight:500 }
+  footer ul{ list-style:none; margin:0; padding:0; display:grid; gap:10px }
+  footer a:hover{ color:#fff }
+  footer .brand{ color:#fff; font-size:24px; font-weight:700; letter-spacing:-.01em }
+  footer .brand .dot{ color:var(--coral) }
+  footer .blurb{ font-size:14px; line-height:1.5; color:#928B79; max-width: 280px; margin-top: 14px }
+  footer .bottom{ margin-top: 48px; padding-top: 22px; border-top:1px solid rgba(255,255,255,.08); display:flex; justify-content:space-between; gap:18px; flex-wrap:wrap; font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#7A7361 }
+  @media (max-width:900px){ footer .row{ grid-template-columns: 1fr 1fr } }
+</style>
+</head>
+<body>
+
+<!-- ── Nav ── -->
+<div class="nav-wrap">
+  <nav class="nav" aria-label="primary">
+    <a href="index.html" class="brand">SalesHub<span class="dot">.</span>Nepal</a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="journey.html">Journey</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="#">Blogs</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <button class="theme-toggle" aria-label="Toggle theme">
+      <span class="ic moon" aria-hidden="true">☾</span>
+      <span class="ic sun" aria-hidden="true">☀</span>
+    </button>
+    <a href="#form" class="cta">SEND A MESSAGE <span class="arr">↗</span></a>
+    <button class="menu-btn" aria-label="menu"><span></span></button>
+  </nav>
+</div>
+
+<!-- ── Hero ── -->
+<header class="hero container">
+  <div class="meta-row">
+    <span class="chip"><span class="bullet"></span><span class="mono">Get in touch</span></span>
+    <span class="chip green"><span class="bullet"></span><span class="mono">Reply within 24 hrs · Mon — Sat</span></span>
+  </div>
+
+  <h1>
+    Let's <span class="hl">talk</span><br>
+    <span class="serif">shop</span>.
+  </h1>
+
+  <p class="lede">
+    Whether you're a brand looking for a Nepal partner, a venue placing a wholesale order, or just someone who wants to nerd out about cold-chain logistics — leave us a note. The form lands in our inbox. We answer every message.
+  </p>
+</header>
+
+<!-- ── Form + Map ── -->
+<main class="contact-main container" id="form">
+  <div class="cc-grid">
+
+    <!-- ── FORM ── -->
+    <section class="form-card s-reveal">
+
+      <!-- form view -->
+      <div id="formView">
+        <div class="form-head">
+          <h2>Send a <span class="serif">message</span></h2>
+          <div class="stamp-tiny">hi</div>
+        </div>
+
+        <form id="contactForm" novalidate>
+
+          <div class="field-grid">
+            <div class="field">
+              <label for="f-name">Your name <span class="req">*</span></label>
+              <input id="f-name" name="name" type="text" required placeholder="Sushma Pradhan" />
+            </div>
+            <div class="field">
+              <label for="f-email">Email <span class="req">*</span></label>
+              <input id="f-email" name="email" type="email" required placeholder="you@brewery.com" />
+            </div>
+            <div class="field">
+              <label for="f-company">Company / Venue <span class="opt">— optional</span></label>
+              <input id="f-company" name="company" type="text" placeholder="Rum Doodle, Thamel" />
+            </div>
+            <div class="field">
+              <label for="f-phone">Phone <span class="opt">— optional</span></label>
+              <input id="f-phone" name="phone" type="tel" placeholder="+977 980 100 0000" />
+            </div>
+
+            <div class="field full">
+              <label>What's the conversation about? <span class="req">*</span></label>
+              <div class="reason-row" role="radiogroup">
+                <input type="radio" id="r-horeca" name="reason" value="horeca" checked />
+                <label for="r-horeca"><span class="ic"></span>HoReCa order</label>
+
+                <input type="radio" id="r-retail" name="reason" value="retail" />
+                <label for="r-retail"><span class="ic"></span>Retail account</label>
+
+                <input type="radio" id="r-brand" name="reason" value="brand" />
+                <label for="r-brand"><span class="ic"></span>Brand partnership</label>
+
+                <input type="radio" id="r-visit" name="reason" value="visit" />
+                <label for="r-visit"><span class="ic"></span>Visit the warehouse</label>
+
+                <input type="radio" id="r-other" name="reason" value="other" />
+                <label for="r-other"><span class="ic"></span>Just say hi</label>
+              </div>
+            </div>
+
+            <div class="field full">
+              <label for="f-msg">Your message <span class="req">*</span></label>
+              <textarea id="f-msg" name="message" required placeholder="Tell us what's on your mind — pricing, MOQs, sample crates, route schedules, anything. Real humans read these."></textarea>
+            </div>
+
+            <div class="field full">
+              <label>Best way to reach you</label>
+              <div class="toggle-row" role="radiogroup">
+                <label><input type="radio" name="contactBy" value="email" checked /><span>✉ Email me</span></label>
+                <label><input type="radio" name="contactBy" value="phone" /><span>☎ Call me</span></label>
+                <label><input type="radio" name="contactBy" value="any" /><span>✦ Either works</span></label>
+              </div>
+            </div>
+          </div>
+
+          <div class="submit-row">
+            <p class="privacy">
+              By submitting you agree to be contacted by the SalesHub team. We never share details. <a href="#">Privacy policy</a>.
+            </p>
+            <button class="btn-submit" type="submit">Send it our way <span class="arr">→</span></button>
+          </div>
+        </form>
+      </div>
+
+      <!-- success view -->
+      <div class="form-success" id="successView">
+        <div class="big-tick">✓</div>
+        <h3>Message <span class="serif">received.</span></h3>
+        <p>A real human on the SalesHub floor team will reply within 24 hours — usually within four. In the meantime, the kettle is on.</p>
+        <p style="margin-top: 18px"><a href="#" id="resetForm" style="font-family:'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--coral); text-decoration: underline">← Send another</a></p>
+      </div>
+    </section>
+
+    <!-- ── MAP ── -->
+    <section class="map-card s-reveal" aria-label="Google Map showing SalesHub HQ in Balaju, Kathmandu">
+      <!-- the real map -->
+      <iframe
+        src="https://www.google.com/maps?q=Balaju+Industrial+District,Kathmandu+44600,Nepal&amp;z=14&amp;output=embed"
+        title="SalesHub HQ — Balaju, Kathmandu"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen
+        style="position:absolute; inset:0; width:100%; height:100%; border:0; z-index:1"></iframe>
+
+      <!-- top overlay UI -->
+      <div class="map-overlay">
+        <span class="crumb"><span class="ic">●</span> KATHMANDU · BALAJU</span>
+        <span class="compass">N</span>
+      </div>
+
+      <!-- floating address card (top-left, sits over the map) -->
+      <aside class="map-info-card" aria-label="SalesHub HQ address">
+        <div class="head">
+          <span class="pulse-dot"></span>
+          <span class="lbl">SalesHub HQ</span>
+        </div>
+        <div class="name">Balaju<span class="serif">,</span> Kathmandu</div>
+        <div class="addr">Balaju Industrial District, ward 16<br>Kathmandu 44600, Nepal</div>
+        <div class="open"><span class="open-dot"></span> Open now · until 18:00 NPT</div>
+      </aside>
+
+      <!-- bottom overlay UI -->
+      <div class="map-bottom">
+        <div class="map-coords">
+          <div><span class="l">LAT</span> <span class="v">27.7355° N</span></div>
+          <div><span class="l">LON</span> <span class="v">85.3010° E</span></div>
+          <div><span class="l">DIST. FROM TIA</span> <span class="v">8.2 KM · ~25 MIN</span></div>
+        </div>
+        <div class="map-actions">
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Balaju+Industrial+District+Kathmandu" target="_blank" rel="noopener noreferrer" class="primary">Open in Maps →</a>
+          <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Balaju+Industrial+District+Kathmandu" target="_blank" rel="noopener noreferrer">Get directions ↗</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- contact info tiles -->
+  <div class="contact-tiles">
+    <a class="tile s-reveal" href="mailto:hello@saleshub.np">
+      <div class="ic">✉</div>
+      <div class="lbl">Email</div>
+      <div class="val">hello@saleshub.np<span class="small">replies in &lt; 24h</span></div>
+    </a>
+    <a class="tile s-reveal" href="tel:+97714237800">
+      <div class="ic">☎</div>
+      <div class="lbl">Phone</div>
+      <div class="val">+977 1 423 7800<span class="small">+977 980 100 4400 (mobile)</span></div>
+    </a>
+    <div class="tile s-reveal">
+      <div class="ic">⏱</div>
+      <div class="lbl">Hours</div>
+      <div class="val">Mon — Sat<span class="small">09:00 — 18:00 NPT</span></div>
+    </div>
+    <a class="tile dark s-reveal" href="https://www.google.com/maps/search/?api=1&query=Balaju+Industrial+District+Kathmandu" target="_blank" rel="noopener noreferrer">
+      <div class="ic">📍</div>
+      <div class="lbl">Visit</div>
+      <div class="val">Balaju, Kathmandu<span class="small">Industrial District, ward 16</span></div>
+    </a>
+  </div>
+</main>
+
+<!-- ── Footer ── -->
+<footer>
+  <div class="row s-stagger">
+    <div>
+      <div class="brand">SalesHub<span class="dot">.</span>Nepal</div>
+      <p class="blurb">Nepal's premier beverage distribution network — connecting world-class brands with local markets since 2014.</p>
+    </div>
+    <div>
+      <h6>Navigate</h6>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">Our story</a></li>
+        <li><a href="journey.html">Journey</a></li>
+        <li><a href="products.html">Brands</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h6>Wholesale</h6>
+      <ul>
+        <li><a href="#">HoReCa partners</a></li>
+        <li><a href="#">Retail accounts</a></li>
+        <li><a href="#">Logistics</a></li>
+        <li><a href="#">Compliance</a></li>
+      </ul>
+    </div>
+    <div>
+      <h6>Brands</h6>
+      <ul>
+        <li><a href="products.html">Carlsberg</a></li>
+        <li><a href="products.html">Red Bull</a></li>
+        <li><a href="products.html">Somersby</a></li>
+        <li><a href="products.html">Tuborg</a></li>
+      </ul>
+    </div>
+    <div>
+      <h6>Reach</h6>
+      <ul>
+        <li>hello@saleshub.np</li>
+        <li>+977 1 423 7800</li>
+        <li>Balaju, Kathmandu</li>
+        <li>Kathmandu 44600</li>
+      </ul>
+    </div>
+  </div>
+  <div class="bottom">
+    <span>© 2014–2026 SalesHub Distribution Pvt. Ltd.</span>
+    <span>Drink responsibly · 21+</span>
+    <span>Built in Kathmandu</span>
+  </div>
+</footer>
+
+<script>
+  // — form submission (no backend; just a local success state)
+  const form = document.getElementById('contactForm');
+  const formView = document.getElementById('formView');
+  const successView = document.getElementById('successView');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    // simple validation
+    const name = form.querySelector('#f-name').value.trim();
+    const email = form.querySelector('#f-email').value.trim();
+    const msg = form.querySelector('#f-msg').value.trim();
+    if (!name || !email || !msg){
+      // highlight missing
+      [['#f-name', name], ['#f-email', email], ['#f-msg', msg]].forEach(([sel, v]) => {
+        const el = form.querySelector(sel);
+        if (!v){ el.style.borderColor = 'var(--coral)'; el.focus(); setTimeout(()=>{ el.style.borderColor = '' }, 1800) }
+      });
+      return;
+    }
+    formView.style.display = 'none';
+    successView.classList.add('show');
+    successView.scrollIntoView({ behavior:'smooth', block:'center' });
+  });
+  document.getElementById('resetForm').addEventListener('click', (e) => {
+    e.preventDefault();
+    form.reset();
+    successView.classList.remove('show');
+    formView.style.display = 'block';
+    formView.scrollIntoView({ behavior:'smooth', block:'center' });
+  });
+
+  // ─── scroll-triggered reveal system ─────────────────────────
+  (function(){
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const els = document.querySelectorAll('.s-reveal, .s-stagger');
+    if (!els.length) return;
+
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting){
+          e.target.classList.add('visible');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    els.forEach(el => obs.observe(el));
+  })();
+
+  // ─── form field focus micro-interaction ────────────────────
+  (function(){
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    document.querySelectorAll('.field input, .field textarea').forEach(el => {
+      el.addEventListener('focus', () => {
+        el.style.transform = 'scale(1.01)';
+      });
+      el.addEventListener('blur', () => {
+        el.style.transform = '';
+      });
+    });
+  })();
+</script>
+
+<script src="theme.js" defer></script>
+</body>
+</html>

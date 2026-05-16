@@ -1,0 +1,474 @@
+/* ─────────────────────────────────────────────────────────────
+   SalesHub.Nepal — Theme system (light / dark)
+   Pair with theme.js for the toggle.
+   ─────────────────────────────────────────────────────────────
+
+   Strategy:
+   - Each page's :root defines the LIGHT theme tokens.
+   - [data-theme="dark"]:root flips them to a dark palette.
+   - --ink flips from #0B0B0D to a cream foreground;
+     places that used --ink as background get explicit overrides
+     here so dark-on-dark surfaces stay legible (footer, dark btns).
+   ───────────────────────────────────────────────────────────── */
+
+/* ── Smooth color transitions on theme swap ───────────────── */
+html, body, .nav, footer, .form-card, .map-card, .stat-card, .v-card,
+.step, .info-cell, .tile, .hero-aside, .year-rail, .marginalia,
+.field input, .field textarea, .field select, .reason-row label,
+.toggle-row, .toggle-row label span, .map-info-card, .ac-receipt,
+.ac-news, .ac-ticket, .ac-sticky, .ac-stats, .ac-map, .ac-polaroid,
+.ac-seal, .ht-photo, .ht-meta, .ht-meta-cell, .pinboard, .artifact,
+.ht-tape, .ht-cap-roll, .ht-polaroid, .tl-card, .chip, .pill,
+.filter-bar .inner, .feat-card, .pcard, .prod, .bento-card, .btn,
+.btn-dark, .btn-out, .btn-submit, .btn-ink, .ht-meta-cta, .pour,
+.visit, .portfolio, .hero, .hero-team, .story, .timeline, .values,
+.team, .network, .featured, .products, .curate, .journey,
+.cta-strip, .info-cell, .hero-stats, .moment, .moment .copy .pull,
+.numbers, .ticker {
+  transition: background-color .35s ease, color .25s ease,
+              border-color .25s ease, box-shadow .25s ease;
+}
+
+/* ── DARK MODE — token overrides ─────────────────────────── */
+[data-theme="dark"]:root,
+:root[data-theme="dark"] {
+  --cream:#08080A;
+  --cream-2:#14141A;
+  --cream-3:#1F1F25;
+  --paper:#15151B;
+  --ink:#F4EFE3;
+  --mute:#8C8678;
+  --line: rgba(244,239,227,.10);
+  --line-2: rgba(244,239,227,.05);
+}
+
+/* ── DARK MODE — body & global backgrounds ───────────────── */
+[data-theme="dark"] body {
+  background: #08080A;
+  background-image:
+    radial-gradient(1100px 600px at 100% 0%, rgba(255,92,58,.10), transparent 60%),
+    radial-gradient(900px 500px at 0% 100%, rgba(45,36,201,.14), transparent 55%),
+    radial-gradient(circle at 1px 1px, rgba(244,239,227,.04) 1px, transparent 0);
+}
+
+/* Home: the body's plain `background:var(--ink)` and the dark .ticker
+   (which uses `background:var(--ink)`) both invert undesirably when
+   --ink flips to cream — pin them back to a true dark surface here. */
+[data-theme="dark"] .ticker {
+  background: #0F0F13;
+  border-color: rgba(244,239,227,.06);
+}
+[data-theme="dark"] .ticker .item {
+  background: rgba(244,239,227,.05);
+  border-color: rgba(244,239,227,.10);
+  color: #F4EFE3;
+}
+[data-theme="dark"] .ticker .item.serif {
+  background: rgba(244,239,227,.08);
+  border-color: rgba(244,239,227,.14);
+}
+[data-theme="dark"] .ticker .item.coral { background: var(--coral); color:#fff; border-color: transparent }
+[data-theme="dark"] .ticker .item.indigo { background: var(--indigo); color:#fff; border-color: transparent }
+
+/* ── DARK MODE — nav (already dark; tighten borders) ─────── */
+[data-theme="dark"] .nav {
+  background: rgba(15,15,18,.86);
+  border-color: rgba(244,239,227,.06);
+}
+[data-theme="dark"] .nav .cta {
+  background: #F4EFE3; color: #0B0B0D;
+}
+[data-theme="dark"] .nav .cta .arr {
+  background: #0B0B0D; color: #F4EFE3;
+}
+
+/* ── DARK MODE — buttons that use --ink as background ────── */
+[data-theme="dark"] .btn-ink,
+[data-theme="dark"] .btn-dark,
+[data-theme="dark"] .btn-submit,
+[data-theme="dark"] .ht-meta-cta,
+[data-theme="dark"] .visit .btn-dark,
+[data-theme="dark"] .portfolio .copy .btn-out,
+[data-theme="dark"] .map-actions a.primary,
+[data-theme="dark"] .nav .menu-btn {
+  background: #F4EFE3; color: #0B0B0D;
+}
+[data-theme="dark"] .btn-ink .arr,
+[data-theme="dark"] .ht-meta-cta .arr {
+  background: var(--coral); color: #fff;
+}
+
+/* solid coral round arrow buttons stay coral */
+[data-theme="dark"] .btn .arr {
+  background: #F4EFE3; color: #0B0B0D;
+}
+[data-theme="dark"] .btn.ghost {
+  background: rgba(244,239,227,.12); color: #F4EFE3; border-color: rgba(244,239,227,.18);
+}
+[data-theme="dark"] .btn.ghost .arr {
+  background: #F4EFE3; color: #0B0B0D;
+}
+
+/* ── DARK MODE — footer (was --ink background) ───────────── */
+[data-theme="dark"] footer {
+  background: #0F0F13; color: #8C8678;
+}
+[data-theme="dark"] footer .brand { color: #F4EFE3 }
+[data-theme="dark"] footer .blurb { color: #6E6856 }
+[data-theme="dark"] footer .bottom {
+  color: #6E6856; border-color: rgba(244,239,227,.06);
+}
+
+/* ── DARK MODE — chips ───────────────────────────────────── */
+[data-theme="dark"] .chip {
+  background: rgba(255,255,255,.04);
+  border-color: rgba(244,239,227,.14);
+  color: #F4EFE3;
+}
+[data-theme="dark"] .chip.dark {
+  background: rgba(244,239,227,.10);
+  color: #F4EFE3;
+}
+
+/* ── DARK MODE — pills (filter / sort / segmented) ───────── */
+[data-theme="dark"] .pill {
+  color: #F4EFE3; border-color: var(--line);
+}
+[data-theme="dark"] .pill:hover { background: rgba(255,255,255,.05) }
+[data-theme="dark"] .pill.active { background: #F4EFE3; color: #0B0B0D; border-color: transparent }
+[data-theme="dark"] .pill .count { background: #1F1F25; color: #8C8678 }
+[data-theme="dark"] .pill.active .count { background: rgba(11,11,13,.15); color: #0B0B0D }
+[data-theme="dark"] .filter-bar .inner {
+  background: rgba(20,20,26,.85); border-color: var(--line);
+}
+[data-theme="dark"] .filter-bar .sort select {
+  background: #1A1A20; color: #F4EFE3; border-color: var(--line);
+}
+
+/* ── DARK MODE — cards using --paper / light surfaces ────── */
+[data-theme="dark"] .stat-card,
+[data-theme="dark"] .v-card,
+[data-theme="dark"] .step,
+[data-theme="dark"] .info-cell,
+[data-theme="dark"] .tile,
+[data-theme="dark"] .hero-stats,
+[data-theme="dark"] .hero-aside,
+[data-theme="dark"] .year-rail,
+[data-theme="dark"] .marginalia,
+[data-theme="dark"] .ht-meta,
+[data-theme="dark"] .form-card,
+[data-theme="dark"] .map-info-card {
+  background: var(--paper); border-color: var(--line); color: #F4EFE3;
+}
+
+[data-theme="dark"] .v-card,
+[data-theme="dark"] .step,
+[data-theme="dark"] .tile { color: #F4EFE3 }
+[data-theme="dark"] .v-card p,
+[data-theme="dark"] .step p,
+[data-theme="dark"] .tile .small { color: var(--mute) }
+
+[data-theme="dark"] .tile.dark { background: #1A1A20 }
+
+/* ── DARK MODE — about page hero pinboard + artifacts ────── */
+[data-theme="dark"] .pinboard {
+  background-color: #131318;
+  background-image: radial-gradient(circle at 1px 1px, rgba(244,239,227,.05) 1px, transparent 0);
+  border-color: var(--line);
+}
+[data-theme="dark"] .pinboard .tape {
+  background: #1A1A20; color: #8C8678; border-color: var(--line);
+}
+[data-theme="dark"] .pinboard .tape .y.now {
+  background: var(--coral); color: #fff;
+}
+[data-theme="dark"] .artifact.receipt,
+[data-theme="dark"] .ac-receipt,
+[data-theme="dark"] .ac-news {
+  background: #1E1E25; color: #F4EFE3;
+}
+[data-theme="dark"] .receipt .head,
+[data-theme="dark"] .receipt table,
+[data-theme="dark"] .receipt .totals,
+[data-theme="dark"] .receipt .signature { color: #F4EFE3 }
+[data-theme="dark"] .receipt .head,
+[data-theme="dark"] .receipt .signature,
+[data-theme="dark"] .receipt .totals,
+[data-theme="dark"] .ac-receipt .h,
+[data-theme="dark"] .ac-receipt .tot,
+[data-theme="dark"] .ac-news .masthead {
+  border-color: rgba(244,239,227,.20);
+}
+[data-theme="dark"] .ac-news .masthead { border-top-color: #F4EFE3; border-bottom-color: rgba(244,239,227,.30); }
+[data-theme="dark"] .ac-news::before { background: linear-gradient(225deg, rgba(244,239,227,.10) 0 50%, transparent 50%) }
+[data-theme="dark"] .ac-receipt .h .pd { background: var(--coral); color: #fff }
+
+/* polaroids */
+[data-theme="dark"] .polaroid,
+[data-theme="dark"] .artifact.polaroid,
+[data-theme="dark"] .ht-polaroid,
+[data-theme="dark"] .ac-polaroid { background: #1E1E25 }
+[data-theme="dark"] .polaroid .ph,
+[data-theme="dark"] .artifact.polaroid .ph,
+[data-theme="dark"] .ht-polaroid .ph,
+[data-theme="dark"] .ac-polaroid .ph {
+  background:
+    repeating-linear-gradient(45deg, rgba(244,239,227,.10) 0 2px, transparent 2px 14px),
+    linear-gradient(135deg, #2A2A30, #1E1E25);
+}
+[data-theme="dark"] .polaroid .ph .glyph,
+[data-theme="dark"] .artifact.polaroid .ph .glyph,
+[data-theme="dark"] .ht-polaroid .ph .glyph,
+[data-theme="dark"] .ac-polaroid .ph .glyph,
+[data-theme="dark"] .polaroid .meta,
+[data-theme="dark"] .artifact.polaroid .cap,
+[data-theme="dark"] .ht-polaroid .cap,
+[data-theme="dark"] .ac-polaroid .cap { color: #F4EFE3 }
+
+/* sticky note keeps its yellow but darker text remains */
+[data-theme="dark"] .artifact.sticky,
+[data-theme="dark"] .ac-sticky { background: #D9B83A; color: #0B0B0D }
+
+/* timeline cards */
+[data-theme="dark"] .tl-card {
+  background: var(--paper); color: #F4EFE3; border-color: var(--line);
+}
+[data-theme="dark"] .tl-card p { color: var(--mute); opacity: 1 }
+
+/* ── DARK MODE — journey page year-rail + moments ────────── */
+[data-theme="dark"] .year-rail a { color: #F4EFE3; opacity: .55 }
+[data-theme="dark"] .year-rail a .ttl { color: #F4EFE3 }
+[data-theme="dark"] .year-rail a.active {
+  background: #F4EFE3; color: #0B0B0D;
+}
+[data-theme="dark"] .year-rail a.active .ttl,
+[data-theme="dark"] .year-rail a.active .yr { color: #0B0B0D }
+[data-theme="dark"] .year-rail .head .of { color: #F4EFE3 }
+[data-theme="dark"] .moment .meta .when { color: #F4EFE3 }
+[data-theme="dark"] .moment .year { color: #F4EFE3 }
+[data-theme="dark"] .moment .copy p { color: #F4EFE3; opacity: .82 }
+[data-theme="dark"] .moment .copy p strong { color: #F4EFE3 }
+[data-theme="dark"] .moment .copy .pull { color: #F4EFE3 }
+[data-theme="dark"] .artifact-card.ac-receipt .sig,
+[data-theme="dark"] .artifact-card.ac-receipt table { color: #F4EFE3 }
+[data-theme="dark"] .ac-stats { background: #1A1A20 }
+[data-theme="dark"] .ac-seal { background: #0F0F13 }
+
+/* ── DARK MODE — forms ───────────────────────────────────── */
+[data-theme="dark"] .field input,
+[data-theme="dark"] .field textarea,
+[data-theme="dark"] .field select {
+  background: #1A1A20; color: #F4EFE3; border-color: var(--line);
+}
+[data-theme="dark"] .field input::placeholder,
+[data-theme="dark"] .field textarea::placeholder { color: rgba(244,239,227,.36) }
+[data-theme="dark"] .field input:focus,
+[data-theme="dark"] .field textarea:focus,
+[data-theme="dark"] .field select:focus {
+  border-color: #F4EFE3;
+  box-shadow: 0 0 0 4px rgba(244,239,227,.06);
+}
+[data-theme="dark"] .field select {
+  background-image:
+    linear-gradient(45deg, transparent 50%, #F4EFE3 50%),
+    linear-gradient(135deg, #F4EFE3 50%, transparent 50%);
+}
+[data-theme="dark"] .reason-row label {
+  background: #1A1A20; color: #F4EFE3; border-color: var(--line);
+}
+[data-theme="dark"] .reason-row label:hover { background: #232328 }
+[data-theme="dark"] .reason-row input:checked + label {
+  background: #F4EFE3; color: #0B0B0D;
+}
+[data-theme="dark"] .reason-row label .ic { border-color: rgba(244,239,227,.26) }
+[data-theme="dark"] .reason-row input:checked + label .ic { border-color: rgba(11,11,13,.3) }
+[data-theme="dark"] .reason-row input:checked + label .ic::after { background: var(--coral); opacity: 1 }
+[data-theme="dark"] .toggle-row {
+  background: #1A1A20; border-color: var(--line);
+}
+[data-theme="dark"] .toggle-row input:checked + span {
+  background: #F4EFE3; color: #0B0B0D;
+}
+[data-theme="dark"] .privacy a { text-decoration-color: rgba(244,239,227,.3) }
+[data-theme="dark"] .form-head h2,
+[data-theme="dark"] .form-success h3 { color: #F4EFE3 }
+[data-theme="dark"] .form-success .big-tick { color: #fff }
+[data-theme="dark"] .form-success p { color: var(--mute) }
+
+/* ── DARK MODE — contact map card ────────────────────────── */
+[data-theme="dark"] .map-card {
+  background: #1A1A20; border-color: var(--line);
+}
+[data-theme="dark"] .map-overlay .compass {
+  background: #1A1A20; color: #F4EFE3; border-color: var(--line);
+}
+[data-theme="dark"] .map-coords {
+  background: rgba(15,15,18,.92); color: #F4EFE3;
+}
+[data-theme="dark"] .map-actions a {
+  background: #1A1A20; color: #F4EFE3; border-color: var(--line);
+}
+[data-theme="dark"] .map-actions a:hover { background: #232328 }
+[data-theme="dark"] .map-info-card {
+  background: #16161A; color: #F4EFE3; border-color: var(--line);
+}
+[data-theme="dark"] .map-info-card::before {
+  background: #16161A; border-color: var(--line);
+}
+[data-theme="dark"] .map-info-card .head { color: var(--coral-soft) }
+[data-theme="dark"] .map-info-card .name { color: #F4EFE3 }
+[data-theme="dark"] .map-info-card .addr { color: rgba(244,239,227,.65) }
+[data-theme="dark"] .map-info-card .open { border-top-color: var(--line) }
+
+/* the iframe doesn't follow theme (it's Google's); leave as-is */
+
+/* ── DARK MODE — products page ───────────────────────────── */
+[data-theme="dark"] .pour { background: #0E0E12 }
+[data-theme="dark"] .step.dark { background: #0F0F13 }
+
+/* ── DARK MODE — home hero / visit / ticker ──────────────── */
+[data-theme="dark"] .hero {
+  background: radial-gradient(circle at 50% 60%, #16161B 0%, #0A0A0D 70%);
+}
+[data-theme="dark"] .glass .vessel { border-color: rgba(244,239,227,.06) }
+[data-theme="dark"] .ticker.light { background: #14141A; border-color: var(--line) }
+[data-theme="dark"] .ticker.light .item { background: #1F1F25; color: #F4EFE3; border-color: var(--line) }
+[data-theme="dark"] .ticker.light .item.serif { background: #232328 }
+[data-theme="dark"] .ticker.light .item.coral { background: var(--coral); color: #fff }
+
+/* ── DARK MODE — about hero photo placeholder hint ───────── */
+[data-theme="dark"] .ph-hint { border-color: rgba(244,239,227,.20); color: rgba(244,239,227,.45) !important }
+
+/* ── DARK MODE — story dropcap, marginalia ──────────────── */
+[data-theme="dark"] .story .body p { color: #F4EFE3; opacity: .85 }
+[data-theme="dark"] .story .body p:first-of-type::first-letter { color: var(--coral) }
+[data-theme="dark"] .marginalia { background: var(--paper); color: #F4EFE3; border-color: var(--line) }
+
+/* ── DARK MODE — values head highlight, etc ──────────────── */
+[data-theme="dark"] .values .head h2 .hl { background: var(--coral); color: #fff }
+
+/* ── DARK MODE — heroes that pull text from --ink ────────── */
+[data-theme="dark"] .ht-headline h1,
+[data-theme="dark"] .ht-headline .lede,
+[data-theme="dark"] .hero h1,
+[data-theme="dark"] .hero p.lede,
+[data-theme="dark"] .hero-row .lede,
+[data-theme="dark"] .story h2,
+[data-theme="dark"] .story .body p,
+[data-theme="dark"] .numbers .l,
+[data-theme="dark"] .net-grid h2,
+[data-theme="dark"] .net-grid p,
+[data-theme="dark"] .visit h2,
+[data-theme="dark"] .visit p.lede,
+[data-theme="dark"] .portfolio h2,
+[data-theme="dark"] .portfolio .copy,
+[data-theme="dark"] .curate h2,
+[data-theme="dark"] .tasting h2 { color: #F4EFE3 }
+
+[data-theme="dark"] .visit p.lede .pill-text {
+  background: rgba(255,92,58,.22); color: #F4EFE3;
+}
+
+[data-theme="dark"] .info-cell .val { color: #F4EFE3 }
+[data-theme="dark"] .ht-meta-cell .val { color: #F4EFE3 }
+[data-theme="dark"] .ht-meta-cell .lbl { color: var(--mute) }
+[data-theme="dark"] .ht-meta-cell { border-left-color: var(--line) }
+
+/* ── DARK MODE — numbers strip ───────────────────────────── */
+[data-theme="dark"] .numbers .k { color: #F4EFE3 }
+[data-theme="dark"] .numbers { border-color: var(--line) }
+
+/* ── DARK MODE — moment / journey ────────────────────────── */
+[data-theme="dark"] .moment.sep::after { background: var(--line) }
+[data-theme="dark"] .sec-head { border-color: var(--line) }
+[data-theme="dark"] .city-grid li { border-color: var(--line) }
+[data-theme="dark"] .city-grid li .pop { color: var(--mute) }
+
+/* ── DARK MODE — home hero glass + ticker pills ──────────── */
+[data-theme="dark"] .hero .glass .liquid {
+  background: linear-gradient(180deg, #8C4B1E 0%, #4A2410 90%);
+}
+
+/* ── DARK MODE — home portfolio bento (new section) ──────── */
+[data-theme="dark"] .ed-portfolio .watermark { color: rgba(244,239,227,.04) }
+[data-theme="dark"] .runway-strip .runway-card { background: var(--paper); border-color: var(--line); color: #F4EFE3 }
+[data-theme="dark"] .runway-strip .runway-card .nm { color: #F4EFE3 }
+[data-theme="dark"] .runway-strip .runway-card .cat { color: var(--mute) }
+[data-theme="dark"] .runway-strip .nav-arrow { background: #1A1A20; color: #F4EFE3; border-color: var(--line) }
+[data-theme="dark"] .runway-strip .nav-arrow:hover { background: #232328 }
+
+/* ── DARK MODE — about pinboard tape headline (now indicator) ─ */
+[data-theme="dark"] .pinboard .tape .y { color: var(--mute) }
+
+/* ── DARK MODE — about hero photo ─────────────────────────── */
+[data-theme="dark"] .ht-photo {
+  background: #050507;
+  box-shadow: 0 30px 60px rgba(0,0,0,.6), 0 0 0 1px rgba(244,239,227,.04);
+}
+[data-theme="dark"] .ht-photo .ph-fill {
+  background:
+    repeating-linear-gradient(45deg, rgba(244,239,227,.06) 0 2px, transparent 2px 20px),
+    radial-gradient(ellipse at 50% 40%, rgba(255,255,255,.03), transparent 70%),
+    linear-gradient(140deg, #1E1E25 0%, #14141A 60%, #08080A 100%);
+}
+
+/* ── DARK MODE — file no, mono labels keep mute color ────── */
+[data-theme="dark"] .dossier .file-no::before,
+[data-theme="dark"] .dossier .file-no::after { background: var(--line) }
+[data-theme="dark"] .dossier .case-meta .val,
+[data-theme="dark"] .dossier .summary { color: #F4EFE3 }
+
+/* ── THEME TOGGLE BUTTON ─────────────────────────────────── */
+.theme-toggle {
+  position: relative;
+  width: 38px; height: 38px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.06);
+  display: inline-grid; place-items: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background .2s, transform .35s cubic-bezier(.2,.7,.2,1.4);
+}
+.theme-toggle:hover {
+  background: rgba(255,255,255,.16);
+  transform: rotate(20deg);
+}
+.theme-toggle .ic {
+  position: absolute; inset: 0;
+  display: grid; place-items: center;
+  font-size: 16px; line-height: 1;
+  color: #F4EFE3;
+  transition: opacity .35s, transform .45s cubic-bezier(.2,.7,.2,1.4);
+}
+.theme-toggle .ic.sun {
+  opacity: 0;
+  transform: rotate(-120deg) scale(.4);
+}
+.theme-toggle .ic.moon {
+  opacity: 1;
+  transform: rotate(0) scale(1);
+}
+[data-theme="dark"] .theme-toggle .ic.sun {
+  opacity: 1;
+  transform: rotate(0) scale(1);
+}
+[data-theme="dark"] .theme-toggle .ic.moon {
+  opacity: 0;
+  transform: rotate(120deg) scale(.4);
+}
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle, .theme-toggle .ic { transition: none }
+}
+
+/* ── DARK MODE — ensure hero glass icons readable ────────── */
+[data-theme="dark"] .hero .stamp::after { background: #14141A }
+[data-theme="dark"] .hero .stamp .core { background: #14141A; color: #F4EFE3 }
+[data-theme="dark"] .hero .stamp text { fill: #F4EFE3 }
+[data-theme="dark"] .stamp::after { background: #14141A }
+[data-theme="dark"] .stamp .core { background: #14141A; color: #F4EFE3 }
+[data-theme="dark"] .stamp text { fill: #F4EFE3 }
+[data-theme="dark"] .ht-seal .core { background: #14141A }
+[data-theme="dark"] .ht-seal .core .num,
+[data-theme="dark"] .ht-seal .core .unit { color: #F4EFE3 }
+[data-theme="dark"] .ht-seal .core .unit { color: var(--mute) }
