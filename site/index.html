@@ -14,6 +14,8 @@
     if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     document.documentElement.setAttribute('data-theme', t);
   })();
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  window.scrollTo(0, 0);
 </script>
 <link rel="stylesheet" href="theme.css">
 <link rel="stylesheet" href="entry-gate.css">
