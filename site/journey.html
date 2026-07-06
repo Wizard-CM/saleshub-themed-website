@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Journey — SalesHub.Nepal</title>
+<title>Our Journey — SalesHub Nepal</title>
 
 <!-- Theme: apply saved theme ASAP to prevent FOUC -->
 <script>
@@ -14,10 +14,48 @@
     document.documentElement.setAttribute('data-theme', t);
   })();
 </script>
+    <!-- ========== SEO / Social / Icons (added for search visibility) ========== -->
+    <link rel="canonical" href="https://saleshubnepal.com/journey.html" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="author" content="SalesHub Distribution Pvt. Ltd." />
+    <meta name="theme-color" content="#0B0B0D" />
+
+    <!-- Local SEO -->
+    <meta name="geo.region" content="NP-BA" />
+    <meta name="geo.placename" content="Kathmandu, Nepal" />
+    <meta name="geo.position" content="27.7355;85.3010" />
+    <meta name="ICBM" content="27.7355, 85.3010" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="SalesHub Nepal" />
+    <meta property="og:locale" content="en_NP" />
+    <meta property="og:title" content="Our Journey — SalesHub Nepal" />
+    <meta property="og:description" content="From a single Kathmandu warehouse in 2014 to a nationwide beverage distribution network — explore the SalesHub Nepal journey, milestone by milestone." />
+    <meta property="og:url" content="https://saleshubnepal.com/journey.html" />
+    <meta property="og:image" content="https://saleshubnepal.com/assets/og-image.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="SalesHub Nepal — beverage distribution, Kathmandu" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Our Journey — SalesHub Nepal" />
+    <meta name="twitter:description" content="From a single Kathmandu warehouse in 2014 to a nationwide beverage distribution network — explore the SalesHub Nepal journey, milestone by milestone." />
+    <meta name="twitter:image" content="https://saleshubnepal.com/assets/og-image.jpg" />
+    <meta name="twitter:image:alt" content="SalesHub Nepal — beverage distribution, Kathmandu" />
+
+    <!-- Icons / PWA (replaces the old assets/logo.jpg favicon) -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
 <link rel="stylesheet" href="theme.css">
 <link rel="stylesheet" href="entry-gate.css">
 <script src="entry-gate.js"></script>
-<meta name="description" content="The major moments — twelve years of building a distribution company, told one year at a time." />
+<meta name="description" content="From a single Kathmandu warehouse in 2014 to a nationwide beverage distribution network — explore the SalesHub Nepal journey, milestone by milestone." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -27,9 +65,9 @@
   /* ─────────── tokens (shared) ─────────── */
   :root{
     --cream:#FFFFFF; --cream-2:#F8F6F1; --cream-3:#EDE9DE;
-    --ink:#0B0B0D; --paper:#FAF6EE;
+    --ink:#0B0B0D; --paper:#141418;
     --coral:#FF5C3A; --coral-soft:#F5BFB0;
-    --indigo:#2D24C9; --indigo-soft:#C9C5FF;
+    --indigo:#90D5FF; --indigo-soft:#90D5FF;
     --forest:#16332A; --forest-2:#0E261E;
     --amber:#D9A26B; --mute:#6A6A6A;
     --line:rgba(11,11,13,.12);
@@ -47,7 +85,7 @@
     overflow-x:hidden;
     background-image:
       radial-gradient(1100px 600px at 100% 0%, rgba(255,92,58,.16), transparent 60%),
-      radial-gradient(900px 500px at 0% 100%, rgba(45,36,201,.10), transparent 55%),
+      radial-gradient(900px 500px at 0% 100%, rgba(144,213,255,.10), transparent 55%),
       radial-gradient(circle at 1px 1px, rgba(11,11,13,.06) 1px, transparent 0);
     background-size: auto, auto, 22px 22px;
     background-attachment: fixed, fixed, fixed;
@@ -106,6 +144,7 @@
     display:flex; justify-content:space-between; align-items:center;
     gap:14px; flex-wrap:wrap; margin: 28px 0 26px;
   }
+  @media (max-width: 1023px){ .hero .meta-row{ display:none } }
   .hero h1{
     margin: 0;
     font-size: clamp(56px, 10vw, 160px);
@@ -144,6 +183,7 @@
   .journey{
     padding: 60px 0 30px;
     position:relative;
+    overflow-x: clip;
   }
 
   /* the timeline grid: sticky rail | stories */
@@ -231,7 +271,7 @@
 
   /* ── stories (right column) ── */
   .stories{
-    display:flex; flex-direction:column; gap: 90px;
+    display:flex; flex-direction:column; gap: 64px;
   }
   .moment{ position:relative; scroll-margin-top: 100px }
 
@@ -539,8 +579,8 @@
 
   /* ─────────── CTA ─────────── */
   .cta-strip{
-    margin: 80px var(--pad-x) 40px; border-radius: 32px;
-    background: linear-gradient(135deg, #2D24C9, #6E50FF 50%, #C9C5FF);
+    margin: 64px var(--pad-x) 40px; border-radius: 32px;
+    background: linear-gradient(135deg, #90D5FF, #90D5FF 50%, #90D5FF);
     padding: clamp(36px, 6vw, 80px) clamp(28px, 5vw, 60px);
     position:relative; overflow:hidden; color:#fff;
   }
@@ -550,7 +590,7 @@
   .cta-strip h3 .serif{ font-style:italic; color:rgba(255,255,255,.95); font-weight:400; padding:0 .03em }
   .cta-strip p{ max-width: 480px; color: rgba(255,255,255,.92); margin: 0 0 28px; font-size:17px; line-height:1.5 }
   .cta-strip .actions{ display:flex; gap:14px; flex-wrap:wrap; align-items:center; position:relative; z-index:2 }
-  .btn{ display:inline-flex; align-items:center; gap:10px; padding: 16px 22px 16px 24px; border-radius:999px; background:#fff; color:var(--ink); font-weight:600; font-size:15px; transition:.2s transform }
+  .btn{ display:inline-flex; align-items:center; gap:10px; padding: 16px 22px 16px 24px; border-radius:999px; background:#fff; color:#0B0B0D; font-weight:600; font-size:15px; transition:.2s transform }
   .btn:hover{ transform:translateY(-1px) }
   .btn .arr{ width:26px; height:26px; border-radius:999px; background:var(--ink); color:#fff; display:grid; place-items:center; font-size:13px }
   .btn.ghost{ background:rgba(255,255,255,.18); color:#fff; backdrop-filter:blur(6px) }
@@ -701,13 +741,51 @@
     }
   }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://saleshubnepal.com/journey.html#webpage",
+      "url": "https://saleshubnepal.com/journey.html",
+      "name": "The SalesHub Nepal Journey",
+      "isPartOf": {
+        "@id": "https://saleshubnepal.com/#website"
+      },
+      "about": {
+        "@id": "https://saleshubnepal.com/#organization"
+      },
+      "description": "From a single Kathmandu warehouse in 2014 to a nationwide beverage distribution network — explore the SalesHub Nepal journey, milestone by milestone.",
+      "inLanguage": "en"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://saleshubnepal.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Journey",
+          "item": "https://saleshubnepal.com/journey.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
 <!-- ── Nav ── -->
 <div class="nav-wrap">
   <nav class="nav" aria-label="primary">
-    <a href="index.html" class="brand">SalesHub<span class="dot">.</span>Nepal</a>
+    <a href="index.html" class="brand" aria-label="SalesHub Nepal — home"><img src="assets/logo.jpg" alt="SalesHub Nepal" class="brand-logo"></a>
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
@@ -721,15 +799,44 @@
       <span class="ic sun" aria-hidden="true">☀</span>
     </button>
     <a href="contact.html" class="cta">GET IN TOUCH <span class="arr">↗</span></a>
-    <button class="menu-btn" aria-label="menu"><span></span></button>
+    <button class="menu-btn" aria-label="menu" aria-controls="mobileDrawer" aria-expanded="false"><span></span></button>
   </nav>
+</div>
+
+<!-- ──────────── Mobile nav drawer ──────────── -->
+<div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+  <div class="drawer-backdrop" data-close></div>
+  <aside class="drawer-panel" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="drawer-head">
+      <a href="index.html" class="brand" aria-label="SalesHub Nepal — home"><img src="assets/logo.jpg" alt="SalesHub Nepal" class="brand-logo"></a>
+      <button class="drawer-close" data-close aria-label="Close menu">
+        <span></span><span></span>
+      </button>
+    </div>
+    <nav class="drawer-links" aria-label="mobile">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="journey.html" class="active">Journey</a>
+      <a href="products.html">Products</a>
+      <a href="#">Blogs</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a href="contact.html" class="drawer-cta" data-close>GET IN TOUCH <span class="arr">↗</span></a>
+    <div class="drawer-foot">
+      <span class="drawer-foot-label">Appearance</span>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <span class="ic moon" aria-hidden="true">☾</span>
+        <span class="ic sun" aria-hidden="true">☀</span>
+      </button>
+    </div>
+  </aside>
 </div>
 
 <!-- ── Hero ── -->
 <header class="hero container">
   <div class="meta-row">
-    <span class="chip"><span class="bullet"></span><span class="mono">The Journey · 2014 — 2026</span></span>
-    <span class="chip indigo"><span class="bullet"></span><span class="mono">Seven moments that changed the work</span></span>
+    <span class="chip"><span class="bullet"></span><span class="mono">The Journey · est. 2014</span></span>
+    <span class="chip indigo"><span class="bullet"></span><span class="mono">Twelve years, seven turning points</span></span>
   </div>
 
   <h1>
@@ -958,7 +1065,7 @@
 <footer>
   <div class="row s-stagger">
     <div>
-      <div class="brand">SalesHub<span class="dot">.</span>Nepal</div>
+      <div class="brand"><img src="assets/logo.jpg" alt="SalesHub Nepal" class="brand-logo"></div>
       <p class="blurb">Nepal's premier beverage distribution network — connecting world-class brands with local markets since 2014.</p>
     </div>
     <div>
@@ -992,7 +1099,7 @@
     <div>
       <h6>Reach</h6>
       <ul>
-        <li>hello@saleshub.np</li>
+        <li>sales.hub.nepal@gmail.com</li>
         <li>+977 1 423 7800</li>
         <li>Balaju, Kathmandu</li>
         <li>Kathmandu 44600</li>
@@ -1071,8 +1178,8 @@
       const x = ((e.clientX - rect.left) / rect.width * 100).toFixed(1);
       const y = ((e.clientY - rect.top) / rect.height * 100).toFixed(1);
       card.style.background =
-        `radial-gradient(circle at ${x}% ${y}%, rgba(45,36,201,.6), transparent 45%),
-         linear-gradient(135deg, var(--indigo), #4A38FF 50%, var(--indigo))`;
+        `radial-gradient(circle at ${x}% ${y}%, rgba(144,213,255,.6), transparent 45%),
+         linear-gradient(135deg, var(--indigo), #90D5FF 50%, var(--indigo))`;
     });
     card.addEventListener('pointerleave', () => {
       card.style.background = '';

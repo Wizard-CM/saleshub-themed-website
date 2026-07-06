@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>The Houses — SalesHub.Nepal</title>
-<meta name="description" content="The four houses we carry — Carlsberg Group, Red Bull, Nepal Distilleries, and Annapurna Craft. Pick a house to see its full lineup." />
+<title>Brands We Distribute — SalesHub Nepal</title>
+<meta name="description" content="The distilleries SalesHub Nepal distributes — Gorkha Brewery, Prime International, Big Master and Saras Beverages. Explore every brand and label we move across Nepal." />
 
 <!-- Theme: apply saved theme ASAP to prevent FOUC -->
 <script>
@@ -15,6 +15,44 @@
     document.documentElement.setAttribute('data-theme', t);
   })();
 </script>
+    <!-- ========== SEO / Social / Icons (added for search visibility) ========== -->
+    <link rel="canonical" href="https://saleshubnepal.com/products.html" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="author" content="SalesHub Distribution Pvt. Ltd." />
+    <meta name="theme-color" content="#0B0B0D" />
+
+    <!-- Local SEO -->
+    <meta name="geo.region" content="NP-BA" />
+    <meta name="geo.placename" content="Kathmandu, Nepal" />
+    <meta name="geo.position" content="27.7355;85.3010" />
+    <meta name="ICBM" content="27.7355, 85.3010" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="SalesHub Nepal" />
+    <meta property="og:locale" content="en_NP" />
+    <meta property="og:title" content="Brands and Products — SalesHub Nepal" />
+    <meta property="og:description" content="The distilleries SalesHub Nepal distributes — Gorkha Brewery, Prime International, Big Master and Saras Beverages. Explore every brand and label we move across Nepal." />
+    <meta property="og:url" content="https://saleshubnepal.com/products.html" />
+    <meta property="og:image" content="https://saleshubnepal.com/assets/og-image.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="SalesHub Nepal — beverage distribution, Kathmandu" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Brands and Products — SalesHub Nepal" />
+    <meta name="twitter:description" content="The distilleries SalesHub Nepal distributes — Gorkha Brewery, Prime International, Big Master and Saras Beverages. Explore every brand and label we move across Nepal." />
+    <meta name="twitter:image" content="https://saleshubnepal.com/assets/og-image.jpg" />
+    <meta name="twitter:image:alt" content="SalesHub Nepal — beverage distribution, Kathmandu" />
+
+    <!-- Icons / PWA (replaces the old assets/logo.jpg favicon) -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
 <link rel="stylesheet" href="theme.css">
 <link rel="stylesheet" href="entry-gate.css">
 <script src="entry-gate.js"></script>
@@ -26,9 +64,9 @@
 <style>
   :root{
     --cream:#FFFFFF; --cream-2:#F8F6F1; --cream-3:#EDE9DE;
-    --ink:#0B0B0D; --paper:#FAF6EE;
+    --ink:#0B0B0D; --paper:#141418;
     --coral:#FF5C3A; --coral-soft:#F5BFB0;
-    --indigo:#2D24C9; --indigo-soft:#C9C5FF;
+    --indigo:#90D5FF; --indigo-soft:#90D5FF;
     --forest:#16332A; --forest-2:#0E261E;
     --amber:#D9A26B; --mute:#6A6A6A;
     --line:rgba(11,11,13,.12);
@@ -87,7 +125,7 @@
     display:inline-flex; align-items:center; gap:10px;
     padding:9px 16px 9px 14px; border-radius:999px;
     border:1px solid rgba(11,11,13,.16);
-    background:rgba(250,246,238,.6); backdrop-filter:blur(8px);
+    background:#141418; backdrop-filter:blur(8px);
   }
   .chip .bullet{ width:8px; height:8px; border-radius:999px; background:var(--coral) }
   .chip.indigo .bullet{ background:var(--indigo) }
@@ -101,6 +139,10 @@
   .hero .meta-row{
     display:flex; justify-content:space-between; align-items:center;
     gap:16px; flex-wrap:wrap; margin: 28px 0 26px;
+  }
+  /* Hide the hero badges on mobile/tablet — show on laptops and above */
+  @media (max-width: 1023px){
+    .hero > .meta-row{ display:none }
   }
   .pour{
     position:relative;
@@ -127,7 +169,7 @@
     background-size: 18px 18px;
     pointer-events:none;
   }
-  .pour .copy{ position:relative; z-index:2; display:flex; flex-direction:column }
+  .pour .copy{ position:relative; z-index:2; display:flex; flex-direction:column; justify-content:center }
   .pour .now-pouring{
     display:inline-flex; align-items:center; gap:10px;
     font-family:'JetBrains Mono', monospace; font-size:11px;
@@ -193,7 +235,7 @@
     font-family:'Instrument Serif', serif; font-style:italic; font-weight:400;
     font-size:.72em; color: #A29A85; padding-left: 4px;
   }
-  .pour .actions{ display:flex; gap:12px; flex-wrap:wrap; margin-top: auto }
+  .pour .actions{ display:flex; gap:12px; flex-wrap:wrap; margin-top: 8px }
   .pour .actions .btn-light{
     display:inline-flex; align-items:center; gap:10px;
     background:#fff; color: var(--ink);
@@ -356,8 +398,9 @@
 
   /* ─── HOUSES section (the 4 brewery cards) ─── */
   .houses{
-    padding: 80px 0 100px;
+    padding: 64px 0;
     position: relative;
+    overflow-x: clip;
   }
   .houses .watermark{
     position: absolute; top: 50%; left: 50%;
@@ -373,8 +416,7 @@
   .houses .sec-head{
     display:flex; justify-content:space-between; align-items:end;
     gap:16px; flex-wrap:wrap;
-    margin-bottom: 40px; padding-bottom: 18px;
-    border-bottom: 1px dashed var(--line);
+    margin-bottom: 40px;
   }
   .houses .sec-head h2{
     margin: 0;
@@ -517,7 +559,7 @@
     display: block; font-family:'JetBrains Mono', monospace; font-style: normal;
     font-size: 8px; letter-spacing: .22em; opacity: .9; margin-top: 4px;
   }
-  .hc-seal.indigo .disc{ background: conic-gradient(from 220deg, var(--indigo), #4A38FF, var(--indigo)); box-shadow: 0 12px 24px rgba(45,36,201,.45), inset 0 0 0 3px rgba(255,255,255,.4) }
+  .hc-seal.indigo .disc{ background: conic-gradient(from 220deg, var(--indigo), #90D5FF, var(--indigo)); box-shadow: 0 12px 24px rgba(144,213,255,.45), inset 0 0 0 3px rgba(255,255,255,.4) }
   .hc-seal.forest .disc{ background: conic-gradient(from 220deg, var(--forest), #2D6B57, var(--forest)); box-shadow: 0 12px 24px rgba(22,51,42,.45), inset 0 0 0 3px rgba(255,255,255,.4) }
   .hc-seal.amber .disc{ background: conic-gradient(from 220deg, var(--amber), #E2B984, var(--amber)); box-shadow: 0 12px 24px rgba(217,162,107,.45), inset 0 0 0 3px rgba(255,255,255,.4) }
 
@@ -544,7 +586,7 @@
   .cta-strip h3 .serif{ font-style:italic; color:rgba(255,255,255,.95); font-weight:400; padding:0 .03em }
   .cta-strip p{ max-width: 480px; color: rgba(255,255,255,.92); margin: 0 0 28px; font-size:17px; line-height:1.5 }
   .cta-strip .actions{ display:flex; gap:14px; flex-wrap:wrap; align-items:center; position:relative; z-index:2 }
-  .btn{ display:inline-flex; align-items:center; gap:10px; padding: 16px 22px 16px 24px; border-radius:999px; background:#fff; color:var(--ink); font-weight:600; font-size:15px; transition:.2s transform }
+  .btn{ display:inline-flex; align-items:center; gap:10px; padding: 16px 22px 16px 24px; border-radius:999px; background:#fff; color:#0B0B0D; font-weight:600; font-size:15px; transition:.2s transform }
   .btn:hover{ transform:translateY(-1px) }
   .btn .arr{ width:26px; height:26px; border-radius:999px; background:var(--ink); color:#fff; display:grid; place-items:center; font-size:13px }
   .btn.ghost{ background:rgba(255,255,255,.18); color:#fff; backdrop-filter:blur(6px) }
@@ -655,13 +697,81 @@
     }
   }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://saleshubnepal.com/products.html#webpage",
+      "url": "https://saleshubnepal.com/products.html",
+      "name": "Brands We Distribute — SalesHub Nepal",
+      "isPartOf": {
+        "@id": "https://saleshubnepal.com/#website"
+      },
+      "about": {
+        "@id": "https://saleshubnepal.com/#organization"
+      },
+      "description": "The distilleries SalesHub Nepal distributes — Gorkha Brewery, Prime International, Big Master and Saras Beverages. Explore every brand and label we move across Nepal.",
+      "inLanguage": "en"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://saleshubnepal.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Brands",
+          "item": "https://saleshubnepal.com/products.html"
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "name": "Distilleries distributed by SalesHub Nepal",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Gorkha Brewery",
+          "url": "https://saleshubnepal.com/brewery-gorkha.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Prime International",
+          "url": "https://saleshubnepal.com/brewery-prime.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Big Master",
+          "url": "https://saleshubnepal.com/brewery-bigmaster.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Saras Beverages",
+          "url": "https://saleshubnepal.com/brewery-saras.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
 <!-- ── Nav ── -->
 <div class="nav-wrap">
   <nav class="nav" aria-label="primary">
-    <a href="index.html" class="brand">SalesHub<span class="dot">.</span>Nepal</a>
+    <a href="index.html" class="brand" aria-label="SalesHub Nepal — home"><img src="assets/logo.jpg" alt="SalesHub Nepal" class="brand-logo"></a>
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
@@ -675,34 +785,61 @@
       <span class="ic sun" aria-hidden="true">☀</span>
     </button>
     <a href="contact.html" class="cta">GET IN TOUCH <span class="arr">↗</span></a>
-    <button class="menu-btn" aria-label="menu"><span></span></button>
+    <button class="menu-btn" aria-label="menu" aria-controls="mobileDrawer" aria-expanded="false"><span></span></button>
   </nav>
+</div>
+
+<!-- ──────────── Mobile nav drawer ──────────── -->
+<div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+  <div class="drawer-backdrop" data-close></div>
+  <aside class="drawer-panel" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="drawer-head">
+      <a href="index.html" class="brand" aria-label="SalesHub Nepal — home"><img src="assets/logo.jpg" alt="SalesHub Nepal" class="brand-logo"></a>
+      <button class="drawer-close" data-close aria-label="Close menu">
+        <span></span><span></span>
+      </button>
+    </div>
+    <nav class="drawer-links" aria-label="mobile">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="journey.html">Journey</a>
+      <a href="products.html" class="active">Products</a>
+      <a href="#">Blogs</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a href="contact.html" class="drawer-cta" data-close>GET IN TOUCH <span class="arr">↗</span></a>
+    <div class="drawer-foot">
+      <span class="drawer-foot-label">Appearance</span>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <span class="ic moon" aria-hidden="true">☾</span>
+        <span class="ic sun" aria-hidden="true">☀</span>
+      </button>
+    </div>
+  </aside>
 </div>
 
 <!-- ── Hero: Now Pouring · 4 Houses ── -->
 <header class="hero container">
   <div class="meta-row">
-    <span class="chip"><span class="bullet"></span><span class="mono">The Houses · 04</span></span>
+    <span class="chip"><span class="bullet"></span><span class="mono">The Distilleries · 04</span></span>
     <span class="chip indigo"><span class="bullet"></span><span class="mono">Curated, not collected</span></span>
   </div>
 
   <div class="pour" id="pourStage">
 
-    <!-- LEFT — house copy -->
+    <!-- LEFT — distillery copy -->
     <div class="copy">
       <span class="now-pouring"><span class="pulse"></span> Now featuring · <span id="pourIdx">01</span> of 04</span>
-      <div class="cat" id="pourCat">Pilsner, Lager &amp; Cider · Denmark · est. 1847</div>
-      <h1 id="pourName">Carlsberg<span class="serif">.</span></h1>
-      <p class="tagline" id="pourTag">"Probably the best beer in the world — and the freshness we built our cold chain around."</p>
+      <h1 id="pourName">Gorkha Brewery<span class="serif">.</span></h1>
 
       <div class="specs">
-        <div class="cell"><div class="lbl">Founded</div><div class="val" id="pourYear">1847</div></div>
-        <div class="cell"><div class="lbl">Labels</div><div class="val" id="pourCount">06</div></div>
-        <div class="cell"><div class="lbl">Origin</div><div class="val" id="pourOrigin">Copenhagen <span class="small">DK</span></div></div>
+        <div class="cell"><div class="lbl">Category</div><div class="val" id="pourYear">Beer</div></div>
+        <div class="cell"><div class="lbl">Labels</div><div class="val" id="pourCount">11</div></div>
+        <div class="cell"><div class="lbl">Origin</div><div class="val" id="pourOrigin">Nepal</div></div>
       </div>
 
       <div class="actions">
-        <a class="btn-light" id="pourHouseLink" href="brewery-carlsberg.html">Enter the house <span class="arr">→</span></a>
+        <a class="btn-light" id="pourHouseLink" href="brewery-gorkha.html">Enter the distillery <span class="arr">→</span></a>
         <a class="btn-ghost" href="#houses">All 04 →</a>
       </div>
     </div>
@@ -715,15 +852,15 @@
           <path id="ringPath" d="M 220,220 m -200,0 a 200,200 0 1,1 400,0 a 200,200 0 1,1 -400,0" />
         </defs>
         <text>
-          <textPath href="#ringPath">★ SALESHUB · NEPAL · FOUR HOUSES · 12 LABELS · ★ SALESHUB · NEPAL · FOUR HOUSES · 12 LABELS · </textPath>
+          <textPath href="#ringPath">★ SALESHUB · NEPAL · FOUR DISTILLERIES · 27 LABELS · ★ SALESHUB · NEPAL · FOUR DISTILLERIES · 27 LABELS · </textPath>
         </text>
       </svg>
 
-      <div class="brew-img" id="brewImg" style="--brew-img:url('https://images.unsplash.com/photo-1608270586620-248524c67de9?w=900&amp;auto=format&amp;fit=crop&amp;q=80')"></div>
+      <div class="brew-img" id="brewImg" style="--brew-img:url('assets/Product%20Images/Gorkha%20Craft.jpeg')"></div>
 
       <span class="museum-tag" id="museumTag">
         <span class="hole"></span>
-        <span id="pourTagText">HOUSE 01 / KTM</span>
+        <span id="pourTagText">HOUSE 01 / KTM · GORKHA BREWERY</span>
       </span>
     </div>
 
@@ -732,23 +869,23 @@
       <div class="rail-head"><span>The Roster</span><span class="of">04 / 04</span></div>
       <div class="queue" id="pourQueue">
         <button class="queue-item active" data-i="0">
-          <span class="mini" style="background-image:url('https://images.unsplash.com/photo-1608270586620-248524c67de9?w=200&amp;auto=format&amp;fit=crop&amp;q=80')"></span>
-          <span class="qmeta"><span class="cat">Denmark · Beer &amp; Cider</span><span class="name">Carlsberg Group</span><span class="est">est. 1847 · 06 labels</span></span>
+          <span class="mini" style="background-image:url('assets/Product%20Images/Gorkha%20Craft.jpeg')"></span>
+          <span class="qmeta"><span class="cat">Nepal · Beer</span><span class="name">Gorkha Brewery</span><span class="est">11 labels</span></span>
           <span class="go">↗</span>
         </button>
         <button class="queue-item" data-i="1">
-          <span class="mini" style="background-image:url('https://images.unsplash.com/photo-1622543925917-763c34d1a86e?w=200&amp;auto=format&amp;fit=crop&amp;q=80')"></span>
-          <span class="qmeta"><span class="cat">Austria · Energy</span><span class="name">Red Bull GmbH</span><span class="est">est. 1987 · 03 labels</span></span>
+          <span class="mini" style="background-image:url('assets/Product%20Images/Bandipur.jpeg')"></span>
+          <span class="qmeta"><span class="cat">Nepal · Spirits</span><span class="name">Prime International</span><span class="est">06 labels</span></span>
           <span class="go">↗</span>
         </button>
         <button class="queue-item" data-i="2">
-          <span class="mini" style="background-image:url('https://images.unsplash.com/photo-1569529465841-dfecdab7503b?w=200&amp;auto=format&amp;fit=crop&amp;q=80')"></span>
-          <span class="qmeta"><span class="cat">Nepal · Spirits</span><span class="name">Nepal Distilleries</span><span class="est">est. 1959 · 03 labels</span></span>
+          <span class="mini" style="background-image:url('assets/Product%20Images/Red%20Wine.jpeg')"></span>
+          <span class="qmeta"><span class="cat">Nepal · Wine</span><span class="name">Big Master</span><span class="est">08 labels</span></span>
           <span class="go">↗</span>
         </button>
         <button class="queue-item" data-i="3">
-          <span class="mini" style="background-image:url('https://images.unsplash.com/photo-1582819509237-d6c2c3a8dd6e?w=200&amp;auto=format&amp;fit=crop&amp;q=80')"></span>
-          <span class="qmeta"><span class="cat">Nepal · Craft</span><span class="name">Annapurna Craft</span><span class="est">est. 2019 · 03 labels</span></span>
+          <span class="mini" style="background-image:url('assets/Product%20Images/redbull%20carbonated.jpeg')"></span>
+          <span class="qmeta"><span class="cat">Nepal · Energy</span><span class="name">Saras Beverages</span><span class="est">02 labels</span></span>
           <span class="go">↗</span>
         </button>
       </div>
@@ -760,84 +897,83 @@
 
 <!-- ── HOUSES section (4 brewery cards) ── -->
 <section class="houses" id="houses">
-  <div class="watermark" aria-hidden="true">Houses.</div>
+  <div class="watermark" aria-hidden="true">Distilleries.</div>
   <div class="container">
 
     <div class="sec-head s-reveal">
-      <h2>Four <span class="serif">houses.</span><br>Twelve labels we trust.</h2>
-      <div class="right">Each one signed our freshness pledge. Pick a house to see its full lineup — every label, every story, every reason it's on our truck.</div>
+      <h2>Four <span class="serif">distilleries.</span><br>Twenty-seven labels we move.</h2>
     </div>
 
     <div class="houses-grid">
 
-      <!-- House 01: Carlsberg Group -->
-      <a class="house-card tall feature s-reveal" href="brewery-carlsberg.html" style="--bg:url('https://images.unsplash.com/photo-1608270586620-248524c67de9?w=1400&amp;auto=format&amp;fit=crop&amp;q=80')">
+      <!-- Distillery 01: Gorkha Brewery -->
+      <a class="house-card tall feature s-reveal" href="brewery-gorkha.html" style="--bg:url('assets/Product%20Images/Gorkha%20Craft.jpeg')">
         <div class="hc-bg"></div>
         <div class="hc-shade"></div>
         <span class="hc-num">HOUSE № 01</span>
         <span class="hc-arr" aria-hidden="true">↗</span>
-        <div class="hc-seal"><div class="disc">1847<span class="small">EST.</span></div></div>
+        <div class="hc-seal forest"><div class="disc">11<span class="small">LABELS</span></div></div>
         <div class="hc-body">
-          <div class="est"><span class="dot"></span>Copenhagen · Denmark · est. 1847</div>
-          <h3>Carlsberg<span style="color: var(--coral-soft); padding: 0 .04em">.</span></h3>
-          <div class="tagline">Six classic labels: the green-bottle pilsner that started the dynasty, plus Tuborg, Smooth, Strong, and the Somersbys.</div>
+          <div class="est"><span class="dot"></span>Nepal · Beer</div>
+          <h3>Gorkha<br><span style="font-style: italic">Brewery.</span></h3>
+          <div class="tagline">Eleven labels brewed and bottled in Nepal — Carlsberg and Tuborg in every size, plus Gorkha Strong, Pilsner and Craft.</div>
           <div class="footer-row">
-            <span class="count"><strong>06</strong>labels</span>
-            <span class="explore">Enter the house <span class="arr">→</span></span>
+            <span class="count"><strong>11</strong>labels</span>
+            <span class="explore">Enter the distillery <span class="arr">→</span></span>
           </div>
         </div>
       </a>
 
-      <!-- House 02: Red Bull GmbH -->
-      <a class="house-card s-reveal" href="brewery-redbull.html" style="--bg:url('https://images.unsplash.com/photo-1622543925917-763c34d1a86e?w=1200&amp;auto=format&amp;fit=crop&amp;q=80')">
+      <!-- Distillery 02: Prime International -->
+      <a class="house-card s-reveal" href="brewery-prime.html" style="--bg:url('assets/Product%20Images/Bandipur.jpeg')">
         <div class="hc-bg"></div>
         <div class="hc-shade"></div>
         <span class="hc-num">HOUSE № 02</span>
         <span class="hc-arr" aria-hidden="true">↗</span>
-        <div class="hc-seal indigo"><div class="disc">1987<span class="small">EST.</span></div></div>
+        <div class="hc-seal amber"><div class="disc">06<span class="small">LABELS</span></div></div>
         <div class="hc-body">
-          <div class="est"><span class="dot"></span>Fuschl am See · Austria · est. 1987</div>
-          <h3>Red Bull<span style="color: var(--coral-soft); padding: 0 .04em">.</span></h3>
-          <div class="tagline">Three energy SKUs across the original, sugar-free, and seasonal tropical edition. Behind every late shift in town.</div>
+          <div class="est"><span class="dot"></span>Nepal · Whisky, Vodka &amp; Rum</div>
+          <h3>Prime<br><span style="font-style: italic">International.</span></h3>
+          <div class="tagline">Six premium Nepali spirits — Gurkhas &amp; Guns, the Bandipur and Challenger whiskies, Yeti and Highlander vodkas, and Junge Kaji rum.</div>
           <div class="footer-row">
-            <span class="count"><strong>03</strong>labels</span>
-            <span class="explore">Enter the house <span class="arr">→</span></span>
+            <span class="count"><strong>06</strong>labels</span>
+            <span class="explore">Enter the distillery <span class="arr">→</span></span>
           </div>
         </div>
       </a>
 
-      <!-- House 03: Nepal Distilleries -->
-      <a class="house-card s-reveal" href="brewery-nepal-distilleries.html" style="--bg:url('https://images.unsplash.com/photo-1569529465841-dfecdab7503b?w=1200&amp;auto=format&amp;fit=crop&amp;q=80')">
+      <!-- Distillery 03: Big Master -->
+      <a class="house-card s-reveal" href="brewery-bigmaster.html" style="--bg:url('assets/Product%20Images/Red%20Wine.jpeg')">
         <div class="hc-bg"></div>
         <div class="hc-shade"></div>
         <span class="hc-num">HOUSE № 03</span>
         <span class="hc-arr" aria-hidden="true">↗</span>
-        <div class="hc-seal amber"><div class="disc">1959<span class="small">EST.</span></div></div>
+        <div class="hc-seal"><div class="disc">08<span class="small">LABELS</span></div></div>
         <div class="hc-body">
-          <div class="est"><span class="dot"></span>Birgunj · Nepal · est. 1959</div>
-          <h3>Nepal<br><span style="font-style: italic">Distilleries.</span></h3>
-          <div class="tagline">The country's quiet pride. Old Durbar whisky, Sherpa Spice rum, and a clean Himalayan vodka — distilled within view of the foothills.</div>
+          <div class="est"><span class="dot"></span>Nepal · Wine</div>
+          <h3>Big <span style="font-style: italic">Master.</span></h3>
+          <div class="tagline">Eight wines in bottle and box — Regular and Premium reds and whites, plus the refined Black Chenin and the characterful Siraj.</div>
           <div class="footer-row">
-            <span class="count"><strong>03</strong>labels</span>
-            <span class="explore">Enter the house <span class="arr">→</span></span>
+            <span class="count"><strong>08</strong>labels</span>
+            <span class="explore">Enter the distillery <span class="arr">→</span></span>
           </div>
         </div>
       </a>
 
-      <!-- House 04: Annapurna Craft -->
-      <a class="house-card tall s-reveal" href="brewery-annapurna-craft.html" style="--bg:url('https://images.unsplash.com/photo-1582819509237-d6c2c3a8dd6e?w=1200&amp;auto=format&amp;fit=crop&amp;q=80')">
+      <!-- Distillery 04: Saras Beverages -->
+      <a class="house-card tall s-reveal" href="brewery-saras.html" style="--bg:url('assets/Product%20Images/redbull%20carbonated.jpeg')">
         <div class="hc-bg"></div>
         <div class="hc-shade"></div>
         <span class="hc-num">HOUSE № 04</span>
         <span class="hc-arr" aria-hidden="true">↗</span>
-        <div class="hc-seal forest"><div class="disc">2019<span class="small">EST.</span></div></div>
+        <div class="hc-seal indigo"><div class="disc">02<span class="small">LABELS</span></div></div>
         <div class="hc-body">
-          <div class="est"><span class="dot"></span>Pokhara · Nepal · est. 2019</div>
-          <h3>Annapurna<br><span style="font-style: italic">Craft.</span></h3>
-          <div class="tagline">Three hand-pressed labels from a small-batch distillery at the foot of the Annapurna range — botanical gin, mountain tonic, and real-root ginger beer.</div>
+          <div class="est"><span class="dot"></span>Nepal · Energy Drinks</div>
+          <h3>Saras<br><span style="font-style: italic">Beverages.</span></h3>
+          <div class="tagline">Red Bull, produced in Nepal by Saras — the nitrogen-smooth Gold 250ml and the crisp, carbonated 330ml.</div>
           <div class="footer-row">
-            <span class="count"><strong>03</strong>labels</span>
-            <span class="explore">Enter the house <span class="arr">→</span></span>
+            <span class="count"><strong>02</strong>labels</span>
+            <span class="explore">Enter the distillery <span class="arr">→</span></span>
           </div>
         </div>
       </a>
@@ -853,8 +989,8 @@
       <span class="mono">— Wholesale enquiries —</span>
       <span class="mono">2026 / Open</span>
     </div>
-    <h3>Put a <span class="serif">house</span> behind your bar.</h3>
-    <p>HoReCa partners, retail accounts, and event leads — get in touch for pricing, MOQs, and a same-week sample drop. Pick one house or all four.</p>
+    <h3>Put a <span class="serif">distillery</span> behind your bar.</h3>
+    <p>HoReCa partners, retail accounts, and event leads — get in touch for pricing, MOQs, and a same-week sample drop. Pick one distillery or all four.</p>
     <div class="actions">
       <a href="contact.html" class="btn">Request a sample crate <span class="arr">→</span></a>
       <a href="about.html" class="btn ghost">Why us <span class="arr">→</span></a>
@@ -866,7 +1002,7 @@
 <footer>
   <div class="row s-stagger">
     <div>
-      <div class="brand">SalesHub<span class="dot">.</span>Nepal</div>
+      <div class="brand"><img src="assets/logo.jpg" alt="SalesHub Nepal" class="brand-logo"></div>
       <p class="blurb">Nepal's premier beverage distribution network — connecting world-class brands with local markets since 2014.</p>
     </div>
     <div>
@@ -875,7 +1011,7 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">Our story</a></li>
         <li><a href="journey.html">Journey</a></li>
-        <li><a href="products.html">The Houses</a></li>
+        <li><a href="products.html">Products</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
@@ -889,18 +1025,18 @@
       </ul>
     </div>
     <div>
-      <h6>Houses</h6>
+      <h6>Distilleries</h6>
       <ul>
-        <li><a href="brewery-carlsberg.html">Carlsberg Group</a></li>
-        <li><a href="brewery-redbull.html">Red Bull GmbH</a></li>
-        <li><a href="brewery-nepal-distilleries.html">Nepal Distilleries</a></li>
-        <li><a href="brewery-annapurna-craft.html">Annapurna Craft</a></li>
+        <li><a href="brewery-gorkha.html">Gorkha Brewery</a></li>
+        <li><a href="brewery-prime.html">Prime International</a></li>
+        <li><a href="brewery-bigmaster.html">Big Master</a></li>
+        <li><a href="brewery-saras.html">Saras Beverages</a></li>
       </ul>
     </div>
     <div>
       <h6>Reach</h6>
       <ul>
-        <li>hello@saleshub.np</li>
+        <li>sales.hub.nepal@gmail.com</li>
         <li>+977 1 423 7800</li>
         <li>Balaju, Kathmandu</li>
         <li>Kathmandu 44600</li>
@@ -918,32 +1054,26 @@
   // ─── Now Pouring rotator (4 houses)
   (function(){
     const houses = [
-      { name:'Carlsberg', dot:'.', cat:'Pilsner, Lager &amp; Cider · Denmark · est. 1847',
-        tag:'"Probably the best beer in the world — and the freshness we built our cold chain around."',
-        year:'1847', count:'06', origin:'Copenhagen <span class="small">DK</span>',
-        tagText:'HOUSE 01 / KTM · CARLSBERG GROUP', link:'brewery-carlsberg.html',
-        img:'https://images.unsplash.com/photo-1608270586620-248524c67de9?w=900&auto=format&fit=crop&q=80' },
-      { name:'Red Bull', dot:'.', cat:'Energy · Austria · est. 1987',
-        tag:'"Three SKUs. Twelve hours of focus. Built for the late shift and the after-party."',
-        year:'1987', count:'03', origin:'Fuschl <span class="small">AT</span>',
-        tagText:'HOUSE 02 / KTM · RED BULL GMBH', link:'brewery-redbull.html',
-        img:'https://images.unsplash.com/photo-1622543925917-763c34d1a86e?w=900&auto=format&fit=crop&q=80' },
-      { name:'Nepal Distilleries', dot:'.', cat:'Whisky, Rum &amp; Vodka · Nepal · est. 1959',
-        tag:'"The country\'s quiet pride. Distilled in Birgunj, aged within view of the foothills."',
-        year:'1959', count:'03', origin:'Birgunj <span class="small">NP</span>',
-        tagText:'HOUSE 03 / KTM · NEPAL DISTILLERIES', link:'brewery-nepal-distilleries.html',
-        img:'https://images.unsplash.com/photo-1569529465841-dfecdab7503b?w=900&auto=format&fit=crop&q=80' },
-      { name:'Annapurna Craft', dot:'.', cat:'Gin, Tonic &amp; Mixers · Nepal · est. 2019',
-        tag:'"Hand-pressed, small-batch, hill-bottled. Three labels at the foot of the Annapurna range."',
-        year:'2019', count:'03', origin:'Pokhara <span class="small">NP</span>',
-        tagText:'HOUSE 04 / KTM · ANNAPURNA CRAFT', link:'brewery-annapurna-craft.html',
-        img:'https://images.unsplash.com/photo-1582819509237-d6c2c3a8dd6e?w=900&auto=format&fit=crop&q=80' },
+      { name:'Gorkha Brewery', dot:'.',
+        year:'Beer', count:'11', origin:'Nepal',
+        tagText:'HOUSE 01 / KTM · GORKHA BREWERY', link:'brewery-gorkha.html',
+        img:'assets/Product%20Images/Gorkha%20Craft.jpeg' },
+      { name:'Prime International', dot:'.',
+        year:'Spirits', count:'06', origin:'Nepal',
+        tagText:'HOUSE 02 / KTM · PRIME INTERNATIONAL', link:'brewery-prime.html',
+        img:'assets/Product%20Images/Bandipur.jpeg' },
+      { name:'Big Master', dot:'.',
+        year:'Wine', count:'08', origin:'Nepal',
+        tagText:'HOUSE 03 / KTM · BIG MASTER', link:'brewery-bigmaster.html',
+        img:'assets/Product%20Images/Red%20Wine.jpeg' },
+      { name:'Saras Beverages', dot:'.',
+        year:'Energy', count:'02', origin:'Nepal',
+        tagText:'HOUSE 04 / KTM · SARAS BEVERAGES', link:'brewery-saras.html',
+        img:'assets/Product%20Images/redbull%20carbonated.jpeg' },
     ];
     const els = {
       idx: document.getElementById('pourIdx'),
-      cat: document.getElementById('pourCat'),
       name: document.getElementById('pourName'),
-      tag: document.getElementById('pourTag'),
       year: document.getElementById('pourYear'),
       count: document.getElementById('pourCount'),
       origin: document.getElementById('pourOrigin'),
@@ -958,13 +1088,11 @@
     function show(n, isManual){
       const L = houses[n]; if (!L) return;
       els.img.classList.add('swap');
-      [els.cat, els.name, els.tag, els.year, els.count, els.origin].forEach(el => el.style.opacity = 0);
+      [els.name, els.year, els.count, els.origin].forEach(el => el.style.opacity =0);
       setTimeout(() => {
         els.img.style.setProperty('--brew-img', `url('${L.img}')`);
         els.idx.textContent = String(n+1).padStart(2,'0');
-        els.cat.innerHTML = L.cat;
         els.name.innerHTML = L.name + '<span class="serif">' + L.dot + '</span>';
-        els.tag.textContent = L.tag;
         els.year.textContent = L.year;
         els.count.textContent = L.count;
         els.origin.innerHTML = L.origin;
@@ -972,7 +1100,7 @@
         els.link.href = L.link;
         queue.forEach((q, qi) => q.classList.toggle('active', qi === n));
         els.img.classList.remove('swap');
-        [els.cat, els.name, els.tag, els.year, els.count, els.origin].forEach(el => el.style.opacity = 1);
+        [els.name, els.year, els.count, els.origin].forEach(el => el.style.opacity =1);
       }, 320);
       i = n;
       if (isManual) restartProgress();

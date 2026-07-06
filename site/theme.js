@@ -58,3 +58,42 @@
     });
   } catch(e){}
 })();
+
+// SalesHub.Nepal — mobile nav drawer (site-wide, shared)
+(function(){
+  function wire(){
+    const drawer  = document.getElementById('mobileDrawer');
+    const menuBtn = document.querySelector('.nav .menu-btn');
+    if (!drawer || !menuBtn || drawer.dataset.navWired) return;
+    drawer.dataset.navWired = '1';
+
+    function open(){
+      drawer.classList.add('open');
+      drawer.setAttribute('aria-hidden', 'false');
+      menuBtn.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('drawer-open');
+    }
+    function close(){
+      drawer.classList.remove('open');
+      drawer.setAttribute('aria-hidden', 'true');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('drawer-open');
+    }
+
+    menuBtn.addEventListener('click', () => {
+      drawer.classList.contains('open') ? close() : open();
+    });
+    // backdrop, close button, CTA and every link dismiss the drawer
+    drawer.querySelectorAll('[data-close], .drawer-links a').forEach(el => {
+      el.addEventListener('click', close);
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && drawer.classList.contains('open')) close();
+    });
+  }
+  if (document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', wire);
+  } else {
+    wire();
+  }
+})();

@@ -1,7 +1,7 @@
 /* ─────────────────────────────────────────────────────────────
    SalesHub.Nepal — Brewery page shared styles
-   Used by brewery-carlsberg.html, brewery-redbull.html,
-   brewery-nepal-distilleries.html, brewery-annapurna-craft.html
+   Used by brewery-gorkha.html, brewery-prime.html,
+   brewery-bigmaster.html, brewery-saras.html
    ───────────────────────────────────────────────────────────── */
 
 /* Page tokens default — same as other pages. Each brewery's
@@ -10,7 +10,7 @@
   --cream:#FFFFFF; --cream-2:#F8F6F1; --cream-3:#EDE9DE;
   --ink:#0B0B0D; --paper:#FAF6EE;
   --coral:#FF5C3A; --coral-soft:#F5BFB0;
-  --indigo:#2D24C9; --indigo-soft:#C9C5FF;
+  --indigo:#90D5FF; --indigo-soft:#90D5FF;
   --forest:#16332A; --forest-2:#0E261E;
   --amber:#D9A26B; --mute:#6A6A6A;
   --line:rgba(11,11,13,.12);
@@ -262,9 +262,7 @@ img,svg{ display:block; max-width:100% }
 .bh-lineup .sec-head{
   display: flex; justify-content: space-between; align-items: end;
   gap: 16px; flex-wrap: wrap;
-  margin-bottom: 32px;
-  padding-bottom: 18px;
-  border-bottom: 1px dashed var(--line);
+  margin-bottom: 28px;
 }
 .bh-lineup .sec-head h2{
   margin: 0;
@@ -365,6 +363,31 @@ img,svg{ display:block; max-width:100% }
 }
 .brew-card:hover .pc-sticker{ transform: rotate(8deg) scale(1.08) }
 .brew-card .pc-sticker .small{ display: block; font-family:'JetBrains Mono', monospace; font-style: normal; font-size: 8px; letter-spacing: .22em; opacity: .9; margin-top: 2px }
+
+/* ─── Placeholder (product image not yet available) ───
+   Diagonal-stripe placeholder per the design system; the card still
+   shows the product name/category so incomplete data reads gracefully. */
+.brew-card.no-img .pc-bg,
+.modal-left.no-img{
+  background:
+    repeating-linear-gradient(45deg, rgba(244,239,227,.05) 0 2px, transparent 2px 22px),
+    linear-gradient(160deg, #24242A 0%, #17171B 62%, #101013 100%);
+}
+.brew-card .pc-ph{ display: none }
+.brew-card.no-img .pc-ph{
+  position: absolute; inset: 0; z-index: 2;
+  display: grid; place-content: center; justify-items: center; gap: 10px;
+  text-align: center; color: rgba(244,239,227,.55); pointer-events: none;
+  padding: 0 24px;
+}
+.brew-card.no-img .pc-ph .lab{
+  font-family:'JetBrains Mono', monospace; font-size: 10px;
+  letter-spacing: .28em; text-transform: uppercase; color: rgba(244,239,227,.62);
+}
+.brew-card.no-img .pc-ph .sub{
+  font-family:'Instrument Serif', serif; font-style: italic;
+  font-size: 16px; color: rgba(244,239,227,.42);
+}
 
 /* ─── Modal ─── */
 .modal{

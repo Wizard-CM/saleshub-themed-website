@@ -1,0 +1,7 @@
+# robots.txt — SalesHub Nepal (https://saleshubnepal.com)
+# Allow all reputable crawlers full access.
+User-agent: *
+Allow: /
+
+# Point crawlers at the sitemap so every page is discovered.
+Sitemap: https://saleshubnepal.com/sitemap.xml

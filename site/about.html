@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>About — SalesHub.Nepal</title>
+<title>About Us — SalesHub Nepal</title>
 
 <!-- Theme: apply saved theme ASAP to prevent FOUC -->
 <script>
@@ -14,10 +14,48 @@
     document.documentElement.setAttribute('data-theme', t);
   })();
 </script>
+    <!-- ========== SEO / Social / Icons (added for search visibility) ========== -->
+    <link rel="canonical" href="https://saleshubnepal.com/about.html" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="author" content="SalesHub Distribution Pvt. Ltd." />
+    <meta name="theme-color" content="#0B0B0D" />
+
+    <!-- Local SEO -->
+    <meta name="geo.region" content="NP-BA" />
+    <meta name="geo.placename" content="Kathmandu, Nepal" />
+    <meta name="geo.position" content="27.7355;85.3010" />
+    <meta name="ICBM" content="27.7355, 85.3010" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="SalesHub Nepal" />
+    <meta property="og:locale" content="en_NP" />
+    <meta property="og:title" content="About SalesHub Nepal — Our Story and Team" />
+    <meta property="og:description" content="Meet the team behind SalesHub Nepal — a Kathmandu-based beverage distributor moving world-class brands across 27 cities of Nepal since 2014." />
+    <meta property="og:url" content="https://saleshubnepal.com/about.html" />
+    <meta property="og:image" content="https://saleshubnepal.com/assets/og-image.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="SalesHub Nepal — beverage distribution, Kathmandu" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="About SalesHub Nepal — Our Story and Team" />
+    <meta name="twitter:description" content="Meet the team behind SalesHub Nepal — a Kathmandu-based beverage distributor moving world-class brands across 27 cities of Nepal since 2014." />
+    <meta name="twitter:image" content="https://saleshubnepal.com/assets/og-image.jpg" />
+    <meta name="twitter:image:alt" content="SalesHub Nepal — beverage distribution, Kathmandu" />
+
+    <!-- Icons / PWA (replaces the old assets/logo.jpg favicon) -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
 <link rel="stylesheet" href="theme.css">
 <link rel="stylesheet" href="entry-gate.css">
 <script src="entry-gate.js"></script>
-<meta name="description" content="The story behind SalesHub.Nepal — Nepal's authorised distribution partner for premium global beverage labels since 2014." />
+<meta name="description" content="Meet the team behind SalesHub Nepal — a Kathmandu-based beverage distributor moving world-class brands across 27 cities of Nepal since 2014." />
 
 <!-- Fonts: heavy grotesk display + italic serif accent + mono tags -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -32,11 +70,11 @@
     --cream-3:#EDE9DE;
     --ink:#0B0B0D;
     --ink-2:#1A1A1E;
-    --paper:#FAF6EE;
+    --paper:#141418;
     --coral:#FF5C3A;
     --coral-soft:#F5BFB0;
-    --indigo:#2D24C9;
-    --indigo-soft:#C9C5FF;
+    --indigo:#90D5FF;
+    --indigo-soft:#90D5FF;
     --forest:#16332A;
     --forest-2:#0E261E;
     --mute:#6A6A6A;
@@ -60,7 +98,7 @@
     /* subtle dot grid + warm corner glow */
     background-image:
       radial-gradient(1200px 600px at 100% 0%, rgba(255,92,58,.18), transparent 60%),
-      radial-gradient(900px 500px at 0% 100%, rgba(45,36,201,.10), transparent 55%),
+      radial-gradient(900px 500px at 0% 100%, rgba(144,213,255,.10), transparent 55%),
       radial-gradient(circle at 1px 1px, rgba(11,11,13,.06) 1px, transparent 0);
     background-size: auto, auto, 22px 22px;
     background-attachment: fixed, fixed, fixed;
@@ -192,6 +230,7 @@
     display:flex; justify-content:space-between; align-items:center;
     gap:16px; flex-wrap:wrap; margin: 28px 0 32px;
   }
+  @media (max-width: 1023px){ .hero .meta-row, .hero-team .meta-row{ display:none } }
 
   .ht-headline{
     display:grid; grid-template-columns: 1fr;
@@ -578,7 +617,7 @@
     background-image:
       radial-gradient(circle at 1px 1px, rgba(11,11,13,.10) 1px, transparent 0);
     background-size: 14px 14px;
-    background-color: #ECE3CB;
+    background-color: #141418;
     overflow:hidden;
   }
   .pinboard .tape{
@@ -814,8 +853,8 @@
   }
   .sec-head .right{ color:var(--mute) }
 
-  section{ padding: 70px 0; position:relative }
-  @media(min-width:900px){ section{ padding: 100px 0 } }
+  section{ padding: 64px 0; position:relative }
+  @media(min-width:900px){ section{ padding: 64px 0 } }
 
   /* ─────────── origin story ─────────── */
   .story{}
@@ -888,7 +927,7 @@
     position:relative;
     display:flex; gap:20px;
     overflow-x:auto; overflow-y:visible;
-    padding: 30px 4px 50px;
+    padding: 30px 4px 8px;
     scroll-snap-type:x mandatory;
     -ms-overflow-style:none; scrollbar-width:none;
   }
@@ -1088,7 +1127,7 @@
     border:6px solid transparent; border-top:10px solid var(--coral);
   }
   .map .pin.p1{ left:46%; top:42%; }
-  .map .pin.p2{ left:24%; top:60%; width:18px; height:18px; box-shadow:0 0 0 6px rgba(45,36,201,.18); background:var(--indigo) }
+  .map .pin.p2{ left:24%; top:60%; width:18px; height:18px; box-shadow:0 0 0 6px rgba(144,213,255,.18); background:var(--indigo) }
   .map .pin.p2::after{ border-top-color:var(--indigo) }
   .map .pin.p3{ left:74%; top:36%; width:18px; height:18px; background:var(--forest); box-shadow:0 0 0 6px rgba(22,51,42,.18) }
   .map .pin.p3::after{ border-top-color:var(--forest) }
@@ -1146,7 +1185,7 @@
 
   /* ─────────── CTA strip ─────────── */
   .cta-strip{
-    margin: 80px var(--pad-x) 40px;
+    margin: 40px var(--pad-x) 40px;
     border-radius: 32px;
     background: linear-gradient(135deg, #16332A, #4A6B47 40%, #D9A26B);
     padding: clamp(36px, 6vw, 80px) clamp(28px, 5vw, 60px);
@@ -1456,6 +1495,44 @@
   }
 
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      "@id": "https://saleshubnepal.com/about.html#webpage",
+      "url": "https://saleshubnepal.com/about.html",
+      "name": "About SalesHub Nepal",
+      "isPartOf": {
+        "@id": "https://saleshubnepal.com/#website"
+      },
+      "about": {
+        "@id": "https://saleshubnepal.com/#organization"
+      },
+      "description": "Meet the team behind SalesHub Nepal — a Kathmandu-based beverage distributor moving world-class brands across 27 cities of Nepal since 2014.",
+      "inLanguage": "en"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://saleshubnepal.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "About",
+          "item": "https://saleshubnepal.com/about.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -1477,7 +1554,7 @@
 <!-- ─────────── Nav ─────────── -->
 <div class="nav-wrap">
   <nav class="nav" aria-label="primary">
-    <a href="index.html" class="brand">SalesHub<span class="dot">.</span>Nepal</a>
+    <a href="index.html" class="brand" aria-label="SalesHub Nepal — home"><img src="assets/logo.jpg" alt="SalesHub Nepal" class="brand-logo"></a>
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html" class="active">About</a></li>
@@ -1491,8 +1568,37 @@
       <span class="ic sun" aria-hidden="true">☀</span>
     </button>
     <a href="#contact" class="cta">GET IN TOUCH <span class="arr">↗</span></a>
-    <button class="menu-btn" aria-label="menu"><span></span></button>
+    <button class="menu-btn" aria-label="menu" aria-controls="mobileDrawer" aria-expanded="false"><span></span></button>
   </nav>
+</div>
+
+<!-- ──────────── Mobile nav drawer ──────────── -->
+<div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+  <div class="drawer-backdrop" data-close></div>
+  <aside class="drawer-panel" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="drawer-head">
+      <a href="index.html" class="brand" aria-label="SalesHub Nepal — home"><img src="assets/logo.jpg" alt="SalesHub Nepal" class="brand-logo"></a>
+      <button class="drawer-close" data-close aria-label="Close menu">
+        <span></span><span></span>
+      </button>
+    </div>
+    <nav class="drawer-links" aria-label="mobile">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About</a>
+      <a href="journey.html">Journey</a>
+      <a href="products.html">Products</a>
+      <a href="#">Blogs</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a href="contact.html" class="drawer-cta" data-close>GET IN TOUCH <span class="arr">↗</span></a>
+    <div class="drawer-foot">
+      <span class="drawer-foot-label">Appearance</span>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <span class="ic moon" aria-hidden="true">☾</span>
+        <span class="ic sun" aria-hidden="true">☀</span>
+      </button>
+    </div>
+  </aside>
 </div>
 
 <!-- ─────────── Hero — Team Photo ─────────── -->
@@ -1500,8 +1606,8 @@
   <div class="container">
 
     <div class="meta-row">
-      <span class="chip"><span class="bullet"></span><span class="mono">38 humans · zero algorithms</span></span>
-      <span class="chip indigo"><span class="bullet"></span><span class="mono">Kathmandu HQ · floor 02 · March 2026</span></span>
+      <span class="chip"><span class="bullet"></span><span class="mono">Our story · since 2014</span></span>
+      <span class="chip indigo"><span class="bullet"></span><span class="mono">Kathmandu · authorised distributor</span></span>
     </div>
 
     <div class="ht-headline">
@@ -1685,60 +1791,6 @@
   </div>
 </section>
 
-<!-- ─────────── Values ─────────── -->
-<section class="values">
-  <div class="container">
-    <div class="head s-reveal">
-      <h2>We have <span class="serif">six</span> rules.<br>The rest is <span class="hl">judgement</span>.</h2>
-    </div>
-
-    <div class="body">
-      <article class="v-card s-reveal">
-        <div class="num">01</div>
-        <div>
-          <h5>Freshness over volume.</h5>
-          <p>If a pallet won't move in 21 days, it doesn't enter the warehouse.</p>
-        </div>
-      </article>
-      <article class="v-card tall dark s-reveal">
-        <div class="num">02</div>
-        <div>
-          <h5>Cold chain is sacred.</h5>
-          <p>Every truck, every bay, every transfer is logged. Two degrees out of range and a bottle gets rejected before it sees a shelf — even if the customer says yes.</p>
-        </div>
-      </article>
-      <article class="v-card s-reveal">
-        <div class="num">03</div>
-        <div>
-          <h5>Walk away early.</h5>
-          <p>If a label can't sign our freshness pledge, we don't carry it. We've said no to nine brands this year alone.</p>
-        </div>
-      </article>
-      <article class="v-card forest s-reveal">
-        <div class="num">04</div>
-        <div>
-          <h5>Pay partners in 14.</h5>
-          <p>Our payment terms are half the industry standard. It's how the small bars keep ordering through the dry months.</p>
-        </div>
-      </article>
-      <article class="v-card s-reveal">
-        <div class="num">05</div>
-        <div>
-          <h5>Names, not accounts.</h5>
-          <p>Every venue has a rep on speed dial. No call centres. No tickets.</p>
-        </div>
-      </article>
-      <article class="v-card s-reveal">
-        <div class="num">06</div>
-        <div>
-          <h5>Drink responsibly. Sell responsibly.</h5>
-          <p>ID checks, dry-day compliance, public-health partnerships. We're guests in the cities we serve.</p>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
 <!-- ─────────── Team ─────────── -->
 <section class="team">
   <div class="container">
@@ -1812,7 +1864,7 @@
 <footer>
   <div class="row s-stagger">
     <div>
-      <div class="brand">SalesHub<span class="dot">.</span>Nepal</div>
+      <div class="brand"><img src="assets/logo.jpg" alt="SalesHub Nepal" class="brand-logo"></div>
       <p class="blurb">Nepal's premier beverage distribution network — connecting world-class brands with local markets since 2014.</p>
     </div>
     <div>
@@ -1846,7 +1898,7 @@
     <div>
       <h6>Reach</h6>
       <ul>
-        <li>hello@saleshub.np</li>
+        <li>sales.hub.nepal@gmail.com</li>
         <li>+977 1 423 7800</li>
         <li>Thapathali Rd</li>
         <li>Kathmandu 44600</li>

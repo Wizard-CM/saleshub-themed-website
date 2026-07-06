@@ -11,28 +11,33 @@
     cat:   modal.querySelector('.m-cat .text'),
     name:  modal.querySelector('.m-name'),
     line:  modal.querySelector('.m-line'),
-    abv:   modal.querySelector('[data-spec="abv"]'),
-    fmt:   modal.querySelector('[data-spec="format"]'),
-    year:  modal.querySelector('[data-spec="year"]'),
+    // spec cells are labelled Category / Format / Origin in the markup
+    category: modal.querySelector('[data-spec="abv"]'),
+    fmt:      modal.querySelector('[data-spec="format"]'),
+    origin:   modal.querySelector('[data-spec="year"]'),
     notes: modal.querySelector('.m-notes'),
     tags:  modal.querySelector('.m-tags'),
+    quoteBox: modal.querySelector('.m-quote'),
     quote: modal.querySelector('.m-quote .q-text'),
     author:modal.querySelector('.m-quote .author'),
   };
 
   function open(card){
     const d = card.dataset;
-    if (els.img)   els.img.style.setProperty('--m-img', `url('${d.image||''}')`);
+    if (els.img){
+      els.img.style.setProperty('--m-img', `url('${d.image||''}')`);
+      els.img.classList.toggle('no-img', !d.image);   // striped placeholder when no image yet
+    }
     if (els.tag)   els.tag.textContent = (d.tag || d.cat || 'PRODUCT');
     if (els.stamp){
-      els.stamp.innerHTML = (d.stamp || d.abv || '★') + (d.stampSmall ? '<span class="small">' + d.stampSmall + '</span>' : '');
+      els.stamp.innerHTML = (d.stamp || d.category || '★') + (d.stampSmall ? '<span class="small">' + d.stampSmall + '</span>' : '');
     }
     if (els.cat)   els.cat.textContent = d.cat || '';
     if (els.name)  els.name.innerHTML = (d.name || '') + (d.dot ? '<span class="acc">' + d.dot + '</span>' : '');
     if (els.line)  els.line.textContent = d.line || '';
-    if (els.abv)   els.abv.textContent = d.abv || '—';
-    if (els.fmt)   els.fmt.textContent = d.format || '—';
-    if (els.year)  els.year.textContent = d.year || '—';
+    if (els.category) els.category.textContent = d.category || '—';
+    if (els.fmt)      els.fmt.textContent = d.format || '—';
+    if (els.origin)   els.origin.textContent = d.origin || '—';
     if (els.notes) els.notes.textContent = d.notes || '';
     if (els.tags){
       els.tags.innerHTML = '';
@@ -42,6 +47,8 @@
         els.tags.appendChild(s);
       });
     }
+    // quote block is optional — hide it entirely when a product has no quote
+    if (els.quoteBox) els.quoteBox.style.display = d.quote ? '' : 'none';
     if (els.quote) els.quote.textContent = d.quote || '';
     if (els.author)els.author.textContent = d.quoteAuthor || '';
     modal.classList.add('open');
