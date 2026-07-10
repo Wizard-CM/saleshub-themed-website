@@ -46,20 +46,32 @@
           <div class="entry-orb o2"></div>
           <div class="entry-grid"></div>
         </div>
-        <div class="entry-card">
-          <div class="entry-badgerow">
-            <div class="entry-brand"><img src="assets/logo.jpg" alt="SalesHub Nepal" class="brand-logo"></div>
-            <span class="entry-agechip" aria-hidden="true">18+</span>
+        <div class="entry-card entry-split">
+          <div class="entry-photo" aria-hidden="true">
+            <div class="entry-photo-seal"><span>SH</span></div>
+            <div class="entry-photo-cap">
+              <span class="lbl">From the shelf</span>
+              <span class="nm">Gurkhas &amp; Guns</span>
+            </div>
           </div>
-          <h1 class="entry-title" id="entryTitle">Are you<br><span class="serif">eighteen</span> or older?</h1>
-          <div class="entry-actions">
-            <button class="entry-btn entry-yes" type="button">
-              <span>Yes, I'm 18+</span>
-              <span class="arr">→</span>
-            </button>
-            <button class="entry-btn ghost entry-no" type="button">No, take me back</button>
+          <div class="entry-panel">
+            <div class="entry-badgerow">
+              <div class="entry-brand"><img src="assets/logo.jpg" alt="SalesHub Nepal" class="brand-logo"></div>
+              <span class="entry-agechip" aria-hidden="true">18+</span>
+            </div>
+            <p class="entry-eyebrow"><span class="dot"></span>Quick question</p>
+            <h1 class="entry-title" id="entryTitle">Are you <span class="serif">eighteen</span> or older?</h1>
+            <p class="entry-copy">SalesHub Nepal is a wholesale beverage distributor. Please confirm you're of legal drinking age before you come in.</p>
+            <p class="entry-meta">18+ Only<span class="sep">·</span>Kathmandu<span class="sep">·</span>Est. 2014</p>
+            <div class="entry-actions">
+              <button class="entry-btn entry-yes" type="button">
+                <span>Yes, I'm 18+</span>
+                <span class="arr">→</span>
+              </button>
+              <button class="entry-btn ghost entry-no" type="button">No, take me back</button>
+            </div>
+            <p class="entry-foot">By continuing you agree to our <a href="#">terms</a> &amp; <a href="#">privacy</a>. Always drink responsibly.</p>
           </div>
-          <p class="entry-foot">18+ only · Drink responsibly</p>
         </div>
       </div>
     `);
