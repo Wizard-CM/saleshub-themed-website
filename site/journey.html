@@ -67,7 +67,8 @@
     --cream:#FFFFFF; --cream-2:#F8F6F1; --cream-3:#EDE9DE;
     --ink:#0B0B0D; --paper:#141418;
     --coral:#FF5C3A; --coral-soft:#F5BFB0;
-    --indigo:#90D5FF; --indigo-soft:#90D5FF;
+    --ember:#E8431F; /* deep brand orange — replaces the old indigo accent */
+    --indigo:#E8431F; --indigo-soft:#FF9E7A;
     --forest:#16332A; --forest-2:#0E261E;
     --amber:#D9A26B; --mute:#6A6A6A;
     --line:rgba(11,11,13,.12);
@@ -85,7 +86,7 @@
     overflow-x:hidden;
     background-image:
       radial-gradient(1100px 600px at 100% 0%, rgba(255,92,58,.16), transparent 60%),
-      radial-gradient(900px 500px at 0% 100%, rgba(144,213,255,.10), transparent 55%),
+      radial-gradient(900px 500px at 0% 100%, rgba(255,92,58,.08), transparent 55%),
       radial-gradient(circle at 1px 1px, rgba(11,11,13,.06) 1px, transparent 0);
     background-size: auto, auto, 22px 22px;
     background-attachment: fixed, fixed, fixed;
@@ -153,7 +154,10 @@
   }
   .hero h1 .serif{ color: var(--coral); padding: 0 .03em }
   .hero h1 .hl{
-    background: var(--indigo); color:#fff;
+    background:
+      radial-gradient(140% 90% at 8% -10%, rgba(255,255,255,.28), transparent 52%),
+      linear-gradient(150deg, #FFA075 0%, #FF7450 55%, #FF5C3A 100%);
+    color:#fff;
     border-radius: 14px; padding: 0 .08em;
     display:inline-block; transform: rotate(-1.5deg);
   }
@@ -580,7 +584,9 @@
   /* ─────────── CTA ─────────── */
   .cta-strip{
     margin: 64px var(--pad-x) 40px; border-radius: 32px;
-    background: linear-gradient(135deg, #90D5FF, #90D5FF 50%, #90D5FF);
+    background:
+      radial-gradient(circle at 80% 30%, rgba(255,180,140,.55), transparent 50%),
+      linear-gradient(135deg, var(--coral), #FF8260 60%, var(--coral-soft));
     padding: clamp(36px, 6vw, 80px) clamp(28px, 5vw, 60px);
     position:relative; overflow:hidden; color:#fff;
   }
@@ -1178,8 +1184,8 @@
       const x = ((e.clientX - rect.left) / rect.width * 100).toFixed(1);
       const y = ((e.clientY - rect.top) / rect.height * 100).toFixed(1);
       card.style.background =
-        `radial-gradient(circle at ${x}% ${y}%, rgba(144,213,255,.6), transparent 45%),
-         linear-gradient(135deg, var(--indigo), #90D5FF 50%, var(--indigo))`;
+        `radial-gradient(circle at ${x}% ${y}%, rgba(255,180,140,.65), transparent 45%),
+         linear-gradient(135deg, var(--coral), #FF8260 60%, var(--coral-soft))`;
     });
     card.addEventListener('pointerleave', () => {
       card.style.background = '';

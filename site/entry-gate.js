@@ -47,21 +47,11 @@
           <div class="entry-grid"></div>
         </div>
         <div class="entry-card">
-          <div class="entry-stamp" aria-hidden="true">
-            <svg viewBox="0 0 120 120">
-              <defs><path id="entryCir" d="M 60,60 m -46,0 a 46,46 0 1,1 92,0 a 46,46 0 1,1 -92,0"/></defs>
-              <text><textPath href="#entryCir">★ KATHMANDU · 18+ ONLY · DRINK RESPONSIBLY · </textPath></text>
-            </svg>
-            <div class="core">SH</div>
-          </div>
           <div class="entry-badgerow">
             <div class="entry-brand"><img src="assets/logo.jpg" alt="SalesHub Nepal" class="brand-logo"></div>
             <span class="entry-agechip" aria-hidden="true">18+</span>
           </div>
-          <p class="entry-eyebrow"><span class="dot"></span>Quick question</p>
           <h1 class="entry-title" id="entryTitle">Are you<br><span class="serif">eighteen</span> or older?</h1>
-          <p class="entry-copy">SalesHub.Nepal is a wholesale beverage distributor. Please confirm you're of legal drinking age in your jurisdiction before you come in.</p>
-          <p class="entry-meta">18+ Only<span class="sep">·</span>Kathmandu<span class="sep">·</span>Est. 2014</p>
           <div class="entry-actions">
             <button class="entry-btn entry-yes" type="button">
               <span>Yes, I'm 18+</span>
@@ -69,7 +59,7 @@
             </button>
             <button class="entry-btn ghost entry-no" type="button">No, take me back</button>
           </div>
-          <p class="entry-foot">By continuing you agree to our <a href="#">terms</a> &amp; <a href="#">privacy</a>. Always drink responsibly.</p>
+          <p class="entry-foot">18+ only · Drink responsibly</p>
         </div>
       </div>
     `);
@@ -117,15 +107,22 @@
             <svg class="flute-svg" viewBox="0 0 240 420" width="200" height="350" preserveAspectRatio="xMidYMid meet" role="img" aria-hidden="true">
               <defs>
                 <linearGradient id="fluteLiq" x1="0" y1="1" x2="0" y2="0">
-                  <stop offset="0%"  stop-color="#C0632F"/>
-                  <stop offset="45%" stop-color="#D9A26B"/>
-                  <stop offset="100%" stop-color="#FF6B47"/>
+                  <stop offset="0%"  stop-color="#E8431F"/>
+                  <stop offset="55%" stop-color="#FF5C3A"/>
+                  <stop offset="100%" stop-color="#FF8A5C"/>
                 </linearGradient>
                 <linearGradient id="fluteWall" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%"   stop-color="rgba(107,70,50,.12)"/>
+                  <stop offset="12%"  stop-color="rgba(107,70,50,.30)"/>
+                  <stop offset="50%"  stop-color="rgba(107,70,50,.03)"/>
+                  <stop offset="88%"  stop-color="rgba(255,138,92,.18)"/>
+                  <stop offset="100%" stop-color="rgba(107,70,50,.08)"/>
+                </linearGradient>
+                <linearGradient id="fluteWallDark" x1="0" y1="0" x2="1" y2="0">
                   <stop offset="0%"   stop-color="rgba(244,239,227,.16)"/>
                   <stop offset="12%"  stop-color="rgba(244,239,227,.42)"/>
                   <stop offset="50%"  stop-color="rgba(244,239,227,.04)"/>
-                  <stop offset="88%"  stop-color="rgba(144,213,255,.20)"/>
+                  <stop offset="88%"  stop-color="rgba(255,138,92,.20)"/>
                   <stop offset="100%" stop-color="rgba(244,239,227,.10)"/>
                 </linearGradient>
                 <linearGradient id="fluteRim" x1="0" y1="0" x2="0" y2="1">
@@ -138,9 +135,9 @@
                   <stop offset="100%" stop-color="rgba(255,220,190,0)"/>
                 </radialGradient>
                 <linearGradient id="fluteGlint" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%"   stop-color="rgba(244,239,227,0)"/>
-                  <stop offset="50%"  stop-color="rgba(244,239,227,.55)"/>
-                  <stop offset="100%" stop-color="rgba(244,239,227,0)"/>
+                  <stop offset="0%"   stop-color="rgba(255,255,255,0)"/>
+                  <stop offset="50%"  stop-color="rgba(255,255,255,.65)"/>
+                  <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
                 </linearGradient>
                 <clipPath id="fluteBowl">
                   <path d="M98,42 C93,150 109,233 113,249 L127,249 C131,233 147,150 142,42 Z"/>
@@ -151,9 +148,9 @@
               <g class="flute-glass">
                 <path class="glass-fill" d="M96,40 C90,150 108,235 112,250 L128,250 C132,235 150,150 144,40 A24,6 0 0,1 96,40 Z" fill="url(#fluteWall)"/>
                 <!-- stem + foot -->
-                <path class="glass-stem" d="M118,250 L118,380 M122,250 L122,380" fill="none" stroke="#F4EFE3" stroke-opacity=".5" stroke-width="1.4"/>
-                <ellipse class="glass-foot" cx="120" cy="384" rx="34" ry="7" fill="url(#fluteWall)" stroke="#F4EFE3" stroke-opacity=".5" stroke-width="1.4"/>
-                <ellipse class="glass-foot-hl" cx="112" cy="382" rx="14" ry="2.2" fill="rgba(244,239,227,.32)"/>
+                <path class="glass-stem" d="M118,250 L118,380 M122,250 L122,380" fill="none" stroke="#6B4632" stroke-opacity=".55" stroke-width="1.4"/>
+                <ellipse class="glass-foot" cx="120" cy="384" rx="34" ry="7" fill="url(#fluteWall)" stroke="#6B4632" stroke-opacity=".55" stroke-width="1.4"/>
+                <ellipse class="glass-foot-hl" cx="112" cy="382" rx="14" ry="2.2" fill="rgba(107,70,50,.28)"/>
               </g>
 
               <!-- LIQUID + BEADS, clipped to the inner bowl -->
@@ -168,9 +165,9 @@
 
               <!-- GLASS crystal walls drawn OVER liquid for depth -->
               <g class="flute-walls">
-                <path d="M96,40 C90,150 108,235 112,250 L128,250 C132,235 150,150 144,40" fill="none" stroke="#F4EFE3" stroke-opacity=".5" stroke-width="1.4" stroke-linejoin="round"/>
-                <path d="M100,44 C95,150 111,231 115,247 M140,44 C145,150 129,231 125,247" fill="none" stroke="#F4EFE3" stroke-opacity=".22" stroke-width="1"/>
-                <ellipse cx="120" cy="40" rx="24" ry="6" fill="none" stroke="#F4EFE3" stroke-opacity=".5" stroke-width="1.4"/>
+                <path d="M96,40 C90,150 108,235 112,250 L128,250 C132,235 150,150 144,40" fill="none" stroke="#6B4632" stroke-opacity=".55" stroke-width="1.4" stroke-linejoin="round"/>
+                <path d="M100,44 C95,150 111,231 115,247 M140,44 C145,150 129,231 125,247" fill="none" stroke="#6B4632" stroke-opacity=".25" stroke-width="1"/>
+                <ellipse cx="120" cy="40" rx="24" ry="6" fill="none" stroke="#6B4632" stroke-opacity=".55" stroke-width="1.4"/>
                 <!-- left cream specular column + slow glint sweep -->
                 <rect class="flute-glint" x="99" y="46" width="4" height="190" rx="2" fill="url(#fluteGlint)"/>
               </g>

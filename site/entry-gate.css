@@ -2,20 +2,25 @@
    SalesHub.Nepal — Entry gate (age verification + preloader)
    Pair with entry-gate.js.
    Self-contained — does not depend on the page's own stylesheet.
+
+   Palette: brand orange #FF5C3A anchors both screens.
+   Light-first: warm cream stage, orange card, orange pour.
+   Dark theme re-tunes surfaces deliberately (warm espresso,
+   never a plain inversion).
    ───────────────────────────────────────────────────────────── */
 
 /* Hide the page body while the gate is up (FOUC prevention) */
 html[data-gating="1"] body { visibility: hidden }
 
-/* Overlay shell */
+/* Overlay shell — warm light stage */
 .entry-overlay{
   position: fixed; inset: 0;
   z-index: 9999;
   display: grid; place-items: center;
   padding: clamp(20px, 5vw, 60px);
   background:
-    radial-gradient(circle at 50% -8%, #1E1E24 0%, #070709 72%);
-  color: #F4EFE3;
+    radial-gradient(circle at 50% -10%, #FFF7F0 0%, #F4E3D5 72%);
+  color: #2A1710;
   font-family: 'Bricolage Grotesque', system-ui, sans-serif;
   visibility: visible !important; /* override gating */
   opacity: 0;
@@ -27,6 +32,12 @@ html[data-gating="1"] body { visibility: hidden }
    safely instead of clipping the buttons (preloader/restricted stay centered). */
 .entry-overlay[data-stage="age"]{ align-items: safe center; overflow-y: auto }
 
+[data-theme="dark"] .entry-overlay{
+  background:
+    radial-gradient(circle at 50% -8%, #221310 0%, #0B0605 72%);
+  color: #F4EFE3;
+}
+
 /* Animated background */
 .entry-bg{
   position: absolute; inset: 0;
@@ -37,7 +48,7 @@ html[data-gating="1"] body { visibility: hidden }
   width: 60vmin; height: 60vmin;
   border-radius: 999px;
   filter: blur(90px);
-  opacity: .30;
+  opacity: .26;
   animation: orbFloat 14s ease-in-out infinite;
 }
 .entry-orb.o1{
@@ -45,7 +56,7 @@ html[data-gating="1"] body { visibility: hidden }
   top: -20%; left: -10%;
 }
 .entry-orb.o2{
-  background: radial-gradient(circle, #90D5FF 0%, transparent 70%);
+  background: radial-gradient(circle, #FFB38C 0%, transparent 70%);
   bottom: -20%; right: -10%;
   animation-delay: -6s;
 }
@@ -55,35 +66,49 @@ html[data-gating="1"] body { visibility: hidden }
 }
 .entry-grid{
   position: absolute; inset: 0;
-  background-image: radial-gradient(circle at 1px 1px, rgba(244,239,227,.06) 1px, transparent 0);
+  background-image: radial-gradient(circle at 1px 1px, rgba(58,36,24,.08) 1px, transparent 0);
   background-size: 24px 24px;
   opacity: .5;
+}
+[data-theme="dark"] .entry-grid{
+  background-image: radial-gradient(circle at 1px 1px, rgba(244,239,227,.06) 1px, transparent 0);
 }
 @media (prefers-reduced-motion: reduce){
   .entry-orb{ animation: none }
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   AGE-GATE CARD — clean light
-   Crisp white card floating on the dark orb backdrop; coral accents.
+   AGE-GATE CARD — brand orange
+   A compact orange card with a soft light sheen falling into a
+   deeper ember; cream/white type; only what matters survives.
    ═══════════════════════════════════════════════════════════════ */
 .entry-card{
   position: relative;
   z-index: 2;
   isolation: isolate;
-  background: #FFFFFF;
-  color: #14141A;
-  border-radius: 30px;
-  padding: clamp(30px, 3.4vw, 44px) clamp(28px, 3.6vw, 48px);
-  max-width: 500px; width: 100%;
+  background:
+    radial-gradient(120% 80% at 12% -4%, rgba(255,255,255,.32), transparent 54%),
+    linear-gradient(165deg, #FFA075 0%, #FF7450 52%, #FF5C3A 100%);
+  color: #FFFFFF;
+  border-radius: 28px;
+  padding: clamp(26px, 3vw, 36px) clamp(24px, 3.2vw, 38px);
+  max-width: 430px; width: 100%;
   text-align: left;
-  border: 1px solid rgba(11,11,13,.05);
+  border: 0;
   box-shadow:
-    0 40px 90px -24px rgba(0,0,0,.55),
-    0 12px 26px rgba(0,0,0,.22);
+    0 34px 70px -24px rgba(205,58,22,.45),
+    0 10px 24px rgba(205,58,22,.20);
   transform: translateY(40px) scale(.94);
   opacity: 0;
   transition: transform .55s cubic-bezier(.2,.7,.2,1.25), opacity .45s ease;
+}
+[data-theme="dark"] .entry-card{
+  background:
+    radial-gradient(120% 80% at 12% -4%, rgba(255,255,255,.24), transparent 54%),
+    linear-gradient(165deg, #FF8E5F 0%, #FF6234 52%, #F04B24 100%);
+  box-shadow:
+    0 40px 80px -24px rgba(0,0,0,.65),
+    0 12px 26px rgba(0,0,0,.35);
 }
 .entry-overlay.show .entry-card{
   transform: translateY(0) scale(1);
@@ -98,188 +123,106 @@ html[data-gating="1"] body { visibility: hidden }
 .entry-brand{
   display: inline-flex; align-items: center;
   font-weight: 700; font-size: 18px; letter-spacing: -.01em;
-  color: #14141A;
+  color: #fff;
 }
-.entry-brand .dot{ color: #FF5C3A }
+.entry-brand .dot{ color: #FFE1D4 }
 .brand-logo{
   width: 44px; height: 44px;
   border-radius: 999px;
   object-fit: cover;
   display: block;
-  border: 1px solid rgba(11,11,13,.10);
-  box-shadow: 0 4px 12px rgba(11,11,13,.14);
+  border: 2px solid rgba(255,255,255,.55);
+  box-shadow: 0 4px 12px rgba(160,40,10,.30);
 }
 
 /* ─── 18+ chip ─── */
 .entry-badgerow{
   display: flex; align-items: center; gap: 14px;
-  margin-bottom: 4px;
+  margin-bottom: 18px;
 }
 .entry-agechip{
   display: inline-flex; align-items: center;
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px; font-weight: 500; letter-spacing: .12em;
-  color: #FF5C3A;
-  padding: 6px 12px;
+  color: #fff;
+  padding: 5px 11px;
   border-radius: 999px;
-  background: rgba(255,92,58,.08);
-  border: 1px solid rgba(255,92,58,.24);
-}
-
-/* ─── Wax seal — coral ring + dark core on the light card ─── */
-.entry-stamp{
-  position: absolute; top: -30px; right: -18px;
-  width: 100px; height: 100px;
-  z-index: 5;
-  transform: rotate(-10deg);
-  pointer-events: none;
-  animation: stampWobble 6s ease-in-out infinite;
-}
-@keyframes stampWobble{
-  0%, 100%{ transform: rotate(-10deg) }
-  50%{ transform: rotate(-2deg) }
-}
-.entry-stamp::before{
-  content: ""; position: absolute; inset: 0;
-  border-radius: 999px;
-  background: conic-gradient(from 220deg, #FF5C3A, #FF8260, #FF5C3A);
-  box-shadow:
-    0 12px 26px rgba(255,92,58,.42),
-    inset 0 0 0 2px rgba(255,255,255,.55);
-}
-.entry-stamp::after{
-  content: ""; position: absolute; inset: 13px;
-  border-radius: 999px;
-  background: #14141A;
-}
-.entry-stamp svg{
-  position: absolute; inset: 0;
-  animation: stampSpin 24s linear infinite;
-  z-index: 1;
-}
-.entry-stamp text{
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 8.5px; letter-spacing: .26em;
-  fill: #fff; text-transform: uppercase;
-}
-@keyframes stampSpin{ to{ transform: rotate(360deg) } }
-.entry-stamp .core{
-  position: absolute; inset: 0;
-  display: grid; place-items: center;
-  font-family: 'Instrument Serif', serif;
-  font-style: italic;
-  font-size: 24px;
-  color: #F5BFB0;
-  z-index: 2;
-}
-@media (prefers-reduced-motion: reduce){
-  .entry-stamp, .entry-stamp svg{ animation: none }
-}
-
-/* ─── Eyebrow ─── */
-.entry-eyebrow{
-  margin: 20px 0 10px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px; letter-spacing: .26em; text-transform: uppercase;
-  color: #8A857A;
-  display: inline-flex; align-items: center; gap: 10px;
-}
-.entry-eyebrow .dot{
-  width: 8px; height: 8px; border-radius: 999px;
-  background: #FF5C3A;
-  box-shadow: 0 0 0 0 rgba(255,92,58,.6);
-  animation: entryPulse 2s ease-out infinite;
-}
-@keyframes entryPulse{
-  0%{ box-shadow: 0 0 0 0 rgba(255,92,58,.5) }
-  100%{ box-shadow: 0 0 0 10px rgba(255,92,58,0) }
-}
-@media (prefers-reduced-motion: reduce){
-  .entry-eyebrow .dot{ animation: none }
+  background: rgba(255,255,255,.18);
 }
 
 /* ─── Title ─── */
 .entry-title{
-  margin: 0 0 16px;
+  margin: 0 0 22px;
   font-family: 'Bricolage Grotesque', sans-serif;
   font-weight: 800;
-  font-size: clamp(38px, 4.8vw, 56px);
-  line-height: .92; letter-spacing: -.038em;
-  color: #14141A;
+  font-size: clamp(32px, 4.2vw, 44px);
+  line-height: .95; letter-spacing: -.032em;
+  color: #fff;
   text-wrap: balance;
 }
 .entry-title .serif{
   font-family: 'Instrument Serif', serif;
   font-style: italic; font-weight: 400;
-  color: #FF5C3A;
+  color: #FFE3D6;
   padding: 0 .04em;
   font-size: 1.05em;
 }
 
-/* ─── Copy ─── */
+/* ─── Copy (restricted screen only) ─── */
 .entry-copy{
   margin: 0 0 20px;
-  font-size: 15.5px; line-height: 1.6;
-  color: #55535A;
+  font-size: 15px; line-height: 1.55;
+  color: rgba(255,255,255,.88);
   max-width: 40ch;
 }
 
-/* ─── Meta row ─── */
-.entry-meta{
-  margin: 0 0 26px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10.5px; letter-spacing: .2em; text-transform: uppercase;
-  color: #9A958A;
-}
-.entry-meta .sep{ color: rgba(255,92,58,.75); padding: 0 .35em }
-
 /* ─── Actions + buttons ─── */
 .entry-actions{
-  display: flex; gap: 12px; flex-wrap: wrap;
-  margin-bottom: 18px;
+  display: flex; gap: 10px; flex-wrap: wrap;
+  margin-bottom: 16px;
 }
 .entry-btn{
-  display: inline-flex; align-items: center; gap: 10px;
-  padding: 16px 24px 16px 26px;
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 11px 18px 11px 20px;
   border-radius: 999px; border: 0;
-  background: #FF5C3A; color: #fff;
-  font-family: inherit; font-weight: 600; font-size: 15px;
+  background: #FFF8F3; color: #E8431F;
+  font-family: inherit; font-weight: 600; font-size: 14.5px;
   cursor: pointer;
-  box-shadow: 0 8px 20px rgba(255,92,58,.26);
+  box-shadow: 0 6px 16px rgba(160,40,10,.22);
   transition: transform .25s cubic-bezier(.2,.7,.2,1.4), background .2s, box-shadow .2s;
 }
 .entry-btn:hover{
-  transform: translateY(-2px); background: #ff6e4f;
-  box-shadow: 0 12px 26px rgba(255,92,58,.34);
+  transform: translateY(-2px); background: #fff;
+  box-shadow: 0 10px 22px rgba(160,40,10,.30);
 }
 .entry-btn .arr{
-  width: 28px; height: 28px; border-radius: 999px;
-  background: #14141A; color: #fff;
-  display: grid; place-items: center; font-size: 13px;
+  width: 24px; height: 24px; border-radius: 999px;
+  background: #FF5C3A; color: #fff;
+  display: grid; place-items: center; font-size: 12px;
   transition: transform .3s;
 }
 .entry-btn:hover .arr{ transform: rotate(-45deg) }
 
 .entry-btn.ghost{
-  background: transparent; color: #14141A;
-  border: 1px solid rgba(11,11,13,.16);
+  background: rgba(255,255,255,.16);
+  color: #fff;
+  border: 0;
   box-shadow: none;
 }
 .entry-btn.ghost:hover{
-  background: rgba(11,11,13,.04);
-  border-color: rgba(11,11,13,.28);
+  background: rgba(255,255,255,.26);
   transform: translateY(-1px);
   box-shadow: none;
 }
-/* No outline on the coral button (incl. programmatic autofocus); keyboard users get a subtle dark ring */
+/* No outline on autofocus; keyboard users get a clean white ring */
 .entry-btn:focus{ outline: none }
-.entry-btn:focus-visible{ outline: 2px solid rgba(11,11,13,.55); outline-offset: 3px }
+.entry-btn:focus-visible{ outline: 2px solid rgba(255,255,255,.9); outline-offset: 3px }
 
 .entry-overlay.show .entry-btn{
   animation: btnIn .5s cubic-bezier(.2,.7,.2,1.4) backwards;
 }
-.entry-overlay.show .entry-btn:nth-child(1){ animation-delay: .35s }
-.entry-overlay.show .entry-btn:nth-child(2){ animation-delay: .45s }
+.entry-overlay.show .entry-btn:nth-child(1){ animation-delay: .3s }
+.entry-overlay.show .entry-btn:nth-child(2){ animation-delay: .4s }
 @keyframes btnIn{
   from{ opacity: 0; transform: translateY(14px) }
   to{ opacity: 1; transform: translateY(0) }
@@ -287,28 +230,25 @@ html[data-gating="1"] body { visibility: hidden }
 
 /* ─── Foot ─── */
 .entry-foot{
-  margin: 0; padding-top: 18px;
-  border-top: 1px solid rgba(11,11,13,.10);
+  margin: 0; padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,.24);
   font-family: 'JetBrains Mono', monospace;
-  font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase;
-  color: #9A958A;
+  font-size: 10px; letter-spacing: .16em; text-transform: uppercase;
+  color: rgba(255,255,255,.78);
   line-height: 1.7;
 }
 .entry-foot a{
-  color: #FF5C3A; text-decoration: none;
-  border-bottom: 1px dashed rgba(255,92,58,.45);
+  color: #fff; text-decoration: none;
+  border-bottom: 1px dashed rgba(255,255,255,.55);
 }
-.entry-foot a:hover{ color: #ff7252 }
+.entry-foot a:hover{ border-bottom-style: solid }
 
 /* ─── Age-gate small screens ─── */
 @media (max-width: 540px){
-  .entry-card{ padding: 34px 24px }
-  .entry-stamp{ width: 82px; height: 82px; right: -8px; top: -20px }
-  .entry-stamp .core{ font-size: 20px }
-  .entry-title{ font-size: clamp(38px, 12vw, 52px) }
+  .entry-card{ padding: 26px 22px }
+  .entry-title{ font-size: clamp(30px, 9.5vw, 40px) }
   .entry-actions{ flex-direction: column; align-items: stretch }
   .entry-btn{ justify-content: center }
-  .entry-meta{ font-size: 9.5px; letter-spacing: .16em }
 }
 
 /* ─── Age-gate reduced motion ─── */
@@ -317,7 +257,7 @@ html[data-gating="1"] body { visibility: hidden }
   .entry-overlay.show .entry-btn{ animation: none }
 }
 
-/* ───────── Restricted screen (light, centred sibling) ───────── */
+/* ───────── Restricted screen (same orange card, centred) ───────── */
 .entry-restricted .entry-card{
   text-align: center;
 }
@@ -325,32 +265,33 @@ html[data-gating="1"] body { visibility: hidden }
 .entry-restricted .entry-badgerow{ justify-content: center }
 .entry-restricted .entry-copy{ margin-left: auto; margin-right: auto }
 .entry-restricted .entry-actions{ justify-content: center }
-.entry-restricted .entry-stamp{ display: none }
 
 .restricted-emoji{
   font-family: 'Instrument Serif', serif; font-style: italic;
-  font-size: 64px; line-height: 1; color: #FF5C3A;
-  margin: 24px 0 18px;
+  font-size: 56px; line-height: 1; color: #FFE3D6;
+  margin: 18px 0 14px;
 }
 
 
 /* ───────── Preloader — "The First Pour" ─────────
-   A tall crystal flute fills with living amber→coral champagne. The meniscus
-   rides the exact progress value (level = --t, computed in JS), fine bead
-   columns stream upward, and a single coral spark + brand ping ring crown the
-   rim at 100 while an Instrument Serif italic "cheers." fades in. The beverage
-   is the only saturated element on the ink stage — a jewel in a vitrine. The
-   age-gate's spinning wax seal is intentionally NOT reused, so the two screens
-   read as a considered sibling pair. */
+   A tall crystal flute fills with living brand-orange pour on a warm
+   cream stage. The meniscus rides the exact progress value (level = --t,
+   computed in JS), fine bead columns stream upward, and a single coral
+   spark + ping ring crown the rim at 100 while an Instrument Serif
+   italic "cheers." fades in. The orange pour is the only saturated
+   element on the stage — a jewel in a vitrine. */
 .entry-pre{
-  background: radial-gradient(circle at 50% 40%, #16161B 0%, #050507 80%);
+  background: radial-gradient(circle at 50% 32%, #FFF8F1 0%, #F5E6D8 80%);
 }
-.entry-pre .entry-orb{ opacity: .18 }
-.entry-pre .entry-grid{ opacity: .30 }
+[data-theme="dark"] .entry-pre{
+  background: radial-gradient(circle at 50% 40%, #1B110C 0%, #090504 80%);
+}
+.entry-pre .entry-orb{ opacity: .20 }
+.entry-pre .entry-grid{ opacity: .35 }
 
 .entry-pre .pre-content{
   position: relative; z-index: 2;
-  width: 100%; max-width: 480px;
+  width: 100%; max-width: 500px;
   display: flex; flex-direction: column; align-items: center;
   text-align: center;
   transition: transform .55s cubic-bezier(.2,.7,.2,1);
@@ -369,6 +310,10 @@ html[data-gating="1"] body { visibility: hidden }
 }
 .entry-pre .pre-brandmark .brand-logo{
   width: clamp(46px, 6vw, 56px); height: clamp(46px, 6vw, 56px);
+  border-color: rgba(255,92,58,.35);
+  box-shadow: 0 8px 24px rgba(205,58,22,.20);
+}
+[data-theme="dark"] .entry-pre .pre-brandmark .brand-logo{
   box-shadow: 0 8px 24px rgba(0,0,0,.45), 0 0 0 1px rgba(244,239,227,.12);
 }
 .entry-pre.leave .pre-brandmark{
@@ -383,10 +328,11 @@ html[data-gating="1"] body { visibility: hidden }
   font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: clamp(9px, 1.05vw, 10.5px);
   letter-spacing: .26em; text-transform: uppercase;
-  color: #8C8678;
+  color: #A06B52;
   opacity: 0; transform: translateY(8px);
   text-align: center;
 }
+[data-theme="dark"] .entry-pre .pre-kicker{ color: #8C8678 }
 .entry-pre.show .pre-kicker{
   opacity: 1; transform: translateY(0);
   transition: opacity .5s ease .12s, transform .5s cubic-bezier(.2,.7,.2,1) .12s;
@@ -403,7 +349,7 @@ html[data-gating="1"] body { visibility: hidden }
   100%{ box-shadow: 0 0 0 10px rgba(255,92,58,0) }
 }
 
-/* (2) The flute — the hero */
+/* (2) The flute — the hero, sized up */
 .entry-pre .flute-stage{
   position: relative;
   display: block;
@@ -419,13 +365,22 @@ html[data-gating="1"] body { visibility: hidden }
   display: block;
   /* Sized by viewport HEIGHT so a big glass never pushes the counter off-screen
      (the flute is tall: viewBox 240×420). width follows its aspect ratio. */
-  height: clamp(320px, 56vh, 560px);
+  height: clamp(380px, 64vh, 660px);
   width: auto;
-  max-width: 86vw;
+  max-width: 88vw;
   overflow: visible;
 }
 
-/* slow cream glint sweeping down the left specular wall = crystal life */
+/* glass strokes — warm ink on the light stage, cream in dark theme */
+[data-theme="dark"] .entry-pre .glass-stem,
+[data-theme="dark"] .entry-pre .glass-foot,
+[data-theme="dark"] .entry-pre .flute-walls path,
+[data-theme="dark"] .entry-pre .flute-walls ellipse{ stroke: #F4EFE3 }
+[data-theme="dark"] .entry-pre .glass-fill,
+[data-theme="dark"] .entry-pre .glass-foot{ fill: url(#fluteWallDark) }
+[data-theme="dark"] .entry-pre .glass-foot-hl{ fill: rgba(244,239,227,.28) }
+
+/* slow glint sweeping down the left specular wall = crystal life */
 .entry-pre .flute-glint{
   transform: translateY(-120px);
   animation: preFluteGlint 3.6s cubic-bezier(.4,0,.3,1) infinite;
@@ -499,10 +454,11 @@ html[data-gating="1"] body { visibility: hidden }
   font-weight: 800;
   font-size: clamp(56px, 9vw, 92px);
   letter-spacing: -.04em;
-  color: #F4EFE3;
+  color: #2A1710;
   font-variant-numeric: tabular-nums;
   min-width: 2ch; text-align: right;
 }
+[data-theme="dark"] .entry-pre .pre-count{ color: #F4EFE3 }
 .entry-pre .count-unit{
   font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: 20px; font-weight: 500;
@@ -512,7 +468,7 @@ html[data-gating="1"] body { visibility: hidden }
 /* preloader — small screens */
 @media (max-width: 540px){
   .entry-pre .pre-content{ max-width: 340px }
-  .entry-pre .flute-svg{ height: clamp(300px, 46vh, 440px); max-width: 82vw }
+  .entry-pre .flute-svg{ height: clamp(330px, 52vh, 500px); max-width: 84vw }
   .entry-pre .pre-count{ font-size: clamp(48px, 15vw, 66px) }
   .entry-pre .count-unit{ font-size: 16px }
   .entry-pre .flute-cheers{ font-size: clamp(24px, 8vw, 32px) }
@@ -547,5 +503,3 @@ html[data-gating="1"] body { visibility: hidden }
   .entry-pre .pre-content,
   .entry-pre.leave .pre-content{ transform: none; transition: none }
 }
-
-/* (age-gate small-screen + reduced-motion rules now live in the age-gate section above) */

@@ -61,7 +61,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
 <style>
   /* ─────────── tokens (shared with about + products) ─────────── */
@@ -74,8 +74,9 @@
     --paper:#141418; /* was cream #FAF6EE — dark ink surface per no-cream rule */
     --coral:#FF5C3A;
     --coral-soft:#F5BFB0;
-    --indigo:#6495ED;
-    --indigo-soft:#6495ED;
+    --ember:#E8431F;      /* deep brand orange — replaces the old indigo accent */
+    --indigo:#E8431F;     /* legacy token, re-pointed to the orange family */
+    --indigo-soft:#FF9E7A;
     --forest:#16332A;
     --forest-2:#0E261E;
     --amber:#D9A26B;
@@ -611,53 +612,6 @@
     100%{ opacity:1; transform: translateX(-50%) scale(1) translateY(0) }
   }
 
-  /* ─────────── ticker ─────────── */
-  .ticker{
-    background: var(--ink);
-    border-top: 1px solid rgba(255,255,255,.06);
-    border-bottom: 1px solid rgba(255,255,255,.06);
-    padding: 16px 0;
-    overflow: hidden;
-    position:relative;
-  }
-  .ticker.light{ background:#141418; border-color: var(--line) }
-  .ticker .track{
-    display:flex; gap: 10px; width: max-content;
-    align-items: center;
-    animation: marquee 60s linear infinite;
-    will-change: transform;
-  }
-  .ticker:hover .track{ animation-play-state: paused }
-  .ticker .item{
-    display:inline-flex; align-items:center; gap: 8px;
-    padding: 6px 14px;
-    border-radius: 999px;
-    background: rgba(255,255,255,.05);
-    border: 1px solid rgba(255,255,255,.10);
-    font-family:'Bricolage Grotesque', sans-serif;
-    font-size: 13.5px; font-weight: 500;
-    color: #F4EFE3; white-space: nowrap;
-  }
-  .ticker.light .item{ background:#fff; border-color: var(--line); color: var(--ink) }
-  .ticker .item.serif{
-    font-family:'Instrument Serif', serif; font-style:italic; font-weight: 400;
-    font-size: 18px;
-    background: rgba(255,255,255,.08);
-    border-color: rgba(255,255,255,.14);
-  }
-  .ticker.light .item.serif{ background: var(--paper) }
-  .ticker .item.coral{ background: var(--coral); color:#fff; border-color: transparent }
-  .ticker .item.indigo{ background: var(--indigo); color:#fff; border-color: transparent }
-  .ticker .star{
-    color: var(--coral); font-size: 18px; line-height: 1;
-    display:inline-block; flex: 0 0 auto;
-    animation: tickerStarSpin 4s linear infinite;
-  }
-  @keyframes tickerStarSpin{ to{ transform: rotate(360deg) } }
-  @keyframes marquee{ from{ transform: translateX(0) } to{ transform: translateX(-50%) } }
-  @keyframes marqueeReverse{ from{ transform: translateX(-50%) } to{ transform: translateX(0) } }
-  @media (prefers-reduced-motion: reduce){ .ticker .track{ animation:none } }
-
   /* ─────────── PORTFOLIO — Editorial Bento + Runway ─────────── */
   .portfolio{
     background: var(--cream); color: var(--ink);
@@ -669,7 +623,7 @@
     content:""; position:absolute; inset:0;
     background:
       radial-gradient(900px 500px at 8% 30%, rgba(255,92,58,.10), transparent 60%),
-      radial-gradient(800px 500px at 95% 70%, rgba(100,149,237,.06), transparent 60%);
+      radial-gradient(800px 500px at 95% 70%, rgba(255,92,58,.07), transparent 60%);
     pointer-events:none;
   }
   .portfolio .ed-watermark{
@@ -713,7 +667,10 @@
     color: var(--coral); padding: 0 .03em; font-size: 1.06em;
   }
   .ed-text h2 .hl{
-    background: var(--indigo); color: #fff;
+    background:
+      radial-gradient(140% 90% at 8% -10%, rgba(255,255,255,.28), transparent 52%),
+      linear-gradient(150deg, #FFA075 0%, #FF7450 55%, #FF5C3A 100%);
+    color: #fff;
     padding: 0 .08em; border-radius: 14px;
     display: inline-block; transform: rotate(-1.5deg);
   }
@@ -826,17 +783,19 @@
   .bc-body .cat .dot{ width: 6px; height: 6px; border-radius: 999px; background: var(--coral) }
   .bc-body h3{
     margin: 0;
-    font-family:'Instrument Serif', serif; font-style: italic; font-weight: 400;
-    font-size: clamp(38px, 4vw, 60px);
-    line-height: .96; letter-spacing: -.02em; color: #fff;
-    text-shadow: 0 2px 6px rgba(0,0,0,.3);
+    font-family:'Fraunces', 'Instrument Serif', serif; font-style: normal;
+    font-weight: 560; font-optical-sizing: auto;
+    font-variation-settings: "SOFT" 60, "WONK" 0;
+    font-size: clamp(34px, 3.6vw, 54px);
+    line-height: .98; letter-spacing: -.02em; color: #fff;
+    text-shadow: 0 2px 8px rgba(0,0,0,.35);
   }
   .bc-body .origin{ font-size: 13px; color: rgba(255,255,255,.78); margin-top: 8px; line-height: 1.4 }
-  .bento-card.big .bc-body h3{ font-size: clamp(56px, 5.5vw, 92px) }
-  .bento-card.wide .bc-body h3{ font-size: clamp(40px, 4.5vw, 72px) }
+  .bento-card.big .bc-body h3{ font-size: clamp(48px, 4.8vw, 80px) }
+  .bento-card.wide .bc-body h3{ font-size: clamp(36px, 4vw, 62px) }
   /* smaller boxes: keep the name compact so it doesn't crowd the category/blurb */
   .bento-card.sm-a .bc-body h3,
-  .bento-card.sm-b .bc-body h3{ font-size: clamp(28px, 2.4vw, 36px) }
+  .bento-card.sm-b .bc-body h3{ font-size: clamp(26px, 2.2vw, 33px) }
   .bento-card.wide .bc-body{ right: clamp(140px, 22%, 320px) }
 
   .bc-sticker{
@@ -852,7 +811,7 @@
   }
   .bento-card:hover .bc-sticker{ transform: rotate(10deg) scale(1.1) }
   .bc-sticker .small{ display: block; font-family:'JetBrains Mono', monospace; font-style: normal; font-size: 8px; letter-spacing: .22em; margin-top: 2px; opacity: .9 }
-  .bc-sticker.indigo{ background: var(--indigo); box-shadow: 0 8px 20px rgba(100,149,237,.5) }
+  .bc-sticker.indigo{ background: var(--ember); box-shadow: 0 8px 20px rgba(232,67,31,.5) }
   .bc-sticker.bone{ background: #fff; color: #0B0B0D; box-shadow: 0 8px 20px rgba(11,11,13,.18) }
   .bento-card.big .bc-sticker{ top: 18px; right: 18px }
   .bento-card.big .bc-arr{ top: auto; bottom: 22px; right: 22px }
@@ -941,9 +900,11 @@
     color: rgba(255,255,255,.78); margin-bottom: 4px;
   }
   .rc-meta .nm{
-    font-family:'Instrument Serif', serif; font-style: italic; font-weight: 400;
-    font-size: 26px; line-height: 1; letter-spacing: -.01em;
-    color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,.3);
+    font-family:'Fraunces', 'Instrument Serif', serif; font-style: normal;
+    font-weight: 560; font-optical-sizing: auto;
+    font-variation-settings: "SOFT" 60, "WONK" 0;
+    font-size: 24px; line-height: 1.02; letter-spacing: -.015em;
+    color: #fff; text-shadow: 0 2px 5px rgba(0,0,0,.35);
   }
   .rc-meta .abv{
     font-family:'JetBrains Mono', monospace; font-size: 9.5px;
@@ -975,7 +936,7 @@
     background: var(--cream); color: var(--ink);
     padding: 60px 0 64px;
     background-image:
-      radial-gradient(900px 500px at 100% 0%, rgba(100,149,237,.10), transparent 55%),
+      radial-gradient(900px 500px at 100% 0%, rgba(255,92,58,.10), transparent 55%),
       radial-gradient(circle at 1px 1px, rgba(11,11,13,.06) 1px, transparent 0);
     background-size: auto, 22px 22px;
   }
@@ -984,7 +945,7 @@
   .visit h2{
     margin:0; font-size: clamp(52px, 10vw, 140px); font-weight:800; line-height:.92; letter-spacing:-.035em;
   }
-  .visit h2 .serif{ color: var(--indigo); padding: 0 .04em }
+  .visit h2 .serif{ color: var(--coral); padding: 0 .04em }
   .visit p.lede{
     margin: 28px 0 28px; max-width: 460px; line-height: 1.55;
   }
@@ -994,17 +955,42 @@
     transform: rotate(-1deg);
   }
   .info-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin-bottom: 24px; max-width: 540px }
-  .info-cell{
-    background: var(--paper); border:1px solid var(--line); border-radius: 18px;
+  /* neighbour cards — outlined brand theme: quiet warm surface, orange keyline,
+     the orange lives in the border, dot and label. Lift + tint on hover. */
+  .visit .info-cell{
+    position: relative; overflow: hidden;
+    background: rgba(255,92,58,.045);
+    border: 1.5px solid rgba(255,92,58,.55);
+    border-radius: 18px;
     padding: 16px 18px;
     display:grid; grid-template-columns: 14px 1fr; gap: 10px; align-items:start;
+    color: var(--ink);
+    box-shadow: 0 10px 24px -14px rgba(205,58,22,.22);
+    transition: transform .3s cubic-bezier(.2,.7,.2,1.4), box-shadow .3s ease,
+                background .25s ease, border-color .25s ease;
   }
-  .info-cell .lbl{ font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color: var(--mute) }
-  .info-cell .val{ margin-top: 4px; font-size: 15px; line-height: 1.4 }
-  .info-cell .dot{ width:10px; height:10px; border-radius:999px; background: var(--coral); margin-top: 4px }
-  .info-cell:nth-child(2) .dot{ background: var(--indigo) }
-  .info-cell:nth-child(3) .dot{ background: var(--forest) }
-  .info-cell:nth-child(4) .dot{ background: var(--ink) }
+  .visit .info-cell:hover{
+    transform: translateY(-4px);
+    background: rgba(255,92,58,.09);
+    border-color: var(--coral);
+    box-shadow: 0 18px 34px -14px rgba(205,58,22,.32);
+  }
+  .visit .info-cell .lbl{ font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color: var(--coral) }
+  .visit .info-cell .val{ margin-top: 4px; font-size: 15px; line-height: 1.4; color: var(--ink) }
+  .visit .info-cell .dot{ width:10px; height:10px; border-radius:999px; background: var(--coral); margin-top: 4px; box-shadow: 0 0 0 3px rgba(255,92,58,.18) }
+  /* dark theme: same outline language on the espresso surface — not an inversion */
+  [data-theme="dark"] .visit .info-cell{
+    background: rgba(255,92,58,.08);
+    border-color: rgba(255,124,90,.55);
+    color: #F4EFE3;
+    box-shadow: 0 12px 26px -14px rgba(0,0,0,.55);
+  }
+  [data-theme="dark"] .visit .info-cell:hover{
+    background: rgba(255,92,58,.14);
+    border-color: #FF7C5A;
+  }
+  [data-theme="dark"] .visit .info-cell .lbl{ color: #FF8E6B }
+  [data-theme="dark"] .visit .info-cell .val{ color: #F4EFE3 }
 
   .visit .actions{ display:flex; gap:12px; flex-wrap:wrap }
   .visit .btn-dark{
@@ -1180,7 +1166,7 @@
   .cta-card{
     border-radius: 32px;
     background:
-      radial-gradient(circle at 80% 30%, rgba(100,149,237,.6), transparent 50%),
+      radial-gradient(circle at 80% 30%, rgba(255,180,140,.55), transparent 50%),
       linear-gradient(135deg, var(--coral), #FF8260 60%, var(--coral-soft));
     padding: clamp(40px, 6vw, 90px) clamp(28px, 5vw, 60px) clamp(40px, 5vw, 70px);
     position:relative; overflow:hidden;
@@ -1259,10 +1245,10 @@
     z-index: 3;
   }
   .cta-card .stamp{
-    background: conic-gradient(from 220deg, var(--indigo), #6495ED, var(--indigo), #6495ED);
+    background: conic-gradient(from 220deg, var(--ember), #FF8260, var(--ember), #FF8260);
     color: #fff;
   }
-  .cta-card .stamp::after{ background: var(--indigo) }
+  .cta-card .stamp::after{ background: var(--ember) }
   .cta-card .stamp .core{ background: var(--paper); color: var(--ink); inset: 16px; border-radius:999px; position:absolute; display:grid; place-items:center }
   .cta-card .stamp text{ fill: #fff }
   /* the floating phone number sticker */
@@ -1477,6 +1463,17 @@
   @keyframes confetti-fall{
     to{ transform: translate(var(--tx), var(--ty)) rotate(var(--r)); opacity: 0 }
   }
+
+  /* ─────────── TYPOGRAPHY SYSTEM — brand text styling ───────────
+     The watermark warms to a blood-orange ghost; mono eyebrows are
+     tracked a touch wider so the big Bricolage headlines feel even
+     more massive by contrast. */
+  .portfolio .ed-watermark{ color: rgba(232,67,31,.055) }
+  [data-theme="dark"] .portfolio .ed-watermark{ color: rgba(255,92,58,.06) }
+  .ed-meta .label, .visit .meta-row .mono, .runway-head .mono{ letter-spacing: .24em }
+  /* first serif word of the hero keeps its soft coral; give it a gentle
+     optical nudge so the italic sits into the Bricolage line */
+  .hero h1 .serif{ letter-spacing: -.01em }
 </style>
 <script type="application/ld+json">
 {
@@ -1931,37 +1928,6 @@
   </div>
 </section>
 
-<!-- ──────────── Ticker 2 (light, reverse) ──────────── -->
-<div class="ticker light" aria-hidden="true">
-  <div class="track" style="animation-name: marqueeReverse">
-    <span class="item">Pour responsibly</span>
-    <span class="star">✴</span>
-    <span class="item serif">Cold-chain first</span>
-    <span class="star">✴</span>
-    <span class="item coral">Brewed elsewhere · loved here</span>
-    <span class="star">✴</span>
-    <span class="item serif">हाजुर — at your service</span>
-    <span class="star">✴</span>
-    <span class="item indigo">Est. Kathmandu · 2014</span>
-    <span class="star">✴</span>
-    <span class="item serif">Quality over quantity</span>
-    <span class="star">✴</span>
-    <!-- duplicate for seamless loop -->
-    <span class="item">Pour responsibly</span>
-    <span class="star">✴</span>
-    <span class="item serif">Cold-chain first</span>
-    <span class="star">✴</span>
-    <span class="item coral">Brewed elsewhere · loved here</span>
-    <span class="star">✴</span>
-    <span class="item serif">हाजुर — at your service</span>
-    <span class="star">✴</span>
-    <span class="item indigo">Est. Kathmandu · 2014</span>
-    <span class="star">✴</span>
-    <span class="item serif">Quality over quantity</span>
-    <span class="star">✴</span>
-  </div>
-</div>
-
 <!-- ──────────── Visit / Map ──────────── -->
 <section class="visit">
   <div class="container">
@@ -2278,30 +2244,12 @@
       const x = ((e.clientX - rect.left) / rect.width * 100).toFixed(1);
       const y = ((e.clientY - rect.top) / rect.height * 100).toFixed(1);
       card.style.background =
-        `radial-gradient(circle at ${x}% ${y}%, rgba(100,149,237,.7), transparent 50%),
+        `radial-gradient(circle at ${x}% ${y}%, rgba(255,180,140,.65), transparent 50%),
          linear-gradient(135deg, var(--coral), #FF8260 60%, var(--coral-soft))`;
     });
     card.addEventListener('pointerleave', () => {
       card.style.background = '';
     });
-  })();
-
-  // ─── ticker skew on scroll (momentum feel) ────────────────
-  (function(){
-    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const tickers = document.querySelectorAll('.ticker');
-    let lastY = window.scrollY, velocity = 0, raf = 0;
-    function update(){
-      const dy = window.scrollY - lastY;
-      lastY = window.scrollY;
-      velocity += (dy - velocity) * .15;
-      const skew = Math.max(-4, Math.min(4, velocity * .4));
-      tickers.forEach(t => {
-        t.style.transform = skew ? `skewX(${skew}deg)` : '';
-      });
-      raf = requestAnimationFrame(update);
-    }
-    raf = requestAnimationFrame(update);
   })();
 
   // ─── confetti on the orange CTA ─────────────────────────────

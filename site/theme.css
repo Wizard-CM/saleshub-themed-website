@@ -46,7 +46,7 @@ html, body, .nav, footer, .form-card, .map-card, .stat-card, .v-card,
 [data-theme="dark"] body {
   background: #08080A;
   background-image:
-    radial-gradient(900px 500px at 0% 100%, rgba(144,213,255,.14), transparent 55%),
+    radial-gradient(900px 500px at 0% 100%, rgba(255,92,58,.12), transparent 55%),
     radial-gradient(circle at 1px 1px, rgba(244,239,227,.04) 1px, transparent 0);
 }
 
@@ -332,10 +332,7 @@ html, body, .nav, footer, .form-card, .map-card, .stat-card, .v-card,
   background: radial-gradient(circle at 50% 60%, #16161B 0%, #0A0A0D 70%);
 }
 [data-theme="dark"] .glass .vessel { border-color: rgba(244,239,227,.06) }
-[data-theme="dark"] .ticker.light { background: #14141A; border-color: var(--line) }
-[data-theme="dark"] .ticker.light .item { background: #1F1F25; color: #F4EFE3; border-color: var(--line) }
-[data-theme="dark"] .ticker.light .item.serif { background: #232328 }
-[data-theme="dark"] .ticker.light .item.coral { background: var(--coral); color: #fff }
+/* (home marquee removed — .ticker.light rules retired) */
 
 /* ── DARK MODE — about hero photo placeholder hint ───────── */
 [data-theme="dark"] .ph-hint { border-color: rgba(244,239,227,.20); color: rgba(244,239,227,.45) !important }

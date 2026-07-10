@@ -73,8 +73,9 @@
     --paper:#141418;
     --coral:#FF5C3A;
     --coral-soft:#F5BFB0;
-    --indigo:#90D5FF;
-    --indigo-soft:#90D5FF;
+    --ember:#E8431F;      /* deep brand orange — replaces the old indigo accent */
+    --indigo:#E8431F;     /* legacy token, re-pointed to the orange family */
+    --indigo-soft:#FF9E7A;
     --forest:#16332A;
     --forest-2:#0E261E;
     --mute:#6A6A6A;
@@ -98,7 +99,7 @@
     /* subtle dot grid + warm corner glow */
     background-image:
       radial-gradient(1200px 600px at 100% 0%, rgba(255,92,58,.18), transparent 60%),
-      radial-gradient(900px 500px at 0% 100%, rgba(144,213,255,.10), transparent 55%),
+      radial-gradient(900px 500px at 0% 100%, rgba(255,92,58,.08), transparent 55%),
       radial-gradient(circle at 1px 1px, rgba(11,11,13,.06) 1px, transparent 0);
     background-size: auto, auto, 22px 22px;
     background-attachment: fixed, fixed, fixed;
@@ -965,7 +966,7 @@
   .tl-card.coral{ background:var(--coral); color:#fff; border-color:transparent }
   .tl-card.coral p, .tl-card.coral .year{ color:#FFE6DE }
   .tl-card.indigo{ background:var(--indigo); color:#fff; border-color:transparent }
-  .tl-card.indigo p, .tl-card.indigo .year{ color:#D2CEFF }
+  .tl-card.indigo p, .tl-card.indigo .year{ color:#FFD9CB }
   .tl-card.indigo .pin{ background:#fff; box-shadow:0 0 0 4px var(--cream), 0 0 0 5px #fff }
 
   /* ─────────── values ─────────── */
@@ -973,9 +974,12 @@
     font-size: clamp(48px, 8vw, 120px);
     font-weight:800; letter-spacing:-.035em; line-height:.92; margin:0;
   }
-  .values .head h2 .serif{ color:var(--indigo); padding:0 .04em }
+  .values .head h2 .serif{ color:var(--coral); padding:0 .04em }
   .values .head h2 .hl{
-    background:var(--coral); color:#fff; padding: 0 .08em;
+    background:
+      radial-gradient(140% 90% at 8% -10%, rgba(255,255,255,.28), transparent 52%),
+      linear-gradient(150deg, #FFA075 0%, #FF7450 55%, #FF5C3A 100%);
+    color:#fff; padding: 0 .08em;
     border-radius: 14px; display:inline-block;
     transform:rotate(-1.5deg);
   }
@@ -1012,7 +1016,7 @@
   .team .head h2{
     font-size: clamp(46px, 7vw, 100px); font-weight:800; letter-spacing:-.03em; line-height:.95; margin:0
   }
-  .team .head h2 .serif{ color:var(--indigo); padding:0 .04em }
+  .team .head h2 .serif{ color:var(--coral); padding:0 .04em }
   .team-grid{
     margin-top: 40px;
     display:grid; grid-template-columns: repeat(12, 1fr); gap:24px;
@@ -1127,7 +1131,7 @@
     border:6px solid transparent; border-top:10px solid var(--coral);
   }
   .map .pin.p1{ left:46%; top:42%; }
-  .map .pin.p2{ left:24%; top:60%; width:18px; height:18px; box-shadow:0 0 0 6px rgba(144,213,255,.18); background:var(--indigo) }
+  .map .pin.p2{ left:24%; top:60%; width:18px; height:18px; box-shadow:0 0 0 6px rgba(232,67,31,.18); background:var(--indigo) }
   .map .pin.p2::after{ border-top-color:var(--indigo) }
   .map .pin.p3{ left:74%; top:36%; width:18px; height:18px; background:var(--forest); box-shadow:0 0 0 6px rgba(22,51,42,.18) }
   .map .pin.p3::after{ border-top-color:var(--forest) }
