@@ -127,38 +127,61 @@ html[data-gating="1"] body { visibility: hidden }
 }
 .entry-panel{ padding: clamp(26px, 3vw, 36px) clamp(24px, 3.2vw, 38px) }
 
-/* ─── Photo column ─── */
-.entry-photo{
+/* ─── Branding column (age gate, left side) ─── */
+.entry-brandside{
   position: relative;
   min-height: 100%;
+  padding: clamp(26px, 3vw, 38px);
+  display: flex; flex-direction: column; justify-content: space-between;
+  gap: 26px;
+  color: #F4EFE3;
+  overflow: hidden;
   background:
-    linear-gradient(180deg, rgba(10,6,4,0) 55%, rgba(10,6,4,.78) 100%),
-    #14100C url('assets/Product%20Images/Gorkhas%20and%20GUNS.jpeg') center/cover no-repeat;
+    radial-gradient(120% 90% at 12% 8%, rgba(255,92,58,.30), transparent 55%),
+    radial-gradient(100% 80% at 92% 104%, rgba(255,138,92,.18), transparent 52%),
+    linear-gradient(158deg, #241611 0%, #1A120E 55%, #120C09 100%);
 }
-.entry-photo-seal{
-  position: absolute; top: 16px; right: 16px;
-  width: 54px; height: 54px; border-radius: 999px;
+/* faint dotted texture, matches the site's placeholder motif */
+.entry-brandside::before{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,.05) 1px, transparent 0);
+  background-size: 16px 16px;
+  opacity:.5;
+}
+.entry-brandside > *{ position: relative; z-index: 1 }
+.bs-top{ display: flex; align-items: center; justify-content: space-between }
+.entry-brandside .brand-logo{ width: 50px; height: 50px }
+.bs-seal{
+  width: 52px; height: 52px; border-radius: 999px;
   background: conic-gradient(from 220deg, #FF5C3A, #FF8260, #FF5C3A);
   box-shadow: 0 8px 18px rgba(0,0,0,.35), inset 0 0 0 2px rgba(255,255,255,.5);
   display: grid; place-items: center;
 }
-.entry-photo-seal span{
+.bs-seal span{
   font-family: 'Instrument Serif', serif; font-style: italic;
   font-size: 18px; color: #fff; line-height: 1;
 }
-.entry-photo-cap{
-  position: absolute; left: 18px; right: 18px; bottom: 16px;
-  display: flex; flex-direction: column; gap: 3px;
+.bs-name{
+  font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800;
+  font-size: clamp(30px, 3.4vw, 40px); line-height: 1;
+  letter-spacing: -.03em; color: #F4EFE3;
 }
-.entry-photo-cap .lbl{
+.bs-name .serif{
+  font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400;
+  color: #FF8E6B;
+}
+.bs-tag{
+  margin: 14px 0 0;
+  font-size: 14px; line-height: 1.55;
+  color: rgba(244,239,227,.72); max-width: 30ch;
+}
+.bs-foot{
   font-family: 'JetBrains Mono', monospace;
-  font-size: 9px; letter-spacing: .24em; text-transform: uppercase;
-  color: rgba(255,255,255,.72);
+  font-size: 10px; letter-spacing: .18em; text-transform: uppercase;
+  color: rgba(244,239,227,.55);
+  display: flex; align-items: center; flex-wrap: wrap;
 }
-.entry-photo-cap .nm{
-  font-family: 'Instrument Serif', serif; font-style: italic;
-  font-size: 20px; line-height: 1.1; color: #fff;
-}
+.bs-foot .sep{ color: rgba(255,92,58,.85); padding: 0 .55em }
 
 /* ─── Brand + circular logo badge ─── */
 .entry-brand{
@@ -345,7 +368,11 @@ html[data-gating="1"] body { visibility: hidden }
 /* ─── Age-gate small screens ─── */
 @media (max-width: 680px){
   .entry-card.entry-split{ grid-template-columns: 1fr; max-width: 430px }
-  .entry-photo{ min-height: 140px; order: -1 }
+  .entry-brandside{ order: -1; flex-direction: row; align-items: center; gap: 16px; padding: 20px 22px }
+  .entry-brandside .bs-mid{ flex: 1 }
+  .entry-brandside .bs-tag{ display: none }
+  .entry-brandside .bs-foot{ display: none }
+  .entry-brandside .bs-seal{ display: none }
 }
 @media (max-width: 540px){
   .entry-panel{ padding: 24px 22px }

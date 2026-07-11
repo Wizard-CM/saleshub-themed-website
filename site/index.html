@@ -1774,7 +1774,7 @@
         <h2>The <span class="serif">good</span> stuff,<br>we keep <span class="hl">flowing.</span></h2>
         <p class="ed-copy">Every label below has earned its place on our truck. Picked for quality, character, and the joy it brings to the table.</p>
         <a href="products.html" class="ed-cta">
-          <span>View all 27 labels</span>
+          <span>View all 21 labels</span>
           <span class="arr">→</span>
         </a>
       </div>
@@ -2389,15 +2389,21 @@
     const words = heroH1.querySelectorAll('.word');
     const lede = document.querySelector('.hero .lede');
 
-    // Store targets and set initial scrambled state
+    // The scramble→decode intro runs ONLY when the entry gate hands off — i.e.
+    // a fresh load / refresh where the user clicks "Yes, I'm 18+" (the gate sets
+    // data-gating on <html>). On internal navigation the gate is skipped and
+    // data-gating is never set, so we leave the headline in its final state.
+    const gatePass = document.documentElement.hasAttribute('data-gating');
+
+    // Store targets; only apply the initial scrambled state when we'll animate.
     const wordData = [];
     words.forEach((el, i) => {
       const target = el.textContent;
       wordData.push({ el, target, total: 22 + Math.floor(Math.random() * 12) });
-      if (!reducedMotion) el.textContent = target.replace(/[a-zA-Z]/g, () => pool[Math.floor(Math.random() * pool.length)]);
+      if (!reducedMotion && gatePass) el.textContent = target.replace(/[a-zA-Z]/g, () => pool[Math.floor(Math.random() * pool.length)]);
     });
 
-    if (reducedMotion) return; // text already correct, nothing to do
+    if (reducedMotion || !gatePass) return; // final text already shown, nothing to animate
 
     function scrambleWord(data, onDone){
       let frame = 0;
@@ -2441,19 +2447,15 @@
       scrambleObs.observe(heroH1);
     }
 
-    // Wait for preloader to finish (data-gating attribute removed from <html>)
-    // If gate was skipped (returning user, same session), data-gating is never set
-    if (document.documentElement.hasAttribute('data-gating')){
-      const mo = new MutationObserver(() => {
-        if (!document.documentElement.hasAttribute('data-gating')){
-          mo.disconnect();
-          startObserving();
-        }
-      });
-      mo.observe(document.documentElement, { attributes: true, attributeFilter: ['data-gating'] });
-    } else {
-      startObserving();
-    }
+    // Reached only on a gate hand-off (gatePass). Wait for the preloader to
+    // finish — data-gating removed from <html> — then run the decode once.
+    const mo = new MutationObserver(() => {
+      if (!document.documentElement.hasAttribute('data-gating')){
+        mo.disconnect();
+        startObserving();
+      }
+    });
+    mo.observe(document.documentElement, { attributes: true, attributeFilter: ['data-gating'] });
   })();
 
   /* ═══════ CURRENT "The Reel" HERO JS (cont.) — commented out per request (kept, not removed) ═══════

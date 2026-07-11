@@ -205,6 +205,12 @@
     font-weight: 400; color: var(--coral); padding: 0 .02em;
     font-size: 1.06em;
   }
+  /* Long names get a smaller size so the copy column doesn't crowd out the
+     centre product image — keeps every distillery's hero balanced. */
+  .pour h1.long-name{
+    font-size: clamp(38px, 4.8vw, 66px);
+    line-height: .92;
+  }
   .pour .tagline{
     font-family:'Instrument Serif', serif; font-style:italic;
     font-size: clamp(20px, 1.6vw, 24px); line-height: 1.3;
@@ -494,6 +500,7 @@
     font-family:'JetBrains Mono', monospace; font-size: 10px;
     letter-spacing: .22em; text-transform: uppercase;
     color: rgba(255,255,255,.78); margin-bottom: 10px;
+    text-shadow: 0 2px 8px rgba(0,0,0,.35);
   }
   .hc-body .est .dot{ width: 7px; height: 7px; border-radius: 999px; background: var(--coral) }
   .hc-body h3{
@@ -510,6 +517,7 @@
     font-size: clamp(15px, 1.2vw, 17px);
     line-height: 1.5; color: rgba(255,255,255,.85);
     max-width: 36ch;
+    text-shadow: 0 2px 8px rgba(0,0,0,.35);
   }
   /* coral seal sticker on each card */
   .hc-seal{
@@ -541,7 +549,8 @@
 
   /* variant: tall vs default */
   .house-card.tall{ min-height: 540px }
-  .house-card.feature h3{ font-size: clamp(56px, 7vw, 116px) }
+  /* All distillery cards share one title size (the "feature" card no longer
+     scales its heading up) so the grid reads uniformly. */
 
   @media (max-width: 920px){
     .houses-grid{ grid-template-columns: 1fr }
@@ -810,7 +819,7 @@
 
       <div class="specs">
         <div class="cell"><div class="lbl">Category</div><div class="val" id="pourYear">Beer</div></div>
-        <div class="cell"><div class="lbl">Labels</div><div class="val" id="pourCount">11</div></div>
+        <div class="cell"><div class="lbl">Labels</div><div class="val" id="pourCount">10</div></div>
         <div class="cell"><div class="lbl">Origin</div><div class="val" id="pourOrigin">Nepal</div></div>
       </div>
 
@@ -828,7 +837,7 @@
           <path id="ringPath" d="M 220,220 m -200,0 a 200,200 0 1,1 400,0 a 200,200 0 1,1 -400,0" />
         </defs>
         <text>
-          <textPath href="#ringPath">★ SALESHUB · NEPAL · FOUR DISTILLERIES · 27 LABELS · ★ SALESHUB · NEPAL · FOUR DISTILLERIES · 27 LABELS · </textPath>
+          <textPath href="#ringPath">★ SALESHUB · NEPAL · FOUR DISTILLERIES · 21 LABELS · ★ SALESHUB · NEPAL · FOUR DISTILLERIES · 21 LABELS · </textPath>
         </text>
       </svg>
 
@@ -846,7 +855,7 @@
       <div class="queue" id="pourQueue">
         <button class="queue-item active" data-i="0">
           <span class="mini" style="background-image:url('assets/Product%20Images/Gorkha%20Craft.jpeg')"></span>
-          <span class="qmeta"><span class="cat">Nepal · Beer</span><span class="name">Gorkha Brewery</span><span class="est">11 labels</span></span>
+          <span class="qmeta"><span class="cat">Nepal · Beer</span><span class="name">Gorkha Brewery</span><span class="est">10 labels</span></span>
           <span class="go">↗</span>
         </button>
         <button class="queue-item" data-i="1">
@@ -856,7 +865,7 @@
         </button>
         <button class="queue-item" data-i="2">
           <span class="mini" style="background-image:url('assets/Product%20Images/Red%20Wine.jpeg')"></span>
-          <span class="qmeta"><span class="cat">Nepal · Wine</span><span class="name">Big Master</span><span class="est">08 labels</span></span>
+          <span class="qmeta"><span class="cat">Nepal · Wine</span><span class="name">Big Master</span><span class="est">03 labels</span></span>
           <span class="go">↗</span>
         </button>
         <button class="queue-item" data-i="3">
@@ -877,7 +886,7 @@
   <div class="container">
 
     <div class="sec-head s-reveal">
-      <h2>Four <span class="serif">distilleries.</span><br>Twenty-seven labels we move.</h2>
+      <h2>Four <span class="serif">distilleries.</span><br>Twenty-one labels we move.</h2>
     </div>
 
     <div class="houses-grid">
@@ -888,11 +897,11 @@
         <div class="hc-shade"></div>
         <span class="hc-num">HOUSE № 01</span>
         <span class="hc-arr" aria-hidden="true">↗</span>
-        <div class="hc-seal forest"><div class="disc">11<span class="small">LABELS</span></div></div>
+        <div class="hc-seal forest"><div class="disc">10<span class="small">LABELS</span></div></div>
         <div class="hc-body">
           <div class="est"><span class="dot"></span>Nepal · Beer</div>
           <h3>Gorkha<br>Brewery.</h3>
-          <div class="tagline">Eleven labels brewed and bottled in Nepal — Carlsberg and Tuborg in every size, plus Gorkha Strong, Pilsner and Craft.</div>
+          <div class="tagline">Ten labels brewed and bottled in Nepal — Carlsberg in every size, Tuborg, plus Gorkha Strong, Pilsner and Craft.</div>
         </div>
       </a>
 
@@ -916,11 +925,11 @@
         <div class="hc-shade"></div>
         <span class="hc-num">HOUSE № 03</span>
         <span class="hc-arr" aria-hidden="true">↗</span>
-        <div class="hc-seal"><div class="disc">08<span class="small">LABELS</span></div></div>
+        <div class="hc-seal"><div class="disc">03<span class="small">LABELS</span></div></div>
         <div class="hc-body">
           <div class="est"><span class="dot"></span>Nepal · Wine</div>
           <h3>Big Master.</h3>
-          <div class="tagline">Eight wines in bottle and box — Regular and Premium reds and whites, plus the refined Black Chenin and the characterful Siraj.</div>
+          <div class="tagline">Three Nepali wines — a smooth Regular Red, a crisp Regular White, and the refined Black Chenin.</div>
         </div>
       </a>
 
@@ -1015,7 +1024,7 @@
   (function(){
     const houses = [
       { name:'Gorkha Brewery', dot:'.',
-        year:'Beer', count:'11', origin:'Nepal',
+        year:'Beer', count:'10', origin:'Nepal',
         tagText:'HOUSE 01 / KTM · GORKHA BREWERY', link:'brewery-gorkha.html',
         img:'assets/Product%20Images/Gorkha%20Craft.jpeg' },
       { name:'Prime International', dot:'.',
@@ -1023,7 +1032,7 @@
         tagText:'HOUSE 02 / KTM · PRIME INTERNATIONAL', link:'brewery-prime.html',
         img:'assets/Product%20Images/Bandipur.jpeg' },
       { name:'Big Master', dot:'.',
-        year:'Wine', count:'08', origin:'Nepal',
+        year:'Wine', count:'03', origin:'Nepal',
         tagText:'HOUSE 03 / KTM · BIG MASTER', link:'brewery-bigmaster.html',
         img:'assets/Product%20Images/Red%20Wine.jpeg' },
       { name:'Saras Beverages', dot:'.',
@@ -1053,6 +1062,10 @@
         els.img.style.setProperty('--brew-img', `url('${L.img}')`);
         els.idx.textContent = String(n+1).padStart(2,'0');
         els.name.innerHTML = L.name + '<span class="serif">' + L.dot + '</span>';
+        // Long distillery names (e.g. "Prime International", "Saras Beverages")
+        // would otherwise starve the centre image of space — shrink just those.
+        const longestWord = Math.max(...L.name.split(' ').map(w => w.length));
+        els.name.classList.toggle('long-name', longestWord > 8);
         els.year.textContent = L.year;
         els.count.textContent = L.count;
         els.origin.innerHTML = L.origin;

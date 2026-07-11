@@ -47,25 +47,29 @@
           <div class="entry-grid"></div>
         </div>
         <div class="entry-card entry-split">
-          <div class="entry-photo" aria-hidden="true">
-            <div class="entry-photo-seal"><span>SH</span></div>
-            <div class="entry-photo-cap">
-              <span class="lbl">From the shelf</span>
-              <span class="nm">Gurkhas &amp; Guns</span>
+          <div class="entry-brandside">
+            <div class="bs-top">
+              <div class="entry-brand"><img src="assets/logo.jpg" alt="SalesHub Nepal" class="brand-logo"></div>
+              <div class="bs-seal" aria-hidden="true"><span>SH</span></div>
+            </div>
+            <div class="bs-mid">
+              <div class="bs-name">SalesHub<span class="serif"> Nepal.</span></div>
+              <p class="bs-tag">Nepal's premier beverage distribution network — connecting world-class brands with local markets since 2014.</p>
+            </div>
+            <div class="bs-foot">
+              <span>Kathmandu</span><span class="sep">·</span><span>Est. 2014</span><span class="sep">·</span><span>Wholesale</span>
             </div>
           </div>
           <div class="entry-panel">
             <div class="entry-badgerow">
-              <div class="entry-brand"><img src="assets/logo.jpg" alt="SalesHub Nepal" class="brand-logo"></div>
               <span class="entry-agechip" aria-hidden="true">18+</span>
             </div>
             <p class="entry-eyebrow"><span class="dot"></span>Quick question</p>
             <h1 class="entry-title" id="entryTitle">Are you <span class="serif">eighteen</span> or older?</h1>
-            <p class="entry-copy">SalesHub Nepal is a wholesale beverage distributor. Please confirm you're of legal drinking age before you come in.</p>
-            <p class="entry-meta">18+ Only<span class="sep">·</span>Kathmandu<span class="sep">·</span>Est. 2014</p>
+            <p class="entry-copy">SalesHub Nepal is a wholesale beverage distributor. Please confirm you're of legal drinking age to enter the website.</p>
             <div class="entry-actions">
               <button class="entry-btn entry-yes" type="button">
-                <span>Yes, I'm 18+</span>
+                <span>Yes, I'm 18+ — Enter</span>
                 <span class="arr">→</span>
               </button>
               <button class="entry-btn ghost entry-no" type="button">No, take me back</button>

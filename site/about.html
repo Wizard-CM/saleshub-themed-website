@@ -290,6 +290,10 @@
     display:grid; place-items:center;
     color: rgba(244,239,227,.55);
   }
+  .ht-photo .ph-img{
+    position:absolute; inset:0; width:100%; height:100%;
+    object-fit:cover; display:block;
+  }
   .ph-glyph{
     display:grid; place-items:center; gap: 14px;
     text-align: center;
@@ -1042,6 +1046,10 @@
     font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.22em;
     color:var(--mute);
   }
+  .polaroid .ph .portrait{
+    position:absolute; inset:0; width:100%; height:100%;
+    object-fit:cover; object-position:center 22%; display:block;
+  }
   .polaroid .meta{ margin-top:14px; text-align:center }
   .polaroid .meta .nm{ font-family:'Instrument Serif', serif; font-style:italic; font-size:22px; line-height:1 }
   .polaroid .meta .rl{ font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--mute); margin-top:6px }
@@ -1053,6 +1061,16 @@
   .polaroid:nth-child(6){ transform:rotate(-1.5deg); margin-top:20px }
   .polaroid:nth-child(7){ transform:rotate(1deg); margin-top:-4px }
   .polaroid:nth-child(8){ transform:rotate(-2deg); margin-top:14px }
+  .polaroid:nth-child(9){ transform:rotate(-2.5deg) }
+  .polaroid:nth-child(10){ transform:rotate(1deg); margin-top:20px }
+  .polaroid:nth-child(11){ transform:rotate(-1.5deg); margin-top:-6px }
+  .polaroid:nth-child(12){ transform:rotate(2deg); margin-top:16px }
+  .polaroid:nth-child(13){ transform:rotate(2.5deg) }
+  .polaroid:nth-child(14){ transform:rotate(-1deg); margin-top:18px }
+  .polaroid:nth-child(15){ transform:rotate(1.5deg); margin-top:-4px }
+  .polaroid:nth-child(16){ transform:rotate(-2deg); margin-top:12px }
+  .polaroid:nth-child(17){ transform:rotate(-3deg) }
+  .polaroid:nth-child(18){ transform:rotate(1.5deg); margin-top:22px }
 
   @media (max-width: 1100px){ .polaroid{ grid-column: span 4 } }
   @media (max-width: 700px){ .polaroid{ grid-column: span 6 } }
@@ -1407,6 +1425,16 @@
   .team-grid .polaroid.s-reveal:nth-child(6).visible{ transform: rotate(-1.5deg) scale(1); margin-top:20px }
   .team-grid .polaroid.s-reveal:nth-child(7).visible{ transform: rotate(1deg) scale(1); margin-top:-4px }
   .team-grid .polaroid.s-reveal:nth-child(8).visible{ transform: rotate(-2deg) scale(1); margin-top:14px }
+  .team-grid .polaroid.s-reveal:nth-child(9).visible{ transform: rotate(-2.5deg) scale(1) }
+  .team-grid .polaroid.s-reveal:nth-child(10).visible{ transform: rotate(1deg) scale(1); margin-top:20px }
+  .team-grid .polaroid.s-reveal:nth-child(11).visible{ transform: rotate(-1.5deg) scale(1); margin-top:-6px }
+  .team-grid .polaroid.s-reveal:nth-child(12).visible{ transform: rotate(2deg) scale(1); margin-top:16px }
+  .team-grid .polaroid.s-reveal:nth-child(13).visible{ transform: rotate(2.5deg) scale(1) }
+  .team-grid .polaroid.s-reveal:nth-child(14).visible{ transform: rotate(-1deg) scale(1); margin-top:18px }
+  .team-grid .polaroid.s-reveal:nth-child(15).visible{ transform: rotate(1.5deg) scale(1); margin-top:-4px }
+  .team-grid .polaroid.s-reveal:nth-child(16).visible{ transform: rotate(-2deg) scale(1); margin-top:12px }
+  .team-grid .polaroid.s-reveal:nth-child(17).visible{ transform: rotate(-3deg) scale(1) }
+  .team-grid .polaroid.s-reveal:nth-child(18).visible{ transform: rotate(1.5deg) scale(1); margin-top:22px }
   .team-grid .polaroid.s-reveal:nth-child(1){ transition-delay: .0s }
   .team-grid .polaroid.s-reveal:nth-child(2){ transition-delay: .07s }
   .team-grid .polaroid.s-reveal:nth-child(3){ transition-delay: .14s }
@@ -1415,6 +1443,16 @@
   .team-grid .polaroid.s-reveal:nth-child(6){ transition-delay: .35s }
   .team-grid .polaroid.s-reveal:nth-child(7){ transition-delay: .42s }
   .team-grid .polaroid.s-reveal:nth-child(8){ transition-delay: .49s }
+  .team-grid .polaroid.s-reveal:nth-child(9){ transition-delay: .0s }
+  .team-grid .polaroid.s-reveal:nth-child(10){ transition-delay: .07s }
+  .team-grid .polaroid.s-reveal:nth-child(11){ transition-delay: .14s }
+  .team-grid .polaroid.s-reveal:nth-child(12){ transition-delay: .21s }
+  .team-grid .polaroid.s-reveal:nth-child(13){ transition-delay: .28s }
+  .team-grid .polaroid.s-reveal:nth-child(14){ transition-delay: .35s }
+  .team-grid .polaroid.s-reveal:nth-child(15){ transition-delay: .42s }
+  .team-grid .polaroid.s-reveal:nth-child(16){ transition-delay: .49s }
+  .team-grid .polaroid.s-reveal:nth-child(17){ transition-delay: .56s }
+  .team-grid .polaroid.s-reveal:nth-child(18){ transition-delay: .63s }
 
   /* CTA strip entrance */
   .cta-strip.s-reveal{
@@ -1627,20 +1665,8 @@
     <div class="ht-stage">
       <!-- the team photo placeholder -->
       <figure class="ht-photo" aria-label="The SalesHub team, Kathmandu HQ, March 2026">
-        <div class="ph-fill" role="img" aria-label="Group photo of the SalesHub team">
-          <span class="ph-glyph">
-            <span class="ph-icon" aria-hidden="true">
-              <svg viewBox="0 0 60 36" width="60" height="36">
-                <circle cx="14" cy="14" r="7" fill="none" stroke="currentColor" stroke-width="1.6"/>
-                <circle cx="30" cy="11" r="8" fill="none" stroke="currentColor" stroke-width="1.6"/>
-                <circle cx="46" cy="14" r="7" fill="none" stroke="currentColor" stroke-width="1.6"/>
-                <path d="M 2 34 Q 14 22 30 22 T 58 34" fill="none" stroke="currentColor" stroke-width="1.6"/>
-              </svg>
-            </span>
-            <span class="ph-label">[ TEAM PHOTO ]</span>
-            <span class="ph-sub">38 humans · Kathmandu HQ · 03 / 2026</span>
-            <span class="ph-hint mono">Drop replacement image here</span>
-          </span>
+        <div class="ph-fill">
+          <img src="assets/about-page/Team.JPG" alt="The SalesHub team, Kathmandu HQ, March 2026" class="ph-img">
         </div>
 
         <!-- gradient overlay for legibility of corner badges -->
@@ -1652,29 +1678,9 @@
           <div class="core"><span class="num">38</span><span class="unit">humans</span></div>
         </div>
 
-        <!-- bottom-left identifier strip -->
-        <figcaption class="ht-cap">
-          <span class="ht-cap-roll">
-            <span class="dot"></span>
-            <span class="mono">Pictured (L → R)</span>
-          </span>
-          <span class="ht-cap-names">
-            Diwakar R. <span class="sep">·</span> Mira S. <span class="sep">·</span> Rajan K. <span class="sep">·</span> Sushma P. <span class="sep">·</span> Bipin G. <span class="sep">·</span> Anushka T. <span class="sep">·</span> Niran K. <span class="muted">+ 31 more</span>
-          </span>
-        </figcaption>
-
-        <!-- top-left film tape with date / film clapper -->
+        <!-- top-left film tape -->
         <div class="ht-tape">
           <span class="ht-tape-num">№ 06 / 24</span>
-          <span class="ht-tape-d">Shot on Pentax K1000 · pushed +1 · Kathmandu, 03 / 2026</span>
-        </div>
-
-        <!-- bottom-right small polaroid clip -->
-        <div class="ht-polaroid">
-          <div class="ph">
-            <span class="glyph">FLOOR<br>02 · KTM</span>
-          </div>
-          <div class="cap">the loading bay, dawn</div>
         </div>
       </figure>
 
@@ -1738,63 +1744,6 @@
   </div>
 </section>
 
-<!-- ─────────── Timeline ─────────── -->
-<section class="timeline">
-  <div class="container">
-    <div class="s-reveal" style="font-size: clamp(34px, 5vw, 64px); font-weight:800; letter-spacing:-.03em; line-height:.95; margin-bottom: 8px">
-      Twelve years, <span class="serif" style="color:var(--coral)">measured</span> in milestones.
-    </div>
-    <div class="s-reveal" style="color:var(--mute); max-width: 560px">Not every win shows up on a balance sheet. These are the ones that changed how the work feels.</div>
-  </div>
-
-  <div class="container">
-    <div class="tl-track" id="tlTrack">
-      <article class="tl-card">
-        <span class="pin"></span>
-        <div class="year">2014 · Kathmandu</div>
-        <h4>The Thapathali years.</h4>
-        <p>Three of us, two desks, one fax. First contract signed on a napkin at Rum Doodle.</p>
-      </article>
-      <article class="tl-card coral">
-        <span class="pin"></span>
-        <div class="year">2016 · Cold chain</div>
-        <h4>The first reefer truck.</h4>
-        <p>Imported from Mumbai. It broke down twice. We didn't.</p>
-      </article>
-      <article class="tl-card">
-        <span class="pin"></span>
-        <div class="year">2018 · Carlsberg Group</div>
-        <h4>Authorised distributor.</h4>
-        <p>The contract that changed our pace — and our payroll.</p>
-      </article>
-      <article class="tl-card dark">
-        <span class="pin"></span>
-        <div class="year">2020 · Pandemic year</div>
-        <h4>We kept the cold rolling.</h4>
-        <p>Trucks ran. Bars didn't. We extended payment terms for 23 venues. They're all still with us.</p>
-      </article>
-      <article class="tl-card">
-        <span class="pin"></span>
-        <div class="year">2022 · Pokhara hub</div>
-        <h4>Second warehouse opens.</h4>
-        <p>1,800 pallets. Eight loading bays. One terrible inaugural ribbon-cutting playlist.</p>
-      </article>
-      <article class="tl-card indigo">
-        <span class="pin"></span>
-        <div class="year">2024 · Energy &amp; mixers</div>
-        <h4>The portfolio doubles.</h4>
-        <p>Red Bull, Somersby, a handful of premium mixers. Suddenly we're a cocktail bar's best friend.</p>
-      </article>
-      <article class="tl-card">
-        <span class="pin"></span>
-        <div class="year">2026 · Today</div>
-        <h4>04 markets, 27 cities.</h4>
-        <p>And a new chapter we'll announce when the ink dries.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
 <!-- ─────────── Team ─────────── -->
 <section class="team">
   <div class="container">
@@ -1803,37 +1752,78 @@
     </div>
 
     <div class="team-grid">
+      <!-- Portraits placed by image number. Names & positions to be filled in later. -->
       <div class="polaroid s-reveal">
-        <div class="ph"><span class="label">PORTRAIT · RK</span></div>
-        <div class="meta"><div class="nm">Rajan K.</div><div class="rl">Founder · Cold chain</div></div>
+        <div class="ph"><img src="assets/about-page/solo-members/1.jpg" alt="Team member 01" class="portrait" loading="lazy"></div>
+        <div class="meta"><div class="nm">01</div><div class="rl">—</div></div>
       </div>
       <div class="polaroid s-reveal">
-        <div class="ph"><span class="label">PORTRAIT · SP</span></div>
-        <div class="meta"><div class="nm">Sushma P.</div><div class="rl">Co-founder · Trade</div></div>
+        <div class="ph"><img src="assets/about-page/solo-members/2.jpg" alt="Team member 02" class="portrait" loading="lazy"></div>
+        <div class="meta"><div class="nm">02</div><div class="rl">—</div></div>
       </div>
       <div class="polaroid s-reveal">
-        <div class="ph"><span class="label">PORTRAIT · BG</span></div>
-        <div class="meta"><div class="nm">Bipin G.</div><div class="rl">Operations</div></div>
+        <div class="ph"><img src="assets/about-page/solo-members/3.jpg" alt="Team member 03" class="portrait" loading="lazy"></div>
+        <div class="meta"><div class="nm">03</div><div class="rl">—</div></div>
       </div>
       <div class="polaroid s-reveal">
-        <div class="ph"><span class="label">PORTRAIT · AT</span></div>
-        <div class="meta"><div class="nm">Anushka T.</div><div class="rl">Brand partnerships</div></div>
+        <div class="ph"><img src="assets/about-page/solo-members/4.jpg" alt="Team member 04" class="portrait" loading="lazy"></div>
+        <div class="meta"><div class="nm">04</div><div class="rl">—</div></div>
       </div>
       <div class="polaroid s-reveal">
-        <div class="ph"><span class="label">PORTRAIT · DR</span></div>
-        <div class="meta"><div class="nm">Diwakar R.</div><div class="rl">Fleet lead</div></div>
+        <div class="ph"><img src="assets/about-page/solo-members/5.jpg" alt="Team member 05" class="portrait" loading="lazy"></div>
+        <div class="meta"><div class="nm">05</div><div class="rl">—</div></div>
       </div>
       <div class="polaroid s-reveal">
-        <div class="ph"><span class="label">PORTRAIT · MS</span></div>
-        <div class="meta"><div class="nm">Mira S.</div><div class="rl">Quality &amp; QA</div></div>
+        <div class="ph"><img src="assets/about-page/solo-members/6.jpg" alt="Team member 06" class="portrait" loading="lazy"></div>
+        <div class="meta"><div class="nm">06</div><div class="rl">—</div></div>
       </div>
       <div class="polaroid s-reveal">
-        <div class="ph"><span class="label">PORTRAIT · NK</span></div>
-        <div class="meta"><div class="nm">Niran K.</div><div class="rl">HoReCa accounts</div></div>
+        <div class="ph"><img src="assets/about-page/solo-members/7.jpg" alt="Team member 07" class="portrait" loading="lazy"></div>
+        <div class="meta"><div class="nm">07</div><div class="rl">—</div></div>
       </div>
       <div class="polaroid s-reveal">
-        <div class="ph"><span class="label">PORTRAIT · ++</span></div>
-        <div class="meta"><div class="nm">31 more</div><div class="rl">drivers, pickers, planners</div></div>
+        <div class="ph"><img src="assets/about-page/solo-members/8.jpg" alt="Team member 08" class="portrait" loading="lazy"></div>
+        <div class="meta"><div class="nm">08</div><div class="rl">—</div></div>
+      </div>
+      <div class="polaroid s-reveal">
+        <div class="ph"><img src="assets/about-page/solo-members/9.jpg" alt="Team member 09" class="portrait" loading="lazy"></div>
+        <div class="meta"><div class="nm">09</div><div class="rl">—</div></div>
+      </div>
+      <div class="polaroid s-reveal">
+        <div class="ph"><img src="assets/about-page/solo-members/10.jpg" alt="Team member 10" class="portrait" loading="lazy"></div>
+        <div class="meta"><div class="nm">10</div><div class="rl">—</div></div>
+      </div>
+      <div class="polaroid s-reveal">
+        <div class="ph"><img src="assets/about-page/solo-members/11.jpg" alt="Team member 11" class="portrait" loading="lazy"></div>
+        <div class="meta"><div class="nm">11</div><div class="rl">—</div></div>
+      </div>
+      <div class="polaroid s-reveal">
+        <div class="ph"><img src="assets/about-page/solo-members/12.jpg" alt="Team member 12" class="portrait" loading="lazy"></div>
+        <div class="meta"><div class="nm">12</div><div class="rl">—</div></div>
+      </div>
+      <div class="polaroid s-reveal">
+        <div class="ph"><img src="assets/about-page/solo-members/13.JPG" alt="Team member 13" class="portrait" loading="lazy"></div>
+        <div class="meta"><div class="nm">13</div><div class="rl">—</div></div>
+      </div>
+      <div class="polaroid s-reveal">
+        <div class="ph"><img src="assets/about-page/solo-members/14.JPG" alt="Team member 14" class="portrait" loading="lazy"></div>
+        <div class="meta"><div class="nm">14</div><div class="rl">—</div></div>
+      </div>
+      <div class="polaroid s-reveal">
+        <div class="ph"><img src="assets/about-page/solo-members/15.JPG" alt="Team member 15" class="portrait" loading="lazy"></div>
+        <div class="meta"><div class="nm">15</div><div class="rl">—</div></div>
+      </div>
+      <div class="polaroid s-reveal">
+        <div class="ph"><img src="assets/about-page/solo-members/16.JPG" alt="Team member 16" class="portrait" loading="lazy"></div>
+        <div class="meta"><div class="nm">16</div><div class="rl">—</div></div>
+      </div>
+      <div class="polaroid s-reveal">
+        <div class="ph"><img src="assets/about-page/solo-members/17.JPG" alt="Team member 17" class="portrait" loading="lazy"></div>
+        <div class="meta"><div class="nm">17</div><div class="rl">—</div></div>
+      </div>
+      <div class="polaroid s-reveal">
+        <div class="ph"><img src="assets/about-page/solo-members/18.JPG" alt="Team member 18" class="portrait" loading="lazy"></div>
+        <div class="meta"><div class="nm">18</div><div class="rl">—</div></div>
       </div>
     </div>
   </div>
