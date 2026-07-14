@@ -735,7 +735,7 @@
   .s-stagger.visible > *:nth-child(4){ transition-delay: .26s }
 
   /* Reduced motion */
-  @media (prefers-reduced-motion: reduce){
+  @media (prefers-reduced-motion: reduce) and (scripting: none){
     .hero h1, .hero .meta-row, .hero-row, .hero-stats,
     .year-rail, .s-reveal, .moment.s-reveal, .artifact-card,
     .moment .year, .cta-strip.s-reveal,

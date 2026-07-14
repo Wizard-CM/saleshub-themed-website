@@ -215,7 +215,7 @@
     z-index:2; color:var(--ink);
   }
   .stamp svg{ position:absolute; inset:0; animation:spin 30s linear infinite }
-  @media (prefers-reduced-motion: reduce){ .stamp svg{ animation:none } }
+  @media (prefers-reduced-motion: reduce) and (scripting: none){ .stamp svg{ animation:none } }
   @keyframes spin{ to{ transform:rotate(360deg) } }
   .stamp text{
     font-family:'JetBrains Mono', monospace;
@@ -382,7 +382,7 @@
     animation: htPulse 2s ease-out infinite;
   }
   @keyframes htPulse{ 0%{ box-shadow:0 0 0 0 rgba(255,92,58,.55) } 100%{ box-shadow:0 0 0 10px rgba(255,92,58,0) } }
-  @media (prefers-reduced-motion: reduce){ .ht-cap-roll .dot{ animation:none } }
+  @media (prefers-reduced-motion: reduce) and (scripting: none){ .ht-cap-roll .dot{ animation:none } }
   .ht-cap-roll .mono{ color: #F4EFE3; }
   .ht-cap-names{
     font-family:'Instrument Serif', serif; font-style: italic;
@@ -1520,7 +1520,7 @@
   }
 
   /* Reduced motion: kill all custom animations */
-  @media (prefers-reduced-motion: reduce){
+  @media (prefers-reduced-motion: reduce) and (scripting: none){
     .ht-headline h1 .line, .ht-headline .lede, .hero-team .meta-row,
     .ht-stage, .ht-seal, .ht-polaroid, .ht-meta,
     .s-reveal, .s-stagger > *, .numbers .cell.s-reveal,

@@ -7,6 +7,35 @@
 //  - "Yes, 18+" → preloader → site.
 //  - "No" → restricted screen (stays until reconsider).
 
+// ── Motion policy ────────────────────────────────────────────────────────────
+// This site's animations (preloader, hero, scroll reveals) are gentle and are a
+// core part of the design. Many phones silently turn on "Reduce Motion" via
+// Battery Saver / Low Power Mode, which used to switch EVERY animation off and
+// even mis-positioned the hero glass. We want the animations to play on all
+// devices, so we report `prefers-reduced-motion: reduce` as false to all the
+// JS that gates on it. (CSS is handled separately: its reduced-motion blocks are
+// scoped to `and (scripting: none)`, i.e. they only apply when JS is disabled.)
+// This loads before every page's animation scripts, so the override is global.
+(function(){
+  if (!window.matchMedia) return;
+  var realMatchMedia = window.matchMedia.bind(window);
+  window.matchMedia = function(query){
+    if (typeof query === 'string' && /prefers-reduced-motion/i.test(query)){
+      return {
+        media: query,
+        matches: false,
+        onchange: null,
+        addEventListener: function(){},
+        removeEventListener: function(){},
+        addListener: function(){},    // legacy Safari
+        removeListener: function(){}, // legacy Safari
+        dispatchEvent: function(){ return false; }
+      };
+    }
+    return realMatchMedia(query);
+  };
+})();
+
 (function(){
   const PASS_KEY = 'saleshub-entered';
   const DENY_KEY = 'saleshub-restricted';
@@ -66,7 +95,7 @@
             </div>
             <p class="entry-eyebrow"><span class="dot"></span>Quick question</p>
             <h1 class="entry-title" id="entryTitle">Are you <span class="serif">eighteen</span> or older?</h1>
-            <p class="entry-copy">SalesHub Nepal is a wholesale beverage distributor. Please confirm you're of legal drinking age to enter the website.</p>
+            <br></br>
             <div class="entry-actions">
               <button class="entry-btn entry-yes" type="button">
                 <span>Yes, I'm 18+ — Enter</span>

@@ -73,7 +73,7 @@ html[data-gating="1"] body { visibility: hidden }
 [data-theme="dark"] .entry-grid{
   background-image: radial-gradient(circle at 1px 1px, rgba(244,239,227,.06) 1px, transparent 0);
 }
-@media (prefers-reduced-motion: reduce){
+@media (prefers-reduced-motion: reduce) and (scripting: none){
   .entry-orb{ animation: none }
 }
 
@@ -243,7 +243,7 @@ html[data-gating="1"] body { visibility: hidden }
   0%{ box-shadow: 0 0 0 0 rgba(255,92,58,.5) }
   100%{ box-shadow: 0 0 0 10px rgba(255,92,58,0) }
 }
-@media (prefers-reduced-motion: reduce){
+@media (prefers-reduced-motion: reduce) and (scripting: none){
   .entry-eyebrow .dot{ animation: none }
 }
 
@@ -319,7 +319,6 @@ html[data-gating="1"] body { visibility: hidden }
 }
 .entry-btn.ghost:hover{
   background: rgba(11,11,13,.04);
-  border-color: rgba(11,11,13,.32);
   transform: translateY(-1px);
   box-shadow: none;
 }
@@ -383,7 +382,7 @@ html[data-gating="1"] body { visibility: hidden }
 }
 
 /* ─── Age-gate reduced motion ─── */
-@media (prefers-reduced-motion: reduce){
+@media (prefers-reduced-motion: reduce) and (scripting: none){
   .entry-card{ transition: opacity .3s ease }
   .entry-overlay.show .entry-btn{ animation: none }
 }
@@ -608,7 +607,7 @@ html[data-gating="1"] body { visibility: hidden }
 /* reduced motion: calm, still completes + dismisses per the lifecycle contract.
    JS renders the glass at ~96% with a flat meniscus, ~6 still beads, crown at
    rest, counter at 99, then adds .arrived + .leave and dismisses. */
-@media (prefers-reduced-motion: reduce){
+@media (prefers-reduced-motion: reduce) and (scripting: none){
   .entry-pre .entry-orb{ animation: none }
   .entry-pre .pre-brandmark,
   .entry-pre.show .pre-brandmark{

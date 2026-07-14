@@ -232,7 +232,7 @@
   }
   body.drawer-open{ overflow:hidden }
   @media (min-width:821px){ .mobile-drawer{ display:none } }
-  @media (prefers-reduced-motion: reduce){
+  @media (prefers-reduced-motion: reduce) and (scripting: none){
     .mobile-drawer .drawer-panel, .mobile-drawer .drawer-backdrop, .drawer-links a{ transition-duration:.01ms !important }
   }
 
@@ -265,7 +265,7 @@
     font-family:'Instrument Serif', serif; font-style:italic; font-size:24px; z-index:2; color:var(--ink);
   }
   .stamp svg{ position:absolute; inset:0; animation:spin 30s linear infinite }
-  @media (prefers-reduced-motion: reduce){ .stamp svg, .chip .bullet{ animation:none } }
+  @media (prefers-reduced-motion: reduce) and (scripting: none){ .stamp svg, .chip .bullet{ animation:none } }
   @keyframes spin{ to{ transform:rotate(360deg) } }
   .stamp text{ font-family:'JetBrains Mono', monospace; font-size:9.5px; letter-spacing:.32em; fill:var(--ink); text-transform:uppercase }
 
@@ -510,7 +510,7 @@
   @keyframes pour{ to{ height: 84% } }
   @keyframes pour-line{ to{ bottom: 84% } }
   @keyframes foam-in{ to{ opacity:1; bottom: 84% } }
-  @media (prefers-reduced-motion: reduce){
+  @media (prefers-reduced-motion: reduce) and (scripting: none){
     .glass .liquid, .glass .meniscus, .glass .foam{ animation:none }
     .glass .liquid{ height: 84% } .glass .meniscus{ bottom: 84% } .glass .foam{ opacity:1; bottom: 84% }
   }
@@ -580,23 +580,11 @@
   }
   .hero h1{ perspective: 600px }
 
-  /* Hero lede — scramble handles its own reveal */
-  .hero .lede{
-    opacity: 0; transform: translateY(24px);
-    animation: fadeSlideUp .7s cubic-bezier(.22,1,.36,1) 1.1s forwards;
-  }
-  .hero .actions{
-    opacity: 0; transform: translateY(20px);
-    animation: fadeSlideUp .7s cubic-bezier(.22,1,.36,1) 1.25s forwards;
-  }
-  .hero .meta-center{
-    opacity: 0; transform: translateY(16px);
-    animation: fadeSlideUp .6s cubic-bezier(.22,1,.36,1) .15s forwards;
-  }
-  .hero .side-chips{
-    opacity: 0;
-    animation: fadeIn .8s cubic-bezier(.22,1,.36,1) .6s forwards;
-  }
+  /* Hero text — static, no entrance animation (kept as plain text per request) */
+  .hero .lede{ opacity: 1; transform: none; animation: none; }
+  .hero .actions{ opacity: 1; transform: none; animation: none; }
+  .hero .meta-center{ opacity: 1; transform: none; animation: none; }
+  .hero .side-chips{ opacity: 1; animation: none; }
   .hero-stamp{
     opacity: 0; transform: scale(.6) rotate(-20deg);
     animation: stampEntrance .8s cubic-bezier(.22,1,.36,1) 1.4s forwards;
@@ -647,7 +635,7 @@
   .ed-meta .label .dot{ width: 8px; height: 8px; border-radius: 999px; background: var(--coral) }
   .ed-meta .star{ color: var(--coral); animation: edStar 4s linear infinite; display:inline-block }
   @keyframes edStar{ to{ transform: rotate(360deg) } }
-  @media (prefers-reduced-motion: reduce){ .ed-meta .star{ animation:none } }
+  @media (prefers-reduced-motion: reduce) and (scripting: none){ .ed-meta .star{ animation:none } }
 
   .ed-grid{
     display: grid;
@@ -726,7 +714,7 @@
   .ed-bento{
     display: grid;
     grid-template-columns: 1.5fr 1fr;
-    grid-template-rows: 280px 280px 230px;
+    grid-template-rows: repeat(3, 250px);
     gap: 14px;
   }
   .bento-card{
@@ -738,10 +726,12 @@
     box-shadow: 0 8px 24px rgba(11,11,13,.06);
   }
   .bento-card:hover{ transform: translateY(-6px); box-shadow: 0 28px 50px rgba(11,11,13,.18) }
-  .bento-card.big{ grid-column: 1; grid-row: 1 / 3 }
+  .bento-card.big{ grid-column: 1; grid-row: 1 / 4 }
   .bento-card.sm-a{ grid-column: 2; grid-row: 1 }
   .bento-card.sm-b{ grid-column: 2; grid-row: 2 }
-  .bento-card.wide{ grid-column: 1 / 3; grid-row: 3 }
+  /* Big Master Red: now a compact card in the right column bottom (same shape as
+     Gorkha Craft above it) instead of a full-width rectangle. */
+  .bento-card.wide{ grid-column: 2; grid-row: 3 }
 
   .bc-bg{
     position: absolute; inset: 0; z-index: 0;
@@ -792,11 +782,10 @@
   }
   .bc-body .origin{ font-size: 13px; color: rgba(255,255,255,.78); margin-top: 8px; line-height: 1.4 }
   .bento-card.big .bc-body h3{ font-size: clamp(48px, 4.8vw, 80px) }
-  .bento-card.wide .bc-body h3{ font-size: clamp(36px, 4vw, 62px) }
   /* smaller boxes: keep the name compact so it doesn't crowd the category/blurb */
   .bento-card.sm-a .bc-body h3,
-  .bento-card.sm-b .bc-body h3{ font-size: clamp(26px, 2.2vw, 33px) }
-  .bento-card.wide .bc-body{ right: clamp(140px, 22%, 320px) }
+  .bento-card.sm-b .bc-body h3,
+  .bento-card.wide .bc-body h3{ font-size: clamp(26px, 2.2vw, 33px) }
 
   .bc-sticker{
     position: absolute; z-index: 4;
@@ -816,8 +805,8 @@
   .bento-card.big .bc-sticker{ top: 18px; right: 18px }
   .bento-card.big .bc-arr{ top: auto; bottom: 22px; right: 22px }
   .bento-card.sm-a .bc-sticker,
-  .bento-card.sm-b .bc-sticker{ bottom: 16px; right: 16px; width: 60px; height: 60px; font-size: 14px }
-  .bento-card.wide .bc-sticker{ right: clamp(20px, 4vw, 40px); top: 50%; margin-top: -42px; width: 96px; height: 96px; font-size: 24px }
+  .bento-card.sm-b .bc-sticker,
+  .bento-card.wide .bc-sticker{ bottom: 16px; right: 16px; width: 60px; height: 60px; font-size: 14px }
 
   @media (max-width: 1080px){
     .ed-bento{ grid-template-columns: 1fr 1fr; grid-template-rows: 340px 240px 240px }
@@ -831,8 +820,6 @@
   @media (max-width: 600px){
     .ed-bento{ grid-template-columns: 1fr; grid-template-rows: 320px 260px 260px 280px }
     .bento-card.big, .bento-card.sm-a, .bento-card.sm-b, .bento-card.wide{ grid-column: 1; grid-row: auto }
-    .bento-card.wide .bc-body{ right: 22px; bottom: 80px }
-    .bento-card.wide .bc-sticker{ right: 20px; bottom: 20px; top: auto; margin-top: 0 }
   }
 
   .runway-strip{
@@ -847,26 +834,29 @@
     letter-spacing: .22em; text-transform: uppercase; color: var(--mute);
   }
   .runway-head .mono .star{ color: var(--coral); margin: 0 6px; display: inline-block; animation: edStar 6s linear infinite }
-  .runway-controls{ display: flex; gap: 8px }
-  .runway-controls .nav-arrow{
-    width: 44px; height: 44px; border-radius: 999px;
-    background: var(--paper); border: 1px solid var(--line); color: var(--ink);
-    display: grid; place-items: center; font-size: 18px; cursor: pointer;
-    transition: .25s background, .25s color, .25s transform;
+  /* Auto-sliding marquee viewport — clips the moving track and softens both edges */
+  .runway-viewport{
+    overflow: hidden;
+    padding: 6px 0 24px;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
   }
-  .runway-controls .nav-arrow:hover{ background: var(--ink); color: #fff; border-color: transparent; transform: scale(1.05) }
   .runway-track{
-    display: flex; gap: 14px;
-    overflow-x: auto; overflow-y: visible;
-    padding: 6px 4px 24px;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none; -ms-overflow-style: none;
-    cursor: grab; scroll-behavior: smooth;
+    display: flex;
+    width: max-content;
+    /* One full card set = 50% of the track (the set is duplicated). Moving from
+       -50% to 0 slides the cards left → right, and because the second set is an
+       exact copy, the loop point is seamless. */
+    animation: runwayMarquee 55s linear infinite;
+    will-change: transform;
   }
-  .runway-track::-webkit-scrollbar{ display: none }
-  .runway-track:active{ cursor: grabbing }
+  .runway-track:hover{ animation-play-state: paused }
+  @keyframes runwayMarquee{
+    from{ transform: translateX(-50%) }
+    to{   transform: translateX(0) }
+  }
   .runway-card{
-    flex: 0 0 220px; scroll-snap-align: start;
+    flex: 0 0 220px; margin-right: 14px;
     position: relative; overflow: hidden;
     border-radius: 20px; height: 280px;
     background: #1A1A1E; isolation: isolate;
@@ -1076,7 +1066,7 @@
     0%{ width:30px; height:30px; opacity:.7 }
     100%{ width: 120px; height: 120px; opacity: 0 }
   }
-  @media (prefers-reduced-motion: reduce){ .map .pulse{ animation:none; display:none } }
+  @media (prefers-reduced-motion: reduce) and (scripting: none){ .map .pulse{ animation:none; display:none } }
 
   .map .label-pill{
     position:absolute;
@@ -1420,7 +1410,7 @@
   }
 
   /* Reduced motion: kill all custom animations */
-  @media (prefers-reduced-motion: reduce){
+  @media (prefers-reduced-motion: reduce) and (scripting: none){
     .hero-eyebrow, .hero-h1 .li, .hero-lede, .hero-actions, .hero .hero-stamp,
     .hero-bg-video, .hm-track, .ns-title, .hero-eyebrow .dot,
     .hero h1 .word, .hero .lede, .hero .actions, .hero .meta-center, .hero .side-chips, .hero-stamp, .glass,
@@ -1788,7 +1778,6 @@
           <div class="bc-sticker">bold<span class="small">spirit</span></div>
           <button class="bc-arr" aria-label="open Gurkhas &amp; Guns">↗</button>
           <div class="bc-body">
-            <div class="cat"><span class="dot"></span>Premium Spirit · Nepal</div>
             <h3>Gurkhas &amp; Guns.</h3>
             <div class="origin">A bold, refined Nepali spirit — smooth and balanced, with a clean finish</div>
           </div>
@@ -1801,23 +1790,21 @@
           <span class="bc-tag">ENERGY</span>
           <button class="bc-arr" aria-label="open Red Bull">↗</button>
           <div class="bc-body">
-            <div class="cat"><span class="dot"></span>Nepal · 330ml</div>
             <h3>Red Bull.</h3>
             <div class="origin">Made in Nepal by Saras</div>
           </div>
         </article>
 
-        <!-- Small B — Gorkha Craft (Gorkha Brewery) -->
-        <article class="bento-card sm-b s-reveal" style="--bg:url('assets/Product%20Images/Gorkha%20Craft.jpeg')">
+        <!-- Small B — Carlsberg (Carlsberg) -->
+        <article class="bento-card sm-b s-reveal" style="--bg:url('assets/Product%20Images/carlsberg%20500.jpeg')">
           <div class="bc-bg"></div>
           <div class="bc-shade"></div>
-          <span class="bc-tag">CRAFT BEER</span>
-          <div class="bc-sticker indigo">new<span class="small">craft</span></div>
-          <button class="bc-arr" aria-label="open Gorkha Craft">↗</button>
+          <span class="bc-tag">BEER</span>
+          <div class="bc-sticker indigo">cold<span class="small">lager</span></div>
+          <button class="bc-arr" aria-label="open Carlsberg">↗</button>
           <div class="bc-body">
-            <div class="cat"><span class="dot"></span>Nepal · Craft</div>
-            <h3>Gorkha Craft.</h3>
-            <div class="origin">Modern craft beer — distinctive, bold, premium finish</div>
+            <h3>Carlsberg.</h3>
+            <div class="origin">Crisp Danish pilsner — clean, refreshing, world-famous</div>
           </div>
         </article>
 
@@ -1829,7 +1816,6 @@
           <div class="bc-sticker bone">red<span class="small">wine</span></div>
           <button class="bc-arr" aria-label="open Big Master Red">↗</button>
           <div class="bc-body">
-            <div class="cat"><span class="dot"></span>Nepal · Red Wine · bottle &amp; box</div>
             <h3>Big Master Red.</h3>
             <div class="origin">Smooth, balanced, everyday red — comfortable with any table</div>
           </div>
@@ -1841,87 +1827,118 @@
     <div class="runway-strip s-reveal">
       <div class="runway-head">
         <span class="mono">FROM THE ROSTER</span>
-        <div class="runway-controls">
-          <button class="nav-arrow" data-dir="prev" aria-label="Scroll left">←</button>
-          <button class="nav-arrow" data-dir="next" aria-label="Scroll right">→</button>
-        </div>
       </div>
-      <div class="runway-track" id="runwayTrack">
-        <article class="runway-card" style="--bg:url('assets/Product%20Images/tuborg%20500.jpeg')">
-          <div class="rc-bg"></div><div class="rc-shade"></div>
-          <span class="rc-num">№ 01 · BEER</span>
-          <div class="rc-meta"><div class="cat">Lager · Nepal</div><div class="nm">Tuborg</div><div class="abv">500 ml</div></div>
-        </article>
-        <article class="runway-card" style="--bg:url('assets/Product%20Images/Gorkha%20Strong%20650.jpeg')">
-          <div class="rc-bg"></div><div class="rc-shade"></div>
-          <span class="rc-num">№ 02 · BEER</span>
-          <div class="rc-meta"><div class="cat">Strong Beer · Nepal</div><div class="nm">Gorkha Strong</div><div class="abv">650 ml</div></div>
-        </article>
-        <article class="runway-card" style="--bg:url('assets/Product%20Images/Gorkha%20Pilsner.jpeg')">
-          <div class="rc-bg"></div><div class="rc-shade"></div>
-          <span class="rc-num">№ 03 · PILSNER</span>
-          <div class="rc-meta"><div class="cat">Pilsner · Nepal</div><div class="nm">Gorkha Pilsner</div><div class="abv">Bottle</div></div>
-        </article>
-        <article class="runway-card" style="--bg:url('assets/Product%20Images/Gorkha%20Craft.jpeg')">
-          <div class="rc-bg"></div><div class="rc-shade"></div>
-          <span class="rc-num">№ 04 · CRAFT</span>
-          <div class="rc-meta"><div class="cat">Craft Beer · Nepal</div><div class="nm">Gorkha Craft</div><div class="abv">Bottle</div></div>
-        </article>
-        <article class="runway-card" style="--bg:url('assets/Product%20Images/Gorkhas%20and%20GUNS.jpeg')">
-          <div class="rc-bg"></div><div class="rc-shade"></div>
-          <span class="rc-num">№ 05 · SPIRIT</span>
-          <div class="rc-meta"><div class="cat">Premium Spirit · Nepal</div><div class="nm">Gurkhas &amp; Guns</div><div class="abv">Bottle</div></div>
-        </article>
-        <article class="runway-card" style="--bg:url('assets/Product%20Images/Bandipur.jpeg')">
-          <div class="rc-bg"></div><div class="rc-shade"></div>
-          <span class="rc-num">№ 06 · WHISKY</span>
-          <div class="rc-meta"><div class="cat">Whisky · Nepal</div><div class="nm">Bandipur</div><div class="abv">Bottle</div></div>
-        </article>
-        <article class="runway-card" style="--bg:url('assets/Product%20Images/Yeti.jpeg')">
-          <div class="rc-bg"></div><div class="rc-shade"></div>
-          <span class="rc-num">№ 07 · VODKA</span>
-          <div class="rc-meta"><div class="cat">Vodka · Nepal</div><div class="nm">Yeti</div><div class="abv">Bottle</div></div>
-        </article>
-        <article class="runway-card" style="--bg:url('assets/Product%20Images/highlander.jpeg')">
-          <div class="rc-bg"></div><div class="rc-shade"></div>
-          <span class="rc-num">№ 08 · VODKA</span>
-          <div class="rc-meta"><div class="cat">Vodka · Nepal</div><div class="nm">Highlander</div><div class="abv">Bottle</div></div>
-        </article>
-        <article class="runway-card" style="--bg:url('assets/Product%20Images/Challanger.jpeg')">
-          <div class="rc-bg"></div><div class="rc-shade"></div>
-          <span class="rc-num">№ 09 · WHISKY</span>
-          <div class="rc-meta"><div class="cat">Whisky · Nepal</div><div class="nm">Challenger</div><div class="abv">Bottle</div></div>
-        </article>
-        <article class="runway-card" style="--bg:url('assets/Product%20Images/Junge_Kaji.jpeg')">
-          <div class="rc-bg"></div><div class="rc-shade"></div>
-          <span class="rc-num">№ 10 · RUM</span>
-          <div class="rc-meta"><div class="cat">Rum · Nepal</div><div class="nm">Junge Kaji</div><div class="abv">Bottle</div></div>
-        </article>
-        <article class="runway-card" style="--bg:url('assets/Product%20Images/Red%20Wine.jpeg')">
-          <div class="rc-bg"></div><div class="rc-shade"></div>
-          <span class="rc-num">№ 11 · WINE</span>
-          <div class="rc-meta"><div class="cat">Red Wine · Nepal</div><div class="nm">Big Master Red</div><div class="abv">Bottle</div></div>
-        </article>
-        <article class="runway-card" style="--bg:url('assets/Product%20Images/regular%20white.jpeg')">
-          <div class="rc-bg"></div><div class="rc-shade"></div>
-          <span class="rc-num">№ 12 · WINE</span>
-          <div class="rc-meta"><div class="cat">White Wine · Nepal</div><div class="nm">Big Master White</div><div class="abv">Bottle</div></div>
-        </article>
-        <article class="runway-card" style="--bg:url('assets/Product%20Images/black%20chenin.jpeg')">
-          <div class="rc-bg"></div><div class="rc-shade"></div>
-          <span class="rc-num">№ 13 · WINE</span>
-          <div class="rc-meta"><div class="cat">White Wine · Nepal</div><div class="nm">Black Chenin</div><div class="abv">Bottle</div></div>
-        </article>
-        <article class="runway-card" style="--bg:url('assets/Product%20Images/redbull%20can.jpeg')">
-          <div class="rc-bg"></div><div class="rc-shade"></div>
-          <span class="rc-num">№ 14 · ENERGY</span>
-          <div class="rc-meta"><div class="cat">Energy · Nepal</div><div class="nm">Red Bull Gold</div><div class="abv">250 ml</div></div>
-        </article>
-        <article class="runway-card" style="--bg:url('assets/Product%20Images/redbull%20carbonated.jpeg')">
-          <div class="rc-bg"></div><div class="rc-shade"></div>
-          <span class="rc-num">№ 15 · ENERGY</span>
-          <div class="rc-meta"><div class="cat">Energy · Nepal</div><div class="nm">Red Bull Carbonated</div><div class="abv">330 ml</div></div>
-        </article>
+      <!-- Auto-sliding marquee. Cards are listed once, then duplicated
+           (aria-hidden) so the left→right loop is perfectly seamless. -->
+      <div class="runway-viewport">
+        <div class="runway-track" id="runwayTrack">
+          <article class="runway-card" style="--bg:url('assets/Product%20Images/carlsberg%20500.jpeg')">
+            <div class="rc-bg"></div><div class="rc-shade"></div>
+            <div class="rc-meta"><div class="cat">Lager · Denmark</div><div class="nm">Carlsberg</div><div class="abv">500 ml</div></div>
+          </article>
+          <article class="runway-card" style="--bg:url('assets/Product%20Images/Gorkhas%20and%20GUNS.jpeg')">
+            <div class="rc-bg"></div><div class="rc-shade"></div>
+            <div class="rc-meta"><div class="cat">Premium Spirit · Nepal</div><div class="nm">Gurkhas &amp; Guns</div><div class="abv">Bottle</div></div>
+          </article>
+          <article class="runway-card" style="--bg:url('assets/Product%20Images/Bandipur.jpeg')">
+            <div class="rc-bg"></div><div class="rc-shade"></div>
+            <div class="rc-meta"><div class="cat">Whisky · Nepal</div><div class="nm">Bandipur</div><div class="abv">Bottle</div></div>
+          </article>
+          <article class="runway-card" style="--bg:url('assets/Product%20Images/Challanger.jpeg')">
+            <div class="rc-bg"></div><div class="rc-shade"></div>
+            <div class="rc-meta"><div class="cat">Whisky · Nepal</div><div class="nm">Challenger</div><div class="abv">Bottle</div></div>
+          </article>
+          <article class="runway-card" style="--bg:url('assets/Product%20Images/Yeti.jpeg')">
+            <div class="rc-bg"></div><div class="rc-shade"></div>
+            <div class="rc-meta"><div class="cat">Vodka · Nepal</div><div class="nm">Yeti</div><div class="abv">Bottle</div></div>
+          </article>
+          <article class="runway-card" style="--bg:url('assets/Product%20Images/tuborg%20500.jpeg')">
+            <div class="rc-bg"></div><div class="rc-shade"></div>
+            <div class="rc-meta"><div class="cat">Lager · Nepal</div><div class="nm">Tuborg</div><div class="abv">500 ml</div></div>
+          </article>
+          <article class="runway-card" style="--bg:url('assets/Product%20Images/highlander.jpeg')">
+            <div class="rc-bg"></div><div class="rc-shade"></div>
+            <div class="rc-meta"><div class="cat">Vodka · Nepal</div><div class="nm">Highlander</div><div class="abv">Bottle</div></div>
+          </article>
+          <article class="runway-card" style="--bg:url('assets/Product%20Images/Junge_Kaji.jpeg')">
+            <div class="rc-bg"></div><div class="rc-shade"></div>
+            <div class="rc-meta"><div class="cat">Rum · Nepal</div><div class="nm">Junge Kaji</div><div class="abv">Bottle</div></div>
+          </article>
+          <article class="runway-card" style="--bg:url('assets/Product%20Images/Red%20Wine.jpeg')">
+            <div class="rc-bg"></div><div class="rc-shade"></div>
+            <div class="rc-meta"><div class="cat">Red Wine · Nepal</div><div class="nm">Big Master Red</div><div class="abv">Bottle</div></div>
+          </article>
+          <article class="runway-card" style="--bg:url('assets/Product%20Images/regular%20white.jpeg')">
+            <div class="rc-bg"></div><div class="rc-shade"></div>
+            <div class="rc-meta"><div class="cat">White Wine · Nepal</div><div class="nm">Big Master White</div><div class="abv">Bottle</div></div>
+          </article>
+          <article class="runway-card" style="--bg:url('assets/Product%20Images/black%20chenin.jpeg')">
+            <div class="rc-bg"></div><div class="rc-shade"></div>
+            <div class="rc-meta"><div class="cat">White Wine · Nepal</div><div class="nm">Black Chenin</div><div class="abv">Bottle</div></div>
+          </article>
+          <article class="runway-card" style="--bg:url('assets/Product%20Images/redbull%20can.jpeg')">
+            <div class="rc-bg"></div><div class="rc-shade"></div>
+            <div class="rc-meta"><div class="cat">Energy · Nepal</div><div class="nm">Red Bull Gold</div><div class="abv">250 ml</div></div>
+          </article>
+          <article class="runway-card" style="--bg:url('assets/Product%20Images/redbull%20carbonated.jpeg')">
+            <div class="rc-bg"></div><div class="rc-shade"></div>
+            <div class="rc-meta"><div class="cat">Energy · Nepal</div><div class="nm">Red Bull Carbonated</div><div class="abv">330 ml</div></div>
+          </article>
+
+          <!-- duplicate set for a seamless infinite loop -->
+          <article class="runway-card" aria-hidden="true" style="--bg:url('assets/Product%20Images/carlsberg%20500.jpeg')">
+            <div class="rc-bg"></div><div class="rc-shade"></div>
+            <div class="rc-meta"><div class="cat">Lager · Denmark</div><div class="nm">Carlsberg</div><div class="abv">500 ml</div></div>
+          </article>
+          <article class="runway-card" aria-hidden="true" style="--bg:url('assets/Product%20Images/Gorkhas%20and%20GUNS.jpeg')">
+            <div class="rc-bg"></div><div class="rc-shade"></div>
+            <div class="rc-meta"><div class="cat">Premium Spirit · Nepal</div><div class="nm">Gurkhas &amp; Guns</div><div class="abv">Bottle</div></div>
+          </article>
+          <article class="runway-card" aria-hidden="true" style="--bg:url('assets/Product%20Images/Bandipur.jpeg')">
+            <div class="rc-bg"></div><div class="rc-shade"></div>
+            <div class="rc-meta"><div class="cat">Whisky · Nepal</div><div class="nm">Bandipur</div><div class="abv">Bottle</div></div>
+          </article>
+          <article class="runway-card" aria-hidden="true" style="--bg:url('assets/Product%20Images/Challanger.jpeg')">
+            <div class="rc-bg"></div><div class="rc-shade"></div>
+            <div class="rc-meta"><div class="cat">Whisky · Nepal</div><div class="nm">Challenger</div><div class="abv">Bottle</div></div>
+          </article>
+          <article class="runway-card" aria-hidden="true" style="--bg:url('assets/Product%20Images/Yeti.jpeg')">
+            <div class="rc-bg"></div><div class="rc-shade"></div>
+            <div class="rc-meta"><div class="cat">Vodka · Nepal</div><div class="nm">Yeti</div><div class="abv">Bottle</div></div>
+          </article>
+          <article class="runway-card" aria-hidden="true" style="--bg:url('assets/Product%20Images/tuborg%20500.jpeg')">
+            <div class="rc-bg"></div><div class="rc-shade"></div>
+            <div class="rc-meta"><div class="cat">Lager · Nepal</div><div class="nm">Tuborg</div><div class="abv">500 ml</div></div>
+          </article>
+          <article class="runway-card" aria-hidden="true" style="--bg:url('assets/Product%20Images/highlander.jpeg')">
+            <div class="rc-bg"></div><div class="rc-shade"></div>
+            <div class="rc-meta"><div class="cat">Vodka · Nepal</div><div class="nm">Highlander</div><div class="abv">Bottle</div></div>
+          </article>
+          <article class="runway-card" aria-hidden="true" style="--bg:url('assets/Product%20Images/Junge_Kaji.jpeg')">
+            <div class="rc-bg"></div><div class="rc-shade"></div>
+            <div class="rc-meta"><div class="cat">Rum · Nepal</div><div class="nm">Junge Kaji</div><div class="abv">Bottle</div></div>
+          </article>
+          <article class="runway-card" aria-hidden="true" style="--bg:url('assets/Product%20Images/Red%20Wine.jpeg')">
+            <div class="rc-bg"></div><div class="rc-shade"></div>
+            <div class="rc-meta"><div class="cat">Red Wine · Nepal</div><div class="nm">Big Master Red</div><div class="abv">Bottle</div></div>
+          </article>
+          <article class="runway-card" aria-hidden="true" style="--bg:url('assets/Product%20Images/regular%20white.jpeg')">
+            <div class="rc-bg"></div><div class="rc-shade"></div>
+            <div class="rc-meta"><div class="cat">White Wine · Nepal</div><div class="nm">Big Master White</div><div class="abv">Bottle</div></div>
+          </article>
+          <article class="runway-card" aria-hidden="true" style="--bg:url('assets/Product%20Images/black%20chenin.jpeg')">
+            <div class="rc-bg"></div><div class="rc-shade"></div>
+            <div class="rc-meta"><div class="cat">White Wine · Nepal</div><div class="nm">Black Chenin</div><div class="abv">Bottle</div></div>
+          </article>
+          <article class="runway-card" aria-hidden="true" style="--bg:url('assets/Product%20Images/redbull%20can.jpeg')">
+            <div class="rc-bg"></div><div class="rc-shade"></div>
+            <div class="rc-meta"><div class="cat">Energy · Nepal</div><div class="nm">Red Bull Gold</div><div class="abv">250 ml</div></div>
+          </article>
+          <article class="runway-card" aria-hidden="true" style="--bg:url('assets/Product%20Images/redbull%20carbonated.jpeg')">
+            <div class="rc-bg"></div><div class="rc-shade"></div>
+            <div class="rc-meta"><div class="cat">Energy · Nepal</div><div class="nm">Red Bull Carbonated</div><div class="abv">330 ml</div></div>
+          </article>
+        </div>
       </div>
     </div>
 
@@ -2176,21 +2193,8 @@
       mapObs.observe(map);
     }
 
-    // Runway cards — stagger with IntersectionObserver
-    const runwayCards = document.querySelectorAll('.runway-card');
-    runwayCards.forEach((card, i) => {
-      card.classList.add('s-reveal');
-      card.style.transitionDelay = (i * .06) + 's';
-    });
-    const runwayObs = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting){
-          e.target.classList.add('visible');
-          runwayObs.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    runwayCards.forEach(c => runwayObs.observe(c));
+    // Runway cards now auto-slide as a marquee (see .runway-track CSS); no
+    // per-card scroll reveal — the whole strip still fades in via .runway-strip.
   })();
 
   // ─── 3D tilt on bento cards ───────────────────────────────
@@ -2306,35 +2310,7 @@
     showToast(' the film loads here in production.');
   });
 
-  // ─── runway strip (home Portfolio): drag-to-scroll + arrow controls ──
-  (function(){
-    const track = document.getElementById('runwayTrack');
-    if (!track) return;
-    const step = 234; // card width + gap
-    document.querySelectorAll('.runway-controls .nav-arrow').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const dir = btn.dataset.dir === 'next' ? 1 : -1;
-        track.scrollBy({ left: dir * step, behavior: 'smooth' });
-      });
-    });
-    let down = false, sx = 0, sl = 0, moved = false;
-    track.addEventListener('pointerdown', (e) => {
-      down = true; moved = false;
-      sx = e.clientX; sl = track.scrollLeft;
-      track.setPointerCapture(e.pointerId);
-    });
-    track.addEventListener('pointermove', (e) => {
-      if (!down) return;
-      const dx = e.clientX - sx;
-      if (Math.abs(dx) > 4) moved = true;
-      track.scrollLeft = sl - dx;
-    });
-    const end = () => { down = false };
-    track.addEventListener('pointerup', end);
-    track.addEventListener('pointercancel', end);
-    // suppress click-after-drag
-    track.addEventListener('click', (e) => { if (moved){ e.preventDefault(); e.stopPropagation(); }}, true);
-  })();
+  // ─── runway strip (home Portfolio): now a CSS auto-marquee, no JS needed ──
 
   /* ═══════ CURRENT "The Reel" HERO JS — commented out per request (kept, not removed) ═══════
   // ─── HERO "The Reel": crossfade + NOW SHOWING + entrance wiring ───────────
@@ -2379,84 +2355,8 @@
     });
   })();
 
-  // ─── text-scramble decode animation ───────────────────────
-  (function(){
-    const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const pool = '!@#$%&*+=<>?/{}[]ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    const heroH1 = document.querySelector('.hero h1');
-    if (!heroH1) return;
-
-    const words = heroH1.querySelectorAll('.word');
-    const lede = document.querySelector('.hero .lede');
-
-    // The scramble→decode intro runs ONLY when the entry gate hands off — i.e.
-    // a fresh load / refresh where the user clicks "Yes, I'm 18+" (the gate sets
-    // data-gating on <html>). On internal navigation the gate is skipped and
-    // data-gating is never set, so we leave the headline in its final state.
-    const gatePass = document.documentElement.hasAttribute('data-gating');
-
-    // Store targets; only apply the initial scrambled state when we'll animate.
-    const wordData = [];
-    words.forEach((el, i) => {
-      const target = el.textContent;
-      wordData.push({ el, target, total: 22 + Math.floor(Math.random() * 12) });
-      if (!reducedMotion && gatePass) el.textContent = target.replace(/[a-zA-Z]/g, () => pool[Math.floor(Math.random() * pool.length)]);
-    });
-
-    if (reducedMotion || !gatePass) return; // final text already shown, nothing to animate
-
-    function scrambleWord(data, onDone){
-      let frame = 0;
-      const iv = setInterval(() => {
-        const reveal = Math.floor((frame / data.total) * data.target.length);
-        let out = '';
-        for (let i = 0; i < data.target.length; i++){
-          const ch = data.target[i];
-          if (i < reveal){
-            out += ch;
-          } else if (/\s/.test(ch) || /[.,;:!?·—\-–]/.test(ch)){
-            out += ch;
-          } else {
-            out += pool[Math.floor(Math.random() * pool.length)];
-          }
-        }
-        data.el.textContent = out;
-        frame++;
-        if (frame > data.total){
-          clearInterval(iv);
-          data.el.textContent = data.target;
-          if (onDone) onDone();
-        }
-      }, 30);
-    }
-
-    // Fire the scramble via IntersectionObserver
-    function startObserving(){
-      let fired = false;
-      const scrambleObs = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-          if (e.isIntersecting && !fired){
-            fired = true;
-            scrambleObs.unobserve(heroH1);
-            wordData.forEach((d, i) => {
-              setTimeout(() => scrambleWord(d), i * 60);
-            });
-          }
-        });
-      }, { threshold: 0.4 });
-      scrambleObs.observe(heroH1);
-    }
-
-    // Reached only on a gate hand-off (gatePass). Wait for the preloader to
-    // finish — data-gating removed from <html> — then run the decode once.
-    const mo = new MutationObserver(() => {
-      if (!document.documentElement.hasAttribute('data-gating')){
-        mo.disconnect();
-        startObserving();
-      }
-    });
-    mo.observe(document.documentElement, { attributes: true, attributeFilter: ['data-gating'] });
-  })();
+  // ─── hero headline — static text (scramble animation removed per request) ───
+  // The headline now renders as plain text; no decode/scramble effect.
 
   /* ═══════ CURRENT "The Reel" HERO JS (cont.) — commented out per request (kept, not removed) ═══════
     // Video crossfade + NOW SHOWING — one counter drives both so they never desync.

@@ -455,7 +455,7 @@ html, body, .nav, footer, .form-card, .map-card, .stat-card, .v-card,
   opacity: 0;
   transform: rotate(120deg) scale(.4);
 }
-@media (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: reduce) and (scripting: none) {
   .theme-toggle, .theme-toggle .ic { transition: none }
 }
 
@@ -631,7 +631,7 @@ footer .brand-logo{ width:54px; height:54px }
 }
 body.drawer-open{ overflow:hidden }
 @media (min-width:821px){ .mobile-drawer{ display:none } }
-@media (prefers-reduced-motion: reduce){
+@media (prefers-reduced-motion: reduce) and (scripting: none){
   .mobile-drawer .drawer-panel, .mobile-drawer .drawer-backdrop, .drawer-links a{ transition-duration:.01ms !important }
 }
 
