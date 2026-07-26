@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Contact Us — SalesHub Nepal, Balaju Kathmandu</title>
+<title>Contact Us — SalesHubNepal, Balaju Kathmandu</title>
 
 <!-- Theme: apply saved theme ASAP to prevent FOUC -->
 <script>
@@ -28,23 +28,23 @@
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="SalesHub Nepal" />
+    <meta property="og:site_name" content="SalesHubNepal" />
     <meta property="og:locale" content="en_NP" />
-    <meta property="og:title" content="Contact SalesHub Nepal — Balaju, Kathmandu" />
-    <meta property="og:description" content="Get in touch with SalesHub Nepal in Balaju, Kathmandu. Wholesale orders, brand partnerships and logistics — we reply to every message within one business day." />
+    <meta property="og:title" content="Contact SalesHubNepal — Balaju, Kathmandu" />
+    <meta property="og:description" content="Get in touch with SalesHubNepal in Balaju, Kathmandu. Wholesale orders, brand partnerships and logistics — we reply to every message within one business day." />
     <meta property="og:url" content="https://saleshubnepal.com/contact.html" />
     <meta property="og:image" content="https://saleshubnepal.com/assets/og-image.jpg" />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="SalesHub Nepal — beverage distribution, Kathmandu" />
+    <meta property="og:image:alt" content="SalesHubNepal — beverage distribution, Kathmandu" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Contact SalesHub Nepal — Balaju, Kathmandu" />
-    <meta name="twitter:description" content="Get in touch with SalesHub Nepal in Balaju, Kathmandu. Wholesale orders, brand partnerships and logistics — we reply to every message within one business day." />
+    <meta name="twitter:title" content="Contact SalesHubNepal — Balaju, Kathmandu" />
+    <meta name="twitter:description" content="Get in touch with SalesHubNepal in Balaju, Kathmandu. Wholesale orders, brand partnerships and logistics — we reply to every message within one business day." />
     <meta name="twitter:image" content="https://saleshubnepal.com/assets/og-image.jpg" />
-    <meta name="twitter:image:alt" content="SalesHub Nepal — beverage distribution, Kathmandu" />
+    <meta name="twitter:image:alt" content="SalesHubNepal — beverage distribution, Kathmandu" />
 
     <!-- Icons / PWA (replaces the old assets/logo.jpg favicon) -->
     <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -55,7 +55,7 @@
 <link rel="stylesheet" href="theme.css">
 <link rel="stylesheet" href="entry-gate.css">
 <script src="entry-gate.js"></script>
-<meta name="description" content="Get in touch with SalesHub Nepal in Balaju, Kathmandu. Wholesale orders, brand partnerships and logistics — we reply to every message within one business day." />
+<meta name="description" content="Get in touch with SalesHubNepal in Balaju, Kathmandu. Wholesale orders, brand partnerships and logistics — we reply to every message within one business day." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -181,21 +181,24 @@
   }
 
   /* ─────────── form (left) ─────────── */
+  /* card surface mirrors the home "Come say hi." info cells —
+     quiet coral tint, orange keyline, ink text */
   .form-card{
-    background: var(--paper);
-    border: 1px solid var(--line);
+    background: rgba(255,92,58,.045);
+    border: 1.5px solid rgba(255,92,58,.55);
     border-radius: 28px;
     padding: clamp(24px, 3vw, 40px);
     position: relative;
     overflow: hidden;
+    color: var(--ink);
+    box-shadow: 0 10px 24px -14px rgba(205,58,22,.22);
   }
-  .form-card::before{
-    /* subtle dot grid */
-    content:""; position:absolute; inset:0;
-    background-image: radial-gradient(circle at 1px 1px, rgba(11,11,13,.05) 1px, transparent 0);
-    background-size: 18px 18px; opacity: .8; pointer-events: none;
+  [data-theme="dark"] .form-card{
+    background: rgba(255,92,58,.08);
+    border: 1.5px solid rgba(255,124,90,.55);
+    color: #F4EFE3;
+    box-shadow: 0 12px 26px -14px rgba(0,0,0,.55);
   }
-  .form-card > *{ position: relative }
 
   .form-head{
     display:flex; justify-content:space-between; align-items:center;
@@ -350,8 +353,13 @@
     border-radius: 28px; overflow: hidden;
     position: relative;
     background: #141418;
-    border: 1px solid var(--line);
+    border: 1.5px solid rgba(255,92,58,.55);
+    box-shadow: 0 10px 24px -14px rgba(205,58,22,.22);
     min-height: 620px;
+  }
+  [data-theme="dark"] .map-card{
+    border: 1.5px solid rgba(255,124,90,.55);
+    box-shadow: 0 12px 26px -14px rgba(0,0,0,.55);
   }
   .map-card iframe{ pointer-events: auto }
 
@@ -359,14 +367,22 @@
   .map-info-card{
     position: absolute; top: 70px; left: 22px;
     z-index: 5;
-    background: #141418; color: #F4EFE3;
+    /* solid tinted surface (not translucent) so it stays readable over the map */
+    background: linear-gradient(rgba(255,92,58,.05), rgba(255,92,58,.05)), #FFFFFF;
+    color: var(--ink);
     border-radius: 18px;
-    border: 1px solid rgba(255,255,255,.1);
+    border: 1.5px solid rgba(255,92,58,.55);
     padding: 16px 18px;
     width: 260px;
-    box-shadow: 0 18px 36px rgba(11,11,13,.18);
+    box-shadow: 0 18px 36px -10px rgba(205,58,22,.3);
     transform: rotate(-1deg);
     transition: transform .3s;
+  }
+  [data-theme="dark"] .map-info-card{
+    background: linear-gradient(rgba(255,92,58,.08), rgba(255,92,58,.08)), #15151B;
+    color: #F4EFE3;
+    border: 1.5px solid rgba(255,124,90,.55);
+    box-shadow: 0 18px 36px rgba(0,0,0,.5);
   }
   .map-info-card:hover{ transform: rotate(0) translateY(-2px) }
   .map-info-card .head{
@@ -390,8 +406,12 @@
   }
   .map-info-card .name .serif{ color: var(--coral); padding: 0 .03em }
   .map-info-card .addr{
-    margin-top: 8px; font-size: 13px; line-height: 1.45; color: #F4EFE3; opacity: .72;
+    margin-top: 8px; font-size: 13px; line-height: 1.45;
   }
+  /* light theme: card is a light surface now — restore ink/green inner text
+     (must outrank theme.css's cream-card text rules) */
+  :root:not([data-theme="dark"]) .map-info-card .addr{ color: rgba(11,11,13,.72) }
+  :root:not([data-theme="dark"]) .map-info-card .open{ color: #1F8A5B }
   .map-info-card .open{
     margin-top: 12px; padding-top: 10px;
     border-top: 1px dashed var(--line);
@@ -628,15 +648,24 @@
     margin-top: 32px;
     display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
   }
-  .tile{
-    background: var(--paper);
-    border: 1px solid var(--line);
+  /* tiles mirror the home "Come say hi." info cells */
+  .contact-tiles .tile{
+    background: rgba(255,92,58,.045);
+    border: 1.5px solid rgba(255,92,58,.55);
     border-radius: 22px;
     padding: 22px 22px 24px;
     display: flex; flex-direction: column; gap: 6px;
-    transition: .2s transform, .2s background;
+    color: var(--ink);
+    box-shadow: 0 10px 24px -14px rgba(205,58,22,.22);
+    transition: transform .3s cubic-bezier(.2,.7,.2,1.4), box-shadow .3s ease,
+                background .25s ease, border-color .25s ease;
   }
-  .tile:hover{ transform: translateY(-3px); background: #fff }
+  .contact-tiles .tile:hover{
+    transform: translateY(-4px);
+    background: rgba(255,92,58,.09);
+    border-color: var(--coral);
+    box-shadow: 0 18px 34px -14px rgba(205,58,22,.32);
+  }
   .tile .ic{
     width: 38px; height: 38px; border-radius:999px;
     background: #141418; display: grid; place-items: center;
@@ -645,7 +674,7 @@
   }
   .tile .lbl{
     font-family:'JetBrains Mono', monospace; font-size: 10.5px;
-    letter-spacing: .16em; text-transform: uppercase; color: var(--mute);
+    letter-spacing: .16em; text-transform: uppercase; color: var(--coral);
   }
   .tile .val{
     font-size: 18px; font-weight: 700; letter-spacing: -.01em;
@@ -654,10 +683,18 @@
     display: block; font-family:'Instrument Serif', serif; font-style: italic;
     font-weight: 400; color: var(--mute); font-size: 14px; margin-top: 2px;
   }
-  .tile.dark{ background: var(--ink); color: #F4EFE3; border-color: transparent }
-  .tile.dark:hover{ background: #1c1c20 }
-  .tile.dark .lbl{ color: #A29A85 }
-  .tile.dark .ic{ background: rgba(255,255,255,.08); color:#F4EFE3 }
+  [data-theme="dark"] .contact-tiles .tile{
+    background: rgba(255,92,58,.08);
+    border-color: rgba(255,124,90,.55);
+    color: #F4EFE3;
+    box-shadow: 0 12px 26px -14px rgba(0,0,0,.55);
+  }
+  [data-theme="dark"] .contact-tiles .tile:hover{
+    background: rgba(255,92,58,.14);
+    border-color: #FF7C5A;
+  }
+  [data-theme="dark"] .tile .lbl{ color: #FF8E6B }
+  [data-theme="dark"] .tile .ic{ background: rgba(244,239,227,.1) }
   @media (max-width: 900px){
     .contact-tiles{ grid-template-columns: 1fr 1fr }
   }
@@ -804,20 +841,20 @@
       "@type": "ContactPage",
       "@id": "https://saleshubnepal.com/contact.html#webpage",
       "url": "https://saleshubnepal.com/contact.html",
-      "name": "Contact SalesHub Nepal",
+      "name": "Contact SalesHubNepal",
       "isPartOf": {
         "@id": "https://saleshubnepal.com/#website"
       },
       "about": {
         "@id": "https://saleshubnepal.com/#organization"
       },
-      "description": "Get in touch with SalesHub Nepal in Balaju, Kathmandu. Wholesale orders, brand partnerships and logistics — we reply to every message within one business day.",
+      "description": "Get in touch with SalesHubNepal in Balaju, Kathmandu. Wholesale orders, brand partnerships and logistics — we reply to every message within one business day.",
       "inLanguage": "en"
     },
     {
       "@type": "LocalBusiness",
       "@id": "https://saleshubnepal.com/#localbusiness",
-      "name": "SalesHub Nepal",
+      "name": "SalesHubNepal",
       "image": "https://saleshubnepal.com/assets/og-image.jpg",
       "logo": "https://saleshubnepal.com/assets/logo.jpg",
       "url": "https://saleshubnepal.com/",
@@ -888,13 +925,12 @@
 <!-- ── Nav ── -->
 <div class="nav-wrap">
   <nav class="nav" aria-label="primary">
-    <a href="index.html" class="brand" aria-label="SalesHub Nepal — home"><img src="assets/logo.jpg" alt="SalesHub Nepal" class="brand-logo"></a>
+    <a href="index.html" class="brand" aria-label="SalesHubNepal — home"><img src="assets/logo.jpg" alt="SalesHubNepal" class="brand-logo"></a>
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="journey.html">Journey</a></li>
       <li><a href="products.html">Products</a></li>
-      <li><a href="#">Blogs</a></li>
       <li><a href="contact.html" class="active">Contact</a></li>
     </ul>
     <button class="theme-toggle" aria-label="Toggle theme">
@@ -911,7 +947,7 @@
   <div class="drawer-backdrop" data-close></div>
   <aside class="drawer-panel" role="dialog" aria-modal="true" aria-label="Menu">
     <div class="drawer-head">
-      <a href="index.html" class="brand" aria-label="SalesHub Nepal — home"><img src="assets/logo.jpg" alt="SalesHub Nepal" class="brand-logo"></a>
+      <a href="index.html" class="brand" aria-label="SalesHubNepal — home"><img src="assets/logo.jpg" alt="SalesHubNepal" class="brand-logo"></a>
       <button class="drawer-close" data-close aria-label="Close menu">
         <span></span><span></span>
       </button>
@@ -921,7 +957,6 @@
       <a href="about.html">About</a>
       <a href="journey.html">Journey</a>
       <a href="products.html">Products</a>
-      <a href="#">Blogs</a>
       <a href="contact.html" class="active">Contact</a>
     </nav>
     <a href="contact.html" class="drawer-cta" data-close>GET IN TOUCH <span class="arr">↗</span></a>
@@ -965,8 +1000,8 @@
 
           <div class="field-grid">
             <div class="field full">
-              <label for="f-from">From <span class="req">*</span></label>
-              <input id="f-from" name="from" type="text" required placeholder="Your name or email" />
+              <label for="f-from">Your email <span class="req">*</span></label>
+              <input id="f-from" name="email" type="email" required placeholder="you@example.com" autocomplete="email" />
             </div>
 
             <div class="field full">
@@ -974,6 +1009,8 @@
               <textarea id="f-msg" name="message" required placeholder="Tell us what's on your mind — pricing, MOQs, sample crates, route schedules, anything. Real humans read these."></textarea>
             </div>
           </div>
+
+          <p class="form-error" id="formError" role="alert" style="display:none; margin:0 0 14px; font-size:13.5px; font-weight:600; color:var(--coral)"></p>
 
           <div class="submit-row">
             <p class="privacy">
@@ -1053,7 +1090,7 @@
       <div class="lbl">Hours</div>
       <div class="val">Mon — Sat<span class="small">09:00 — 18:00 NPT</span></div>
     </div>
-    <a class="tile dark s-reveal" href="https://www.google.com/maps/search/?api=1&query=Balaju+Industrial+District+Kathmandu" target="_blank" rel="noopener noreferrer">
+    <a class="tile s-reveal" href="https://www.google.com/maps/search/?api=1&query=Balaju+Industrial+District+Kathmandu" target="_blank" rel="noopener noreferrer">
       <div class="ic">📍</div>
       <div class="lbl">Visit</div>
       <div class="val">Balaju, Kathmandu<span class="small">Industrial District, ward 16</span></div>
@@ -1065,7 +1102,7 @@
 <footer>
   <div class="row s-stagger">
     <div>
-      <div class="brand"><img src="assets/logo.jpg" alt="SalesHub Nepal" class="brand-logo"></div>
+      <div class="brand"><img src="assets/logo.jpg" alt="SalesHubNepal" class="brand-logo"></div>
       <p class="blurb">Nepal's premier beverage distribution network — connecting world-class brands with local markets since 2014.</p>
     </div>
     <div>
@@ -1114,26 +1151,62 @@
 </footer>
 
 <script>
-  // — form submission (no backend; just a local success state)
+  // — form submission → /api/contact (Vercel function) → Resend
   const form = document.getElementById('contactForm');
   const formView = document.getElementById('formView');
   const successView = document.getElementById('successView');
-  form.addEventListener('submit', (e) => {
+  const errorEl = document.getElementById('formError');
+  const submitBtn = form.querySelector('.btn-submit');
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+  function flagField(sel){
+    const el = form.querySelector(sel);
+    el.style.borderColor = 'var(--coral)';
+    el.focus();
+    setTimeout(() => { el.style.borderColor = '' }, 1800);
+  }
+  function showError(text){
+    errorEl.textContent = text;
+    errorEl.style.display = 'block';
+  }
+
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    // simple validation
-    const from = form.querySelector('#f-from').value.trim();
+    errorEl.style.display = 'none';
+    const email = form.querySelector('#f-from').value.trim();
     const msg = form.querySelector('#f-msg').value.trim();
-    if (!from || !msg){
-      // highlight missing
-      [['#f-from', from], ['#f-msg', msg]].forEach(([sel, v]) => {
-        const el = form.querySelector(sel);
-        if (!v){ el.style.borderColor = 'var(--coral)'; el.focus(); setTimeout(()=>{ el.style.borderColor = '' }, 1800) }
-      });
+
+    if (!EMAIL_RE.test(email)){
+      showError('Please enter a valid email address.');
+      flagField('#f-from');
       return;
     }
-    formView.style.display = 'none';
-    successView.classList.add('show');
-    successView.scrollIntoView({ behavior:'smooth', block:'center' });
+    if (msg.length < 10){
+      showError('Your message needs at least 10 characters.');
+      flagField('#f-msg');
+      return;
+    }
+
+    const btnHTML = submitBtn.innerHTML;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email, message: msg })
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || !data.ok) throw new Error(data.error || 'send failed');
+      formView.style.display = 'none';
+      successView.classList.add('show');
+      successView.scrollIntoView({ behavior:'smooth', block:'center' });
+    } catch (err){
+      showError("Couldn't send right now — please try again in a minute, or email us directly at sales.hub.nepal@gmail.com.");
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = btnHTML;
+    }
   });
   document.getElementById('resetForm').addEventListener('click', (e) => {
     e.preventDefault();
