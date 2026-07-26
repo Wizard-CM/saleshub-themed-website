@@ -185,17 +185,13 @@
                   <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
                 </linearGradient>
                 <clipPath id="fluteBowl">
-                  <path d="M98,42 C93,150 109,233 113,249 L127,249 C131,233 147,150 142,42 Z"/>
+                  <path d="M59,124 C61,200 74,318 79,344 Q120,350 161,344 C166,318 179,200 181,124 Z"/>
                 </clipPath>
               </defs>
 
-              <!-- GLASS body: fill + double hairline crystal walls -->
+              <!-- GLASS body: fill + double hairline crystal walls (pint — no stem) -->
               <g class="flute-glass">
-                <path class="glass-fill" d="M96,40 C90,150 108,235 112,250 L128,250 C132,235 150,150 144,40 A24,6 0 0,1 96,40 Z" fill="url(#fluteWall)"/>
-                <!-- stem + foot -->
-                <path class="glass-stem" d="M118,250 L118,380 M122,250 L122,380" fill="none" stroke="#6B4632" stroke-opacity=".55" stroke-width="1.4"/>
-                <ellipse class="glass-foot" cx="120" cy="384" rx="34" ry="7" fill="url(#fluteWall)" stroke="#6B4632" stroke-opacity=".55" stroke-width="1.4"/>
-                <ellipse class="glass-foot-hl" cx="112" cy="382" rx="14" ry="2.2" fill="rgba(107,70,50,.28)"/>
+                <path class="glass-fill" d="M56,118 C58,200 70,320 74,352 Q120,364 166,352 C170,320 182,200 184,118 A64,10 0 0,1 56,118 Z" fill="url(#fluteWall)"/>
               </g>
 
               <!-- LIQUID + BEADS, clipped to the inner bowl -->
@@ -210,15 +206,16 @@
 
               <!-- GLASS crystal walls drawn OVER liquid for depth -->
               <g class="flute-walls">
-                <path d="M96,40 C90,150 108,235 112,250 L128,250 C132,235 150,150 144,40" fill="none" stroke="#6B4632" stroke-opacity=".55" stroke-width="1.4" stroke-linejoin="round"/>
-                <path d="M100,44 C95,150 111,231 115,247 M140,44 C145,150 129,231 125,247" fill="none" stroke="#6B4632" stroke-opacity=".25" stroke-width="1"/>
-                <ellipse cx="120" cy="40" rx="24" ry="6" fill="none" stroke="#6B4632" stroke-opacity=".55" stroke-width="1.4"/>
-                <!-- left cream specular column + slow glint sweep -->
-                <rect class="flute-glint" x="99" y="46" width="4" height="190" rx="2" fill="url(#fluteGlint)"/>
+                <path d="M56,118 C58,200 70,320 74,352 Q120,364 166,352 C170,320 182,200 184,118" fill="none" stroke="#6B4632" stroke-opacity=".55" stroke-width="1.4" stroke-linejoin="round"/>
+                <path d="M60,122 C62,200 74,316 78,346 M180,122 C178,200 166,316 162,346" fill="none" stroke="#6B4632" stroke-opacity=".25" stroke-width="1"/>
+                <path d="M78,346 Q120,354 162,346" fill="none" stroke="#6B4632" stroke-opacity=".25" stroke-width="1"/>
+                <ellipse cx="120" cy="118" rx="64" ry="10" fill="none" stroke="#6B4632" stroke-opacity=".55" stroke-width="1.4"/>
+                <!-- left cream specular column + slow glint sweep (clipped to the bowl) -->
+                <g clip-path="url(#fluteBowl)"><rect class="flute-glint" x="66" y="140" width="5" height="170" rx="2.5" fill="url(#fluteGlint)"/></g>
               </g>
 
               <!-- CROWN spark + ping ring at the rim -->
-              <g class="flute-crown" transform="translate(120 38)">
+              <g class="flute-crown" transform="translate(120 114)">
                 <circle class="crown-ring" cx="0" cy="0" r="10" fill="none" stroke="#FF5C3A" stroke-width="1.6"/>
                 <path class="crown-star" d="M0,-9 L2.1,-2.1 L9,0 L2.1,2.1 L0,9 L-2.1,2.1 L-9,0 L-2.1,-2.1 Z" fill="#FF6B47"/>
               </g>
@@ -247,16 +244,16 @@
 
     // Bowl geometry (SVG user units). Liquid top (Ytop) rides progress:
     //   level 0 -> Y_BASE (empty at bowl base), level 1 -> Y_RIM (full at rim).
-    const Y_RIM  = 42;
-    const Y_BASE = 249;
-    const SPAN   = Y_BASE - Y_RIM;        // 207
-    const X_L = 96, X_R = 144, X_MID = 120;
+    const Y_RIM  = 130;
+    const Y_BASE = 350;
+    const SPAN   = Y_BASE - Y_RIM;        // 220
+    const X_L = 59, X_R = 181, X_MID = 120;
 
     const prefersReduced = window.matchMedia &&
       window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     // ── Champagne beads: 3 nucleation columns, <=20 circles total ──
-    const BEAD_COLS = [107, 120, 133];
+    const BEAD_COLS = [92, 120, 148];
     const beads = [];
     const NS = 'http://www.w3.org/2000/svg';
     BEAD_COLS.forEach((bx, ci) => {

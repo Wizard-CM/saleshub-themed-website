@@ -19,7 +19,8 @@ html[data-gating="1"] body { visibility: hidden }
   display: grid; place-items: center;
   padding: clamp(20px, 5vw, 60px);
   background:
-    radial-gradient(circle at 50% -10%, #FFF7F0 0%, #F4E3D5 72%);
+    linear-gradient(180deg, rgba(11,11,13,.72) 0%, rgba(8,8,10,.82) 100%),
+    url("assets/building-photo.jpeg") center / cover no-repeat;
   color: #2A1710;
   font-family: 'Bricolage Grotesque', system-ui, sans-serif;
   visibility: visible !important; /* override gating */
@@ -34,7 +35,8 @@ html[data-gating="1"] body { visibility: hidden }
 
 [data-theme="dark"] .entry-overlay{
   background:
-    radial-gradient(circle at 50% -8%, #221310 0%, #0B0605 72%);
+    linear-gradient(180deg, rgba(9,9,11,.82) 0%, rgba(6,6,8,.90) 100%),
+    url("assets/building-photo.jpeg") center / cover no-repeat;
   color: #F4EFE3;
 }
 
@@ -137,8 +139,6 @@ html[data-gating="1"] body { visibility: hidden }
   color: #F4EFE3;
   overflow: hidden;
   background:
-    radial-gradient(120% 90% at 12% 8%, rgba(255,92,58,.30), transparent 55%),
-    radial-gradient(100% 80% at 92% 104%, rgba(255,138,92,.18), transparent 52%),
     linear-gradient(158deg, #241611 0%, #1A120E 55%, #120C09 100%);
 }
 /* faint dotted texture, matches the site's placeholder motif */
@@ -404,14 +404,14 @@ html[data-gating="1"] body { visibility: hidden }
 
 
 /* ───────── Preloader — "The First Pour" ─────────
-   A tall crystal flute fills with living brand-orange pour on a warm
-   cream stage. The meniscus rides the exact progress value (level = --t,
+   A beer pint glass fills with living brand-orange pour on a pure
+   white stage. The meniscus rides the exact progress value (level = --t,
    computed in JS), fine bead columns stream upward, and a single coral
    spark + ping ring crown the rim at 100 while an Instrument Serif
    italic "cheers." fades in. The orange pour is the only saturated
    element on the stage — a jewel in a vitrine. */
 .entry-pre{
-  background: radial-gradient(circle at 50% 32%, #FFF8F1 0%, #F5E6D8 80%);
+  background: #FFFFFF;
 }
 [data-theme="dark"] .entry-pre{
   background: radial-gradient(circle at 50% 40%, #1B110C 0%, #090504 80%);
