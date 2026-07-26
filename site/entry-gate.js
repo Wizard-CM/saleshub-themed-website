@@ -78,11 +78,11 @@
         <div class="entry-card entry-split">
           <div class="entry-brandside">
             <div class="bs-top">
-              <div class="entry-brand"><img src="assets/logo.jpg" alt="SalesHub Nepal" class="brand-logo"></div>
+              <div class="entry-brand"><img src="assets/logo.jpg" alt="SalesHubNepal" class="brand-logo"></div>
               <div class="bs-seal" aria-hidden="true"><span>SH</span></div>
             </div>
             <div class="bs-mid">
-              <div class="bs-name">SalesHub<span class="serif"> Nepal.</span></div>
+              <div class="bs-name">SalesHub<span class="serif">Nepal.</span></div>
               <p class="bs-tag">Nepal's premier beverage distribution network — connecting world-class brands with local markets since 2014.</p>
             </div>
             <div class="bs-foot">
@@ -145,7 +145,7 @@
           <div class="entry-grid"></div>
         </div>
         <div class="pre-content">
-          <div class="pre-brandmark"><img src="assets/logo.jpg" alt="SalesHub Nepal" class="brand-logo"></div>
+          <div class="pre-brandmark"><img src="assets/logo.jpg" alt="SalesHubNepal" class="brand-logo"></div>
           <p class="pre-kicker"><span class="ping" aria-hidden="true"></span>Pouring your welcome · Kathmandu · Est. 2014 · Drink responsibly</p>
 
           <div class="flute-stage" aria-hidden="true">
@@ -456,10 +456,10 @@
           <div class="entry-grid"></div>
         </div>
         <div class="entry-card">
-          <div class="entry-brand"><img src="assets/logo.jpg" alt="SalesHub Nepal" class="brand-logo"></div>
+          <div class="entry-brand"><img src="assets/logo.jpg" alt="SalesHubNepal" class="brand-logo"></div>
           <div class="restricted-emoji" aria-hidden="true">✦</div>
           <h1 class="entry-title"><span class="serif">Come back</span><br>when you're 18.</h1>
-          <p class="entry-copy">SalesHub Nepal is a wholesale beverage distributor — and Nepal asks us to keep this side of the door for adults only. We'll keep the kettle on for you.</p>
+          <p class="entry-copy">SalesHubNepal is a wholesale beverage distributor — and Nepal asks us to keep this side of the door for adults only. We'll keep the kettle on for you.</p>
           <div class="entry-actions" style="justify-content:center">
             <button class="entry-btn ghost entry-reconsider" type="button">I'd like to reconsider</button>
           </div>
