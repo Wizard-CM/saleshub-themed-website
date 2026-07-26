@@ -1151,7 +1151,7 @@
 </footer>
 
 <script>
-  // — form submission → /api/contact (Vercel function) → Resend
+  // — form submission → relayed to sales.hub.nepal@gmail.com via FormSubmit
   const form = document.getElementById('contactForm');
   const formView = document.getElementById('formView');
   const successView = document.getElementById('successView');
@@ -1191,13 +1191,19 @@
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending…';
     try {
-      const res = await fetch('/api/contact', {
+      const res = await fetch('https://formsubmit.co/ajax/sales.hub.nepal@gmail.com', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email, message: msg })
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          email: email,
+          message: msg,
+          _subject: 'New enquiry — saleshubnepal.com contact form',
+          _captcha: 'false',
+          _template: 'table'
+        })
       });
       const data = await res.json().catch(() => ({}));
-      if (!res.ok || !data.ok) throw new Error(data.error || 'send failed');
+      if (!res.ok || String(data.success) === 'false') throw new Error(data.message || 'send failed');
       formView.style.display = 'none';
       successView.classList.add('show');
       successView.scrollIntoView({ behavior:'smooth', block:'center' });
