@@ -459,7 +459,7 @@
           <div class="entry-brand"><img src="assets/logo.jpg" alt="SalesHub Nepal" class="brand-logo"></div>
           <div class="restricted-emoji" aria-hidden="true">✦</div>
           <h1 class="entry-title"><span class="serif">Come back</span><br>when you're 18.</h1>
-          <p class="entry-copy">SalesHub.Nepal is a wholesale beverage distributor — and Nepal asks us to keep this side of the door for adults only. We'll keep the kettle on for you.</p>
+          <p class="entry-copy">SalesHub Nepal is a wholesale beverage distributor — and Nepal asks us to keep this side of the door for adults only. We'll keep the kettle on for you.</p>
           <div class="entry-actions" style="justify-content:center">
             <button class="entry-btn ghost entry-reconsider" type="button">I'd like to reconsider</button>
           </div>
