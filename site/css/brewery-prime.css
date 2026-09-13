@@ -1,0 +1,19 @@
+body{ --accent: #D9A26B }
+
+  /* Cream→dark: flip the page's cream/paper UI surfaces to dark ink.
+     Scoped to this page; keeps text legible on the flipped panels. */
+  body[data-house="prime"]{ --paper:#141418 }
+  body[data-house="prime"] .bh-back{ color:#F4EFE3 }
+  body[data-house="prime"] .modal-card{ color:#F4EFE3 }
+  body[data-house="prime"] .modal-right .m-name,
+  body[data-house="prime"] .modal-right .m-line,
+  body[data-house="prime"] .modal-right .m-notes,
+  body[data-house="prime"] .modal-right .m-tags span,
+  body[data-house="prime"] .modal-right .m-quote{ color:#F4EFE3 }
+  body[data-house="prime"] .modal-right .m-tags span,
+  body[data-house="prime"] .modal-right .m-quote{ background:#141418 }
+
+  /* Hide hero badge chips on mobile + tablet; show on laptop and up */
+  @media (max-width: 1023px){
+    body[data-house="prime"] .bh-crumb .chip{ display:none }
+  }

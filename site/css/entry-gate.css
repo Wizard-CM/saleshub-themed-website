@@ -12,16 +12,14 @@
 /* Hide the page body while the gate is up (FOUC prevention) */
 html[data-gating="1"] body { visibility: hidden }
 
-/* Overlay shell — warm light stage */
+/* Overlay shell — background and text follow the active theme token */
 .entry-overlay{
   position: fixed; inset: 0;
   z-index: 9999;
   display: grid; place-items: center;
   padding: clamp(20px, 5vw, 60px);
-  background:
-    linear-gradient(180deg, rgba(11,11,13,.72) 0%, rgba(8,8,10,.82) 100%),
-    url("assets/building-photo.jpeg") center / cover no-repeat;
-  color: #2A1710;
+  background: var(--cream, #FFFFFF);
+  color: var(--ink, #0B0B0D);
   font-family: 'Bricolage Grotesque', system-ui, sans-serif;
   visibility: visible !important; /* override gating */
   opacity: 0;
@@ -32,13 +30,6 @@ html[data-gating="1"] body { visibility: hidden }
 /* Age gate is the tallest screen — on short viewports let it scroll & top-align
    safely instead of clipping the buttons (preloader/restricted stay centered). */
 .entry-overlay[data-stage="age"]{ align-items: safe center; overflow-y: auto }
-
-[data-theme="dark"] .entry-overlay{
-  background:
-    linear-gradient(180deg, rgba(9,9,11,.82) 0%, rgba(6,6,8,.90) 100%),
-    url("assets/building-photo.jpeg") center / cover no-repeat;
-  color: #F4EFE3;
-}
 
 /* Animated background */
 .entry-bg{
@@ -364,17 +355,88 @@ html[data-gating="1"] body { visibility: hidden }
   color: rgba(244,239,227,.55);
 }
 
-/* ─── Age-gate small screens ─── */
-@media (max-width: 680px){
-  .entry-card.entry-split{ grid-template-columns: 1fr; max-width: 430px }
-  .entry-brandside{ order: -1; flex-direction: row; align-items: center; gap: 16px; padding: 20px 22px }
-  .entry-brandside .bs-mid{ flex: 1 }
-  .entry-brandside .bs-tag{ display: none }
-  .entry-brandside .bs-foot{ display: none }
-  .entry-brandside .bs-seal{ display: none }
+/* ─── Age gate brand header ─── */
+.gate-brand{
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(11,11,13,.10);
 }
+.gate-logo{
+  flex: none;
+  width: 46px; height: 46px;
+}
+.gate-brand-text{
+  display: flex; flex-direction: column; gap: 3px;
+}
+.gate-brand-name{
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 700; font-size: 15px; letter-spacing: -.01em;
+  color: var(--ink, #0B0B0D);
+  line-height: 1;
+}
+.gate-brand-desc{
+  font-size: 12px; line-height: 1.45;
+  color: var(--mute, #6A6A6A);
+}
+[data-theme="dark"] .gate-brand{
+  border-bottom-color: rgba(244,239,227,.12);
+}
+[data-theme="dark"] .gate-brand-name{ color: #F4EFE3 }
+[data-theme="dark"] .gate-brand-desc{ color: rgba(244,239,227,.55) }
+
+/* ─── Inline age gate (no card, direct on page background) ─── */
+.entry-inline-content{
+  position: relative;
+  z-index: 2;
+  width: 480px;
+  max-width: calc(100vw - 40px);
+  min-height: 380px;
+  text-align: left;
+  background: var(--cream, #FFFFFF);
+  border: 1px solid rgba(11,11,13,.14);
+  border-radius: 26px;
+  padding: clamp(28px, 3.2vw, 40px) clamp(26px, 3.4vw, 42px);
+  box-shadow:
+    0 32px 72px -20px rgba(20,10,5,.18),
+    0 8px 22px rgba(20,10,5,.08);
+  transform: translateY(40px) scale(.94);
+  opacity: 0;
+  transition: transform .55s cubic-bezier(.2,.7,.2,1.25), opacity .45s ease;
+}
+[data-theme="dark"] .entry-inline-content{
+  background: #1A120E;
+  border-color: rgba(244,239,227,.12);
+  box-shadow:
+    0 32px 72px -20px rgba(0,0,0,.6),
+    0 8px 22px rgba(0,0,0,.35);
+}
+.entry-overlay.show .entry-inline-content{
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+.entry-overlay.leave .entry-inline-content{
+  transform: translateY(-20px) scale(.96);
+  opacity: 0;
+}
+.entry-inline-content .entry-title{ color: var(--ink, #0B0B0D) }
+.entry-inline-content .entry-eyebrow{ color: var(--mute, #6A6A6A) }
+.entry-inline-content .entry-foot{
+  border-top-color: var(--line, rgba(11,11,13,.12));
+  color: var(--mute, #6A6A6A);
+}
+.entry-inline-content .entry-btn.ghost{
+  color: var(--ink, #0B0B0D);
+  border-color: var(--line, rgba(11,11,13,.18));
+}
+.entry-inline-content .entry-btn.ghost:hover{
+  background: var(--line-2, rgba(11,11,13,.06));
+  border-color: var(--line, rgba(11,11,13,.18));
+}
+
+/* ─── Age-gate small screens ─── */
 @media (max-width: 540px){
-  .entry-panel{ padding: 24px 22px }
+  .entry-inline-content{ padding: 0 4px }
   .entry-title{ font-size: clamp(28px, 8.5vw, 38px) }
   .entry-actions{ flex-direction: column; align-items: stretch }
   .entry-btn{ justify-content: center }
@@ -416,7 +478,6 @@ html[data-gating="1"] body { visibility: hidden }
 [data-theme="dark"] .entry-pre{
   background: radial-gradient(circle at 50% 40%, #1B110C 0%, #090504 80%);
 }
-.entry-pre .entry-orb{ opacity: .20 }
 .entry-pre .entry-grid{ opacity: .35 }
 
 .entry-pre .pre-content{

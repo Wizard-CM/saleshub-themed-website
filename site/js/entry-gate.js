@@ -70,41 +70,28 @@
   function renderAgeGate(){
     const overlay = buildEl(`
       <div class="entry-overlay" data-stage="age" role="dialog" aria-modal="true" aria-labelledby="entryTitle">
-        <div class="entry-bg" aria-hidden="true">
-          <div class="entry-orb o1"></div>
-          <div class="entry-orb o2"></div>
-          <div class="entry-grid"></div>
-        </div>
-        <div class="entry-card entry-split">
-          <div class="entry-brandside">
-            <div class="bs-top">
-              <div class="entry-brand"><img src="assets/logo.jpg" alt="SalesHubNepal" class="brand-logo"></div>
-              <div class="bs-seal" aria-hidden="true"><span>SH</span></div>
-            </div>
-            <div class="bs-mid">
-              <div class="bs-name">SalesHub<span class="serif">Nepal.</span></div>
-              <p class="bs-tag">Nepal's premier beverage distribution network — connecting world-class brands with local markets since 2014.</p>
-            </div>
-            <div class="bs-foot">
-              <span>Kathmandu</span><span class="sep">·</span><span>Est. 2014</span><span class="sep">·</span><span>Wholesale</span>
+        <div class="entry-inline-content">
+          <div class="gate-brand">
+            <img src="assets/logo.jpg" alt="SalesHubNepal" class="brand-logo gate-logo">
+            <div class="gate-brand-text">
+              <span class="gate-brand-name">SalesHubNepal</span>
+              <span class="gate-brand-desc">Nepal's authorised beverage distributor — premium beers, spirits &amp; wines since 2014.</span>
             </div>
           </div>
-          <div class="entry-panel">
-            <div class="entry-badgerow">
-              <span class="entry-agechip" aria-hidden="true">18+</span>
-            </div>
-            <p class="entry-eyebrow"><span class="dot"></span>Quick question</p>
-            <h1 class="entry-title" id="entryTitle">Are you <span class="serif">eighteen</span> or older?</h1>
-            <br></br>
-            <div class="entry-actions">
-              <button class="entry-btn entry-yes" type="button">
-                <span>Yes, I'm 18+ — Enter</span>
-                <span class="arr">→</span>
-              </button>
-              <button class="entry-btn ghost entry-no" type="button">No, take me back</button>
-            </div>
-            <p class="entry-foot">By continuing you agree to our <a href="#">terms</a> &amp; <a href="#">privacy</a>. Always drink responsibly.</p>
+          <div class="entry-badgerow">
+            <span class="entry-agechip" aria-hidden="true">18+</span>
           </div>
+          <p class="entry-eyebrow"><span class="dot"></span>Quick question</p>
+          <h1 class="entry-title" id="entryTitle">Are you 18 or older?</h1>
+          <br>
+          <div class="entry-actions">
+            <button class="entry-btn entry-yes" type="button">
+              <span>Yes, I'm 18+ — Enter</span>
+              <span class="arr">→</span>
+            </button>
+            <button class="entry-btn ghost entry-no" type="button">No, take me back</button>
+          </div>
+          <p class="entry-foot">By continuing you agree to our <a href="#">terms</a> &amp; <a href="#">privacy</a>. Always drink responsibly.</p>
         </div>
       </div>
     `);
@@ -133,15 +120,13 @@
         no.click();
       }
     });
-    setTimeout(() => yes.focus(), 600);
+
   }
 
   function renderPreloader(){
     const overlay = buildEl(`
       <div class="entry-overlay entry-pre entry-flute" data-stage="pre" aria-hidden="true">
         <div class="entry-bg" aria-hidden="true">
-          <div class="entry-orb o1"></div>
-          <div class="entry-orb o2"></div>
           <div class="entry-grid"></div>
         </div>
         <div class="pre-content">

@@ -142,8 +142,8 @@ img,svg{ display:block; max-width:100% }
   text-wrap: balance;
 }
 .bh-title .serif{
-  font-family:'Instrument Serif', serif; font-style: italic; font-weight: 400;
-  color: var(--accent); padding: 0 .03em; font-size: 1.04em;
+  font-family: inherit; font-style: normal; font-weight: inherit;
+  color: inherit; font-size: inherit;
 }
 
 .bh-meta-strip{
@@ -271,8 +271,8 @@ img,svg{ display:block; max-width:100% }
   font-weight: 800; letter-spacing: -.03em; line-height: .96;
 }
 .bh-lineup .sec-head h2 .serif{
-  font-family:'Instrument Serif', serif; font-style: italic; font-weight: 400;
-  color: var(--accent); padding: 0 .04em;
+  font-family: inherit; font-style: normal; font-weight: inherit;
+  color: inherit;
 }
 .bh-lineup .sec-head .right{
   font-family:'JetBrains Mono', monospace; font-size: 11px;
@@ -589,7 +589,7 @@ img,svg{ display:block; max-width:100% }
 .cta-strip::before{ content:""; position:absolute; inset:0; background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,.20) 1px, transparent 0); background-size: 18px 18px; opacity:.4 }
 .cta-strip .meta-row{ display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; color: rgba(255,255,255,.85) }
 .cta-strip h3{ margin: 26px 0 18px; font-size: clamp(40px, 7vw, 100px); font-weight:800; letter-spacing:-.03em; line-height:.95; max-width: 14ch; color:#fff }
-.cta-strip h3 .serif{ font-style:italic; color:rgba(255,255,255,.95); font-weight:400; padding:0 .03em }
+.cta-strip h3 .serif{ font-family: inherit; font-style: normal; font-weight: inherit; color: inherit; }
 .cta-strip p{ max-width: 480px; color: rgba(255,255,255,.92); margin: 0 0 28px; font-size:17px; line-height:1.5 }
 .cta-strip .actions{ display:flex; gap:14px; flex-wrap:wrap; align-items:center; position:relative; z-index:2 }
 .btn{ display:inline-flex; align-items:center; gap:10px; padding: 16px 22px 16px 24px; border-radius:999px; background:#fff; color:var(--ink); font-weight:600; font-size:15px; transition:.2s transform }
