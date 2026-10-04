@@ -88,7 +88,7 @@
     padding: clamp(28px, 4vw, 56px);
     color: #F4EFE3;
     display:grid;
-    grid-template-columns: 1.05fr 1fr 1fr;
+    grid-template-columns: 380px 1fr 1fr;
     gap: 40px;
     min-height: 600px;
     overflow:hidden;
@@ -139,12 +139,6 @@
     font-family:'Instrument Serif', serif; font-style: italic;
     font-weight: 400; color: var(--coral); padding: 0 .02em;
     font-size: 1.06em;
-  }
-  /* Long names get a smaller size so the copy column doesn't crowd out the
-     centre product image — keeps every distillery's hero balanced. */
-  .pour h1.long-name{
-    font-size: clamp(38px, 4.8vw, 66px);
-    line-height: .92;
   }
   .pour .tagline{
     font-family:'Instrument Serif', serif; font-style:italic;

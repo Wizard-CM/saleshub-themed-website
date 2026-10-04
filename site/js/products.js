@@ -4,19 +4,19 @@
       { name:'Gorkha Brewery', dot:'.',
         year:'Beer', count:'10', origin:'Nepal',
         tagText:'HOUSE 01 / KTM · GORKHA BREWERY', link:'brewery-gorkha.html',
-        img:'assets/Product%20Images/Gorkha%20Craft.jpeg' },
+        img:'../assets/Product%20Images/Gorkha%20Craft.jpeg' },
       { name:'Prime International', dot:'.',
         year:'Spirits', count:'06', origin:'Nepal',
         tagText:'HOUSE 02 / KTM · PRIME INTERNATIONAL', link:'brewery-prime.html',
-        img:'assets/Product%20Images/Bandipur.jpeg' },
+        img:'../assets/Product%20Images/Bandipur.jpeg' },
       { name:'Big Master', dot:'.',
         year:'Wine', count:'03', origin:'Nepal',
         tagText:'HOUSE 03 / KTM · BIG MASTER', link:'brewery-bigmaster.html',
-        img:'assets/Product%20Images/Red%20Wine.jpeg' },
+        img:'../assets/Product%20Images/Red%20Wine.jpeg' },
       { name:'Saras Beverages', dot:'.',
         year:'Energy', count:'02', origin:'Nepal',
         tagText:'HOUSE 04 / KTM · SARAS BEVERAGES', link:'brewery-saras.html',
-        img:'assets/Product%20Images/redbull%20carbonated.jpeg' },
+        img:'../assets/Product%20Images/redbull%20carbonated.jpeg' },
     ];
     const els = {
       idx: document.getElementById('pourIdx'),
@@ -40,16 +40,6 @@
         els.img.style.setProperty('--brew-img', `url('${L.img}')`);
         els.idx.textContent = String(n+1).padStart(2,'0');
         els.name.innerHTML = L.name + '<span class="serif" style="color:var(--coral);padding:0 .02em;font-size:1.06em">' + L.dot + '</span>';
-        // Long distillery names (e.g. "Prime International", "Saras Beverages")
-        // would otherwise starve the centre image of space — shrink just those.
-        const longestWord = Math.max(...L.name.split(' ').map(w => w.length));
-        if (longestWord > 8){
-          els.name.style.fontSize = 'clamp(38px, 4.8vw, 66px)';
-          els.name.style.lineHeight = '.92';
-        } else {
-          els.name.style.fontSize = 'clamp(56px,9vw,144px)';
-          els.name.style.lineHeight = '.86';
-        }
         els.year.textContent = L.year;
         els.count.textContent = L.count;
         els.origin.innerHTML = L.origin;

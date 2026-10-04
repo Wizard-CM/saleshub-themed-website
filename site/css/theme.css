@@ -20,7 +20,8 @@ html, body, .nav, footer, .form-card, .map-card, .stat-card, .v-card,
 .ac-seal, .ht-photo, .ht-meta, .ht-meta-cell, .pinboard, .artifact,
 .ht-tape, .ht-cap-roll, .ht-polaroid, .tl-card, .chip, .pill,
 .filter-bar .inner, .feat-card, .pcard, .prod, .bento-card, .btn,
-.btn-dark, .btn-out, .btn-submit, .btn-ink, .ht-meta-cta, .pour,
+.btn-dark, .btn-out, .btn-submit, .btn-ink, .btn-light, .ht-meta-cta, .pour,
+.ed-cta, .m-btn,
 .visit, .portfolio, .hero, .hero-team, .story, .timeline, .values,
 .team, .network, .featured, .products, .curate, .journey,
 .cta-strip, .info-cell, .hero-stats, .moment, .moment .copy .pull,
@@ -666,4 +667,56 @@ body.drawer-open{ overflow:hidden }
 [data-theme="dark"] .brew-card,
 [data-theme="dark"] .year-rail{
   border: 1px solid rgba(255,255,255,.12);
+}
+
+/* ── DARK MODE — ed-cta (home products section) ─────────────
+   Base: background:var(--ink); color:#fff → cream bg, white text in dark.  */
+[data-theme="dark"] .ed-text .ed-cta {
+  background: #F4EFE3; color: #0B0B0D;
+}
+
+/* ── DARK MODE — cta-card btn-light (home CTA section) ──────
+   Base: background:#fff; color:var(--ink) → cream text on white in dark.
+   Arrow: background:var(--ink) → cream circle, white icon in dark.          */
+[data-theme="dark"] .cta-card .btn-light {
+  background: #F4EFE3; color: #0B0B0D;
+}
+[data-theme="dark"] .cta-card .btn-light .arr {
+  background: #0B0B0D; color: #F4EFE3;
+}
+
+/* ── DARK MODE — pour btn-light (products page) ──────────────
+   Base: background:#fff; color:var(--ink) → cream text on white in dark.
+   Arrow uses var(--coral) so stays fine; only text color needs fixing.       */
+[data-theme="dark"] .pour .actions .btn-light {
+  background: #F4EFE3; color: #0B0B0D;
+}
+
+/* ── DARK MODE — cta-strip .btn (about / journey / brewery) ──
+   Scoped so coral hero .btn on home page is unaffected.
+   about.css: color:var(--ink) → cream text on white in dark.
+   All .btn .arr: background:var(--ink) → cream circle on white in dark.     */
+[data-theme="dark"] .cta-strip .btn {
+  color: #0B0B0D;
+}
+[data-theme="dark"] .cta-strip .btn .arr {
+  background: #0B0B0D; color: #F4EFE3;
+}
+
+/* ── DARK MODE — brewery modal primary action button ─────────
+   Base: background:var(--ink); color:#fff → cream bg, white text in dark.   */
+[data-theme="dark"] .modal-right .m-btn {
+  background: #F4EFE3; color: #0B0B0D;
+}
+[data-theme="dark"] .modal-right .m-btn .arr {
+  background: var(--accent); color: #fff;
+}
+[data-theme="dark"] .modal-right .m-btn.ghost .arr {
+  background: #F4EFE3; color: #0B0B0D;
+}
+
+/* ── DARK MODE — brewery back-button hover ───────────────────
+   Hover: background:var(--ink) → cream bg, white text in dark.              */
+[data-theme="dark"] .bh-back:hover {
+  background: #F4EFE3; color: #0B0B0D;
 }
