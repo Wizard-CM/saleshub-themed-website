@@ -1,4 +1,6 @@
-// — form submission → relayed to sales.hub.nepal@gmail.com via FormSubmit
+// — form submission → relayed to sales.hub.nepal@gmail.com via Web3Forms
+  const WEB3FORMS_URL = 'https://api.web3forms.com/submit';
+  const WEB3FORMS_ACCESS_KEY = 'a2ac5705-14ed-4a71-820c-3e79a6e5d2f1';
   const form = document.getElementById('contactForm');
   const formView = document.getElementById('formView');
   const successView = document.getElementById('successView');
@@ -38,15 +40,14 @@
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending…';
     try {
-      const res = await fetch('https://formsubmit.co/ajax/sales.hub.nepal@gmail.com', {
+      const res = await fetch(WEB3FORMS_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
           email: email,
           message: msg,
-          _subject: 'New enquiry — saleshubnepal.com contact form',
-          _captcha: 'false',
-          _template: 'table'
+          subject: 'New enquiry — saleshubnepal.com contact form'
         })
       });
       const data = await res.json().catch(() => ({}));

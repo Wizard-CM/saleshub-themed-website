@@ -255,3 +255,26 @@
     }
   })();
   ═══════ END commented-out current hero JS (cont.) ═══════ */
+
+  // ─── Portfolio scroll parallax (optional, #5). Subtle translateY drift,
+  //      max ~30px, scoped to the portfolio section.
+  (function(){
+    const rm = matchMedia('(prefers-reduced-motion: reduce)');
+    if (rm.matches) return;
+    const section = document.querySelector('.portfolio');
+    if (!section) return;
+    let ticking = false;
+    function onScroll(){
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const rect = section.getBoundingClientRect();
+        const offset = Math.max(-30, Math.min(30, -rect.top * 0.15));
+        section.style.transform = `translateY(${offset}px)`;
+        ticking = false;
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    onScroll();
+  })();
