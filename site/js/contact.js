@@ -1,6 +1,6 @@
 // — form submission → relayed to sales.hub.nepal@gmail.com via Web3Forms
   const WEB3FORMS_URL = 'https://api.web3forms.com/submit';
-  const WEB3FORMS_ACCESS_KEY = 'a2ac5705-14ed-4a71-820c-3e79a6e5d2f1';
+  const WEB3FORMS_ACCESS_KEY = '8caf9f3b-1ef4-4ac7-a6bd-a65aaa526abe';
   const form = document.getElementById('contactForm');
   const formView = document.getElementById('formView');
   const successView = document.getElementById('successView');

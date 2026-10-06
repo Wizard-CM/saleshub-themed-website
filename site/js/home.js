@@ -16,6 +16,16 @@
     });
   })();
 
+  // ─── split headings into words (mask rise, see [data-split] CSS) ───
+  (function(){
+    document.querySelectorAll('[data-split]').forEach(el => {
+      const words = el.textContent.trim().split(/\s+/);
+      el.innerHTML = words
+        .map((word, i) => `<span class="word"><span style="--i:${i}">${word}</span></span>`)
+        .join(' ');
+    });
+  })();
+
   // ─── scroll-triggered reveal system ─────────────────────────
   (function(){
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -173,16 +183,84 @@
   ═══════ END commented-out current hero JS ═══════ */
 
   // ─── ACTIVE HERO JS — ported from ref-old-index-hero.html ───
-  // ─── parallax: very subtle bg drift on cursor ──────────────
+  // ─── hero intro: pour the glass, then the headline ─────────
+  (function(){
+    const html = document.documentElement;
+    const hero = document.querySelector('.hero');
+    const glass = document.querySelector('.hero .glass');
+    if (!hero || !glass) return;
+    const heroInner = hero.querySelector('.hero-inner');
+    const headline = hero.querySelector('h1');
+    const lede = hero.querySelector('.lede');
+    const liquid = glass.querySelector('.liquid');
+
+    // Fill the glass so the foam sits in the gap between the headline and the
+    // lede — the foam is cream, so crossing the cream headline makes it unreadable.
+    function setFillLevel(){
+      const glassBottom = glass.offsetTop + glass.offsetHeight;
+      const headlineBottom = heroInner.offsetTop + headline.offsetTop + headline.offsetHeight
+        - parseFloat(getComputedStyle(headline).paddingBottom);
+      const ledeTop = heroInner.offsetTop + lede.offsetTop;
+      const surfaceY = (headlineBottom + ledeTop) / 2;
+      const fillLevel = Math.min(Math.max(glassBottom - 8 - surfaceY, glass.offsetHeight * .3), glass.offsetHeight - 24);
+      glass.style.setProperty('--fill-level', fillLevel + 'px');
+    }
+    setFillLevel();
+    window.addEventListener('resize', setFillLevel);
+    if (document.fonts) document.fonts.ready.then(setFillLevel);
+
+    // carbonation: a handful of bubbles with random size, lane and speed
+    for (let i = 0; i < 16; i++){
+      const bubble = document.createElement('span');
+      bubble.className = 'bubble';
+      const duration = 4 + Math.random() * 5;
+      bubble.style.setProperty('--x', (4 + Math.random() * 92) + '%');
+      bubble.style.setProperty('--size', (3 + Math.random() * 6) + 'px');
+      bubble.style.setProperty('--duration', duration + 's');
+      bubble.style.setProperty('--delay', (-Math.random() * duration) + 's');
+      liquid.appendChild(bubble);
+    }
+
+    // Wait for the age gate to lift so the pour isn't wasted behind it.
+    const playIntro = () => html.classList.add('hero-in');
+    if (!html.hasAttribute('data-gating')){
+      requestAnimationFrame(() => requestAnimationFrame(playIntro));
+      return;
+    }
+    const gateWatcher = new MutationObserver(() => {
+      if (html.hasAttribute('data-gating')) return;
+      gateWatcher.disconnect();
+      playIntro();
+    });
+    gateWatcher.observe(html, { attributes: true, attributeFilter: ['data-gating'] });
+  })();
+
+  // ─── hero depth: glass leans to the cursor, drains as you scroll ───
   (function(){
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const hero = document.querySelector('.hero .glass');
-    if (!hero) return;
+    const hero = document.querySelector('.hero');
+    const glass = document.querySelector('.hero .glass');
+    if (!hero || !glass) return;
+
     window.addEventListener('pointermove', (e) => {
       const x = (e.clientX / window.innerWidth - .5) * 16;
       const y = (e.clientY / window.innerHeight - .5) * 8;
-      hero.style.transform = `translateX(calc(-50% + ${x}px)) translateY(${y}px)`;
+      glass.style.setProperty('--glass-x', x + 'px');
+      glass.style.setProperty('--glass-y', y + 'px');
     });
+
+    // the drink is "moved" as you leave the hero — drains to 40% by the time it's gone
+    let ticking = false;
+    function updateLevel(){
+      const progress = Math.min(Math.max(window.scrollY / hero.offsetHeight, 0), 1);
+      glass.style.setProperty('--level', (1 - progress * .6).toFixed(3));
+      ticking = false;
+    }
+    window.addEventListener('scroll', () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(updateLevel);
+    }, { passive: true });
   })();
 
   // ─── hero headline — static text (scramble animation removed per request) ───
@@ -256,25 +334,51 @@
   })();
   ═══════ END commented-out current hero JS (cont.) ═══════ */
 
-  // ─── Portfolio scroll parallax (optional, #5). Subtle translateY drift,
-  //      max ~30px, scoped to the portfolio section.
+  // ─── count-up numbers ("21 labels", HQ coordinates) ────────
+  // The HTML already holds the final value, so without JS it still reads right.
   (function(){
-    const rm = matchMedia('(prefers-reduced-motion: reduce)');
-    if (rm.matches) return;
-    const section = document.querySelector('.portfolio');
-    if (!section) return;
-    let ticking = false;
-    function onScroll(){
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        const rect = section.getBoundingClientRect();
-        const offset = Math.max(-30, Math.min(30, -rect.top * 0.15));
-        section.style.transform = `translateY(${offset}px)`;
-        ticking = false;
-      });
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const COUNT_DURATION_MS = 1400;
+
+    const getDecimals = (el) => (el.dataset.count.split('.')[1] || '').length;
+
+    function countUp(el){
+      const target = parseFloat(el.dataset.count);
+      const decimals = getDecimals(el);
+      const start = performance.now();
+      function tick(now){
+        const progress = Math.min((now - start) / COUNT_DURATION_MS, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = (target * eased).toFixed(decimals);
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
     }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll);
-    onScroll();
+
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        countUp(e.target);
+        obs.unobserve(e.target);
+      });
+    }, { threshold: 0.6 });
+
+    document.querySelectorAll('[data-count]').forEach(el => {
+      el.textContent = (0).toFixed(getDecimals(el));
+      obs.observe(el);
+    });
+  })();
+
+  // ─── nav hides while scrolling down, returns on scroll up ──
+  (function(){
+    const navWrap = document.querySelector('.nav-wrap');
+    if (!navWrap) return;
+    const SHOW_NAV_ABOVE_PX = 160;
+    let lastScrollY = window.scrollY;
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      if (Math.abs(scrollY - lastScrollY) < 6) return;
+      navWrap.classList.toggle('is-hidden', scrollY > lastScrollY && scrollY > SHOW_NAV_ABOVE_PX);
+      lastScrollY = scrollY;
+    }, { passive: true });
   })();
