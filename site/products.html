@@ -186,27 +186,20 @@
 
 <!-- ── Hero: Now Pouring · 4 Houses ── -->
 <header class="hero container">
-  <div class="meta-row">
-    <span class="chip"><span class="bullet"></span><span class="mono">The Distilleries · 04</span></span>
-    <span class="chip indigo"><span class="bullet"></span><span class="mono">Curated, not collected</span></span>
-  </div>
-
   <div class="pour" id="pourStage">
 
     <!-- LEFT — distillery copy -->
     <div class="copy">
-      <span class="now-pouring"><span class="pulse"></span> Now featuring · <span id="pourIdx">01</span> of 04</span>
       <p id="pourName" style="margin:0 0 18px;font-size:clamp(38px,4.8vw,66px);font-weight:800;line-height:.92;letter-spacing:-.04em;color:#F4EFE3;transition:opacity .4s">Gorkha Brewery<span class="serif" style="color:var(--coral);padding:0 .02em;font-size:1.06em">.</span></p>
 
       <div class="specs">
         <div class="cell"><div class="lbl">Category</div><div class="val" id="pourYear">Beer</div></div>
-        <div class="cell"><div class="lbl">Labels</div><div class="val" id="pourCount">10</div></div>
+        <div class="cell"><div class="lbl">Products</div><div class="val" id="pourCount">10</div></div>
         <div class="cell"><div class="lbl">Origin</div><div class="val" id="pourOrigin">Nepal</div></div>
       </div>
 
       <div class="actions">
         <a class="btn-light" id="pourHouseLink" href="brewery-gorkha.html">Enter the distillery <span class="arr">→</span></a>
-        <a class="btn-ghost" href="#houses">All 04 →</a>
       </div>
     </div>
 
@@ -218,7 +211,7 @@
           <path id="ringPath" d="M 220,220 m -200,0 a 200,200 0 1,1 400,0 a 200,200 0 1,1 -400,0" />
         </defs>
         <text>
-          <textPath href="#ringPath">★ SALESHUB · NEPAL · FOUR DISTILLERIES · 21 LABELS · ★ SALESHUB · NEPAL · FOUR DISTILLERIES · 21 LABELS · </textPath>
+          <textPath href="#ringPath">★ SALESHUBNEPAL · FOUR DISTILLERIES · 21 PRODUCTS · ★ SALESHUBNEPAL · FOUR DISTILLERIES · 21 PRODUCTS · </textPath>
         </text>
       </svg>
 
@@ -232,7 +225,7 @@
 
     <!-- RIGHT — rail (4 houses) -->
     <div class="rail">
-      <div class="rail-head"><span>The Roster</span><span class="of">04 / 04</span></div>
+      <div class="rail-head"><span>The Roster</span></div>
       <div class="queue" id="pourQueue">
         <button class="queue-item active" data-i="0">
           <span class="mini" style="background-image:url('assets/Product%20Images/Gorkha%20Craft.jpeg')"></span>
@@ -261,77 +254,6 @@
   </div>
 </header>
 
-<!-- ── HOUSES section (4 brewery cards) ── -->
-<section class="houses" id="houses">
-  <div class="watermark" aria-hidden="true">Distilleries.</div>
-  <div class="container">
-
-    <div class="sec-head s-reveal">
-      <h1 style="margin:0;font-size:clamp(48px,7vw,104px);font-weight:800;letter-spacing:-.035em;line-height:.92;text-wrap:balance">Four distilleries.<br>Twenty-one labels we move.</h1>
-    </div>
-
-    <div class="houses-grid">
-
-      <!-- Distillery 01: Gorkha Brewery -->
-      <a class="house-card tall feature s-reveal" href="brewery-gorkha.html" style="--bg:url('../assets/Product%20Images/Gorkha%20Craft.jpeg')">
-        <div class="hc-bg"></div>
-        <div class="hc-shade"></div>
-        <span class="hc-num">HOUSE № 01</span>
-        <span class="hc-arr" aria-hidden="true">↗</span>
-        <div class="hc-seal forest"><div class="disc">10<span class="small">LABELS</span></div></div>
-        <div class="hc-body">
-          <div class="est"><span class="dot"></span>Nepal · Beer</div>
-          <h2 style="margin:0;font-family:'Fraunces','Instrument Serif',serif;font-style:normal;font-weight:560;font-optical-sizing:auto;font-variation-settings:'SOFT' 60,'WONK' 0;font-size:clamp(34px,3.8vw,58px);line-height:.98;letter-spacing:-.02em;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.35)">Gorkha<br>Brewery.</h2>
-          <div class="tagline">Ten labels brewed and bottled in Nepal — Carlsberg in every size, Tuborg, plus Gorkha Strong, Pilsner and Craft.</div>
-        </div>
-      </a>
-
-      <!-- Distillery 02: Prime International -->
-      <a class="house-card s-reveal" href="brewery-prime.html" style="--bg:url('../assets/Product%20Images/Bandipur.jpeg')">
-        <div class="hc-bg"></div>
-        <div class="hc-shade"></div>
-        <span class="hc-num">HOUSE № 02</span>
-        <span class="hc-arr" aria-hidden="true">↗</span>
-        <div class="hc-seal amber"><div class="disc">06<span class="small">LABELS</span></div></div>
-        <div class="hc-body">
-          <div class="est"><span class="dot"></span>Nepal · Whisky, Vodka &amp; Rum</div>
-          <h2 style="margin:0;font-family:'Fraunces','Instrument Serif',serif;font-style:normal;font-weight:560;font-optical-sizing:auto;font-variation-settings:'SOFT' 60,'WONK' 0;font-size:clamp(34px,3.8vw,58px);line-height:.98;letter-spacing:-.02em;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.35)">Prime<br>International.</h2>
-          <div class="tagline">Six premium Nepali spirits — Gurkhas &amp; Guns, the Bandipur and Challenger whiskies, Yeti and Highlander vodkas, and Junge Kaji rum.</div>
-        </div>
-      </a>
-
-      <!-- Distillery 03: Big Master -->
-      <a class="house-card s-reveal" href="brewery-bigmaster.html" style="--bg:url('../assets/Product%20Images/Red%20Wine.jpeg')">
-        <div class="hc-bg"></div>
-        <div class="hc-shade"></div>
-        <span class="hc-num">HOUSE № 03</span>
-        <span class="hc-arr" aria-hidden="true">↗</span>
-        <div class="hc-seal"><div class="disc">03<span class="small">LABELS</span></div></div>
-        <div class="hc-body">
-          <div class="est"><span class="dot"></span>Nepal · Wine</div>
-          <h2 style="margin:0;font-family:'Fraunces','Instrument Serif',serif;font-style:normal;font-weight:560;font-optical-sizing:auto;font-variation-settings:'SOFT' 60,'WONK' 0;font-size:clamp(34px,3.8vw,58px);line-height:.98;letter-spacing:-.02em;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.35)">Big Master.</h2>
-          <div class="tagline">Three Nepali wines — a smooth Regular Red, a crisp Regular White, and the refined Black Chenin.</div>
-        </div>
-      </a>
-
-      <!-- Distillery 04: Saras Beverages -->
-      <a class="house-card tall s-reveal" href="brewery-saras.html" style="--bg:url('../assets/Product%20Images/redbull%20carbonated.jpeg')">
-        <div class="hc-bg"></div>
-        <div class="hc-shade"></div>
-        <span class="hc-num">HOUSE № 04</span>
-        <span class="hc-arr" aria-hidden="true">↗</span>
-        <div class="hc-seal indigo"><div class="disc">02<span class="small">LABELS</span></div></div>
-        <div class="hc-body">
-          <div class="est"><span class="dot"></span>Nepal · Energy Drinks</div>
-          <h2 style="margin:0;font-family:'Fraunces','Instrument Serif',serif;font-style:normal;font-weight:560;font-optical-sizing:auto;font-variation-settings:'SOFT' 60,'WONK' 0;font-size:clamp(34px,3.8vw,58px);line-height:.98;letter-spacing:-.02em;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.35)">Saras<br>Beverages.</h2>
-          <div class="tagline">Red Bull, produced in Nepal by Saras — the nitrogen-smooth Gold 250ml and the crisp, carbonated 330ml.</div>
-        </div>
-      </a>
-
-    </div>
-  </div>
-</section>
-
 <!-- ── CTA ── -->
 <section style="padding: 30px 0 0">
   <div class="cta-strip s-reveal">
@@ -339,7 +261,7 @@
       <span class="mono">— Wholesale enquiries —</span>
       <span class="mono">2026 / Open</span>
     </div>
-    <h3>Put a Distillery behind your bar.</h3>
+    <h3 data-split>Put a Distillery behind your bar</h3>
     <p>HoReCa partners, retail accounts, and event leads — get in touch for pricing, MOQs, and a same-week sample drop. Pick one distillery or all four.</p>
     <div class="actions">
       <a href="contact.html" class="btn">Request a sample crate <span class="arr">→</span></a>

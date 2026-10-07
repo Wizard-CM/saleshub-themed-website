@@ -46,10 +46,10 @@
   .nav ul a{ display:inline-block; padding:10px 14px; border-radius:999px; font-size:15px; color:#D7D1C2; transition:.2s background, .2s color }
   .nav ul a:hover{ background:rgba(255,255,255,.06); color:#fff }
   .nav ul a.active{ color:#fff; background:rgba(255,255,255,.08) }
-  .nav .cta{ background:#fff; color:var(--ink); padding:12px 18px 12px 20px; border-radius:999px; font-weight:600; font-size:14px; display:inline-flex; align-items:center; gap:10px; transition:.2s transform }
+  .nav .cta{ background:#fff; color:var(--ink); padding:12px 18px 12px 20px; border-radius:16px; font-weight:600; font-size:14px; display:inline-flex; align-items:center; gap:10px; transition:.2s transform }
   .nav .cta:hover{ transform:translateY(-1px) }
-  .nav .cta .arr{ width:26px; height:26px; border-radius:999px; background:var(--ink); color:#fff; display:grid; place-items:center; font-size:13px }
-  .nav .menu-btn{ display:none; width:42px; height:42px; border-radius:999px; background:rgba(255,255,255,.08); align-items:center; justify-content:center }
+  .nav .cta .arr{ width:26px; height:26px; border-radius:10px; background:var(--ink); color:#fff; display:grid; place-items:center; font-size:13px }
+  .nav .menu-btn{ display:none; width:42px; height:42px; border-radius:16px; background:rgba(255,255,255,.08); align-items:center; justify-content:center }
   .nav .menu-btn span{ width:14px; height:1.5px; background:#fff; box-shadow:0 -5px 0 #fff, 0 5px 0 #fff }
   @media (max-width:820px){
     .nav ul, .nav .cta{ display:none }
@@ -57,29 +57,11 @@
     .nav{ padding:8px 8px 8px 18px }
   }
 
-  /* ─── chips ─── */
-  .chip{
-    display:inline-flex; align-items:center; gap:10px;
-    padding:9px 16px 9px 14px; border-radius:999px;
-    border:1px solid rgba(11,11,13,.16);
-    background:#141418; backdrop-filter:blur(8px);
-  }
-  .chip .bullet{ width:8px; height:8px; border-radius:999px; background:var(--coral) }
-  .chip.indigo .bullet{ background:var(--indigo) }
-
   /* ─── HERO: Now Pouring · 4 Houses ─── */
   .hero{
     position:relative;
     padding: 24px 0 60px;
     overflow:hidden;
-  }
-  .hero .meta-row{
-    display:flex; justify-content:space-between; align-items:center;
-    gap:16px; flex-wrap:wrap; margin: 28px 0 26px;
-  }
-  /* Hide the hero badges on mobile/tablet — show on laptops and above */
-  @media (max-width: 1023px){
-    .hero > .meta-row{ display:none }
   }
   .pour{
     position:relative;
@@ -106,23 +88,6 @@
     pointer-events:none;
   }
   .pour .copy{ position:relative; z-index:2; display:flex; flex-direction:column; justify-content:center }
-  .pour .now-pouring{
-    display:inline-flex; align-items:center; gap:10px;
-    font-family:'JetBrains Mono', monospace; font-size:11px;
-    letter-spacing:.32em; text-transform:uppercase; color:#A29A85;
-    margin-bottom: 14px;
-  }
-  .pour .now-pouring .pulse{
-    display:inline-block; width:8px; height:8px; border-radius:999px;
-    background: var(--coral);
-    box-shadow: 0 0 0 0 rgba(255,92,58,.6);
-    animation: pourPulse 1.8s ease-out infinite;
-  }
-  @keyframes pourPulse{
-    0%{ box-shadow:0 0 0 0 rgba(255,92,58,.7) }
-    100%{ box-shadow:0 0 0 12px rgba(255,92,58,0) }
-  }
-  @media (prefers-reduced-motion: reduce) and (scripting: none){ .pour .now-pouring .pulse{ animation:none } }
   .pour .cat{
     font-family:'Instrument Serif', serif; font-style:italic;
     font-size: clamp(18px, 1.6vw, 22px); color: var(--coral-soft);
@@ -175,18 +140,11 @@
   .pour .actions .btn-light{
     display:inline-flex; align-items:center; gap:10px;
     background:#fff; color: var(--ink);
-    padding: 14px 20px 14px 22px; border-radius:999px;
+    padding: 14px 20px 14px 22px; border-radius:16px;
     font-weight:600; font-size:14px; transition:.2s transform;
   }
   .pour .actions .btn-light:hover{ transform: translateY(-1px) }
-  .pour .actions .btn-light .arr{ width:26px; height:26px; border-radius:999px; background: var(--coral); color:#fff; display:grid; place-items:center; font-size:13px }
-  .pour .actions .btn-ghost{
-    display:inline-flex; align-items:center; gap:10px;
-    background: rgba(255,255,255,.08); color:#fff;
-    border: 1px solid rgba(255,255,255,.14);
-    padding: 14px 20px; border-radius:999px;
-    font-weight:600; font-size:14px;
-  }
+  .pour .actions .btn-light .arr{ width:26px; height:26px; border-radius:10px; background: var(--coral); color:#fff; display:grid; place-items:center; font-size:13px }
 
   /* CENTER stage */
   .pour .stage{
@@ -258,7 +216,6 @@
     margin-bottom: 8px;
     display:flex; justify-content:space-between; align-items:center;
   }
-  .pour .rail-head .of{ color: #6E6856 }
   .pour .queue{ display:flex; flex-direction:column; gap: 10px }
   .queue-item{
     display:grid; grid-template-columns: 56px 1fr auto; gap: 14px;
@@ -334,159 +291,6 @@
     .pour .museum-tag{ display: none }
   }
 
-  /* ─── HOUSES section (the 4 brewery cards) ─── */
-  .houses{
-    padding: 64px 0;
-    position: relative;
-    overflow-x: clip;
-  }
-  .houses .watermark{
-    position: absolute; top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    font-family:'Instrument Serif', serif; font-style: italic;
-    font-size: clamp(180px, 26vw, 420px);
-    color: rgba(11,11,13,.035);
-    white-space: nowrap; pointer-events: none;
-    z-index: 0; user-select: none; line-height: 1;
-  }
-  .houses .container{ position: relative; z-index: 1 }
-
-  .houses .sec-head{
-    display:flex; justify-content:space-between; align-items:end;
-    gap:16px; flex-wrap:wrap;
-    margin-bottom: 40px;
-  }
-  .houses .sec-head h2{
-    margin: 0;
-    font-size: clamp(48px, 7vw, 104px);
-    font-weight: 800; letter-spacing: -.035em; line-height: .92;
-    text-wrap: balance;
-  }
-  .houses .sec-head h2 .serif{
-    font-family:'Instrument Serif', serif; font-style: italic; font-weight: 400;
-    color: var(--coral); padding: 0 .03em; font-size: 1.06em;
-  }
-  .houses .sec-head .right{
-    color: var(--mute);
-    font-family:'JetBrains Mono', monospace; font-size: 11px;
-    letter-spacing: .18em; text-transform: uppercase;
-    max-width: 40ch; line-height: 1.5;
-  }
-
-  .houses-grid{
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-  }
-  .house-card{
-    position: relative; overflow: hidden;
-    border-radius: 32px;
-    min-height: 460px;
-    cursor: pointer;
-    background: #1A1A1E; color: #F4EFE3;
-    isolation: isolate;
-    transition: transform .4s cubic-bezier(.2,.7,.2,1.4), box-shadow .4s;
-    box-shadow: 0 8px 24px rgba(11,11,13,.08);
-    display: block;
-  }
-  .house-card:hover{ transform: translateY(-8px); box-shadow: 0 32px 64px rgba(11,11,13,.22) }
-  .hc-bg{
-    position: absolute; inset: 0; z-index: 0;
-    background: var(--bg, none) center/cover no-repeat #1A1A1E;
-    transition: transform .9s cubic-bezier(.2,.7,.2,1), filter .35s;
-    filter: saturate(.9);
-  }
-  .house-card:hover .hc-bg{ transform: scale(1.06); filter: saturate(1.1) }
-  .hc-shade{
-    position: absolute; inset: 0; z-index: 1;
-    background: linear-gradient(180deg, rgba(11,11,13,.20) 0%, rgba(11,11,13,.30) 40%, rgba(11,11,13,.85) 100%);
-  }
-  .hc-num{
-    position: absolute; top: 22px; left: 22px; z-index: 3;
-    background: rgba(255,255,255,.95);
-    padding: 7px 14px; border-radius: 999px;
-    font-family:'JetBrains Mono', monospace; font-size: 10.5px;
-    letter-spacing: .22em; text-transform: uppercase;
-    color: #0B0B0D;
-    border: 1px solid rgba(11,11,13,.06);
-  }
-  .hc-arr{
-    position: absolute; top: 18px; right: 18px; z-index: 3;
-    width: 50px; height: 50px; border-radius: 999px;
-    background: rgba(255,255,255,.95); color: #0B0B0D;
-    border: 0; display: grid; place-items: center; font-size: 20px;
-    box-shadow: 0 8px 18px rgba(11,11,13,.18);
-    transition: .25s background, .25s color, .4s transform;
-  }
-  .house-card:hover .hc-arr{ background: var(--coral); color: #fff; transform: rotate(-35deg) scale(1.06) }
-  .hc-body{
-    position: absolute; left: clamp(24px, 3vw, 36px); right: clamp(24px, 3vw, 36px);
-    bottom: clamp(24px, 3vw, 36px);
-    z-index: 3; color: #fff;
-  }
-  .hc-body .est{
-    display:inline-flex; align-items: center; gap: 8px;
-    font-family:'JetBrains Mono', monospace; font-size: 10px;
-    letter-spacing: .22em; text-transform: uppercase;
-    color: rgba(255,255,255,.78); margin-bottom: 10px;
-    text-shadow: 0 2px 8px rgba(0,0,0,.35);
-  }
-  .hc-body .est .dot{ width: 7px; height: 7px; border-radius: 999px; background: var(--coral) }
-  .hc-body h3{
-    margin: 0;
-    font-family:'Fraunces', 'Instrument Serif', serif; font-style: normal;
-    font-weight: 560; font-optical-sizing: auto;
-    font-variation-settings: "SOFT" 60, "WONK" 0;
-    font-size: clamp(34px, 3.8vw, 58px);
-    line-height: .98; letter-spacing: -.02em; color: #fff;
-    text-shadow: 0 2px 8px rgba(0,0,0,.35);
-  }
-  .hc-body .tagline{
-    margin-top: 12px;
-    font-size: clamp(15px, 1.2vw, 17px);
-    line-height: 1.5; color: rgba(255,255,255,.85);
-    max-width: 36ch;
-    text-shadow: 0 2px 8px rgba(0,0,0,.35);
-  }
-  /* coral seal sticker on each card */
-  .hc-seal{
-    position: absolute; z-index: 4;
-    width: 96px; height: 96px;
-    top: 22px; right: 88px;
-    transform: rotate(-12deg);
-    pointer-events: none;
-    transition: transform .35s cubic-bezier(.2,.7,.2,1.4);
-  }
-  .house-card:hover .hc-seal{ transform: rotate(10deg) scale(1.08) }
-  .hc-seal .disc{
-    width: 100%; height: 100%; border-radius: 999px;
-    background: conic-gradient(from 220deg, var(--coral), #FF8260, var(--coral));
-    display: grid; place-items: center;
-    color: #fff;
-    font-family:'Instrument Serif', serif; font-style: italic; font-size: 22px;
-    line-height: 1;
-    text-align: center;
-    box-shadow: 0 12px 24px rgba(255,92,58,.45), inset 0 0 0 3px rgba(255,255,255,.4);
-  }
-  .hc-seal .disc .small{
-    display: block; font-family:'JetBrains Mono', monospace; font-style: normal;
-    font-size: 8px; letter-spacing: .22em; opacity: .9; margin-top: 4px;
-  }
-  .hc-seal.indigo .disc{ background: conic-gradient(from 220deg, var(--ember), #FF8260, var(--ember)); box-shadow: 0 12px 24px rgba(232,67,31,.45), inset 0 0 0 3px rgba(255,255,255,.4) }
-  .hc-seal.forest .disc{ background: conic-gradient(from 220deg, var(--forest), #2D6B57, var(--forest)); box-shadow: 0 12px 24px rgba(22,51,42,.45), inset 0 0 0 3px rgba(255,255,255,.4) }
-  .hc-seal.amber .disc{ background: conic-gradient(from 220deg, var(--amber), #E2B984, var(--amber)); box-shadow: 0 12px 24px rgba(217,162,107,.45), inset 0 0 0 3px rgba(255,255,255,.4) }
-
-  /* variant: tall vs default */
-  .house-card.tall{ min-height: 540px }
-  /* All distillery cards share one title size (the "feature" card no longer
-     scales its heading up) so the grid reads uniformly. */
-
-  @media (max-width: 920px){
-    .houses-grid{ grid-template-columns: 1fr }
-    .hc-seal{ width: 80px; height: 80px; right: 80px; top: 16px }
-    .hc-seal .disc{ font-size: 18px }
-  }
-
   /* ─── CTA ─── */
   .cta-strip{
     margin: 80px var(--pad-x) 40px; border-radius: 32px;
@@ -500,9 +304,9 @@
   .cta-strip h3 .serif{ font-style:italic; color:rgba(255,255,255,.95); font-weight:400; padding:0 .03em }
   .cta-strip p{ max-width: 480px; color: rgba(255,255,255,.92); margin: 0 0 28px; font-size:17px; line-height:1.5 }
   .cta-strip .actions{ display:flex; gap:14px; flex-wrap:wrap; align-items:center; position:relative; z-index:2 }
-  .btn{ display:inline-flex; align-items:center; gap:10px; padding: 16px 22px 16px 24px; border-radius:999px; background:#fff; color:#0B0B0D; font-weight:600; font-size:15px; transition:.2s transform }
+  .btn{ display:inline-flex; align-items:center; gap:10px; padding: 16px 22px 16px 24px; border-radius:16px; background:#fff; color:#0B0B0D; font-weight:600; font-size:15px; transition:.2s transform }
   .btn:hover{ transform:translateY(-1px) }
-  .btn .arr{ width:26px; height:26px; border-radius:999px; background:var(--ink); color:#fff; display:grid; place-items:center; font-size:13px }
+  .btn .arr{ width:26px; height:26px; border-radius:10px; background:var(--ink); color:#fff; display:grid; place-items:center; font-size:13px }
   .btn.ghost{ background:rgba(255,255,255,.18); color:#fff; backdrop-filter:blur(6px) }
   .btn.ghost .arr{ background:#fff; color:var(--ink) }
 
@@ -522,12 +326,6 @@
 
   /* Nav entrance */
 
-  /* Hero meta chips */
-  .hero > .meta-row{
-    opacity: 0;
-    animation: fadeSlideUp .6s cubic-bezier(.22,1,.36,1) .15s forwards;
-  }
-
   /* Pour section entrance */
   .pour{
     opacity: 0; transform: translateY(30px);
@@ -537,6 +335,34 @@
   @keyframes fadeSlideUp{
     to{ opacity:1; transform: translateY(0) }
   }
+
+  /* Inside the card — plays once the age gate lifts (entry-gate.js removes
+     data-gating): the copy stacks in, the bottle rises, the roster slides in. */
+  @media (prefers-reduced-motion: no-preference){
+    html:not([data-gating]) .pour .copy > *{ animation: fadeUp .7s cubic-bezier(.22,1,.36,1) .5s backwards }
+    html:not([data-gating]) .pour .copy > :nth-child(2){ animation-delay: .62s }
+    html:not([data-gating]) .pour .copy > :nth-child(3){ animation-delay: .74s }
+    html:not([data-gating]) .pour .brew-img{ animation: bottleRise 1s cubic-bezier(.22,1,.36,1) .55s backwards }
+    html:not([data-gating]) .pour .rail-head{ animation: fadeUp .6s cubic-bezier(.22,1,.36,1) .6s backwards }
+    html:not([data-gating]) .queue-item{ animation: slideInRight .6s cubic-bezier(.22,1,.36,1) .7s backwards }
+    html:not([data-gating]) .queue-item:nth-child(2){ animation-delay: .78s }
+    html:not([data-gating]) .queue-item:nth-child(3){ animation-delay: .86s }
+    html:not([data-gating]) .queue-item:nth-child(4){ animation-delay: .94s }
+
+    /* CTA heading — data-split words rise out of a mask once the strip reveals */
+    [data-split] .word{
+      display: inline-block; vertical-align: top; overflow: hidden;
+      padding: .1em .05em .16em; margin: -.1em -.05em -.16em;
+    }
+    [data-split] .word > span{
+      display: inline-block; transform: translateY(110%);
+      transition: transform .9s cubic-bezier(.22,1,.36,1) calc(.2s + var(--i) * 80ms);
+    }
+    .s-reveal.visible [data-split] .word > span{ transform: none }
+  }
+  @keyframes fadeUp{ from{ opacity: 0; transform: translateY(16px) } }
+  @keyframes bottleRise{ from{ opacity: 0; transform: translateY(60px) scale(.94) } }
+  @keyframes slideInRight{ from{ opacity: 0; transform: translateX(24px) } }
 
   /* ─── Scroll-triggered reveals ─── */
   .s-reveal{
@@ -548,30 +374,6 @@
     opacity: 1;
     transform: translateY(0);
   }
-
-  /* Section heading reveal */
-  .sec-head.s-reveal{
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  .sec-head.s-reveal.visible{
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* House cards — staggered scale entrance */
-  .house-card.s-reveal{
-    opacity: 0;
-    transform: translateY(50px) scale(.96);
-  }
-  .house-card.s-reveal.visible{
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-  .house-card.s-reveal:nth-child(1){ transition-delay: .0s }
-  .house-card.s-reveal:nth-child(2){ transition-delay: .12s }
-  .house-card.s-reveal:nth-child(3){ transition-delay: .22s }
-  .house-card.s-reveal:nth-child(4){ transition-delay: .32s }
 
   /* CTA strip entrance */
   .cta-strip.s-reveal{
@@ -601,8 +403,8 @@
 
   /* Reduced motion */
   @media (prefers-reduced-motion: reduce) and (scripting: none){
-    .hero > .meta-row, .pour,
-    .s-reveal, .sec-head.s-reveal, .house-card.s-reveal,
+    .pour,
+    .s-reveal,
     .cta-strip.s-reveal, footer .row.s-stagger > *{
       opacity: 1 !important;
       transform: none !important;

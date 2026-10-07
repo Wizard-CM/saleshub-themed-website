@@ -170,7 +170,7 @@
   </aside>
 </div>
 
-<!-- ─────────── Hero — Team Photo ─────────── -->
+<!-- ─────────── Hero — Team Photos ─────────── -->
 <header class="hero-team">
   <div class="container">
 
@@ -182,7 +182,7 @@
     <div class="ht-headline">
       <h1>
         <span class="line">The people</span>
-        <span class="line"><span class="serif">behind</span> the pour.</span>
+        <span class="line"><span class="serif">behind</span> the pour</span>
       </h1>
       <p class="lede">
         We're a distribution company, but the work is mostly people work — drivers, pickers, brand reps, planners, and one stubborn aunty who calibrates every shipment. Twelve years in, we still ride out together when a delivery goes sideways.
@@ -190,20 +190,18 @@
     </div>
 
     <div class="ht-stage">
-      <!-- the team photo placeholder -->
-      <figure class="ht-photo" aria-label="The SalesHub team, Kathmandu HQ, March 2026">
-        <div class="ph-fill">
-          <img src="assets/about-page/Team.JPG" alt="The SalesHub team, Kathmandu HQ, March 2026" class="ph-img">
-        </div>
-
-        <!-- gradient overlay for legibility of corner badges -->
-        <div class="ph-shade" aria-hidden="true"></div>
-
-        <!-- top-left film tape -->
-        <div class="ht-tape">
-          <span class="ht-tape-num">№ 06 / 24</span>
-        </div>
-      </figure>
+      <!-- team photo grid (big photo + two stacked) -->
+      <div class="hq-grid">
+        <figure class="hq-photo big">
+          <img src="assets/about-page/team-images/team-group-4.jpg" alt="The SalesHubNepal team together at the Kathmandu office">
+        </figure>
+        <figure class="hq-photo">
+          <img src="assets/about-page/team-images/team-meeting-1.jpg" alt="SalesHubNepal leadership presenting to the team at the meeting table">
+        </figure>
+        <figure class="hq-photo">
+          <img src="assets/about-page/team-images/team-meeting-5.jpg" alt="SalesHubNepal team members taking notes during a meeting">
+        </figure>
+      </div>
 
       <!-- meta strip beneath -->
       <div class="ht-meta">
@@ -213,15 +211,15 @@
         </div>
         <div class="ht-meta-cell">
           <div class="lbl">Floor team</div>
-          <div class="val">38 <span class="small">humans</span></div>
+          <div class="val"><span data-count="38">38</span> <span class="small">humans</span></div>
         </div>
         <div class="ht-meta-cell">
           <div class="lbl">Trucks</div>
-          <div class="val">12 <span class="small">refrigerated</span></div>
+          <div class="val"><span data-count="12">12</span> <span class="small">refrigerated</span></div>
         </div>
         <div class="ht-meta-cell">
           <div class="lbl">Markets</div>
-          <div class="val">04 <span class="small">· 27 cities</span></div>
+          <div class="val"><span data-count="4">04</span> <span class="small">· 27 cities</span></div>
         </div>
         <a class="ht-meta-cta" href="#origin">
           Meet the team in full
@@ -232,44 +230,11 @@
   </div>
 </header>
 
-<!-- ─────────── Origin Story ─────────── -->
-<section class="story s-reveal-parent">
-  <div class="container">
-    <div class="grid">
-      <div>
-        <h2>From three folding chairs, an <span class="serif">entire</span> network.</h2>
-        <div class="marginalia s-reveal">
-          “If you can move it cold from Esbjerg to Kathmandu without losing the head on the pour, the rest is just paperwork.”
-          <div style="font-family:'Bricolage Grotesque',sans-serif;font-style:normal;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-top:14px">— Rajan K., founder</div>
-        </div>
-      </div>
-
-      <div class="body s-reveal">
-        <p>In 2014, two brothers and a logistics nerd quit their day jobs to build the country's first <strong>cold-chain-first</strong> beverage distributor. The bet was unfashionable: spend on refrigerated trucks, climate-controlled bays, and a 24-hour stock turn before chasing volume.</p>
-        <p>Twelve years later, every bottle we touch has a serial number and a temperature log. Every truck has a GPS bead. Every label on our roster <strong>signs a freshness pledge</strong> before we shake on a contract — and we've walked away from more deals than we've signed.</p>
-        <p>The pledge is simple: if it doesn't taste the way the brewmaster meant it to, we don't carry it.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─────────── Numbers strip ─────────── -->
-<section class="numbers">
-  <div class="container">
-    <div class="grid">
-      <div class="cell s-reveal"><div class="k" data-count="12">12<span class="serif">.</span></div><div class="l">Years on the road</div></div>
-      <div class="cell s-reveal"><div class="k" data-count="4">04</div><div class="l">Active markets</div></div>
-      <div class="cell s-reveal"><div class="k" data-count="27">27</div><div class="l">Cities served</div></div>
-      <div class="cell s-reveal"><div class="k" data-count="47">47</div><div class="l">Retail &amp; HoReCa partners</div></div>
-    </div>
-  </div>
-</section>
-
 <!-- ─────────── Team ─────────── -->
 <section class="team">
   <div class="container">
     <div class="head s-reveal">
-      <h2>The people <span class="serif">behind</span> the pour.</h2>
+      <h2>The people <span class="serif">behind</span> the pour</h2>
     </div>
 
     <div class="team-grid">
@@ -350,8 +315,6 @@
   </div>
 </section>
 
-
-
 <!-- ─────────── CTA strip ─────────── -->
 <section id="contact" style="padding: 30px 0 0">
   <div class="cta-strip s-reveal">
@@ -359,7 +322,7 @@
       <span class="mono">— Next steps —</span>
       <span class="mono">2026 / Open</span>
     </div>
-    <h3>Bring a label to Nepal.</h3>
+    <h3 data-split>Bring a product to Nepal</h3>
     <p>Whether you're a brewmaster, a brand owner, or just someone with a really good gin you think the country should meet — we'd love to hear from you. We answer every message within a business day.</p>
     <div class="actions">
       <a href="#" class="btn">Start the conversation <span class="arr">→</span></a>

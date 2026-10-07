@@ -91,20 +91,20 @@
   .nav .cta{
     background:#fff; color:var(--ink);
     padding:12px 18px 12px 20px;
-    border-radius:999px;
+    border-radius:16px;
     font-weight:600; font-size:14px;
     display:inline-flex; align-items:center; gap:10px;
     transition:.2s transform;
   }
   .nav .cta:hover{ transform:translateY(-1px) }
   .nav .cta .arr{
-    width:26px; height:26px; border-radius:999px;
+    width:26px; height:26px; border-radius:10px;
     background:var(--ink); color:#fff;
     display:grid; place-items:center; font-size:13px;
   }
   .nav .menu-btn{
     display:none;
-    width:42px; height:42px; border-radius:999px;
+    width:42px; height:42px; border-radius:16px;
     background:rgba(255,255,255,.08);
     align-items:center; justify-content:center;
   }
@@ -178,6 +178,8 @@
 
   /* photo stage */
   .ht-stage{ position:relative }
+  /* the hero reuses the Life at HQ photo grid; the headline already spaces it */
+  .hero-team .hq-grid{ margin-top: 0 }
   .ht-photo{
     position: relative;
     margin: 0;
@@ -349,13 +351,13 @@
   .ht-meta-cta{
     display:inline-flex; align-items:center; gap: 10px;
     background: var(--ink); color:#fff;
-    padding: 14px 18px 14px 22px; border-radius: 999px;
+    padding: 14px 18px 14px 22px; border-radius: 16px;
     font-weight: 600; font-size: 14px; transition: .2s transform;
     justify-self: end;
   }
   .ht-meta-cta:hover{ transform: translateY(-1px) }
   .ht-meta-cta .arr{
-    width: 26px; height: 26px; border-radius: 999px;
+    width: 26px; height: 26px; border-radius: 10px;
     background: var(--coral); color: #fff;
     display:grid; place-items: center; font-size: 13px;
   }
@@ -470,15 +472,15 @@
   .dossier .actions .btn-ink{
     display:inline-flex; align-items:center; gap:10px;
     background: var(--ink); color:#fff;
-    padding: 14px 20px 14px 22px; border-radius:999px;
+    padding: 14px 20px 14px 22px; border-radius:16px;
     font-weight:600; font-size:14px; transition: .2s transform;
   }
   .dossier .actions .btn-ink:hover{ transform: translateY(-1px) }
-  .dossier .actions .btn-ink .arr{ width:26px; height:26px; border-radius:999px; background: var(--coral); color:#fff; display:grid; place-items:center; font-size:13px }
+  .dossier .actions .btn-ink .arr{ width:26px; height:26px; border-radius:10px; background: var(--coral); color:#fff; display:grid; place-items:center; font-size:13px }
   .dossier .actions .btn-out{
     display:inline-flex; align-items:center; gap:10px;
     border:1px solid var(--line);
-    padding: 14px 18px; border-radius:999px;
+    padding: 14px 18px; border-radius:16px;
     font-weight:600; font-size:14px;
     transition:.2s background;
   }
@@ -892,10 +894,10 @@
   }
 
   /* ─────────── team / polaroids ─────────── */
-  .team .head h2{
+  .team .head h2, .hq-life .head h2{
     font-size: clamp(46px, 7vw, 100px); font-weight:800; letter-spacing:-.03em; line-height:.95; margin:0
   }
-  .team .head h2 .serif{ font-family: inherit; font-style: normal; font-weight: inherit; color: inherit; }
+  .team .head h2 .serif, .hq-life .head h2 .serif{ font-family: inherit; font-style: normal; font-weight: inherit; color: inherit; }
   .team-grid{
     margin-top: 40px;
     display:grid; grid-template-columns: repeat(12, 1fr); gap:24px;
@@ -950,6 +952,26 @@
   @media (max-width: 1100px){ .polaroid{ grid-column: span 4 } }
   @media (max-width: 700px){ .polaroid{ grid-column: span 6 } }
   @media (max-width: 460px){ .polaroid{ grid-column: span 12; margin-top:0 !important; transform:none !important } }
+
+  /* ─────────── life at HQ / photo grid ─────────── */
+  .hq-grid{
+    margin-top: 40px;
+    display:grid; grid-template-columns: 1.4fr 1fr; gap:16px;
+  }
+  .hq-photo{
+    margin:0; border-radius: 22px; overflow:hidden;
+    aspect-ratio: 4/3; background: var(--cream-3);
+  }
+  .hq-photo img{ width:100%; height:100%; object-fit:cover; transition: transform .8s cubic-bezier(.22,1,.36,1) }
+  .hq-photo:hover img{ transform: scale(1.04) }
+  /* big photo fills the height of the two stacked ones beside it */
+  .hq-photo.big{ grid-row: span 2; aspect-ratio: auto }
+  .hq-photo.wide{ grid-column: 1 / -1; aspect-ratio: 21/9 }
+  @media (max-width: 760px){
+    .hq-grid{ grid-template-columns: 1fr }
+    .hq-photo.big{ grid-row: auto; aspect-ratio: 4/3 }
+    .hq-photo.wide{ aspect-ratio: 16/9 }
+  }
 
   /* ─────────── network map ─────────── */
   .network{}
@@ -1107,13 +1129,13 @@
   .btn{
     display:inline-flex; align-items:center; gap:10px;
     padding: 16px 22px 16px 24px;
-    border-radius:999px;
+    border-radius:16px;
     background:#fff; color:var(--ink);
     font-weight:600; font-size:15px;
     transition:.2s transform;
   }
   .btn:hover{ transform:translateY(-1px) }
-  .btn .arr{ width:26px; height:26px; border-radius:999px; background:var(--ink); color:#fff; display:grid; place-items:center; font-size:13px }
+  .btn .arr{ width:26px; height:26px; border-radius:10px; background:var(--ink); color:#fff; display:grid; place-items:center; font-size:13px }
   .btn.ghost{ background:rgba(255,255,255,.18); color:#fff; backdrop-filter:blur(6px) }
   .btn.ghost .arr{ background:#fff; color:var(--ink) }
   /* ─────────── footer ─────────── */
@@ -1322,6 +1344,21 @@
     transform: translateY(0) scale(1);
   }
 
+  /* Split heading ("Bring a product to Nepal") — about.js wraps each word;
+     words rise out of a mask once the CTA strip is revealed, like on the home page. */
+  [data-split] .word{
+    display: inline-block; vertical-align: top; overflow: hidden;
+    padding: .1em .05em .16em; margin: -.1em -.05em -.16em;
+  }
+  [data-split] .word > span{
+    display: inline-block; transform: translateY(110%);
+    transition: transform .9s cubic-bezier(.22,1,.36,1) calc(var(--i) * 80ms);
+  }
+  .s-reveal.visible [data-split] .word > span{ transform: none }
+
+  /* Hero stats that count up — fixed-width digits so the line doesn't shift while counting */
+  [data-count]{ font-variant-numeric: tabular-nums }
+
   /* Pinboard artifacts — sequential float-in */
   .pinboard .artifact{
     opacity: 0;
@@ -1383,7 +1420,7 @@
     .ht-stage, .ht-polaroid, .ht-meta,
     .s-reveal, .s-stagger > *, .numbers .cell.s-reveal,
     .tl-card.s-reveal, .v-card.s-reveal, .team-grid .polaroid.s-reveal,
-    .cta-strip.s-reveal, .pinboard .artifact,
+    .cta-strip.s-reveal, .pinboard .artifact, [data-split] .word > span,
     .story h2, .map .mountain, .map .road, .map .pin, .map .tag, .map .ribbon,
     footer .row.s-stagger > *{
       opacity: 1 !important;

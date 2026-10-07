@@ -152,6 +152,86 @@
 
   // ─── runway strip (home Portfolio): now a CSS auto-marquee, no JS needed ──
 
+  // ─── team slider: auto-advances, swipe (touch) or drag (mouse) to move ───
+  (function(){
+    const track = document.getElementById('teamTrack');
+    if (!track) return;
+    const slider = track.closest('.team-slider');
+    const dots = Array.from(slider.querySelectorAll('.team-dot'));
+    const slideCount = track.children.length;
+    const AUTO_SLIDE_MS = 4000;
+    const SWIPE_THRESHOLD_PX = 50;
+    const prefersReducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let currentIndex = 0;
+    let autoSlideTimer;
+
+    function goToSlide(index){
+      // wrap around so "next" on the last photo goes back to the first
+      const wrappedIndex = (index + slideCount) % slideCount;
+      track.scrollTo({ left: wrappedIndex * track.clientWidth, behavior: 'smooth' });
+    }
+
+    function startAutoSlide(){
+      if (prefersReducedMotion) return;
+      clearInterval(autoSlideTimer);
+      autoSlideTimer = setInterval(() => goToSlide(currentIndex + 1), AUTO_SLIDE_MS);
+    }
+
+    function stopAutoSlide(){
+      clearInterval(autoSlideTimer);
+    }
+
+    // the scroll position is the source of truth — it covers swipes, drags, arrows and the timer
+    track.addEventListener('scroll', () => {
+      currentIndex = Math.round(track.scrollLeft / track.clientWidth);
+      dots.forEach((dot, i) => dot.classList.toggle('is-active', i === currentIndex));
+    }, { passive: true });
+
+    document.getElementById('teamPrev').addEventListener('click', () => goToSlide(currentIndex - 1));
+    document.getElementById('teamNext').addEventListener('click', () => goToSlide(currentIndex + 1));
+    dots.forEach((dot, i) => dot.addEventListener('click', () => goToSlide(i)));
+
+    // pause while the user is looking at or touching the photos
+    slider.addEventListener('mouseenter', stopAutoSlide);
+    slider.addEventListener('mouseleave', startAutoSlide);
+    track.addEventListener('touchstart', stopAutoSlide, { passive: true });
+    track.addEventListener('touchend', startAutoSlide, { passive: true });
+
+    // mouse drag — touch already swipes natively through scroll-snap
+    let isDragging = false;
+    let dragStartX = 0;
+    let dragStartScroll = 0;
+
+    track.addEventListener('pointerdown', (e) => {
+      if (e.pointerType !== 'mouse') return;
+      isDragging = true;
+      dragStartX = e.clientX;
+      dragStartScroll = track.scrollLeft;
+      track.classList.add('is-dragging');
+      track.setPointerCapture(e.pointerId);
+    });
+
+    track.addEventListener('pointermove', (e) => {
+      if (!isDragging) return;
+      track.scrollLeft = dragStartScroll - (e.clientX - dragStartX);
+    });
+
+    function handleDragEnd(e){
+      if (!isDragging) return;
+      isDragging = false;
+      track.classList.remove('is-dragging');
+      const dragDistance = e.clientX - dragStartX;
+      const startIndex = Math.round(dragStartScroll / track.clientWidth);
+      if (dragDistance < -SWIPE_THRESHOLD_PX) goToSlide(startIndex + 1);
+      else if (dragDistance > SWIPE_THRESHOLD_PX) goToSlide(startIndex - 1);
+      else goToSlide(startIndex);
+    }
+    track.addEventListener('pointerup', handleDragEnd);
+    track.addEventListener('pointercancel', handleDragEnd);
+
+    startAutoSlide();
+  })();
+
   /* ═══════ CURRENT "The Reel" HERO JS — commented out per request (kept, not removed) ═══════
   // ─── HERO "The Reel": crossfade + NOW SHOWING + entrance wiring ───────────
   // Entrance plays ONLY on a fresh load / refresh (when the entry gate hands off
@@ -194,10 +274,16 @@
     const lede = hero.querySelector('.lede');
     const liquid = glass.querySelector('.liquid');
 
-    // Fill the glass so the foam sits in the gap between the headline and the
-    // lede — the foam is cream, so crossing the cream headline makes it unreadable.
-    function setFillLevel(){
+    // Size the glass so its rim sits just above the last headline line — the
+    // top lines break out above the glass. Then fill it so the foam sits in the
+    // gap between the headline and the lede — the foam is cream, so crossing
+    // the cream headline makes it unreadable.
+    function fitGlassToHeadline(){
       const glassBottom = glass.offsetTop + glass.offsetHeight;
+      const headlineTop = heroInner.offsetTop + headline.offsetTop;
+      const glassTop = headlineTop + headline.offsetHeight * .6;
+      glass.style.height = (glassBottom - glassTop) + 'px';
+
       const headlineBottom = heroInner.offsetTop + headline.offsetTop + headline.offsetHeight
         - parseFloat(getComputedStyle(headline).paddingBottom);
       const ledeTop = heroInner.offsetTop + lede.offsetTop;
@@ -205,9 +291,10 @@
       const fillLevel = Math.min(Math.max(glassBottom - 8 - surfaceY, glass.offsetHeight * .3), glass.offsetHeight - 24);
       glass.style.setProperty('--fill-level', fillLevel + 'px');
     }
-    setFillLevel();
-    window.addEventListener('resize', setFillLevel);
-    if (document.fonts) document.fonts.ready.then(setFillLevel);
+    fitGlassToHeadline();
+    window.addEventListener('resize', fitGlassToHeadline);
+    // re-measure when the headline/lede reflow (e.g. web fonts swapping in late)
+    new ResizeObserver(fitGlassToHeadline).observe(heroInner);
 
     // carbonation: a handful of bubbles with random size, lane and speed
     for (let i = 0; i < 16; i++){

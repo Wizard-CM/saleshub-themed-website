@@ -89,6 +89,41 @@
     els.forEach(el => obs.observe(el));
   })();
 
+  // ─── count-up numbers (map coordinates) ────────────────────
+  // The HTML already holds the final value, so without JS it still reads right.
+  (function(){
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const COUNT_DURATION_MS = 1400;
+
+    const getDecimals = (el) => (el.dataset.count.split('.')[1] || '').length;
+
+    function countUp(el){
+      const target = parseFloat(el.dataset.count);
+      const decimals = getDecimals(el);
+      const start = performance.now();
+      function tick(now){
+        const progress = Math.min((now - start) / COUNT_DURATION_MS, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = (target * eased).toFixed(decimals);
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        countUp(e.target);
+        obs.unobserve(e.target);
+      });
+    }, { threshold: 0.6 });
+
+    document.querySelectorAll('[data-count]').forEach(el => {
+      el.textContent = (0).toFixed(getDecimals(el));
+      obs.observe(el);
+    });
+  })();
+
   // ─── form field focus micro-interaction ────────────────────
   (function(){
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;

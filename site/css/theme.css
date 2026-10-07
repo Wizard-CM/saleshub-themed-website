@@ -47,7 +47,6 @@ html, body, .nav, footer, .form-card, .map-card, .stat-card, .v-card,
 [data-theme="dark"] body {
   background: #08080A;
   background-image:
-    radial-gradient(900px 500px at 0% 100%, rgba(255,92,58,.12), transparent 55%),
     radial-gradient(circle at 1px 1px, rgba(244,239,227,.04) 1px, transparent 0);
 }
 
@@ -421,7 +420,7 @@ html, body, .nav, footer, .form-card, .map-card, .stat-card, .v-card,
 .theme-toggle {
   position: relative;
   width: 38px; height: 38px;
-  border-radius: 999px;
+  border-radius: 16px;
   background: rgba(255,255,255,.08);
   border: 1px solid rgba(255,255,255,.06);
   display: inline-grid; place-items: center;
@@ -574,7 +573,7 @@ footer .brand-logo{ width:54px; height:54px }
 .drawer-head .brand{ font-weight:700; font-size:18px; letter-spacing:-.01em; color:#fff }
 .drawer-head .brand .dot{ color:var(--coral) }
 .drawer-close{
-  width:42px; height:42px; border-radius:999px; position:relative; flex-shrink:0;
+  width:42px; height:42px; border-radius:16px; position:relative; flex-shrink:0;
   background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.06);
   display:grid; place-items:center;
   transition:background .2s, transform .35s cubic-bezier(.2,.7,.2,1.4);
@@ -613,12 +612,12 @@ footer .brand-logo{ width:54px; height:54px }
 .drawer-cta{
   margin-top:24px;
   background:#fff; color:#0B0B0D; padding:14px 20px;
-  border-radius:999px; font-weight:600; font-size:15px;
+  border-radius:16px; font-weight:600; font-size:15px;
   display:inline-flex; align-items:center; justify-content:center; gap:10px;
   transition:transform .2s;
 }
 .drawer-cta:hover{ transform:translateY(-1px) }
-.drawer-cta .arr{ width:26px; height:26px; border-radius:999px; background:#0B0B0D; color:#fff; display:grid; place-items:center; font-size:13px }
+.drawer-cta .arr{ width:26px; height:26px; border-radius:10px; background:#0B0B0D; color:#fff; display:grid; place-items:center; font-size:13px }
 
 .drawer-foot{
   margin-top:auto; padding-top:22px;

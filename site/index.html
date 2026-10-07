@@ -229,63 +229,6 @@
 </div>
 
 <!-- ──────────── HERO ──────────── -->
-<!-- ═══════ CURRENT "The Reel" HERO — commented out per request (kept, not removed) ═══════
-<header class="hero" id="hero">
-  <!- - z0: full-bleed cinematic footage (decorative) - ->
-  <div class="hero-films" aria-hidden="true">
-    <video class="hero-bg-video active" src="assets/home-hero-videos/video 1.mp4" muted playsinline autoplay loop preload="auto"></video>
-    <video class="hero-bg-video" src="assets/home-hero-videos/video 2.mp4" muted playsinline loop preload="metadata"></video>
-    <video class="hero-bg-video" src="assets/home-hero-videos/video 3.mp4" muted playsinline loop preload="metadata"></video>
-  </div>
-
-  <!- - z1: directional ink scrim (never a flat sheet) + warm cursor polish - ->
-  <div class="hero-scrim" aria-hidden="true"></div>
-  <div class="hero-polish" aria-hidden="true"></div>
-
-  <!- - z2: bottom-left editorial content - ->
-  <div class="hero-inner container">
-    <p class="hero-eyebrow mono"><span class="dot" aria-hidden="true"></span>Authorised Distribution · Kathmandu · Est. 2014</p>
-
-    <p class="hero-h1">
-      <span class="line"><span class="li">We move the</span></span>
-      <span class="line"><span class="li"><span class="pill">drinks</span> <span class="serif soft">Nepal</span></span></span>
-      <span class="line"><span class="li">asks for.</span></span>
-    </p>
-
-    <p class="hero-lede">
-      Nepal's authorised wholesale partner for a hand-picked shelf of the world's best beverage labels — whisky, beer, and Red Bull, kept cold and moving.
-    </p>
-
-    <div class="hero-actions">
-      <a class="btn" href="products.html">View the portfolio <span class="arr" aria-hidden="true">→</span></a>
-      <a class="btn ghost" href="about.html">Read our story <span class="arr" aria-hidden="true">→</span></a>
-    </div>
-  </div>
-
-  <!- - z2: bottom strip — now-showing title sequence + facts + hairline marquee - ->
-  <div classo="hero-strip" aria-hidden="true">
-    <div class="hero-strip-inner container">
-      <div class="hero-nowshowing">
-        <span class="ns-label mono">Now Showing</span>
-        <span class="ns-roll"><span class="ns-title mono" id="nsTitle">Gurkhas &amp; Guns · Single Malt</span></span>
-        <span class="ns-dots" id="nsDots">
-          <i class="ns-dot is-on"></i><i class="ns-dot"></i><i class="ns-dot"></i>
-        </span>
-      </div>
-      <div class="hero-facts mono">
-        <span>04 Houses</span><span class="sep"></span><span>15 Labels</span><span class="sep"></span><span>2°C Cold Chain</span>
-      </div>
-      <div class="hero-marquee">
-        <div class="hm-track">
-          <span>Gurkhas &amp; Guns · Bandipur · Carlsberg · Gorkha · Tuborg · Yeti · Red Bull · Wines · </span>
-          <span aria-hidden="true">Gurkhas &amp; Guns · Bandipur · Carlsberg · Gorkha · Tuborg · Yeti · Red Bull · Wines · </span>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
-═══════ END commented-out current hero ═══════ -->
-
 <!-- ACTIVE HERO — ported from ref-old-index-hero.html -->
 <header class="hero">
   <!-- the big glass behind the headline -->
@@ -298,36 +241,85 @@
   </div>
 
   <div class="hero-inner container">
+    <h1>
+      <span class="serif word"><span style="--i:0">We</span></span> <span class="word"><span style="--i:1">move</span></span><br>
+      <span class="word"><span style="--i:2">the</span></span> <span class="word"><span style="--i:3">drinks</span></span> <span class="word"><span style="--i:4">Nepal</span></span><br>
+      <span class="word"><span style="--i:5">asks</span></span> <span class="word"><span style="--i:6">for</span></span>
+    </h1>
 
-    <div class="meta-center">
-      <span class="chip"><span class="bullet"></span><span class="mono">The SalesHub Story</span></span>
-    </div>
+    <p class="lede">
+      Established in Kathmandu by a team obsessed with quality. The country's authorised distribution partner for a hand-picked set of premium global beverage products.
+    </p>
 
     <div class="side-chips">
       <span class="chip"><span class="bullet"></span><span class="mono">Authorised Distributor · est. 2014</span></span>
       <span class="chip indigo"><span class="bullet"></span><span class="mono">04 Markets · 27 Cities</span></span>
     </div>
 
-    <h1>
-      <span class="word"><span style="--i:0">We</span></span> <span class="word"><span style="--i:1">move</span></span><br>
-      <span class="word"><span style="--i:2">the</span></span> <span class="word"><span style="--i:3">drinks</span></span> <span class="serif word"><span style="--i:4">Nepal</span></span><br>
-      <span class="word"><span style="--i:5">asks</span></span> <span class="word"><span style="--i:6">for.</span></span>
-    </h1>
-
-    <p class="lede">
-      Established in Kathmandu by a team obsessed with quality. The country's authorised distribution partner for a hand-picked set of premium global beverage labels.
-    </p>
-
-    <div class="actions">
-      <a class="btn" href="about.html">Read our story <span class="arr">→</span></a>
-    </div>
-
   </div>
 </header>
 
+<!-- ──────────── Team (auto slider — swipe / drag to move by hand) ──────────── -->
+<section class="team-home">
+  <div class="container">
+
+    <div class="ed-meta s-reveal">
+      <span class="label"><span class="dot"></span>THE TEAM</span>
+    </div>
+
+    <div class="ed-grid">
+      <div class="ed-text s-reveal">
+        <h2><span class="ed-line">The people</span><span class="ed-line">behind the <span class="hl">pour</span></span></h2>
+        <p class="ed-copy">The crew that gets every bottle from the brewery to the shelf.</p>
+        <a href="about.html" class="ed-cta">
+          <span>Meet the team</span>
+          <span class="arr">→</span>
+        </a>
+      </div>
+
+      <div class="team-slider s-reveal">
+        <div class="team-track" id="teamTrack">
+          <figure class="team-slide">
+            <img src="assets/about-page/team-images/team-group-1.jpg" alt="The SalesHubNepal team at the Kathmandu office" loading="lazy">
+            <figcaption class="mono">The full crew · Kathmandu HQ</figcaption>
+          </figure>
+          <figure class="team-slide">
+            <img src="assets/about-page/team-images/team-meeting-2.jpg" alt="SalesHubNepal leadership talking with the team around the meeting table" loading="lazy">
+            <figcaption class="mono">Planning the week</figcaption>
+          </figure>
+          <figure class="team-slide">
+            <img src="assets/about-page/team-images/team-group-3.jpg" alt="SalesHubNepal team members standing together in the office" loading="lazy">
+            <figcaption class="mono">One team, 27 cities</figcaption>
+          </figure>
+          <figure class="team-slide">
+            <img src="assets/about-page/team-images/team-meeting-4.jpg" alt="SalesHubNepal team working on laptops at the meeting table" loading="lazy">
+            <figcaption class="mono">Route review</figcaption>
+          </figure>
+          <figure class="team-slide">
+            <img src="assets/about-page/team-images/team-meeting-6.jpg" alt="SalesHubNepal team gathered around the table during a meeting" loading="lazy">
+            <figcaption class="mono">Around the table</figcaption>
+          </figure>
+        </div>
+
+        <div class="team-controls">
+          <button class="team-arrow" id="teamPrev" aria-label="Previous photo">←</button>
+          <div class="team-dots">
+            <button class="team-dot is-active" aria-label="Show photo 1"></button>
+            <button class="team-dot" aria-label="Show photo 2"></button>
+            <button class="team-dot" aria-label="Show photo 3"></button>
+            <button class="team-dot" aria-label="Show photo 4"></button>
+            <button class="team-dot" aria-label="Show photo 5"></button>
+          </div>
+          <button class="team-arrow" id="teamNext" aria-label="Next photo">→</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- ──────────── Portfolio teaser (editorial bento + runway) ──────────── -->
 <section class="portfolio">
-  <div class="ed-watermark" aria-hidden="true">Curated.</div>
   <div class="container">
 
     <!-- meta strip -->
@@ -338,63 +330,58 @@
     <!-- text + bento grid -->
     <div class="ed-grid">
       <div class="ed-text s-reveal">
-        <h2><span class="ed-line">The good stuff,</span><span class="ed-line">we keep <span class="hl">flowing.</span></span></h2>
-        <!-- <p class="ed-copy">Every label below has earned its place on our truck. Picked for quality, character, and the joy it brings to the table.</p> -->
+        <h2><span class="ed-line">Brands</span><span class="ed-line">we work <span class="hl">with</span></span></h2>
         <a href="products.html" class="ed-cta">
-          <span>View all <span data-count="21">21</span> labels</span>
+          <span>View all <span data-count="21">21</span> products</span>
           <span class="arr">→</span>
         </a>
       </div>
 
       <div class="ed-bento">
-        <!-- Featured big — Gurkhas & Guns (Prime International) -->
-        <article class="bento-card big s-reveal" style="--bg:url('../assets/Product%20Images/Gorkhas%20and%20GUNS.jpeg')">
+        <!-- Featured big — Gorkha Brewery (Carlsberg image) -->
+        <article class="bento-card big s-reveal" style="--bg:url('../assets/Product%20Images/carlsberg%20500.jpeg')">
           <div class="bc-bg"></div>
           <div class="bc-shade"></div>
-          <span class="bc-tag">FEATURED · SPIRIT</span>
-          <div class="bc-sticker sticker-spin">bold<span class="small">spirit</span></div>
-          <button class="bc-arr" aria-label="open Gurkhas &amp; Guns">↗</button>
+          <div class="bc-sticker indigo">cold<span class="small">lager</span></div>
+          <button class="bc-arr" aria-label="open Gorkha Brewery">↗</button>
           <div class="bc-body">
-            <h3>Gurkhas &amp; Guns.</h3>
-            <div class="origin">A bold, refined Nepali spirit — smooth and balanced, with a clean finish</div>
+            <h3>Gorkha Brewery</h3>
+            <div class="origin">Carlsberg, Tuborg and the Gorkha range — brewed locally in Nepal</div>
           </div>
         </article>
 
-        <!-- Small A — Red Bull (Saras Beverages) -->
+        <!-- Small A — Saras Beverages (Red Bull image) -->
         <article class="bento-card sm-a s-reveal" style="--bg:url('../assets/Product%20Images/redbull%20carbonated.jpeg')">
           <div class="bc-bg"></div>
           <div class="bc-shade"></div>
-          <span class="bc-tag">ENERGY</span>
-          <button class="bc-arr" aria-label="open Red Bull">↗</button>
+          <button class="bc-arr" aria-label="open Saras Beverages">↗</button>
           <div class="bc-body">
-            <h3>Red Bull.</h3>
-            <div class="origin">Made in Nepal by Saras</div>
+            <h3>Saras Beverages</h3>
+            <div class="origin">Red Bull, made in Nepal</div>
           </div>
         </article>
 
-        <!-- Small B — Carlsberg (Carlsberg) -->
-        <article class="bento-card sm-b s-reveal" style="--bg:url('../assets/Product%20Images/carlsberg%20500.jpeg')">
+        <!-- Small B — Prime International (Gurkhas & Guns image) -->
+        <article class="bento-card sm-b s-reveal" style="--bg:url('../assets/Product%20Images/Gorkhas%20and%20GUNS.jpeg')">
           <div class="bc-bg"></div>
           <div class="bc-shade"></div>
-          <span class="bc-tag">BEER</span>
-          <div class="bc-sticker indigo sticker-spin">cold<span class="small">lager</span></div>
-          <button class="bc-arr" aria-label="open Carlsberg">↗</button>
+          <div class="bc-sticker">bold<span class="small">spirit</span></div>
+          <button class="bc-arr" aria-label="open Prime International">↗</button>
           <div class="bc-body">
-            <h3>Carlsberg.</h3>
-            <div class="origin">Crisp Danish pilsner — clean, refreshing, world-famous</div>
+            <h3>Prime International</h3>
+            <div class="origin">Premium Nepali whisky, vodka and rum — from Gurkhas &amp; Guns to Yeti</div>
           </div>
         </article>
 
-        <!-- Wide — Big Master Red (Big Master) -->
+        <!-- Wide — Big Master (Big Master Red image) -->
         <article class="bento-card wide s-reveal" style="--bg:url('../assets/Product%20Images/Red%20Wine.jpeg')">
           <div class="bc-bg"></div>
           <div class="bc-shade"></div>
-          <span class="bc-tag">RED WINE · NEPAL</span>
-          <div class="bc-sticker bone sticker-spin">red<span class="small">wine</span></div>
-          <button class="bc-arr" aria-label="open Big Master Red">↗</button>
+          <div class="bc-sticker bone">red<span class="small">wine</span></div>
+          <button class="bc-arr" aria-label="open Big Master">↗</button>
           <div class="bc-body">
-            <h3>Big Master Red.</h3>
-            <div class="origin">Smooth, balanced, everyday red — comfortable with any table</div>
+            <h3>Big Master</h3>
+            <div class="origin">Smooth reds, crisp whites and the fruit-forward Black Chenin</div>
           </div>
         </article>
       </div>
@@ -528,12 +515,11 @@
 
     <div class="meta-row s-reveal">
       <span class="mono"><span style="display:inline-block; width:8px; height:8px; border-radius:999px; background:var(--coral); vertical-align:middle; margin-right:8px"></span>HELLO, NEIGHBOURS</span>
-      <span class="mono"><span data-count="27.7172">27.7172</span>° N · <span data-count="85.3240">85.3240</span>° E</span>
     </div>
 
     <div class="grid">
       <div>
-        <h2 class="s-reveal" data-split>Come say hi.</h2>
+        <h2 class="s-reveal" data-split>Come say hi</h2>
         <p class="lede s-reveal">Stop by the SalesHub headquarters in Kathmandu to meet the team, tour the distribution floor, and talk partnerships over a cup of <span class="pill-text">ho-cha</span>.</p>
 
         <div class="info-grid">
@@ -576,11 +562,6 @@
       <!-- the HQ photo backdrop -->
       <div class="map s-reveal">
         <img class="bg-photo" src="assets/building-photo.jpeg" alt="SalesHubNepal headquarters building in Kathmandu" loading="lazy" />
-        <!-- "you are here" pin, drops onto the building once the photo is revealed -->
-        <div class="map-pin" aria-hidden="true">
-          <span class="pin-head"></span>
-          <span class="pin-label mono">SalesHub HQ</span>
-        </div>
       </div>
     </div>
   </div>
@@ -589,15 +570,9 @@
 <!-- ──────────── CTA ──────────── -->
 <section class="cta" id="contact">
   <div class="cta-card s-reveal">
-    <div class="meta-row">
-      <span class="mono"><span style="display:inline-block; width:8px; height:8px; border-radius:999px; background:#fff; vertical-align:middle; margin-right:8px"></span>LET'S BUILD SOMETHING</span>
-      <span class="mono">— NEXT STEPS —</span>
-      <span class="mono">2026 / OPEN</span>
-    </div>
+    <h3 data-split>Pour something good with us</h3>
 
-    <h3 data-split>Pour something good with us.</h3>
-
-    <p>Bring a label to Nepal, place a wholesale order, or just nerd out about cold-chain logistics. We answer every message within a business day.</p>
+    <p>Bring a product to Nepal, place a wholesale order, or just nerd out about cold-chain logistics. We answer every message within a business day.</p>
 
     <div class="actions">
       <button class="btn-light" id="convoBtn">Start the conversation <span class="arr">→</span></button>
@@ -611,8 +586,6 @@
         <span style="font-size: 15px">Friendly humans, no bots.</span>
       </span>
     </div>
-
-    <span class="phone-sticker">+977 980 100 4400</span>
   </div>
 </section>
 

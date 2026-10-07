@@ -75,3 +75,32 @@
   modal.querySelectorAll('.modal-close').forEach(b => b.addEventListener('click', close));
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('open')) close(); });
 })();
+
+// ─── split headings into words (mask rise, see [data-split] CSS) ───
+(function(){
+  document.querySelectorAll('[data-split]').forEach(el => {
+    const words = el.textContent.trim().split(/\s+/);
+    el.innerHTML = words
+      .map((word, i) => `<span class="word"><span style="--i:${i}">${word}</span></span>`)
+      .join(' ');
+  });
+})();
+
+// ─── scroll-triggered reveal system ─────────────────────────
+(function(){
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const els = document.querySelectorAll('.s-reveal');
+  if (!els.length) return;
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting){
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  els.forEach(el => obs.observe(el));
+})();

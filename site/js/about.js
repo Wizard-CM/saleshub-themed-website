@@ -1,4 +1,14 @@
-// ─── scroll-triggered reveal system ─────────────────────────
+// ─── split headings into words (mask rise, see [data-split] CSS) ───
+  (function(){
+    document.querySelectorAll('[data-split]').forEach(el => {
+      const words = el.textContent.trim().split(/\s+/);
+      el.innerHTML = words
+        .map((word, i) => `<span class="word"><span style="--i:${i}">${word}</span></span>`)
+        .join(' ');
+    });
+  })();
+
+  // ─── scroll-triggered reveal system ─────────────────────────
   (function(){
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
