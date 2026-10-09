@@ -655,7 +655,7 @@
   .bento-card:hover .bc-bg{ transform: scale(1.06) }
   .bc-shade{
     position: absolute; inset: 0; z-index: 1;
-    background: linear-gradient(180deg, rgba(11,11,13,0) 28%, rgba(11,11,13,.36) 60%, rgba(11,11,13,.90) 100%);
+    background: linear-gradient(to top, rgba(11,11,13,.94) 0%, rgba(11,11,13,.82) 22%, rgba(11,11,13,.5) 42%, rgba(11,11,13,.18) 62%, rgba(11,11,13,0) 80%);
   }
   .bc-tag{
     position: absolute; top: 18px; left: 18px; z-index: 3;
@@ -780,7 +780,7 @@
   .runway-card:hover .rc-bg{ transform: scale(1.08) }
   .rc-shade{
     position: absolute; inset: 0; z-index: 1;
-    background: linear-gradient(180deg, rgba(11,11,13,0) 38%, rgba(11,11,13,.35) 68%, rgba(11,11,13,.90) 100%);
+    background: linear-gradient(to top, rgba(11,11,13,.94) 0%, rgba(11,11,13,.82) 22%, rgba(11,11,13,.5) 42%, rgba(11,11,13,.18) 62%, rgba(11,11,13,0) 80%);
   }
   .rc-num{
     position: absolute; top: 14px; left: 14px; z-index: 3;

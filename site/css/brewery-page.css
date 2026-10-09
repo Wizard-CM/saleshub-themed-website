@@ -298,7 +298,7 @@ img,svg{ display:block; max-width:100% }
 .brew-card:hover .pc-bg{ transform: scale(1.06) }
 .brew-card .pc-shade{
   position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(180deg, rgba(11,11,13,0) 28%, rgba(11,11,13,.32) 58%, rgba(11,11,13,.88) 100%);
+  background: linear-gradient(to top, rgba(11,11,13,.94) 0%, rgba(11,11,13,.82) 22%, rgba(11,11,13,.5) 42%, rgba(11,11,13,.18) 62%, rgba(11,11,13,0) 80%);
 }
 .brew-card .pc-arr{
   position: absolute; top: 14px; right: 14px; z-index: 3;
