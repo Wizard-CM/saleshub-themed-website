@@ -103,7 +103,7 @@
   }
 
   /* ─────────── main two-col ─────────── */
-  .contact-main{ padding: 40px var(--pad-x) 60px }
+  .contact-main{ padding: 0 var(--pad-x) 60px }
   .cc-grid{
     display:grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
@@ -113,6 +113,27 @@
   @media (max-width: 1000px){
     .cc-grid{ grid-template-columns: 1fr; gap: 24px }
   }
+
+  /* ─────────── email + phone card (below form and map) ─────────── */
+  .reach-card{
+    margin-top: 32px; max-width: 380px;
+    background: var(--paper); border: 1px solid var(--line);
+    border-radius: 22px; padding: 8px 22px;
+    color: #F4EFE3;
+    box-shadow: 0 14px 30px -16px rgba(11,11,13,.35);
+  }
+  .reach-row{ display:flex; align-items:center; gap: 14px; padding: 16px 0 }
+  .reach-row + .reach-row{ border-top: 1px dashed var(--line) }
+  .reach-icon{
+    flex: none; width: 40px; height: 40px; border-radius: 12px;
+    display:grid; place-items:center;
+    background: rgba(255,92,58,.16); color: var(--coral);
+  }
+  .reach-row .lbl{
+    font-family:'JetBrains Mono', monospace; font-size: 10.5px;
+    letter-spacing: .16em; text-transform: uppercase; color: #B9B3A4;
+  }
+  .reach-row .val{ margin-top: 3px; font-size: 16px; font-weight: 600; overflow-wrap: anywhere }
 
   /* ─────────── form (left) ─────────── */
   /* card surface mirrors the home "Come say hi." info cells —
@@ -702,7 +723,7 @@
 
   /* ─────────── footer ─────────── */
   footer{ background: var(--ink); color: #C9C2B0; border-radius: 32px 32px 0 0; margin-top: 60px; padding: 56px var(--pad-x) 36px }
-  footer .row{ display:grid; grid-template-columns: 1.3fr repeat(4, 1fr); gap:36px }
+  footer .row{ display:grid; grid-template-columns: 1.3fr repeat(3, 1fr); gap:36px }
   footer h6{ color:var(--coral); margin: 0 0 18px; font-size:12px; letter-spacing:.16em; text-transform:uppercase; font-family:'JetBrains Mono', monospace; font-weight:500 }
   footer ul{ list-style:none; margin:0; padding:0; display:grid; gap:10px }
   footer a:hover{ color:#fff }

@@ -211,22 +211,6 @@ img,svg{ display:block; max-width:100% }
   z-index: 1;
 }
 .bh-crest > *{ position: relative; z-index: 2; color: #fff }
-.bh-crest .lbl{
-  font-family:'JetBrains Mono', monospace; font-size: 10.5px;
-  letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.85);
-}
-.bh-crest .crest-name{
-  margin-top: 14px;
-  font-family:'Instrument Serif', serif; font-style: italic;
-  font-size: 44px; line-height: 1; color: #fff;
-  text-shadow: 0 2px 8px rgba(0,0,0,.3);
-}
-.bh-crest .crest-quote{
-  margin-top: 14px;
-  font-family:'Instrument Serif', serif; font-style: italic;
-  font-size: 16px; color: rgba(255,255,255,.92); line-height: 1.4;
-  max-width: 28ch;
-}
 .bh-crest .crest-author{
   margin-top: 12px;
   font-family:'JetBrains Mono', monospace; font-size: 9.5px;
@@ -237,7 +221,7 @@ img,svg{ display:block; max-width:100% }
 /* the rotating coral seal sticker on top-right of crest */
 .bh-stamp{
   position: absolute; top: 16px; right: 16px;
-  width: 96px; height: 96px;
+  width: 76px; height: 76px;
   z-index: 3;
 }
 .bh-stamp .disc{
@@ -246,7 +230,7 @@ img,svg{ display:block; max-width:100% }
   display: grid; place-items: center;
   color: #fff;
   font-family:'Fraunces', serif; font-style: normal;
-  font-weight: 700; font-size: 22px; line-height: 1;
+  font-weight: 700; font-size: 18px; line-height: 1;
   text-align: center; text-shadow: 0 1px 2px rgba(0,0,0,.25);
   box-shadow: 0 12px 24px color-mix(in oklab, var(--accent) 50%, transparent), inset 0 0 0 3px rgba(255,255,255,.4);
   transform: rotate(-12deg);
@@ -255,7 +239,7 @@ img,svg{ display:block; max-width:100% }
 .bh-stamp:hover .disc{ transform: rotate(8deg) scale(1.08) }
 .bh-stamp .disc .small{
   display: block; font-family:'JetBrains Mono', monospace; font-style: normal;
-  font-weight: 700; font-size: 9px; letter-spacing: .14em; text-transform: uppercase; margin-top: 4px;
+  font-weight: 700; font-size: 7.5px; letter-spacing: .14em; text-transform: uppercase; margin-top: 3px;
 }
 
 /* ─── Product grid ─── */
@@ -623,7 +607,7 @@ img,svg{ display:block; max-width:100% }
 @keyframes bob{ 0%, 100%{ translate: 0 0 } 50%{ translate: 0 -3px } }
 
 footer{ background: var(--ink); color: #C9C2B0; border-radius: 32px 32px 0 0; margin-top: 40px; padding: 56px var(--pad-x) 36px }
-footer .row{ display:grid; grid-template-columns: 1.3fr repeat(4, 1fr); gap:36px }
+footer .row{ display:grid; grid-template-columns: 1.3fr repeat(3, 1fr); gap:36px }
 footer h6{ color:var(--accent); margin: 0 0 18px; font-size:12px; letter-spacing:.16em; text-transform:uppercase; font-family:'JetBrains Mono', monospace; font-weight:500 }
 footer ul{ list-style:none; margin:0; padding:0; display:grid; gap:10px }
 footer a:hover{ color:#fff }

@@ -114,18 +114,8 @@
   function renderPreloader(){
     const overlay = buildEl(`
       <div class="entry-overlay entry-pre" data-stage="pre" aria-hidden="true">
-        <div class="pre-frame">
-          <span class="pre-meta pre-meta-tl">Kathmandu, Nepal</span>
-          <span class="pre-meta pre-meta-tr">Est. 2014</span>
-          <span class="pre-meta pre-meta-bl">Authorised beverage distributor</span>
-          <span class="pre-meta pre-meta-br">Please drink responsibly</span>
-        </div>
-
         <div class="pre-layout">
-        <div class="pre-intro">
-          <p class="pre-headline">Premium drinks,<br>delivered with <span class="serif">care.</span></p>
-          <p class="pre-lede">Bringing trusted beers, spirits and wines to bars, restaurants and shops across Nepal.</p>
-        </div>
+        <div class="pre-brand"><img src="assets/logo.jpg" alt="" class="brand-logo">SalesHubNepal</div>
 
         <div class="pre-content">
           <div class="pint-stage" aria-hidden="true">
@@ -267,25 +257,7 @@
                 <ellipse cx="172" cy="232" rx="1.2" ry="1.7"/>
                 <ellipse cx="158" cy="268" rx="1.6" ry="2.2"/>
               </g>
-
-              <!-- CROWN spark + ping ring at the rim -->
-              <g class="pint-crown" transform="translate(120 30)">
-                <circle class="crown-ring" cx="0" cy="0" r="10" fill="none" stroke="#FF5C3A" stroke-width="1.6"/>
-                <path class="crown-star" d="M0,-9 L2.1,-2.1 L9,0 L2.1,2.1 L0,9 L-2.1,2.1 L-9,0 L-2.1,-2.1 Z" fill="#FF6B47"/>
-              </g>
             </svg>
-          </div>
-
-          <div class="pre-panel">
-            <div class="pre-brandrow">
-              <span class="pre-brand"><img src="assets/logo.jpg" alt="" class="brand-logo">SalesHubNepal</span>
-              <span class="pre-count">0%</span>
-            </div>
-            <div class="pre-track"><span class="pre-progress"></span></div>
-            <p class="pre-caption">
-              <span class="caption-pouring">Pouring your welcome…</span>
-              <span class="caption-cheers">Cheers.</span>
-            </p>
           </div>
         </div>
 
@@ -306,7 +278,6 @@
     document.body.appendChild(overlay);
     requestAnimationFrame(() => overlay.classList.add('show'));
 
-    const countEl   = overlay.querySelector('.pre-count');
     const liquidEl  = overlay.querySelector('.pint-liquid');
     const shadeEl   = overlay.querySelector('.pint-liquid-shade');
     const waveAEl   = overlay.querySelector('.wave-a');
@@ -315,7 +286,6 @@
     const streamEl  = overlay.querySelector('.pint-stream');
     const bottleEl  = overlay.querySelector('.pour-bottle');
     const beadsG    = overlay.querySelector('.pint-beads');
-    const crownEl   = overlay.querySelector('.pint-crown');
     const labelEls  = overlay.querySelectorAll('.pre-label');
 
     // Labels before activeIndex are "done", the one at activeIndex is coral.
@@ -340,6 +310,7 @@
     const MOUTH_X = 146, MOUTH_Y = 14;
     const BEND_X = 128;
     const STREAM_END_X = 124;
+    const BOTTLE_SCALE = 1.35;
 
     const prefersReduced = window.matchMedia &&
       window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -437,7 +408,6 @@
     // ── Reduced motion: calm near-final state, then honour the lifecycle ──
     if (prefersReduced){
       const { beerTop } = renderLevel(0.96, 0, 0);
-      countEl.textContent = '100%';
       highlightLabel(labelEls.length);
       overlay.style.setProperty('--t', 1);
       beads.forEach((b, i) => {
@@ -450,9 +420,7 @@
           b.el.setAttribute('opacity', '0');
         }
       });
-      crownEl.style.opacity = '.6';
       bottleEl.setAttribute('opacity', '0');
-      overlay.classList.add('arrived');
       setTimeout(() => {
         overlay.classList.add('leave');
         setTimeout(() => {
@@ -466,13 +434,11 @@
     // ── Animated path: one rAF loop driven by t (0 → 1) ──
     // Timeline: the bottle swings in and tips over (0–12%), the stream falls
     // from its mouth (9–16%), the glass fills under it (13–96%), the stream
-    // tails off (84–92%) as the bottle tips back and lifts away (86–96%),
-    // then the crown + "cheers." land.
+    // tails off (84–92%) as the bottle tips back and lifts away (86–96%).
     const DURATION_MS = 3300;
-    const CHEERS_HOLD_MS = 500;
+    const FULL_GLASS_HOLD_MS = 500;
     const start = performance.now();
     let last = start;
-    let arrived = false;
 
     function tick(now){
       const t = Math.min(1, (now - start) / DURATION_MS);
@@ -480,7 +446,6 @@
       last = now;
 
       overlay.style.setProperty('--t', t);
-      countEl.textContent = Math.round(t * 100) + '%';
       highlightLabel(Math.min(labelEls.length - 1, Math.floor(t * labelEls.length)));
 
       const level = easeInOutSine(clamp01((t - 0.13) / 0.83));
@@ -495,7 +460,7 @@
       const bottleAngle = -30 - bottleIn * 88 - clamp01((t - 0.12) / 0.74) * 14 + bottleOut * 92;
       const bottleX = MOUTH_X + (1 - bottleIn) * 60 + bottleOut * 60;
       const bottleY = MOUTH_Y - (1 - bottleIn) * 50 - bottleOut * 60;
-      bottleEl.setAttribute('transform', 'translate(' + bottleX.toFixed(2) + ' ' + bottleY.toFixed(2) + ') rotate(' + bottleAngle.toFixed(2) + ')');
+      bottleEl.setAttribute('transform', 'translate(' + bottleX.toFixed(2) + ' ' + bottleY.toFixed(2) + ') rotate(' + bottleAngle.toFixed(2) + ') scale(' + BOTTLE_SCALE + ')');
       bottleEl.setAttribute('opacity', (bottleIn * (1 - bottleOut)).toFixed(3));
 
       // stream: head falls to the surface, tail follows it down at the end
@@ -528,32 +493,24 @@
         b.el.setAttribute('opacity', (clamp01(fadeIn * fadeOut) * density).toFixed(3));
       }
 
-      // arrival beat: crown spark + ping ring + "cheers." once
-      if (!arrived && t >= 0.94){
-        arrived = true;
-        overlay.classList.add('arrived');
-      }
-
       if (t < 1) requestAnimationFrame(tick);
       else finish();
     }
 
     function finish(){
       overlay.style.setProperty('--t', 1);
-      countEl.textContent = '100%';
       highlightLabel(labelEls.length);
       renderLevel(1, 0, 0.1);
       streamEl.setAttribute('d', '');
       bottleEl.setAttribute('opacity', '0');
-      overlay.classList.add('arrived');
-      // hold the full glass a beat so "Cheers." can be read before fading out
+      // hold the full glass a beat before fading out
       setTimeout(() => {
         overlay.classList.add('leave');
         setTimeout(() => {
           overlay.remove();
           html.removeAttribute('data-gating');
         }, 550);
-      }, CHEERS_HOLD_MS);
+      }, FULL_GLASS_HOLD_MS);
     }
 
     requestAnimationFrame(tick);
