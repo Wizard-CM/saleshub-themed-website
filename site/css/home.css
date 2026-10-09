@@ -635,7 +635,7 @@
     position: relative; overflow: hidden;
     border-radius: 26px;
     background: #1A1A1E;
-    isolation: isolate; cursor: pointer;
+    isolation: isolate; cursor: default;
     transition: transform .35s cubic-bezier(.2,.7,.2,1.4), box-shadow .35s;
     box-shadow: 0 8px 24px rgba(11,11,13,.06);
   }
@@ -669,7 +669,7 @@
     position: absolute; top: 14px; right: 14px; z-index: 3;
     width: 44px; height: 44px; border-radius: 999px;
     background: rgba(255,255,255,.95); color: #0B0B0D;
-    border: 0; display: grid; place-items: center; font-size: 18px;
+    border: 0; display: grid; place-items: center; font-size: 18px; cursor: default;
     box-shadow: 0 6px 14px rgba(11,11,13,.18);
     transition: .25s background, .25s color, .35s transform;
   }
