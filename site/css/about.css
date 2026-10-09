@@ -82,7 +82,7 @@
   }
   .nav ul a{
     display:inline-block;
-    padding:10px 14px; border-radius:999px;
+    padding:10px 14px; border-radius:16px;
     font-size:15px; color:#D7D1C2;
     transition:.2s background, .2s color;
   }

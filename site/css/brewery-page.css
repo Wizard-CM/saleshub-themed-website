@@ -52,7 +52,7 @@ img,svg{ display:block; max-width:100% }
 .nav .brand{ font-weight:700; font-size:17px; letter-spacing:-.01em }
 .nav .brand .dot{ color:var(--coral) }
 .nav ul{ list-style:none; margin:0; padding:0; display:flex; gap:6px; flex:1; justify-content:center }
-.nav ul a{ display:inline-block; padding:10px 14px; border-radius:999px; font-size:15px; color:#D7D1C2; transition:.2s background, .2s color }
+.nav ul a{ display:inline-block; padding:10px 14px; border-radius:16px; font-size:15px; color:#D7D1C2; transition:.2s background, .2s color }
 .nav ul a:hover{ background:rgba(255,255,255,.06); color:#fff }
 .nav ul a.active{ color:#fff; background:rgba(255,255,255,.08); border-radius:16px }
 .nav .cta{ background:#fff; color:var(--ink); padding:12px 18px 12px 20px; border-radius:16px; font-weight:600; font-size:14px; display:inline-flex; align-items:center; gap:10px; transition:.2s transform }

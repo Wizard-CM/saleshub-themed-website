@@ -2,7 +2,7 @@
   (function(){
     const houses = [
       { name:'Gorkha Brewery',
-        year:'Beer', count:'10', origin:'Nepal',
+        year:'Beer', count:'12', origin:'Nepal',
         tagText:'HOUSE 01 / KTM · GORKHA BREWERY', link:'brewery-gorkha.html',
         img:'../assets/Product%20Images/Gorkha%20Craft.jpeg' },
       { name:'Prime International',
@@ -10,7 +10,7 @@
         tagText:'HOUSE 02 / KTM · PRIME INTERNATIONAL', link:'brewery-prime.html',
         img:'../assets/Product%20Images/Bandipur.jpeg' },
       { name:'Big Master',
-        year:'Wine', count:'03', origin:'Nepal',
+        year:'Wine', count:'06', origin:'Nepal',
         tagText:'HOUSE 03 / KTM · BIG MASTER', link:'brewery-bigmaster.html',
         img:'../assets/Product%20Images/Red%20Wine.jpeg' },
       { name:'Saras Beverages',

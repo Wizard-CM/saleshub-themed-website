@@ -58,7 +58,7 @@
   .nav .brand:hover .dot{ transform:scale(1.5) rotate(-20deg) }
   .nav ul{ list-style:none; margin:0; padding:0; display:flex; gap:6px; flex:1; justify-content:center }
   .nav ul a{
-    display:inline-block; padding:10px 14px; border-radius:999px;
+    display:inline-block; padding:10px 14px; border-radius:16px;
     font-size:15px; color:#D7D1C2; transition:.2s background, .2s color;
   }
   .nav ul a:hover{ background:rgba(255,255,255,.06); color:#fff }
@@ -440,9 +440,10 @@
   .hero h1{
     text-align: center;
     margin: 8px 0 0; padding: 0 0 30px;
-    font-size: clamp(40px, 11vw, 180px);  /* top lines break out above the glass rim (home.js) */
+    font-size: clamp(40px, 11vw, 168px);  /* top lines break out above the glass rim (home.js) */
     line-height:1.04; letter-spacing:-.03em; font-weight:800;
     color:#fff; text-wrap: balance;
+    white-space: nowrap;                   /* lines are set by the <br>s — never re-wrap them */
   }
   .hero h1 .serif{ color: #fff; padding: 0 .04em }
   .hero h1 .word{
@@ -526,7 +527,7 @@
     0%{ translate: 0 0 }  30%{ translate: 0 -7px }  60%{ translate: 0 3px }  100%{ translate: 0 0 }
   }
   @keyframes fadeInBubbles{ from{ opacity: 0 } }
-  @keyframes wordFocus{ from{ opacity: 0; transform: translateY(.18em) scale(.9); filter: blur(14px); letter-spacing: .14em } }
+  @keyframes wordFocus{ from{ opacity: 0; transform: translateY(.18em) scale(.9); filter: blur(14px) } }
   @keyframes fadeDown{ from{ opacity: 0; transform: translateY(-10px) } }
   @keyframes fadeUp{ from{ opacity: 0; transform: translateY(16px) } }
 

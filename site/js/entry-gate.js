@@ -262,14 +262,12 @@
         </div>
 
         <div class="pre-labels">
-          <p class="pre-labels-title">Our products</p>
+          <p class="pre-labels-title">Our distilleries</p>
           <ol class="pre-label-list">
-            <li class="pre-label"><span class="pre-label-num">01</span><span class="pre-label-name">Gorkha</span><span class="pre-label-type">Beer</span></li>
-            <li class="pre-label"><span class="pre-label-num">02</span><span class="pre-label-name">Carlsberg</span><span class="pre-label-type">Beer</span></li>
-            <li class="pre-label"><span class="pre-label-num">03</span><span class="pre-label-name">Tuborg</span><span class="pre-label-type">Beer</span></li>
-            <li class="pre-label"><span class="pre-label-num">04</span><span class="pre-label-name">Prime International</span><span class="pre-label-type">Spirits</span></li>
-            <li class="pre-label"><span class="pre-label-num">05</span><span class="pre-label-name">Big Master</span><span class="pre-label-type">Wine</span></li>
-            <li class="pre-label"><span class="pre-label-num">06</span><span class="pre-label-name">Red Bull</span><span class="pre-label-type">Energy</span></li>
+            <li class="pre-label"><span class="pre-label-num">01</span><span class="pre-label-name">Gorkha Brewery</span><span class="pre-label-type">Beer</span></li>
+            <li class="pre-label"><span class="pre-label-num">02</span><span class="pre-label-name">Prime International</span><span class="pre-label-type">Spirits</span></li>
+            <li class="pre-label"><span class="pre-label-num">03</span><span class="pre-label-name">Big Master</span><span class="pre-label-type">Wine</span></li>
+            <li class="pre-label"><span class="pre-label-num">04</span><span class="pre-label-name">Saras Beverages</span><span class="pre-label-type">Energy</span></li>
           </ol>
         </div>
         </div>
