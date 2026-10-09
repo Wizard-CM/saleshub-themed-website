@@ -614,7 +614,7 @@ html[data-gating="1"] body { visibility: hidden }
   color: #0B0B0D;
 }
 .entry-pre .pre-headline .serif{
-  font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400;
+  font-family: inherit; font-style: normal; font-weight: inherit;
   color: #FF5C3A; padding: 0 .04em;
 }
 .entry-pre .pre-lede{

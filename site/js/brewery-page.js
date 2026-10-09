@@ -104,3 +104,21 @@
 
   els.forEach(el => obs.observe(el));
 })();
+
+// ─── CTA strip interactive gradient ────────────────────────
+(function(){
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const card = document.querySelector('.cta-strip');
+  if (!card) return;
+  card.addEventListener('pointermove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width * 100).toFixed(1);
+    const y = ((e.clientY - rect.top) / rect.height * 100).toFixed(1);
+    card.style.background =
+      `radial-gradient(circle at ${x}% ${y}%, rgba(255,255,255,.3), transparent 45%),
+       linear-gradient(135deg, var(--accent), color-mix(in oklab, var(--accent) 70%, white) 60%, var(--indigo-soft))`;
+  });
+  card.addEventListener('pointerleave', () => {
+    card.style.background = '';
+  });
+})();

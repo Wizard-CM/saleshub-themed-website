@@ -123,8 +123,8 @@
 
         <div class="pre-layout">
         <div class="pre-intro">
-          <p class="pre-headline">The good stuff,<br>we keep <span class="serif">flowing.</span></p>
-          <p class="pre-lede">Kathmandu's authorised distributor of premium beers, spirits and wines since 2014.</p>
+          <p class="pre-headline">Premium drinks,<br>delivered with <span class="serif">care.</span></p>
+          <p class="pre-lede">Bringing trusted beers, spirits and wines to bars, restaurants and shops across Nepal.</p>
         </div>
 
         <div class="pre-content">

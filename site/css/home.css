@@ -62,7 +62,7 @@
     font-size:15px; color:#D7D1C2; transition:.2s background, .2s color;
   }
   .nav ul a:hover{ background:rgba(255,255,255,.06); color:#fff }
-  .nav ul a.active{ color:#fff; background:rgba(255,255,255,.08) }
+  .nav ul a.active{ color:#fff; background:rgba(255,255,255,.08); border-radius:16px }
   .nav .cta{
     background:#fff; color:var(--ink); padding:12px 18px 12px 20px;
     border-radius:16px; font-weight:600; font-size:14px;

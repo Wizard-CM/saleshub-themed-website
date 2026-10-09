@@ -50,7 +50,7 @@
   .nav ul{ list-style:none; margin:0; padding:0; display:flex; gap:6px; flex:1; justify-content:center }
   .nav ul a{ display:inline-block; padding:10px 14px; border-radius:999px; font-size:15px; color:#D7D1C2; transition:.2s background, .2s color }
   .nav ul a:hover{ background:rgba(255,255,255,.06); color:#fff }
-  .nav ul a.active{ color:#fff; background:rgba(255,255,255,.08) }
+  .nav ul a.active{ color:#fff; background:rgba(255,255,255,.08); border-radius:16px }
   .nav .cta{ background:#fff; color:var(--ink); padding:12px 18px 12px 20px; border-radius:16px; font-weight:600; font-size:14px; display:inline-flex; align-items:center; gap:10px; transition:.2s transform }
   .nav .cta:hover{ transform:translateY(-1px) }
   .nav .cta .arr{ width:26px; height:26px; border-radius:10px; background:var(--ink); color:#fff; display:grid; place-items:center; font-size:13px }
@@ -535,6 +535,26 @@
   .btn .arr{ width:26px; height:26px; border-radius:10px; background:var(--ink); color:#fff; display:grid; place-items:center; font-size:13px }
   .btn.ghost{ background:rgba(255,255,255,.18); color:#fff; backdrop-filter:blur(6px) }
   .btn.ghost .arr{ background:#fff; color:var(--ink) }
+
+  /* the playful emoji stack — fans out on hover (same as the home page CTA) */
+  .cta-strip .friendly{ display:inline-flex; align-items:center; gap:14px; color:#fff }
+  .emoji-stack{ position:relative; width:70px; height:34px }
+  .emoji-stack .em{
+    position:absolute; top:0; left:0;
+    width:34px; height:34px; border-radius:999px;
+    background:#fff; box-shadow: 0 4px 10px rgba(0,0,0,.15), inset 0 0 0 2px var(--coral);
+    display:grid; place-items:center; font-size:18px;
+    transition: transform .35s cubic-bezier(.2,.8,.2,1.4);
+    animation: bob 4s ease-in-out infinite;
+  }
+  .emoji-stack .e1{ z-index:3 }
+  .emoji-stack .e2{ z-index:2; transform: translateX(14px); animation-delay:.3s }
+  .emoji-stack .e3{ z-index:1; transform: translateX(28px); animation-delay:.6s }
+  .friendly:hover .emoji-stack .e1{ transform: translateX(-6px) rotate(-12deg) translateY(-3px) }
+  .friendly:hover .emoji-stack .e2{ transform: translateX(14px) translateY(-7px) rotate(2deg) }
+  .friendly:hover .emoji-stack .e3{ transform: translateX(36px) rotate(12deg) translateY(-3px) }
+  /* `translate` (not transform) so the bob stacks with the fan-out hover */
+  @keyframes bob{ 0%, 100%{ translate: 0 0 } 50%{ translate: 0 -3px } }
 
   /* ─────────── footer ─────────── */
   footer{ background: var(--ink); color: #C9C2B0; border-radius: 32px 32px 0 0; margin-top: 40px; padding: 56px var(--pad-x) 36px }
