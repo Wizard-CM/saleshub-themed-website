@@ -22,14 +22,9 @@
     var t = kathmandu();
     if (!t || isNaN(t.day)) return;
     var open = t.day >= 1 && t.day <= 6 && t.hour >= 9 && t.hour < 18;
-    if (open) {
-      text.textContent = 'Open now, until 18:00';
-    } else if (t.day >= 1 && t.day <= 5 && t.hour >= 18 || t.day === 6 && t.hour >= 18 || t.day === 0) {
-      text.textContent = (t.day >= 1 && t.day <= 5) ? 'Closed now, opens 09:00' : 'Closed now, opens Monday 09:00';
-      if (t.day >= 1 && t.day <= 5) text.textContent = 'Closed now, opens 09:00';
-    } else {
-      text.textContent = 'Closed now, opens 09:00';
-    }
+    if (open) text.textContent = 'Open now, until 18:00';
+    else if (t.day === 0 || (t.day === 6 && t.hour >= 18)) text.textContent = 'Closed now, opens Monday 09:00';
+    else text.textContent = 'Closed now, opens 09:00';
     chip.setAttribute('data-state', open ? 'open' : 'closed');
   }
   updateStatus();

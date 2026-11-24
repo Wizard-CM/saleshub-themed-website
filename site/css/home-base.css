@@ -25,7 +25,7 @@
 .hs__inner { max-width: 1440px; margin: 0 auto; }
 .hs h2, .hs h3, .hs p, .hs figure, .hs ul, .hs ol, .hs dl, .hs dd { margin: 0; }
 .hs ul, .hs ol { padding: 0; list-style: none; }
-.hs a { color: inherit; }
+.hs a:not(.cc-btn) { color: inherit; }
 .hs img { display: block; max-width: 100%; }
 .hs :focus-visible { outline: 2px solid var(--lager); outline-offset: 3px; border-radius: 6px; }
 .hs--ice :focus-visible { outline-color: var(--night); }

@@ -186,7 +186,7 @@
 
   /* ─────────── CTA ─────────── */
   .cta{
-    background: var(--cream); padding: 0 var(--pad-x) 30px;
+    background: var(--night); padding: 0 var(--pad-x) 30px; /* sits between the night visit section and the footer */
   }
   .cta-card{
     border-radius: 32px;
