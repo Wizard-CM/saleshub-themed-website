@@ -1,0 +1,72 @@
+/* =========================================================
+   SalesHubNepal home — shared foundation for the sections under the hero
+   ("Cold Chain" system: night / ice alternation, lager as the one accent).
+   Section styles live in home-people.css and home-products.css.
+   ========================================================= */
+:root {
+  --ice: #EEF3F2;
+  --ice-2: #DCE6E5;
+  --steel: #4E6466;
+  --radius-lg: 22px;
+  --radius-sm: 12px;
+  --section-pad: clamp(4.5rem, 10vw, 8.5rem);
+}
+
+/* ---------- Section shell ---------- */
+.hs {
+  position: relative;
+  padding: var(--section-pad) var(--gutter);
+  font-family: var(--body);
+  font-size: 1.0625rem; line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+.hs--ice { background: var(--ice); color: var(--night); }
+.hs--night { background: var(--night); color: var(--frost); }
+.hs__inner { max-width: 1440px; margin: 0 auto; }
+.hs h2, .hs h3, .hs p, .hs figure, .hs ul, .hs ol, .hs dl, .hs dd { margin: 0; }
+.hs ul, .hs ol { padding: 0; list-style: none; }
+.hs a { color: inherit; }
+.hs img { display: block; max-width: 100%; }
+.hs :focus-visible { outline: 2px solid var(--lager); outline-offset: 3px; border-radius: 6px; }
+.hs--ice :focus-visible { outline-color: var(--night); }
+
+/* the section name: plain sentence case, a small lager tick before it */
+.hs__label {
+  display: inline-flex; align-items: center; gap: .6rem;
+  font-size: .95rem; font-weight: 600; letter-spacing: .01em;
+}
+.hs__label::before {
+  content: ""; width: 18px; height: 3px; border-radius: 3px; background: var(--lager);
+}
+.hs--ice .hs__label { color: var(--steel); }
+.hs--night .hs__label { color: var(--mist); }
+
+/* display headline, same voice as the hero */
+.hs__title {
+  font-family: var(--display); font-weight: 900;
+  font-variation-settings: "opsz" 72;
+  text-transform: uppercase;
+  font-size: clamp(3rem, 7.4vw, 7rem);
+  line-height: .86; letter-spacing: -.005em;
+  margin-top: 1.1rem;
+  text-wrap: balance;
+}
+.hs__lede { max-width: 46ch; font-size: 1.125rem; }
+.hs--ice .hs__lede { color: var(--steel); }
+.hs--night .hs__lede { color: rgba(228, 238, 238, .78); }
+
+/* ---------- Buttons (extend the hero's .cc-btn) ---------- */
+.cc-btn--ink { background: var(--night); color: var(--frost); }
+.cc-btn--line { border-color: rgba(13, 27, 30, .25); color: var(--night); background: transparent; }
+@media (hover: hover) and (pointer: fine) {
+  .cc-btn--ink:hover { background: var(--night-2); }
+  .cc-btn--line:hover { border-color: var(--night); }
+}
+.hs .cc-btn { min-height: 48px; }
+
+/* headline line-rise (js/home-motion.js adds .is-split; hidden only when JS runs) */
+html.js [data-rise] .rline { will-change: transform; }
+
+@media (prefers-reduced-motion: reduce) and (scripting: none) {
+  .hs * { animation: none !important; transition: none !important; }
+}

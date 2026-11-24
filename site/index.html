@@ -62,6 +62,9 @@
 <link rel="stylesheet" href="css/entry-gate.css">
 <link rel="stylesheet" href="css/home.css">
 <link rel="stylesheet" href="css/hero.css">
+<link rel="stylesheet" href="css/home-base.css">
+<link rel="stylesheet" href="css/home-people.css">
+<link rel="stylesheet" href="css/home-products.css">
 <link rel="preload" as="image" href="assets/media/pour-gurkhas.jpg">
 <script src="js/entry-gate.js"></script>
 
@@ -251,7 +254,7 @@
       <p class="cc-hero__lede">The authorised distributor for four of Nepal's leading beverage houses. Beer, spirits, wine and energy drinks, delivered cold to bars, restaurants and retailers in 27 cities since 2014.</p>
       <div class="cc-hero__ctas">
         <a class="cc-btn cc-btn--lager" href="contact.html">Order wholesale</a>
-        <a class="cc-btn cc-btn--glass" href="products.html">Meet the four houses</a>
+        <a class="cc-btn cc-btn--glass" href="#portfolio">Meet the four houses</a>
       </div>
     </div>
   </div>
@@ -272,308 +275,114 @@
   </p>
 </section>
 
-<!-- ──────────── Team (auto slider — swipe / drag to move by hand) ──────────── -->
-<section class="team-home">
-  <div class="container">
-
-    <div class="ed-meta s-reveal">
-      <span class="label"><span class="dot"></span>THE TEAM</span>
-    </div>
-
-    <div class="ed-grid">
-      <div class="ed-text s-reveal">
-        <h2><span class="ed-line">The people</span><span class="ed-line">behind the <span class="hl">pour</span></span></h2>
-        <p class="ed-copy">The crew that gets every bottle from the brewery to the shelf.</p>
-        <a href="about.html" class="ed-cta">
-          <span>Meet the team</span>
-          <span class="arr">→</span>
-        </a>
+<!--@team-->
+<section class="hs hs--ice team" id="team" aria-labelledby="team-title">
+  <div class="hs__inner">
+    <header class="team__head">
+      <div class="team__headline">
+        <p class="hs__label">The team</p>
+        <h2 class="hs__title" id="team-title" data-rise>The people behind the pour</h2>
       </div>
-
-      <div class="team-slider s-reveal">
-        <div class="team-track" id="teamTrack">
-          <figure class="team-slide">
-            <img src="assets/about-page/Team.JPG" alt="The SalesHubNepal team at the Kathmandu office" loading="lazy">
-            <figcaption class="mono">The full crew · Kathmandu HQ</figcaption>
-          </figure>
-          <figure class="team-slide">
-            <img src="assets/about-page/team-images/team-meeting-2.jpg" alt="SalesHubNepal leadership talking with the team around the meeting table" loading="lazy">
-            <figcaption class="mono">Planning the week</figcaption>
-          </figure>
-          <figure class="team-slide">
-            <img src="assets/about-page/team-images/team-meeting-4.jpg" alt="SalesHubNepal team working on laptops at the meeting table" loading="lazy">
-            <figcaption class="mono">Route review</figcaption>
-          </figure>
-          <figure class="team-slide">
-            <img src="assets/about-page/team-images/team-meeting-6.jpg" alt="SalesHubNepal team gathered around the table during a meeting" loading="lazy">
-            <figcaption class="mono">Around the table</figcaption>
-          </figure>
-        </div>
-
-        <div class="team-controls">
-          <button class="team-arrow" id="teamPrev" aria-label="Previous photo">←</button>
-          <div class="team-dots">
-            <button class="team-dot is-active" aria-label="Show photo 1"></button>
-            <button class="team-dot" aria-label="Show photo 2"></button>
-            <button class="team-dot" aria-label="Show photo 3"></button>
-            <button class="team-dot" aria-label="Show photo 4"></button>
-          </div>
-          <button class="team-arrow" id="teamNext" aria-label="Next photo">→</button>
-        </div>
+      <div class="team__intro">
+        <p class="hs__lede">Drivers, warehouse pickers, sales reps and route planners. The crew that gets every bottle from the brewery to your shelf, cold.</p>
+        <ul class="team__facts">
+          <li><strong>38</strong> people on the floor</li>
+          <li><strong>12</strong> refrigerated trucks</li>
+          <li>On the road since <strong>2014</strong></li>
+        </ul>
+        <a class="cc-btn cc-btn--ink" href="about.html">Meet the team</a>
       </div>
-    </div>
+    </header>
 
-  </div>
-</section>
+    <figure class="team__photo" data-team-photo>
+      <img src="assets/team/team.webp" width="1400" height="999" loading="lazy" decoding="async" alt="The SalesHubNepal team at the Balaju office in Kathmandu">
+      <figcaption>The full crew at Balaju, Kathmandu</figcaption>
+    </figure>
 
-<!-- ──────────── Portfolio teaser (editorial bento + runway) ──────────── -->
-<section class="portfolio">
-  <div class="container">
-
-    <!-- meta strip -->
-    <div class="ed-meta s-reveal">
-      <span class="label"><span class="dot"></span>THE PORTFOLIO</span>
-    </div>
-
-    <!-- text + bento grid -->
-    <div class="ed-grid">
-      <div class="ed-text s-reveal">
-        <h2><span class="ed-line">Brands</span><span class="ed-line">we work <span class="hl">with</span></span></h2>
-        <a href="products.html" class="ed-cta">
-          <span>View all <span data-count="26">26</span> products</span>
-          <span class="arr">→</span>
-        </a>
-      </div>
-
-      <div class="ed-bento">
-        <!-- Featured big — Gorkha Brewery (Carlsberg image) -->
-        <article class="bento-card big s-reveal" style="--bg:url('../assets/Product%20Images/carlsberg%20500.jpeg')">
-          <div class="bc-bg"></div>
-          <div class="bc-shade"></div>
-          <div class="bc-sticker indigo">cold<span class="small">lager</span></div>
-          <button class="bc-arr" aria-label="open Gorkha Brewery">↗</button>
-          <div class="bc-body">
-            <h3>Gorkha Brewery</h3>
-            <div class="origin">Carlsberg, Tuborg and the Gorkha range — brewed locally in Nepal</div>
-          </div>
-        </article>
-
-        <!-- Small A — Saras Beverages (Red Bull image) -->
-        <article class="bento-card sm-a s-reveal" style="--bg:url('../assets/Product%20Images/redbull%20carbonated.jpeg')">
-          <div class="bc-bg"></div>
-          <div class="bc-shade"></div>
-          <button class="bc-arr" aria-label="open Saras Beverages">↗</button>
-          <div class="bc-body">
-            <h3>Saras Beverages</h3>
-            <div class="origin">Red Bull, made in Nepal</div>
-          </div>
-        </article>
-
-        <!-- Small B — Prime International (Gurkhas & Guns image) -->
-        <article class="bento-card sm-b s-reveal" style="--bg:url('../assets/Product%20Images/Gorkhas%20and%20GUNS.jpeg')">
-          <div class="bc-bg"></div>
-          <div class="bc-shade"></div>
-          <div class="bc-sticker">bold<span class="small">spirit</span></div>
-          <button class="bc-arr" aria-label="open Prime International">↗</button>
-          <div class="bc-body">
-            <h3>Prime International</h3>
-            <div class="origin">Premium Nepali whisky, vodka and rum — from Gurkhas &amp; Guns to Yeti</div>
-          </div>
-        </article>
-
-        <!-- Wide — Big Master (Big Master Red image) -->
-        <article class="bento-card wide s-reveal" style="--bg:url('../assets/Product%20Images/Red%20Wine.jpeg')">
-          <div class="bc-bg"></div>
-          <div class="bc-shade"></div>
-          <div class="bc-sticker bone">red<span class="small">wine</span></div>
-          <button class="bc-arr" aria-label="open Big Master">↗</button>
-          <div class="bc-body">
-            <h3>Big Master</h3>
-            <div class="origin">Fruity sweet red, apple sweet white and the refined Black Chenin</div>
-          </div>
-        </article>
-      </div>
-    </div>
-
-    <!-- Runway strip: all 12 labels -->
-    <div class="runway-strip s-reveal">
-      <div class="runway-head">
-        <span class="mono">FROM THE ROSTER</span>
-      </div>
-      <!-- Auto-sliding marquee. Cards are listed once, then duplicated
-           (aria-hidden) so the left→right loop is perfectly seamless. -->
-      <div class="runway-viewport">
-        <div class="runway-track" id="runwayTrack">
-          <article class="runway-card" style="--bg:url('../assets/Product%20Images/carlsberg%20500.jpeg')">
-            <div class="rc-bg"></div><div class="rc-shade"></div>
-            <div class="rc-meta"><div class="cat">Lager · Nepal</div><div class="nm">Carlsberg</div><div class="abv">500 ml</div></div>
-          </article>
-          <article class="runway-card" style="--bg:url('../assets/Product%20Images/Gorkhas%20and%20GUNS.jpeg')">
-            <div class="rc-bg"></div><div class="rc-shade"></div>
-            <div class="rc-meta"><div class="cat">Premium Spirit · Nepal</div><div class="nm">Gurkhas &amp; Guns</div><div class="abv">Bottle</div></div>
-          </article>
-          <article class="runway-card" style="--bg:url('../assets/Product%20Images/Bandipur.jpeg')">
-            <div class="rc-bg"></div><div class="rc-shade"></div>
-            <div class="rc-meta"><div class="cat">Whisky · Nepal</div><div class="nm">Bandipur</div><div class="abv">Bottle</div></div>
-          </article>
-          <article class="runway-card" style="--bg:url('../assets/Product%20Images/Challanger.jpeg')">
-            <div class="rc-bg"></div><div class="rc-shade"></div>
-            <div class="rc-meta"><div class="cat">Whisky · Nepal</div><div class="nm">Challenger</div><div class="abv">Bottle</div></div>
-          </article>
-          <article class="runway-card" style="--bg:url('../assets/Product%20Images/Yeti.jpeg')">
-            <div class="rc-bg"></div><div class="rc-shade"></div>
-            <div class="rc-meta"><div class="cat">Vodka · Nepal</div><div class="nm">Yeti</div><div class="abv">Bottle</div></div>
-          </article>
-          <article class="runway-card" style="--bg:url('../assets/Product%20Images/tuborg%20500.jpeg')">
-            <div class="rc-bg"></div><div class="rc-shade"></div>
-            <div class="rc-meta"><div class="cat">Lager · Nepal</div><div class="nm">Tuborg</div><div class="abv">500 ml</div></div>
-          </article>
-          <article class="runway-card" style="--bg:url('../assets/Product%20Images/highlander.jpeg')">
-            <div class="rc-bg"></div><div class="rc-shade"></div>
-            <div class="rc-meta"><div class="cat">Vodka · Nepal</div><div class="nm">Highlander</div><div class="abv">Bottle</div></div>
-          </article>
-          <article class="runway-card" style="--bg:url('../assets/Product%20Images/Junge_Kaji.jpeg')">
-            <div class="rc-bg"></div><div class="rc-shade"></div>
-            <div class="rc-meta"><div class="cat">Rum · Nepal</div><div class="nm">Junge Kaji</div><div class="abv">Bottle</div></div>
-          </article>
-          <article class="runway-card" style="--bg:url('../assets/Product%20Images/Red%20Wine.jpeg')">
-            <div class="rc-bg"></div><div class="rc-shade"></div>
-            <div class="rc-meta"><div class="cat">Red Wine · Nepal</div><div class="nm">Fruity Sweet Red Wine</div><div class="abv">Bottle</div></div>
-          </article>
-          <article class="runway-card" style="--bg:url('../assets/Product%20Images/regular%20white.jpeg')">
-            <div class="rc-bg"></div><div class="rc-shade"></div>
-            <div class="rc-meta"><div class="cat">White Wine · Nepal</div><div class="nm">Apple Sweet White Wine</div><div class="abv">Bottle</div></div>
-          </article>
-          <article class="runway-card" style="--bg:url('../assets/Product%20Images/black%20chenin.jpeg')">
-            <div class="rc-bg"></div><div class="rc-shade"></div>
-            <div class="rc-meta"><div class="cat">White Wine · Nepal</div><div class="nm">Black Chenin</div><div class="abv">Bottle</div></div>
-          </article>
-          <article class="runway-card" style="--bg:url('../assets/Product%20Images/redbull%20can.jpeg')">
-            <div class="rc-bg"></div><div class="rc-shade"></div>
-            <div class="rc-meta"><div class="cat">Energy · Nepal</div><div class="nm">Red Bull Gold</div><div class="abv">250 ml</div></div>
-          </article>
-          <article class="runway-card" style="--bg:url('../assets/Product%20Images/redbull%20carbonated.jpeg')">
-            <div class="rc-bg"></div><div class="rc-shade"></div>
-            <div class="rc-meta"><div class="cat">Energy · Nepal</div><div class="nm">Red Bull Carbonated</div><div class="abv">330 ml</div></div>
-          </article>
-
-          <!-- duplicate set for a seamless infinite loop -->
-          <article class="runway-card" aria-hidden="true" style="--bg:url('../assets/Product%20Images/carlsberg%20500.jpeg')">
-            <div class="rc-bg"></div><div class="rc-shade"></div>
-            <div class="rc-meta"><div class="cat">Lager · Nepal</div><div class="nm">Carlsberg</div><div class="abv">500 ml</div></div>
-          </article>
-          <article class="runway-card" aria-hidden="true" style="--bg:url('../assets/Product%20Images/Gorkhas%20and%20GUNS.jpeg')">
-            <div class="rc-bg"></div><div class="rc-shade"></div>
-            <div class="rc-meta"><div class="cat">Premium Spirit · Nepal</div><div class="nm">Gurkhas &amp; Guns</div><div class="abv">Bottle</div></div>
-          </article>
-          <article class="runway-card" aria-hidden="true" style="--bg:url('../assets/Product%20Images/Bandipur.jpeg')">
-            <div class="rc-bg"></div><div class="rc-shade"></div>
-            <div class="rc-meta"><div class="cat">Whisky · Nepal</div><div class="nm">Bandipur</div><div class="abv">Bottle</div></div>
-          </article>
-          <article class="runway-card" aria-hidden="true" style="--bg:url('../assets/Product%20Images/Challanger.jpeg')">
-            <div class="rc-bg"></div><div class="rc-shade"></div>
-            <div class="rc-meta"><div class="cat">Whisky · Nepal</div><div class="nm">Challenger</div><div class="abv">Bottle</div></div>
-          </article>
-          <article class="runway-card" aria-hidden="true" style="--bg:url('../assets/Product%20Images/Yeti.jpeg')">
-            <div class="rc-bg"></div><div class="rc-shade"></div>
-            <div class="rc-meta"><div class="cat">Vodka · Nepal</div><div class="nm">Yeti</div><div class="abv">Bottle</div></div>
-          </article>
-          <article class="runway-card" aria-hidden="true" style="--bg:url('../assets/Product%20Images/tuborg%20500.jpeg')">
-            <div class="rc-bg"></div><div class="rc-shade"></div>
-            <div class="rc-meta"><div class="cat">Lager · Nepal</div><div class="nm">Tuborg</div><div class="abv">500 ml</div></div>
-          </article>
-          <article class="runway-card" aria-hidden="true" style="--bg:url('../assets/Product%20Images/highlander.jpeg')">
-            <div class="rc-bg"></div><div class="rc-shade"></div>
-            <div class="rc-meta"><div class="cat">Vodka · Nepal</div><div class="nm">Highlander</div><div class="abv">Bottle</div></div>
-          </article>
-          <article class="runway-card" aria-hidden="true" style="--bg:url('../assets/Product%20Images/Junge_Kaji.jpeg')">
-            <div class="rc-bg"></div><div class="rc-shade"></div>
-            <div class="rc-meta"><div class="cat">Rum · Nepal</div><div class="nm">Junge Kaji</div><div class="abv">Bottle</div></div>
-          </article>
-          <article class="runway-card" aria-hidden="true" style="--bg:url('../assets/Product%20Images/Red%20Wine.jpeg')">
-            <div class="rc-bg"></div><div class="rc-shade"></div>
-            <div class="rc-meta"><div class="cat">Red Wine · Nepal</div><div class="nm">Fruity Sweet Red Wine</div><div class="abv">Bottle</div></div>
-          </article>
-          <article class="runway-card" aria-hidden="true" style="--bg:url('../assets/Product%20Images/regular%20white.jpeg')">
-            <div class="rc-bg"></div><div class="rc-shade"></div>
-            <div class="rc-meta"><div class="cat">White Wine · Nepal</div><div class="nm">Apple Sweet White Wine</div><div class="abv">Bottle</div></div>
-          </article>
-          <article class="runway-card" aria-hidden="true" style="--bg:url('../assets/Product%20Images/black%20chenin.jpeg')">
-            <div class="rc-bg"></div><div class="rc-shade"></div>
-            <div class="rc-meta"><div class="cat">White Wine · Nepal</div><div class="nm">Black Chenin</div><div class="abv">Bottle</div></div>
-          </article>
-          <article class="runway-card" aria-hidden="true" style="--bg:url('../assets/Product%20Images/redbull%20can.jpeg')">
-            <div class="rc-bg"></div><div class="rc-shade"></div>
-            <div class="rc-meta"><div class="cat">Energy · Nepal</div><div class="nm">Red Bull Gold</div><div class="abv">250 ml</div></div>
-          </article>
-          <article class="runway-card" aria-hidden="true" style="--bg:url('../assets/Product%20Images/redbull%20carbonated.jpeg')">
-            <div class="rc-bg"></div><div class="rc-shade"></div>
-            <div class="rc-meta"><div class="cat">Energy · Nepal</div><div class="nm">Red Bull Carbonated</div><div class="abv">330 ml</div></div>
-          </article>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ──────────── Visit / Map ──────────── -->
-<section class="visit">
-  <div class="container">
-
-    <div class="meta-row s-reveal">
-      <span class="mono"><span style="display:inline-block; width:8px; height:8px; border-radius:999px; background:var(--coral); vertical-align:middle; margin-right:8px"></span>HELLO, NEIGHBOURS</span>
-    </div>
-
-    <div class="grid">
-      <div>
-        <h2 class="s-reveal" data-split>Come say hi</h2>
-        <p class="lede s-reveal">Stop by the SalesHub headquarters in Kathmandu to meet the team, tour the distribution floor, and talk partnerships over a cup of <span class="pill-text">ho-cha</span>.</p>
-
-        <div class="info-grid">
-          <div class="info-cell s-reveal">
-            <span class="dot"></span>
-            <div>
-              <div class="lbl">Address</div>
-              <div class="val">Balaju Industrial District<br>Kathmandu 44600</div>
-            </div>
-          </div>
-          <div class="info-cell s-reveal">
-            <span class="dot"></span>
-            <div>
-              <div class="lbl">Hours</div>
-              <div class="val">Mon — Sat<br>09:00 — 18:00 NPT</div>
-            </div>
-          </div>
-          <div class="info-cell s-reveal">
-            <span class="dot"></span>
-            <div>
-              <div class="lbl">Email</div>
-              <div class="val">sales.hub.nepal@gmail.com</div>
-            </div>
-          </div>
-          <div class="info-cell s-reveal">
-            <span class="dot"></span>
-            <div>
-              <div class="lbl">Phone</div>
-              <div class="val">01-5905090<br>+977 980 100 4400</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="actions s-reveal">
-          <a class="btn-dark" href="#contact">Book a visit <span style="font-size: 14px">→</span></a>
-          <a class="btn-out" href="#">Open in maps <span style="font-size: 14px">↗</span></a>
-        </div>
-      </div>
-
-      <!-- the HQ photo backdrop -->
-      <div class="map s-reveal">
-        <img class="bg-photo" src="assets/building-photo.jpeg" alt="SalesHubNepal headquarters building in Kathmandu" loading="lazy" />
+    <div class="team__roll" role="group" aria-label="Portraits of the SalesHubNepal team">
+      <div class="team__track">
+        <ul class="team__set">
+          <li class="team__card"><img src="assets/team/member-01.webp" width="600" height="900" loading="lazy" decoding="async" alt="SalesHubNepal team member"></li>
+          <li class="team__card"><img src="assets/team/member-02.webp" width="600" height="900" loading="lazy" decoding="async" alt="SalesHubNepal team member"></li>
+          <li class="team__card"><img src="assets/team/member-03.webp" width="600" height="900" loading="lazy" decoding="async" alt="SalesHubNepal team member"></li>
+          <li class="team__card"><img src="assets/team/member-04.webp" width="600" height="900" loading="lazy" decoding="async" alt="SalesHubNepal team member"></li>
+          <li class="team__card"><img src="assets/team/member-05.webp" width="600" height="900" loading="lazy" decoding="async" alt="SalesHubNepal team member"></li>
+          <li class="team__card"><img src="assets/team/member-06.webp" width="600" height="900" loading="lazy" decoding="async" alt="SalesHubNepal team member"></li>
+          <li class="team__card"><img src="assets/team/member-07.webp" width="600" height="900" loading="lazy" decoding="async" alt="SalesHubNepal team member"></li>
+          <li class="team__card"><img src="assets/team/member-08.webp" width="600" height="900" loading="lazy" decoding="async" alt="SalesHubNepal team member"></li>
+          <li class="team__card"><img src="assets/team/member-09.webp" width="600" height="900" loading="lazy" decoding="async" alt="SalesHubNepal team member"></li>
+          <li class="team__card"><img src="assets/team/member-10.webp" width="600" height="900" loading="lazy" decoding="async" alt="SalesHubNepal team member"></li>
+          <li class="team__card"><img src="assets/team/member-11.webp" width="600" height="900" loading="lazy" decoding="async" alt="SalesHubNepal team member"></li>
+          <li class="team__card"><img src="assets/team/member-12.webp" width="600" height="900" loading="lazy" decoding="async" alt="SalesHubNepal team member"></li>
+          <li class="team__card"><img src="assets/team/member-13.webp" width="600" height="900" loading="lazy" decoding="async" alt="SalesHubNepal team member"></li>
+          <li class="team__card"><img src="assets/team/member-14.webp" width="600" height="900" loading="lazy" decoding="async" alt="SalesHubNepal team member"></li>
+          <li class="team__card"><img src="assets/team/member-15.webp" width="600" height="900" loading="lazy" decoding="async" alt="SalesHubNepal team member"></li>
+          <li class="team__card"><img src="assets/team/member-16.webp" width="600" height="900" loading="lazy" decoding="async" alt="SalesHubNepal team member"></li>
+          <li class="team__card"><img src="assets/team/member-17.webp" width="600" height="900" loading="lazy" decoding="async" alt="SalesHubNepal team member"></li>
+          <li class="team__card"><img src="assets/team/member-18.webp" width="600" height="900" loading="lazy" decoding="async" alt="SalesHubNepal team member"></li>
+        </ul>
+        <ul class="team__set" aria-hidden="true">
+          <li class="team__card"><img src="assets/team/member-01.webp" width="600" height="900" loading="lazy" decoding="async" alt=""></li>
+          <li class="team__card"><img src="assets/team/member-02.webp" width="600" height="900" loading="lazy" decoding="async" alt=""></li>
+          <li class="team__card"><img src="assets/team/member-03.webp" width="600" height="900" loading="lazy" decoding="async" alt=""></li>
+          <li class="team__card"><img src="assets/team/member-04.webp" width="600" height="900" loading="lazy" decoding="async" alt=""></li>
+          <li class="team__card"><img src="assets/team/member-05.webp" width="600" height="900" loading="lazy" decoding="async" alt=""></li>
+          <li class="team__card"><img src="assets/team/member-06.webp" width="600" height="900" loading="lazy" decoding="async" alt=""></li>
+          <li class="team__card"><img src="assets/team/member-07.webp" width="600" height="900" loading="lazy" decoding="async" alt=""></li>
+          <li class="team__card"><img src="assets/team/member-08.webp" width="600" height="900" loading="lazy" decoding="async" alt=""></li>
+          <li class="team__card"><img src="assets/team/member-09.webp" width="600" height="900" loading="lazy" decoding="async" alt=""></li>
+          <li class="team__card"><img src="assets/team/member-10.webp" width="600" height="900" loading="lazy" decoding="async" alt=""></li>
+          <li class="team__card"><img src="assets/team/member-11.webp" width="600" height="900" loading="lazy" decoding="async" alt=""></li>
+          <li class="team__card"><img src="assets/team/member-12.webp" width="600" height="900" loading="lazy" decoding="async" alt=""></li>
+          <li class="team__card"><img src="assets/team/member-13.webp" width="600" height="900" loading="lazy" decoding="async" alt=""></li>
+          <li class="team__card"><img src="assets/team/member-14.webp" width="600" height="900" loading="lazy" decoding="async" alt=""></li>
+          <li class="team__card"><img src="assets/team/member-15.webp" width="600" height="900" loading="lazy" decoding="async" alt=""></li>
+          <li class="team__card"><img src="assets/team/member-16.webp" width="600" height="900" loading="lazy" decoding="async" alt=""></li>
+          <li class="team__card"><img src="assets/team/member-17.webp" width="600" height="900" loading="lazy" decoding="async" alt=""></li>
+          <li class="team__card"><img src="assets/team/member-18.webp" width="600" height="900" loading="lazy" decoding="async" alt=""></li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
+<!--/@team-->
+
+<!--@portfolio-->
+<!-- portfolio section: write me -->
+<!--/@portfolio-->
+
+<!--@roster-->
+<!-- roster section: write me -->
+<!--/@roster-->
+
+<!--@visit-->
+<section class="hs hs--night visit" id="visit" aria-labelledby="visit-title">
+  <div class="hs__inner visit__grid">
+    <figure class="visit__photo">
+      <img src="assets/team/hq-front.webp" width="1800" height="1005" loading="lazy" decoding="async" alt="The SalesHubNepal headquarters building in Balaju Industrial District, Kathmandu">
+      <p class="visit__status" data-status role="status"><span class="visit__dot" aria-hidden="true"></span><span data-status-text>Open Monday to Saturday, 9:00 to 18:00</span></p>
+    </figure>
+
+    <div class="visit__info">
+      <p class="hs__label">Hello, neighbours</p>
+      <h2 class="hs__title" id="visit-title" data-rise>Come say hi</h2>
+      <p class="hs__lede">Stop by our headquarters in Balaju to meet the team, walk the warehouse floor and talk partnerships over a cup of ho-cha.</p>
+
+      <dl class="visit__list">
+        <div class="visit__row"><dt>Address</dt><dd>Balaju Industrial District, Ward 16<br>Kathmandu 44600</dd></div>
+        <div class="visit__row"><dt>Hours</dt><dd>Monday to Saturday<br>9:00 to 18:00 NPT</dd></div>
+        <div class="visit__row"><dt>Phone</dt><dd><a href="tel:+97715905090">01-5905090</a><br><a href="tel:+9779801004400">+977 980 100 4400</a></dd></div>
+        <div class="visit__row"><dt>Email</dt><dd><a href="mailto:sales.hub.nepal@gmail.com">sales.hub.nepal@gmail.com</a></dd></div>
+      </dl>
+
+      <div class="visit__actions">
+        <a class="cc-btn cc-btn--lager" href="https://www.google.com/maps/search/?api=1&amp;query=Balaju+Industrial+District+Kathmandu" target="_blank" rel="noopener">Get directions</a>
+        <a class="cc-btn cc-btn--glass" href="contact.html">Book a visit</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!--/@visit-->
 
 <!-- ──────────── CTA ──────────── -->
 <section class="cta" id="contact">
@@ -610,7 +419,7 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">Our story</a></li>
         <li><a href="products.html">Brands</a></li>
-        <li><a href="#">Visit</a></li>
+        <li><a href="#visit">Visit</a></li>
         <li><a href="#">Journal</a></li>
       </ul>
     </div>
@@ -649,8 +458,12 @@
 <script src="vendor/gsap.min.js" defer></script>
 <script src="vendor/ScrollTrigger.min.js" defer></script>
 <script src="vendor/SplitText.min.js" defer></script>
+<script src="vendor/lenis.min.js" defer></script>
 <script src="js/frost.js" defer></script>
 <script src="js/hero.js" defer></script>
+<script src="js/home-motion.js" defer></script>
+<script src="js/home-people.js" defer></script>
+<script src="js/home-products.js" defer></script>
 <script src="js/home.js" defer></script>
 </body>
 </html>
