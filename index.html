@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>SalesHub Nepal — Brewery to bar, kept cold</title>
+  <meta name="description" content="SalesHub Nepal is the authorised distributor for four of Nepal's leading beverage houses: beer, spirits, wine and energy drinks, delivered cold to bars, restaurants and retailers since 2014.">
+  <meta name="theme-color" content="#0D1B1E">
+  <link rel="icon" href="assets/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <meta property="og:title" content="SalesHub Nepal — Brewery to bar, kept cold">
+  <meta property="og:image" content="assets/og-image.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,500..900&family=Big+Shoulders+Stencil:opsz,wght@10..72,700..900&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/media/pour-gurkhas.jpg">
+  <link rel="stylesheet" href="css/home.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- ============ AGE GATE: the cooler door ============ -->
+  <div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-q" hidden>
+    <div class="gate__inner">
+      <p class="gate__temp" aria-hidden="true"><span id="gate-deg">24</span><sup>°C</sup></p>
+      <p class="gate__status" id="gate-status">Cooling to serving temperature</p>
+      <h2 class="gate__q" id="gate-q">Before we open the cooler, are you 21 or older?</h2>
+      <div class="gate__actions">
+        <button class="btn btn--lager" id="gate-yes" type="button">Yes, I'm 21 or older</button>
+        <button class="btn btn--ghost" id="gate-no" type="button">No, I'm under 21</button>
+      </div>
+      <p class="gate__note">We distribute alcohol, so this site is for adults of legal drinking age.</p>
+    </div>
+    <div class="gate__denied" id="gate-denied" hidden>
+      <p class="gate__denied-title">Come back when you're 21.</p>
+      <p>We'll keep it cold for you.</p>
+    </div>
+  </div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <a class="nav__brand" href="#top" aria-label="SalesHub Nepal, back to top">
+      <img src="assets/media/logo-light.png" alt="" width="507" height="520">
+      <span>SalesHub Nepal</span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#houses">The four houses</a>
+      <a href="#call">Call the floor</a>
+    </nav>
+    <a class="btn btn--lager btn--sm" href="mailto:sales.hub.nepal@gmail.com?subject=Wholesale%20order">Order wholesale</a>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO: wipe the glass ============ -->
+    <section class="hero" id="top" aria-label="Introduction">
+      <div class="hero__media" id="hero-media">
+        <img class="hero__poster" id="hero-poster" src="assets/media/pour-gurkhas.jpg" alt="">
+        <video class="hero__video" id="hero-video" muted playsinline preload="auto"
+               poster="assets/media/pour-gurkhas.jpg" aria-hidden="true"></video>
+        <canvas class="hero__glass" id="hero-glass" aria-hidden="true"></canvas>
+      </div>
+
+      <div class="hero__copy">
+        <h1 class="hero__title" id="hero-title">
+          <span class="line">Brewery</span>
+          <span class="line">to bar,</span>
+          <span class="line line--cold">kept cold.</span>
+        </h1>
+        <div class="hero__foot">
+          <p class="hero__lede">The authorised distributor for four of Nepal's leading beverage houses. Beer, spirits, wine and energy drinks, delivered cold to bars, restaurants and retailers in 27 cities since 2014.</p>
+          <div class="hero__ctas">
+            <a class="btn btn--lager" href="mailto:sales.hub.nepal@gmail.com?subject=Wholesale%20order">Order wholesale</a>
+            <a class="btn btn--glass" href="#houses">Meet the four houses</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pouring" id="pouring" aria-live="polite">
+        <p class="pouring__label">Now pouring</p>
+        <p class="pouring__name" id="pouring-name">Gurkhas &amp; Guns</p>
+        <p class="pouring__house" id="pouring-house">from Prime International</p>
+        <div class="pouring__clips" role="group" aria-label="Choose a pour">
+          <button type="button" data-clip="0" aria-label="Gurkhas &amp; Guns"><i></i></button>
+          <button type="button" data-clip="1" aria-label="Bandipur"><i></i></button>
+          <button type="button" data-clip="2" aria-label="Carlsberg"><i></i></button>
+        </div>
+      </div>
+
+      <p class="hero__hint" id="hero-hint" aria-hidden="true">
+        <span class="hint-dot"></span><span class="hint-text">Move across the glass to wipe it clear</span>
+      </p>
+    </section>
+
+    <!-- ============ THE LOADING BAY: four houses ============ -->
+    <section class="bay" id="houses" aria-labelledby="bay-title">
+      <div class="bay__intro">
+        <h2 class="bay__title" id="bay-title">Four houses.<br>One cold truck.</h2>
+        <p class="bay__lede">We carry the whole back bar. Mix products from one house or all four in a single order, and every bottle travels with its temperature log from our Balaju warehouse to your shelf.</p>
+      </div>
+
+      <div class="bay__pin" id="bay-pin">
+        <div class="bay__track" id="bay-track">
+
+          <article class="house" data-bg="#E8A532" data-ink="#1C1306" data-soft="#5A3A08" aria-labelledby="h-gorkha">
+            <div class="house__text">
+              <p class="house__kind">Beer, brewed in Nepal</p>
+              <h3 class="house__name" id="h-gorkha">Gorkha<br>Brewery</h3>
+              <p class="house__desc">Carlsberg, Tuborg and the Gorkha range. The house that made us their authorised distributor in 2018.</p>
+              <p class="house__count"><strong>12</strong> beers on the truck</p>
+            </div>
+            <ul class="house__fan" aria-label="Gorkha Brewery products">
+              <li><img src="assets/media/gorkha-strong.webp" alt="" loading="lazy"><span>Gorkha Strong, 650 ml</span></li>
+              <li><img src="assets/media/tuborg-500.webp" alt="" loading="lazy"><span>Tuborg, 500 ml</span></li>
+              <li><img src="assets/media/gorkha-craft.webp" alt="" loading="lazy"><span>Gorkha Craft</span></li>
+              <li><img src="assets/media/carlsberg-500.webp" alt="" loading="lazy"><span>Carlsberg, 500 ml</span></li>
+            </ul>
+          </article>
+
+          <article class="house" data-bg="#2A150C" data-ink="#F2C9A2" data-soft="#B9845A" aria-labelledby="h-prime">
+            <div class="house__text">
+              <p class="house__kind">Whisky, vodka and rum</p>
+              <h3 class="house__name house__name--long" id="h-prime">Prime<br>International</h3>
+              <p class="house__desc">Premium Nepali spirits, from Gurkhas &amp; Guns and Bandipur to Yeti, Highlander and Junge Kaji.</p>
+              <p class="house__count"><strong>6</strong> spirits on the truck</p>
+            </div>
+            <ul class="house__fan" aria-label="Prime International products">
+              <li><img src="assets/media/junge-kaji.webp" alt="" loading="lazy"><span>Junge Kaji rum</span></li>
+              <li><img src="assets/media/yeti.webp" alt="" loading="lazy"><span>Yeti vodka</span></li>
+              <li><img src="assets/media/bandipur.webp" alt="" loading="lazy"><span>Bandipur whisky</span></li>
+              <li><img src="assets/media/gurkhas-guns.webp" alt="" loading="lazy"><span>Gurkhas &amp; Guns</span></li>
+            </ul>
+          </article>
+
+          <article class="house" data-bg="#4B0E1B" data-ink="#F6D9DE" data-soft="#C47A88" aria-labelledby="h-big">
+            <div class="house__text">
+              <p class="house__kind">Red and white wine</p>
+              <h3 class="house__name" id="h-big">Big<br>Master</h3>
+              <p class="house__desc">Fruity sweet red, apple sweet white and the refined Black Chenin, ready for the dinner service.</p>
+              <p class="house__count"><strong>6</strong> wines on the truck</p>
+            </div>
+            <ul class="house__fan" aria-label="Big Master products">
+              <li><img src="assets/media/white-wine.webp" alt="" loading="lazy"><span>Apple Sweet White</span></li>
+              <li><img src="assets/media/syrah.webp" alt="" loading="lazy"><span>Syrah</span></li>
+              <li><img src="assets/media/black-chenin.webp" alt="" loading="lazy"><span>Black Chenin</span></li>
+              <li><img src="assets/media/red-wine.webp" alt="" loading="lazy"><span>Fruity Sweet Red</span></li>
+            </ul>
+          </article>
+
+          <article class="house" data-bg="#11308F" data-ink="#E9EEFF" data-soft="#9DB0F2" aria-labelledby="h-saras">
+            <div class="house__text">
+              <p class="house__kind">Energy drinks</p>
+              <h3 class="house__name" id="h-saras">Saras<br>Beverages</h3>
+              <p class="house__desc">Red Bull, made in Nepal. Gold in the 250 ml can and Carbonated in the 330 ml.</p>
+              <p class="house__count"><strong>2</strong> energy drinks on the truck</p>
+            </div>
+            <ul class="house__fan house__fan--two" aria-label="Saras Beverages products">
+              <li><img src="assets/media/redbull-can.webp" alt="" loading="lazy"><span>Red Bull Gold, 250 ml</span></li>
+              <li><img src="assets/media/redbull-carbonated.webp" alt="" loading="lazy"><span>Red Bull Carbonated, 330 ml</span></li>
+            </ul>
+          </article>
+
+        </div>
+
+        <nav class="bay__load" aria-label="Jump to a house">
+          <div class="bay__meter"><i id="bay-meter"></i></div>
+          <ol>
+            <li><button type="button" data-house="0">Gorkha Brewery</button></li>
+            <li><button type="button" data-house="1">Prime International</button></li>
+            <li><button type="button" data-house="2">Big Master</button></li>
+            <li><button type="button" data-house="3">Saras Beverages</button></li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    <!-- ============ CLOSING: the 6pm call ============ -->
+    <section class="call" id="call" aria-labelledby="call-title">
+      <h2 class="call__title" id="call-title">Running low before service?<br>Call the floor.</h2>
+      <a class="call__phone" href="tel:+97715905090">01-5905090</a>
+      <div class="call__grid">
+        <p><span>Mobile</span><a href="tel:+9779801004400">+977 980 100 4400</a></p>
+        <p><span>Email</span><a href="mailto:sales.hub.nepal@gmail.com">sales.hub.nepal@gmail.com</a></p>
+        <p><span>Warehouse</span>Balaju Industrial District, Kathmandu 44600</p>
+        <p><span>Hours</span>Monday to Saturday, 9:00 to 18:00</p>
+      </div>
+      <footer class="foot">
+        <p>© 2014–2026 SalesHub Distribution Pvt. Ltd.</p>
+        <p>Drink responsibly. For adults 21 and over.</p>
+      </footer>
+    </section>
+  </main>
+
+  <script src="vendor/gsap.min.js" defer></script>
+  <script src="vendor/ScrollTrigger.min.js" defer></script>
+  <script src="vendor/SplitText.min.js" defer></script>
+  <script src="vendor/lenis.min.js" defer></script>
+  <script src="js/frost.js" defer></script>
+  <script src="js/home.js" defer></script>
+</body>
+</html>
