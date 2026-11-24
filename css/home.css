@@ -1,7 +1,7 @@
 /* =========================================================
    SalesHub Nepal — "Cold Chain" homepage (sample)
    Palette: cold-room night, frost, lager; each house brings its own colour.
-   Type: Big Shoulders (freight-stencil heritage) + Hanken Grotesk.
+   Type: Big Shoulders for headings, Hanken Grotesk for text. One background throughout.
    ========================================================= */
 
 :root {
@@ -14,7 +14,6 @@
   --lager-ink: #1C1306;
 
   --display: "Big Shoulders", "Arial Narrow", sans-serif;
-  --stencil: "Big Shoulders Stencil", "Big Shoulders", "Arial Narrow", sans-serif;
   --body: "Hanken Grotesk", system-ui, sans-serif;
 
   --ease-out: cubic-bezier(.23, 1, .32, 1);
@@ -266,55 +265,59 @@ html.js:not(.intro-ready) .pouring { opacity: 0; }
 .bay__lede { max-width: 38ch; font-size: 1.15rem; color: rgba(228, 238, 238, .84); }
 
 /* Default (no JS, phones, reduced motion): houses stack vertically */
-.bay__pin { --ink: #1C1306; --soft: #5A3A08; position: relative; }
+.bay__pin { position: relative; }
 .bay__track { display: flex; flex-direction: column; }
 .house {
   display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); align-items: center; gap: 2rem;
   padding: clamp(4.5rem, 12vh, 7rem) var(--gutter);
-  background: var(--house-bg, #E8A532); color: var(--house-ink, #1C1306);
-  --soft: var(--house-soft, #5A3A08);
+  border-top: 1px solid rgba(228, 238, 238, .1);
 }
 .bay__load { display: none; }
 
 /* Pinned horizontal loading bay (desktop, motion allowed) */
 .bay--pinned .bay__pin {
   height: 100svh; min-height: 600px; overflow: hidden;
-  background: #E8A532; color: var(--ink);
+  border-top: 1px solid rgba(228, 238, 238, .1);
 }
 .bay--pinned .bay__track { flex-direction: row; height: 100%; width: max-content; will-change: transform; }
 .bay--pinned .house {
   flex: 0 0 100vw; height: 100%;
   padding: 7rem var(--gutter) 9rem;
-  background: none; color: inherit; --soft: inherit;
+  border-top: 0;
 }
-.bay--pinned .house__kind { color: var(--soft); }
 .bay--pinned .bay__load { display: block; }
 
-.house__kind { font-weight: 600; font-size: 1rem; color: var(--soft); }
+.house__kind { font-weight: 500; font-size: 1rem; color: var(--mist); }
 .house__name {
-  font-family: var(--stencil); font-weight: 900; font-variation-settings: "opsz" 72;
+  font-family: var(--display); font-weight: 900; font-variation-settings: "opsz" 72;
   text-transform: uppercase;
-  font-size: clamp(3.6rem, 9.6vw, 11rem); line-height: .82;
+  font-size: clamp(3.6rem, 9.6vw, 11rem); line-height: .8;
   margin: .9rem 0 1.4rem -.04em;
 }
-.house__name--long { font-size: clamp(3.2rem, 7.2vw, 8.4rem); }
-.house__desc { max-width: 34ch; font-size: 1.12rem; }
-.house__count { margin-top: 1.6rem; font-weight: 500; display: flex; align-items: baseline; gap: .5rem; }
+.house__name--long { font-size: clamp(3.2rem, 7.4vw, 8.6rem); }
+.house__desc { max-width: 34ch; font-size: 1.12rem; color: rgba(228, 238, 238, .84); }
+.house__count { margin-top: 1.6rem; font-weight: 500; display: flex; align-items: baseline; gap: .5rem; color: rgba(228, 238, 238, .84); }
 .house__count strong {
   font-family: var(--display); font-weight: 900; font-variation-settings: "opsz" 72;
-  font-size: 3.4rem; line-height: .8;
+  font-size: 3.4rem; line-height: .8; color: var(--lager);
 }
 
 .house__fan {
   list-style: none; margin: 0; padding: 0;
   position: relative; height: min(64vh, 600px);
 }
+.house__fan::before {
+  /* soft back-light behind the bottles, same on every house */
+  content: ""; position: absolute; left: 50%; top: 52%; width: 120%; aspect-ratio: 1; translate: -50% -50%;
+  background: radial-gradient(closest-side, rgba(228, 238, 238, .07), transparent 70%);
+  pointer-events: none;
+}
 .house__fan li {
   position: absolute; left: 50%; top: 50%;
   width: clamp(150px, 14.5vw, 250px); aspect-ratio: 781 / 1400;
   margin: 0; border-radius: 6px; overflow: hidden;
   transform: translate(-50%, -50%);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, .18), 0 12px 24px -8px rgba(0, 0, 0, .35), 0 40px 70px -20px rgba(0, 0, 0, .45);
+  box-shadow: 0 0 0 1px rgba(228, 238, 238, .08), 0 12px 24px -8px rgba(0, 0, 0, .5), 0 40px 70px -20px rgba(0, 0, 0, .6);
   transition: translate .35s var(--ease-out);
 }
 .house__fan img { width: 100%; height: 100%; object-fit: cover; }
@@ -334,12 +337,12 @@ html.js:not(.intro-ready) .pouring { opacity: 0; }
 .bay--pinned .bay__load {
   position: absolute; left: var(--gutter); right: var(--gutter); bottom: clamp(1.25rem, 4vh, 2.5rem);
 }
-.bay__meter { height: 2px; background: color-mix(in srgb, var(--ink) 18%, transparent); border-radius: 2px; overflow: hidden; }
-.bay__meter i { display: block; height: 100%; background: var(--ink); transform-origin: left; transform: scaleX(0); }
+.bay__meter { height: 2px; background: rgba(228, 238, 238, .14); border-radius: 2px; overflow: hidden; }
+.bay__meter i { display: block; height: 100%; background: var(--lager); transform-origin: left; transform: scaleX(0); }
 .bay__load ol { list-style: none; margin: .6rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); }
 .bay__load button {
   background: none; border: 0; padding: .4rem 0; cursor: pointer; text-align: left;
-  font-weight: 600; font-size: .92rem; color: var(--ink); opacity: .5;
+  font-weight: 500; font-size: .92rem; color: var(--frost); opacity: .5;
   transition: opacity .25s var(--ease-out);
 }
 .bay__load button.is-active, .bay__load button:hover { opacity: 1; }

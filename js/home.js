@@ -300,12 +300,7 @@
   var pin = $('#bay-pin');
   var track = $('#bay-track');
   var houses = $$('.house');
-  var palette = houses.map(function (h) {
-    h.style.setProperty('--house-bg', h.dataset.bg);
-    h.style.setProperty('--house-ink', h.dataset.ink);
-    h.style.setProperty('--house-soft', h.dataset.soft);
-    return { bg: h.dataset.bg, ink: h.dataset.ink, soft: h.dataset.soft };
-  });
+
 
   function fanLayout(cards) {
     var n = cards.length, w = cards[0].offsetWidth || 200;
@@ -343,19 +338,8 @@
     bay.classList.add('bay--pinned');
     var meter = $('#bay-meter');
     var loadButtons = $$('.bay__load button');
-    var lerpColor = function (a, b, t) { return gsap.utils.interpolate(a, b, t); };
-    var applyColors = function (p) {
-      var f = p * (palette.length - 1);
-      var i = Math.min(palette.length - 2, Math.floor(f));
-      var t = f - i;
-      // hold each house's colour while it is centred, blend in between
-      t = gsap.utils.clamp(0, 1, (t - 0.3) / 0.4);
-      t = t * t * (3 - 2 * t);
-      var a = palette[i], b = palette[i + 1];
-      pin.style.backgroundColor = lerpColor(a.bg, b.bg, t);
-      pin.style.setProperty('--ink', lerpColor(a.ink, b.ink, t));
-      pin.style.setProperty('--soft', lerpColor(a.soft, b.soft, t));
-      var active = Math.round(f);
+    var applyProgress = function (p) {
+      var active = Math.round(p * (houses.length - 1));
       loadButtons.forEach(function (btn, k) { btn.classList.toggle('is-active', k === active); });
       meter.style.transform = 'scaleX(' + p.toFixed(4) + ')';
     };
@@ -367,10 +351,10 @@
         trigger: pin, pin: true, scrub: 0.8, start: 'top top',
         end: function () { return '+=' + dist(); },
         invalidateOnRefresh: true, anticipatePin: 1,
-        onUpdate: function (self) { applyColors(self.progress); }
+        onUpdate: function (self) { applyProgress(self.progress); }
       }
     });
-    applyColors(0);
+    applyProgress(0);
 
     houses.forEach(function (h, i) {
       var name = $('.house__name', h);
@@ -394,7 +378,6 @@
 
     return function () {
       bay.classList.remove('bay--pinned');
-      pin.style.backgroundColor = '';
     };
   });
 
