@@ -9,7 +9,7 @@
   --steel: #4E6466;
   --radius-lg: 22px;
   --radius-sm: 12px;
-  --section-pad: clamp(4.5rem, 10vw, 8.5rem);
+  --section-pad: clamp(2.25rem, 4.4vw, 4rem);
 }
 
 /* ---------- Section shell ---------- */
@@ -22,7 +22,7 @@
 }
 .hs--ice { background: var(--ice); color: var(--night); }
 .hs--night { background: var(--night); color: var(--frost); }
-.hs__inner { max-width: 1440px; margin: 0 auto; }
+.hs__inner { max-width: 78rem; margin: 0 auto; }
 .hs h2, .hs h3, .hs p, .hs figure, .hs ul, .hs ol, .hs dl, .hs dd { margin: 0; }
 .hs ul, .hs ol { padding: 0; list-style: none; }
 .hs a:not(.cc-btn) { color: inherit; }
@@ -41,15 +41,15 @@
 .hs--ice .hs__label { color: var(--steel); }
 .hs--night .hs__label { color: var(--mist); }
 
-/* section headline: calm sentence case (the hero keeps its big condensed type) */
-.hs__title {
-  font-family: var(--body); font-weight: 600;
-  font-size: clamp(2.2rem, 4vw, 3.6rem);
-  line-height: 1.04; letter-spacing: -.03em;
-  margin-top: .9rem;
+.hs .hs__title {
+  font-family: var(--display); font-weight: 800;
+  font-size: clamp(2.6rem, 4.75vw, 4.25rem);
+  line-height: 1.03; letter-spacing: -.018em;
+  margin-top: .55rem;
   text-wrap: balance;
 }
 .hs__lede { max-width: 46ch; font-size: 1.125rem; }
+.hs .hs__lede { margin-top: .8rem; }
 .hs--ice .hs__lede { color: var(--steel); }
 .hs--night .hs__lede { color: rgba(228, 238, 238, .78); }
 
@@ -62,11 +62,17 @@
 }
 .hs .cc-btn { min-height: 48px; }
 
-/* headline fade-up, once (js/home-motion.js); hidden only when that script runs */
-html.rise-ready [data-rise] { opacity: 0; transform: translateY(18px); transition: opacity .7s var(--ease-out), transform .7s var(--ease-out); }
-html.rise-ready [data-rise].is-in { opacity: 1; transform: none; }
-@media (prefers-reduced-motion: reduce) { html.rise-ready [data-rise] { opacity: 1; transform: none; transition: none; } }
-
-@media (prefers-reduced-motion: reduce) and (scripting: none) {
-  .hs * { animation: none !important; transition: none !important; }
+@media (prefers-reduced-motion: no-preference) {
+  [data-section-reveal].is-revealed {
+    animation: homeSectionReveal .55s var(--ease-out) var(--reveal-delay, 0ms) backwards;
+  }
+  [data-section-reveal]:focus-within { animation: none; }
+}
+@keyframes homeSectionReveal {
+  from { opacity: .25; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hs .cc-btn { transition: none; }
+  .hs .cc-btn:active { transform: none; }
 }

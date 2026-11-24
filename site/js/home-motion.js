@@ -1,23 +1,22 @@
-/* =========================================================
-   SalesHubNepal home — shared motion (kept deliberately light)
-   Native scrolling (no smooth-scroll library). Headlines marked [data-rise]
-   fade up once when they enter; the CSS lives in home-base.css.
-   ========================================================= */
+/* One entrance per group. Base styles keep content visible without scripting. */
 (function () {
   'use strict';
-  var els = document.querySelectorAll('[data-rise]');
-  if (!els.length) return;
-  if (!('IntersectionObserver' in window)) {
-    els.forEach(function (el) { el.classList.add('is-in'); });
-    return;
-  }
-  document.documentElement.classList.add('rise-ready');
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (!e.isIntersecting) return;
-      e.target.classList.add('is-in');
-      io.unobserve(e.target);
+
+  if (!('IntersectionObserver' in window)) return;
+
+  var reveal = new IntersectionObserver(function (entries) {
+    var stagger = 0;
+
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      var target = entry.target;
+      target.style.setProperty('--reveal-delay', Math.min(stagger++, 3) * 55 + 'ms');
+      target.classList.add('is-revealed');
+      reveal.unobserve(target);
     });
-  }, { rootMargin: '0px 0px -10% 0px' });
-  els.forEach(function (el) { io.observe(el); });
+  });
+
+  document.querySelectorAll('[data-section-reveal]').forEach(function (target) {
+    reveal.observe(target);
+  });
 })();

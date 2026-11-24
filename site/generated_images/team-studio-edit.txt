@@ -1,0 +1,15 @@
+Mode: built-in image_gen image edit
+Source: site/assets/team/team.webp
+Master: site/generated_images/team-studio-master.png
+Web asset: site/assets/team/team-studio.webp
+
+Use case: identity-preserve
+Asset type: enhanced corporate team photograph for the homepage section "The people behind the pour".
+Input image 1 is the exact edit target, not just a reference. Carefully retouch this existing photo, do not invent a new team portrait.
+Primary request: enhance the photographic quality and replace the office background with a subtle professional photography studio setting, as if this same group photo had been captured with a high-end professional camera under expertly placed large softboxes.
+Composition/framing: preserve the original landscape 1400:999 aspect ratio, full group framing, exact arrangement, relative sizes, and positions of all 17 people. Keep the same empty headroom and visible extent of their bodies.
+Identity invariants: preserve each person's actual face, facial proportions, skin tone, age, expression, hair, glasses, facial hair, exact clothing, hands, stance, and body shape. Do not beautify, change faces, alter smiles, straighten or restyle hair, add or remove people, or invent accessories.
+Scene/backdrop: replace the office ceiling, windows, wall panels and visible clutter with a clean seamless light warm-gray studio backdrop, subtle tonal gradient, unobtrusive studio floor, and discreet low neutral risers where the existing group stands at different heights. No visible lights, props, logos, furniture, or text.
+Lighting: broad soft key and gentle fill evenly illuminate every face with natural three-dimensionality, soft believable shadows and subtle separation from backdrop. Neutral white balance, realistic skin, controlled highlights; clean professional corporate portrait lighting, not dramatic or theatrical.
+Quality: improve fine detail, clarity and definition in existing eyes, hair and fabric without changing features. Reduce compression and noise, correct washed-out exposure, retain natural skin texture. Highest quality high-resolution landscape output. Photorealistic photographic retouch, no plastic smoothing, halos, HDR, illustration or watermark.
+Change only image quality, background and lighting; keep the people faithful to the original photograph.

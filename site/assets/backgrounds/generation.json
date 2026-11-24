@@ -1,0 +1,19 @@
+{
+  "tool": "Built-in image_gen",
+  "purpose": "Homepage decorative glass material backgrounds",
+  "assets": [
+    {
+      "file": "frost-glass.webp",
+      "prompt": "Use case: stylized-concept. Asset type: background texture image for SalesHubNepal beverage distribution company homepage, team/visit sections. Generate one premium restrained tactile texture, landscape 1536x1024. Very pale neutral silver-white frosted beverage cooler glass, delicate fine stippling and softly pressed condensation, subtle broad curved glass refractions confined to far lower right and upper right edge. Palette neutral off-white #F1F3F2, cool pearl #E4EAE8, very faint gray-silver. Flat evenly lit surface with almost invisible detail, 80% of left and middle is uniform quiet light negative space for dark website text. Organic, refined, high-end editorial material photography, not a scene. Fine material pattern should be visible close-up but subdued at website size. Avoid objects, bottles, typography, logos, watermarks, frames, dramatic cloudy shapes, marble veining, ice cubes, snow, big water drops, hard lines, green color cast. Opaque background."
+    },
+    {
+      "file": "cold-glass.webp",
+      "prompt": "Use case: stylized-concept. Asset type: patterned background image for SalesHubNepal beverage distributor homepage Brands we work with section. Generate a premium understated dark cold-glass material texture, landscape 1536x1024. Near-black charcoal with a whisper of petrol teal, overall #101C1F to #172629, subtle fine condensation stipple and tiny irregular soft droplets near outer right edge, gently ribbed glass reflections running vertically at far right only. Very faint muted amber reflection at extreme bottom right ties to lager. Left 75% and top area calm uniform almost-black to sit behind pale website headings and product photo cards. Matte darkness with barely visible tactile glass pattern, realistic optical texture, sophisticated material study, not a scene. Low contrast across whole image, no visible central subject. Avoid bottle shapes, products, text, lettering, logos, watermark, neon, bright streaks, big water droplets, strong green, space nebula, waves, smoke. Opaque."
+    },
+    {
+      "file": "amber-glass.webp",
+      "prompt": "Use case: stylized-concept. Asset type: background artwork for SalesHubNepal beverage wholesale website closing contact invitation. One premium landscape 1536x1024 abstract photographic study of translucent amber beverage bottle glass, no actual identifiable bottle. Large elegant curved fluted glass refractions concentrated in rightmost third, warm honey/bronze soft glow on right edge, deep espresso charcoal #201B17 on left 65% for large warm-white website headline and contact text. Very fine tactile grain and condensation, subtle organic repeat rhythm of glass fluting, sophisticated editorial product photography, restrained warm lighting. Low-key dark image with maximum amber glow limited to far right, left stays consistently dark. Image fills frame, not a website mockup. Avoid text, lettering, logos, watermarks, frames, actual bottles, objects, dramatic flowing liquid, smoke, gold glitter, orange gradient poster, high contrast stripes across center. Opaque."
+    }
+  ],
+  "optimization": "1536x1024 WebP, quality 80; original generated PNGs retained in Codex generated_images."
+}

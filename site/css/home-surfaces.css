@@ -1,0 +1,89 @@
+/* Homepage roster, CTA and footer surfaces. */
+body.home {
+  --surface-light: #f1f3f2;
+}
+
+/* The product slider remains a plain interval between patterned sections. */
+body.home .roster { background-image: none; }
+
+/* Dark amber links the invitation to the lager accents already in the hero. */
+body.home section.cta {
+  background: var(--surface-light);
+  padding-top: clamp(1.5rem, 3vw, 3rem);
+  padding-bottom: clamp(2rem, 4vw, 4rem);
+}
+body.home .cta-card {
+  background-color: #201b17;
+  background-image:
+    linear-gradient(90deg, rgba(24, 21, 18, .45) 55%, rgba(24, 21, 18, .76)),
+    url("../assets/backgrounds/amber-glass.webp");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: 1px solid rgba(244, 182, 63, .18);
+  color: #f8f4ec;
+  font-family: var(--body);
+}
+body.home .cta-card::before { content: none; }
+body.home .cta-card h3 {
+  max-width: 12ch;
+  font-family: var(--body);
+  font-size: clamp(2.75rem, 7.5vw, 6.5rem);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -.045em;
+  color: #f8f4ec;
+}
+body.home .cta-card p { color: #e6ddd0; }
+body.home .cta-card .actions { max-width: 42rem; }
+body.home .cta-card .btn-light {
+  background: var(--lager);
+  color: var(--lager-ink);
+  border-radius: 999px;
+}
+body.home .cta-card .btn-light .arr {
+  background: var(--lager-ink);
+  color: #fff;
+}
+body.home .cta-card .btn-ghost {
+  background: rgba(24, 21, 18, .55);
+  border-color: rgba(248, 244, 236, .38);
+  border-radius: 999px;
+  color: #f8f4ec;
+}
+body.home .cta-card .emoji-stack .em {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, .15), inset 0 0 0 2px var(--lager);
+}
+body.home .cta-card :focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
+}
+body.home footer h6 { color: var(--lager); }
+
+@media (hover: hover) and (pointer: fine) {
+  body.home .cta-card .btn-light:hover { background: var(--lager-hi); }
+  body.home .cta-card .btn-ghost:hover { background: rgba(24, 21, 18, .8); }
+}
+
+/* Keep the approved amber treatment readable on narrow screens. */
+@media (max-width: 820px) {
+  body.home .cta-card {
+    background-image:
+      linear-gradient(rgba(24, 21, 18, .7), rgba(24, 21, 18, .7)),
+      url("../assets/backgrounds/amber-glass.webp");
+    background-position: 58% center;
+  }
+}
+@media (max-width: 620px) {
+  body.home .cta-card .actions { align-items: stretch; }
+  body.home .cta-card .btn-light,
+  body.home .cta-card .btn-ghost {
+    width: 100%;
+    min-height: 3.5rem;
+    padding: .875rem 1rem;
+    justify-content: center;
+    white-space: normal;
+  }
+  body.home .cta-card .arr { flex-shrink: 0; }
+  body.home .cta-card .friendly { font-size: .9375rem; }
+}
