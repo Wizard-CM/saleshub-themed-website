@@ -1,0 +1,168 @@
+/* =========================================================
+   SalesHubNepal — "Cold Chain" home hero
+   A fogged cooler-door pane (js/frost.js, WebGL) over the pour videos.
+   Ported from the claude/lucid-planck-llxojq redesign branch. Every class is
+   prefixed cc- so the site-wide theme.css rules for .hero / .btn never reach it.
+   ========================================================= */
+:root {
+  --night: #0D1B1E;
+  --night-2: #142A2E;
+  --frost: #E4EEEE;
+  --mist: #93ABAC;
+  --lager: #F4B63F;
+  --lager-hi: #FFC95E;
+  --lager-ink: #1C1306;
+  --display: "Big Shoulders", "Arial Narrow", sans-serif;
+  --body: "Hanken Grotesk", system-ui, sans-serif;
+  --ease-out: cubic-bezier(.23, 1, .32, 1);
+  --ease-in-out: cubic-bezier(.77, 0, .175, 1);
+  --gutter: clamp(1rem, 4.5vw, 4.5rem);
+}
+
+/* hidden until the intro has set them up (only when JS runs) */
+html.js:not(.intro-ready) .cc-hero__title,
+html.js:not(.intro-ready) .cc-hero__foot,
+html.js:not(.intro-ready) .cc-pouring { opacity: 0; }
+
+.cc-hero { color: var(--frost); font-family: var(--body); }
+/* on the home page the floating nav sits over the video instead of pushing it down */
+body:has(.cc-hero) .nav-wrap { position: fixed; top: 18px; left: 0; right: 0; }
+.cc-hero h1, .cc-hero p { margin: 0; }
+.cc-hero :focus-visible { outline: 2px solid var(--lager); outline-offset: 3px; border-radius: 4px; }
+
+/* ---------- Buttons ---------- */
+.cc-btn {
+  --pad-y: .95rem; --pad-x: 1.5rem;
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: var(--pad-y) var(--pad-x);
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-weight: 600; font-size: 1rem; line-height: 1;
+  text-decoration: none; cursor: pointer; white-space: nowrap;
+  transition: background-color .2s var(--ease-out), border-color .2s var(--ease-out), transform .16s var(--ease-out);
+  -webkit-tap-highlight-color: transparent;
+}
+.cc-btn:active { transform: scale(.97); }
+.cc-btn--sm { --pad-y: .7rem; --pad-x: 1.15rem; font-size: .95rem; }
+.cc-btn--lager { background: var(--lager); color: var(--lager-ink); }
+.cc-btn--glass {
+  background: rgba(228, 238, 238, .1);
+  border-color: rgba(228, 238, 238, .22);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  backdrop-filter: blur(14px) saturate(1.2);
+}
+.cc-btn--ghost { border-color: rgba(228, 238, 238, .35); background: transparent; }
+@media (hover: hover) and (pointer: fine) {
+.cc-btn--lager:hover { background: var(--lager-hi); }
+.cc-btn--glass:hover { background: rgba(228, 238, 238, .18); }
+.cc-btn--ghost:hover { border-color: var(--frost); }
+}
+
+
+/* =========================================================
+   HERO — wipe the glass
+   ========================================================= */
+.cc-hero {
+  position: relative;
+  height: 100svh; min-height: 620px;
+  overflow: hidden;
+  isolation: isolate;
+  touch-action: pan-y;
+}
+.cc-hero__media { position: absolute; inset: 0; z-index: -1; background: var(--night); }
+.cc-hero__poster, .cc-hero__video, .cc-hero__glass {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+}
+.cc-hero__poster { filter: blur(18px) brightness(.6) saturate(.9); transform: scale(1.08); }
+.cc-hero__video { opacity: 0; }
+.cc-hero__glass { opacity: 0; transition: opacity .8s var(--ease-out); }
+.cc-hero.gl-ready .cc-hero__glass { opacity: 1; }
+.cc-hero.gl-ready .cc-hero__poster { visibility: hidden; }
+/* Fallback when WebGL is unavailable: the video itself, softly frosted at the edges */
+.cc-hero.no-gl .cc-hero__video { opacity: 1; }
+.cc-hero.no-gl .cc-hero__poster { display: none; }
+.cc-hero.no-gl .cc-hero__media::after {
+  content: ""; position: absolute; inset: 0;
+  background: radial-gradient(120% 90% at 70% 40%, transparent 30%, rgba(13, 27, 30, .75) 100%);
+}
+.cc-hero__media::before {
+  /* bottom shade for headline legibility */
+  content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background: linear-gradient(180deg, rgba(13, 27, 30, .45) 0%, transparent 22%, transparent 52%, rgba(13, 27, 30, .7) 100%);
+}
+
+.cc-hero__copy {
+  position: absolute; left: var(--gutter); right: var(--gutter); bottom: clamp(1.5rem, 5vh, 3.5rem);
+  pointer-events: none;
+}
+.cc-hero__copy a { pointer-events: auto; }
+.cc-hero__title {
+  font-family: var(--display); font-weight: 900;
+  font-variation-settings: "opsz" 72;
+  text-transform: uppercase;
+  font-size: clamp(4.1rem, 12.2vw, 13.5rem);
+  line-height: .8; letter-spacing: -.005em;
+  filter: drop-shadow(0 6px 28px rgba(5, 14, 16, .35));
+}
+.cc-hero__title .line { display: block; }
+.cc-hero__foot {
+  display: flex; align-items: flex-end; justify-content: space-between; gap: 2rem 3rem; flex-wrap: wrap;
+  margin-top: clamp(1.25rem, 3vh, 2rem);
+}
+.cc-hero__lede { max-width: 40ch; font-size: 1.08rem; color: rgba(228, 238, 238, .88); }
+.cc-hero__ctas { display: flex; gap: .7rem; flex-wrap: wrap; }
+
+.cc-pouring {
+  text-shadow: 0 1px 2px rgba(5, 14, 16, .55), 0 2px 18px rgba(5, 14, 16, .45);
+  position: absolute; right: var(--gutter); top: clamp(6.5rem, 16vh, 9rem);
+  text-align: right;
+}
+.cc-pouring__label { font-size: .88rem; color: var(--mist); font-weight: 500; }
+.cc-pouring__name {
+  font-family: var(--display); font-weight: 800; font-variation-settings: "opsz" 40;
+  font-size: clamp(1.7rem, 2.6vw, 2.5rem); line-height: 1; margin-top: .25rem;
+}
+.cc-pouring__house { font-size: .95rem; color: rgba(228, 238, 238, .78); margin-top: .3rem; }
+.cc-pouring__clips { display: flex; justify-content: flex-end; gap: .35rem; margin-top: .8rem; }
+.cc-pouring__clips button {
+  width: 46px; height: 24px; padding: 0; border: 0; background: none; cursor: pointer;
+  display: grid; align-items: center;
+}
+.cc-pouring__clips i {
+  display: block; height: 2px; background: rgba(228, 238, 238, .25); border-radius: 2px; overflow: hidden; position: relative;
+}
+.cc-pouring__clips i::after {
+  content: ""; position: absolute; inset: 0; background: var(--frost);
+  transform-origin: left; transform: scaleX(var(--p, 0));
+}
+
+.cc-hero__hint {
+  position: absolute; left: 50%; top: 50%; translate: -50% -50%;
+  display: flex; align-items: center; gap: .6rem;
+  padding: .6rem 1rem .6rem .75rem; border-radius: 999px;
+  background: rgba(13, 27, 30, .38);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  font-size: .92rem; font-weight: 500; pointer-events: none;
+  opacity: 0; transition: opacity .5s var(--ease-out);
+}
+.cc-hero__hint.is-on { opacity: 1; }
+.cc-hint-dot {
+  width: 10px; height: 10px; border-radius: 50%; background: var(--frost);
+  animation: ccHint 1.6s var(--ease-in-out) infinite;
+}
+@keyframes ccHint {
+  0% { transform: translateX(-6px); opacity: .4; }
+  50% { transform: translateX(6px); opacity: 1; }
+  100% { transform: translateX(-6px); opacity: .4; }
+}
+
+
+@media (max-width: 560px) {
+  .cc-hero__title { font-size: clamp(3.6rem, 19vw, 6rem); }
+  .cc-hero__lede { font-size: 1rem; }
+  .cc-hero__ctas .cc-btn { flex: 1 1 auto; }
+  .cc-pouring { top: 5.75rem; }
+  .cc-pouring__name { font-size: 1.5rem; }
+  .cc-pouring__house { display: none; }
+  .cc-hero__hint { top: auto; bottom: calc(100% - 5.6rem); left: var(--gutter); translate: none; padding: .5rem .85rem .5rem .65rem; font-size: .85rem; }
+}
