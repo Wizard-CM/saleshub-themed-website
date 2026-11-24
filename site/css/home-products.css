@@ -1,0 +1,162 @@
+/* =========================================================
+   SalesHubNepal home: The portfolio (cooler doors) and From the roster
+   ========================================================= */
+
+/* ---------- The portfolio ---------- */
+.portfolio__head {
+  display: grid; gap: 1.75rem; align-items: end;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+.portfolio__side { display: grid; gap: 1.5rem; justify-items: start; }
+
+.portfolio__doors {
+  display: flex; gap: clamp(.6rem, 1vw, 1rem);
+  height: clamp(480px, 70vh, 660px);
+}
+.portfolio__cell { flex: 1 1 0; min-width: 0; transition: flex-grow .7s var(--ease-out); display: flex; }
+.portfolio__cell.is-open { flex-grow: 2.3; }
+
+.portfolio__door {
+  position: relative; flex: 1; display: block; overflow: hidden;
+  border-radius: var(--radius-lg); background: var(--night-2);
+  text-decoration: none; color: var(--frost);
+  box-shadow: inset 0 0 0 1px rgba(228, 238, 238, .12);
+  isolation: isolate;
+}
+.portfolio__img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  filter: blur(7px) saturate(.45) brightness(.62);
+  transform: scale(1.06);
+  transition: filter .7s var(--ease-out), transform .7s var(--ease-out);
+}
+/* icy overlay: translucent tint plus fine vertical streaks, like condensation runs */
+.portfolio__frost {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background:
+    repeating-linear-gradient(90deg, rgba(228, 238, 238, .05) 0 1px, transparent 1px 7px),
+    linear-gradient(180deg, rgba(228, 238, 238, .16), rgba(228, 238, 238, .08) 55%, rgba(228, 238, 238, .14));
+  transition: opacity .7s var(--ease-out);
+}
+/* inner frame line */
+.portfolio__door::before {
+  content: ""; position: absolute; inset: 10px; z-index: 2; pointer-events: none;
+  border-radius: calc(var(--radius-lg) - 8px);
+  border: 1px solid rgba(228, 238, 238, .16);
+}
+.portfolio__handle {
+  position: absolute; z-index: 2; top: 22%; right: 22px; width: 6px; height: 30%;
+  border-radius: 6px; background: rgba(228, 238, 238, .3);
+  box-shadow: inset 0 0 0 1px rgba(228, 238, 238, .25);
+  pointer-events: none;
+}
+/* legibility scrim for the text at the base */
+.portfolio__door::after {
+  content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background: linear-gradient(180deg, transparent 38%, rgba(13, 27, 30, .94) 100%);
+}
+.portfolio__info {
+  position: absolute; z-index: 3; left: 0; right: 0; bottom: 0;
+  display: grid; gap: .5rem; padding: 0 clamp(1.4rem, 2vw, 2rem) clamp(1.4rem, 2vw, 2rem);
+}
+.portfolio__house {
+  font-family: var(--display); font-weight: 900; text-transform: uppercase;
+  font-size: clamp(2.1rem, 3vw, 3rem); line-height: .88; letter-spacing: -.005em;
+}
+.portfolio__count { font-weight: 600; font-size: 1rem; color: var(--frost); }
+.portfolio__count b { color: var(--lager); font-weight: 700; }
+.portfolio__desc, .portfolio__visit {
+  max-width: 34ch; font-size: .98rem; line-height: 1.45; color: rgba(228, 238, 238, .85);
+}
+.portfolio__visit { font-weight: 600; color: var(--lager); text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1.5px; }
+.portfolio__desc, .portfolio__visit { display: none; }
+
+/* desktop: accordion; only the open door is clear and shows its detail */
+@media (min-width: 821px) {
+  .portfolio__desc, .portfolio__visit { display: block; opacity: 0; transform: translateY(8px); transition: opacity .5s var(--ease-out), transform .5s var(--ease-out); }
+  .portfolio__house { font-size: clamp(1.9rem, 2.4vw, 2.6rem); }
+  .portfolio__cell.is-open .portfolio__house { font-size: clamp(2.2rem, 3vw, 3rem); }
+  .portfolio__door.is-active .portfolio__img { filter: none; transform: scale(1); }
+  .portfolio__door.is-active .portfolio__frost { opacity: 0; }
+  .portfolio__door.is-active .portfolio__desc,
+  .portfolio__door.is-active .portfolio__visit { opacity: 1; transform: none; transition-delay: .15s; }
+}
+.portfolio__door:focus-visible { outline: 2px solid var(--lager); outline-offset: 4px; border-radius: var(--radius-lg); }
+
+/* hide-until-rise only when JS will animate it */
+html.js .portfolio__doors:not(.is-in) .portfolio__cell { opacity: 0; }
+
+/* mobile: horizontal snap row, all clear */
+@media (max-width: 820px) {
+  .portfolio__head { grid-template-columns: 1fr; }
+  .portfolio__doors {
+    height: 520px; gap: .75rem; overflow-x: auto; overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory; scroll-padding-inline: var(--gutter);
+    margin-inline: calc(var(--gutter) * -1); padding-inline: var(--gutter);
+    scrollbar-width: none;
+  }
+  .portfolio__doors::-webkit-scrollbar { display: none; }
+  .portfolio__cell, .portfolio__cell.is-open { flex: 0 0 78vw; scroll-snap-align: start; }
+  .portfolio__img { filter: none; transform: none; }
+  .portfolio__frost { opacity: 0; }
+  .portfolio__house { font-size: 2.4rem; }
+  .portfolio__desc { display: block; }
+  .portfolio__visit { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .portfolio__cell, .portfolio__img, .portfolio__frost, .portfolio__desc, .portfolio__visit { transition: none; }
+}
+
+/* ---------- From the roster ---------- */
+.roster__head { display: grid; gap: 1.5rem; max-width: 62rem; }
+.roster__bar {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 2rem;
+  margin: clamp(2rem, 4vw, 3rem) 0 clamp(1.5rem, 3vw, 2.25rem);
+}
+.roster__filters { display: flex; gap: .5rem; }
+.roster__filter {
+  display: inline-flex; align-items: center; gap: .5rem; min-height: 44px; padding: 0 1.15rem;
+  border-radius: 999px; border: 1px solid rgba(13, 27, 30, .22); background: transparent;
+  color: var(--night); font: 600 1rem/1 var(--body); cursor: pointer; white-space: nowrap;
+  transition: background-color .2s var(--ease-out), color .2s var(--ease-out), border-color .2s var(--ease-out), transform .16s var(--ease-out);
+}
+.roster__filter:active { transform: scale(.97); }
+.roster__count { font-size: .9rem; font-weight: 600; color: var(--steel); }
+.roster__filter[aria-pressed="true"] { background: var(--night); border-color: var(--night); color: var(--frost); }
+.roster__filter[aria-pressed="true"] .roster__count { color: var(--lager); }
+@media (hover: hover) and (pointer: fine) {
+  .roster__filter[aria-pressed="false"]:hover { border-color: var(--night); }
+}
+.roster__status { font-size: .95rem; color: var(--steel); }
+
+.roster__grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 1.25rem 1rem;
+}
+.roster__item[hidden] { display: none; }
+.roster__card { display: grid; gap: .2rem; align-content: start; text-decoration: none; }
+.roster__frame {
+  display: block; aspect-ratio: 4 / 5; overflow: hidden; border-radius: var(--radius-sm);
+  background: var(--ice-2); margin-bottom: .6rem;
+}
+.roster__frame img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--ease-out); }
+.roster__name { font-weight: 600; font-size: 1.0625rem; line-height: 1.25; text-underline-offset: 4px; text-decoration-thickness: 1.5px; }
+.roster__meta { font-size: .95rem; color: var(--steel); line-height: 1.35; }
+.roster__house { font-size: .85rem; color: var(--steel); }
+@media (hover: hover) and (pointer: fine) {
+  .roster__card:hover .roster__frame img { transform: scale(1.04); }
+  .roster__card:hover .roster__name { text-decoration: underline; }
+}
+.roster__card:focus-visible .roster__name { text-decoration: underline; }
+
+@media (max-width: 820px) {
+  .roster__grid { grid-template-columns: repeat(2, minmax(140px, 1fr)); gap: 1.25rem .75rem; }
+  .roster__bar { display: grid; }
+  .roster__filters {
+    overflow-x: auto; scrollbar-width: none; margin-inline: calc(var(--gutter) * -1);
+    padding-inline: var(--gutter); scroll-padding-inline: var(--gutter);
+  }
+  .roster__filters::-webkit-scrollbar { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .roster__frame img, .roster__filter { transition: none; }
+}
