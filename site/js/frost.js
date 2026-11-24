@@ -90,10 +90,11 @@
     // sharp + blurred plates
     '  vec3 sharp = texture2D(uVid, vuv).rgb;',
     '  vec3 blur = vec3(0.0);',
-    '  for (int i = -1; i <= 1; i++) for (int j = -1; j <= 1; j++) {',
-    '    blur += texture2D(uSmall, vuv + vec2(float(i), float(j)) * uSmallPx * 1.6).rgb;',
-    '  }',
-    '  blur /= 9.0;',
+    '  vec2 o = uSmallPx * 1.6;',
+    '  blur = texture2D(uSmall, vuv).rgb * 2.0',
+    '    + texture2D(uSmall, vuv + vec2( o.x,  o.y)).rgb + texture2D(uSmall, vuv + vec2(-o.x,  o.y)).rgb',
+    '    + texture2D(uSmall, vuv + vec2( o.x, -o.y)).rgb + texture2D(uSmall, vuv + vec2(-o.x, -o.y)).rgb;',
+    '  blur /= 6.0;',
 
     // frost: scatter light, cool it down, add grain
     '  float grain = vnoise(p * 210.0) * 0.6 + vnoise(p * 38.0 + 3.1) * 0.4;',
@@ -105,8 +106,7 @@
     // beads: densest on the fog, slowly reforming on the wiped glass
     '  vec3 b1 = beads(p, 26.0, 1.0, 0.55);',
     '  vec3 b2 = beads(p, 58.0, 9.0, 0.5);',
-    '  vec3 b3 = beads(p, 120.0, 23.0, 0.45);',
-    '  vec3 b = b1.z > 0.01 ? b1 : (b2.z > 0.01 ? b2 : b3);',
+    '  vec3 b = b1.z > 0.01 ? b1 : b2;',
     '  float bm = b.z * mix(0.25, 1.0, fog);',
     '  if (dr.z > b.z) { b = vec3(dr.xy, dr.z); bm = dr.z; }',
     '  vec2 n = b.xy;',
@@ -197,16 +197,18 @@
     var MW = 320, MH = 180;
 
     var state = {
-      running: false, raf: 0, t0: performance.now(), last: performance.now(),
+      running: false, raf: 0, t0: performance.now(), last: 0, vidTime: -1,
       refog: 0, drips: 1, w: 0, h: 0, dpr: 1, hasFrame: false,
       lastPt: null, wiped: 0, onFirstWipe: options.onFirstWipe || null, firstFired: false,
-      onFirstFrame: options.onFirstFrame || null
+      onFirstFrame: options.onFirstFrame || null,
+      // adaptive quality: slow devices drop to half resolution, then to the plain video
+      scale: 1, slow: 0, lastDraw: 0
     };
 
     function resize() {
       var rect = canvas.getBoundingClientRect();
-      var maxDpr = window.innerWidth < 700 ? 1.25 : 1.5;
-      state.dpr = Math.min(window.devicePixelRatio || 1, maxDpr);
+      var maxDpr = window.innerWidth < 700 ? 0.75 : 1;
+      state.dpr = Math.min(window.devicePixelRatio || 1, maxDpr) * state.scale;
       state.w = Math.max(1, Math.round(rect.width * state.dpr));
       state.h = Math.max(1, Math.round(rect.height * state.dpr));
       canvas.width = state.w; canvas.height = state.h;
@@ -263,6 +265,8 @@
 
     function uploadVideo() {
       if (video.readyState < 2 || !video.videoWidth) return;
+      if (state.hasFrame && video.currentTime === state.vidTime) return;
+      state.vidTime = video.currentTime;
       gl.activeTexture(gl.TEXTURE0);
       gl.bindTexture(gl.TEXTURE_2D, tVid);
       try {
@@ -286,7 +290,8 @@
     function frame(now) {
       if (!state.running) return;
       state.raf = requestAnimationFrame(frame);
-      var dt = Math.min(0.05, (now - state.last) / 1000);
+      if (now - state.last < 32) return; // ~30 fps is plenty for fog
+      var dt = Math.min(0.08, (now - state.last) / 1000);
       state.last = now;
 
       // fog creeps back in
@@ -303,6 +308,19 @@
       gl.uniform1f(U.uRefog, state.refog);
       gl.uniform1f(U.uDrips, state.drips);
       gl.drawArrays(gl.TRIANGLES, 0, 6);
+
+      // a draw every ~33 ms is the target; if the device keeps falling well behind,
+      // halve the resolution once, and if that is still too slow, hand back to the video
+      if (state.lastDraw && document.visibilityState === 'visible') {
+        var gap = now - state.lastDraw;
+        state.slow = gap > 70 ? state.slow + 1 : Math.max(0, state.slow - 1);
+        if (state.slow > 24) {
+          state.slow = 0;
+          if (state.scale > 0.5) { state.scale = 0.5; resize(); }
+          else if (options.onTooSlow) { state.running = false; options.onTooSlow(); return; }
+        }
+      }
+      state.lastDraw = now;
     }
 
     resize();
@@ -310,7 +328,7 @@
     return {
       start: function () {
         if (state.running) return;
-        state.running = true; state.last = performance.now();
+        state.running = true; state.last = 0; state.lastDraw = 0; state.slow = 0;
         state.raf = requestAnimationFrame(frame);
       },
       stop: function () { state.running = false; cancelAnimationFrame(state.raf); },

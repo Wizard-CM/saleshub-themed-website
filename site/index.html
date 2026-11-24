@@ -17,6 +17,8 @@
   })();
   // lets CSS hide the hero's start state only when JS is there to play the intro
   document.documentElement.classList.add('js');
+  // the age gate (js/entry-gate.js) sits over the fogged hero glass on this page
+  document.documentElement.setAttribute('data-gate', 'glass');
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
   window.scrollTo(0, 0);
 </script>
@@ -284,17 +286,12 @@
         <h2 class="hs__title" id="team-title" data-rise>The people behind the pour</h2>
       </div>
       <div class="team__intro">
-        <p class="hs__lede">Drivers, warehouse pickers, sales reps and route planners. The crew that gets every bottle from the brewery to your shelf, cold.</p>
-        <ul class="team__facts">
-          <li><strong>38</strong> people on the floor</li>
-          <li><strong>12</strong> refrigerated trucks</li>
-          <li>On the road since <strong>2014</strong></li>
-        </ul>
+        <p class="hs__lede">The crew that gets every bottle from the brewery to the shelf.</p>
         <a class="cc-btn cc-btn--ink" href="about.html">Meet the team</a>
       </div>
     </header>
 
-    <figure class="team__photo" data-team-photo>
+    <figure class="team__photo">
       <img src="assets/team/team.webp" width="1400" height="999" loading="lazy" decoding="async" alt="The SalesHubNepal team at the Balaju office in Kathmandu">
       <figcaption>The full crew at Balaju, Kathmandu</figcaption>
     </figure>
@@ -353,62 +350,60 @@
     <header class="portfolio__head">
       <div>
         <p class="hs__label">The portfolio</p>
-        <h2 class="hs__title" id="portfolio-title" data-rise>Four houses. One cold truck.</h2>
+        <h2 class="hs__title" id="portfolio-title" data-rise>Brands we work with</h2>
       </div>
-      <div class="portfolio__side">
-        <p class="hs__lede">We carry the whole back bar: beer, spirits, wine and energy drinks from four of Nepal's leading houses, in one order and one delivery.</p>
-        <a class="cc-btn cc-btn--glass" href="products.html">See all 26 products</a>
-      </div>
+      <a class="cc-btn cc-btn--glass" href="products.html">View all 26 products</a>
     </header>
+    <!-- all four houses side by side; they defrost one after another the first time the row scrolls in -->
     <ul class="portfolio__doors">
-      <li class="portfolio__cell">
-        <a class="portfolio__door is-active" href="brewery-gorkha.html">
+      <li class="portfolio__cell" style="--i:0">
+        <a class="portfolio__door" href="brewery-gorkha.html">
           <img class="portfolio__img" src="assets/products/hl-carlsberg-500ml.webp" alt="Carlsberg 500 ml can" width="781" height="1400" loading="lazy" decoding="async">
           <span class="portfolio__frost" aria-hidden="true"></span>
           <span class="portfolio__handle" aria-hidden="true"></span>
           <span class="portfolio__info">
+            <span class="portfolio__cat">Beer <span class="portfolio__n">12 products</span></span>
             <span class="portfolio__house">Gorkha Brewery</span>
-            <span class="portfolio__count"><b>12</b> beers</span>
-            <span class="portfolio__desc">Carlsberg, Tuborg and the Gorkha range, brewed in Nepal.</span>
+            <span class="portfolio__desc">Carlsberg, Tuborg and the Gorkha range, brewed locally in Nepal.</span>
             <span class="portfolio__visit">Visit the house</span>
           </span>
         </a>
       </li>
-      <li class="portfolio__cell">
+      <li class="portfolio__cell" style="--i:1">
         <a class="portfolio__door" href="brewery-prime.html">
-          <img class="portfolio__img" src="assets/products/hl-gurkhas-guns.webp" alt="Gurkhas &amp; Guns bottle" width="781" height="1400" loading="lazy" decoding="async">
+          <img class="portfolio__img" src="assets/products/hl-gurkhas-guns.webp" alt="Gurkhas &amp; Guns whisky bottle" width="781" height="1400" loading="lazy" decoding="async">
           <span class="portfolio__frost" aria-hidden="true"></span>
           <span class="portfolio__handle" aria-hidden="true"></span>
           <span class="portfolio__info">
+            <span class="portfolio__cat">Spirits <span class="portfolio__n">6 products</span></span>
             <span class="portfolio__house">Prime International</span>
-            <span class="portfolio__count"><b>6</b> spirits</span>
-            <span class="portfolio__desc">Nepali whisky, vodka and rum, from Gurkhas &amp; Guns to Yeti.</span>
+            <span class="portfolio__desc">Premium Nepali whisky, vodka and rum, from Gurkhas &amp; Guns to Yeti.</span>
             <span class="portfolio__visit">Visit the house</span>
           </span>
         </a>
       </li>
-      <li class="portfolio__cell">
+      <li class="portfolio__cell" style="--i:2">
         <a class="portfolio__door" href="brewery-bigmaster.html">
-          <img class="portfolio__img" src="assets/products/hl-big-master-fruity-sweet-red-wine.webp" alt="Big Master Fruity Sweet Red wine bottle" width="781" height="1400" loading="lazy" decoding="async">
+          <img class="portfolio__img" src="assets/products/hl-big-master-fruity-sweet-red-wine.webp" alt="Big Master Fruity Sweet Red Wine bottle" width="781" height="1400" loading="lazy" decoding="async">
           <span class="portfolio__frost" aria-hidden="true"></span>
           <span class="portfolio__handle" aria-hidden="true"></span>
           <span class="portfolio__info">
+            <span class="portfolio__cat">Wine <span class="portfolio__n">6 products</span></span>
             <span class="portfolio__house">Big Master</span>
-            <span class="portfolio__count"><b>6</b> wines</span>
             <span class="portfolio__desc">Fruity sweet red, apple sweet white and the refined Black Chenin.</span>
             <span class="portfolio__visit">Visit the house</span>
           </span>
         </a>
       </li>
-      <li class="portfolio__cell">
+      <li class="portfolio__cell" style="--i:3">
         <a class="portfolio__door" href="brewery-saras.html">
-          <img class="portfolio__img" src="assets/products/hl-red-bull-carbonated-330ml.webp" alt="Red Bull Carbonated can" width="781" height="1400" loading="lazy" decoding="async">
+          <img class="portfolio__img" src="assets/products/hl-red-bull-carbonated-330ml.webp" alt="Red Bull Carbonated 330 ml cans" width="781" height="1400" loading="lazy" decoding="async">
           <span class="portfolio__frost" aria-hidden="true"></span>
           <span class="portfolio__handle" aria-hidden="true"></span>
           <span class="portfolio__info">
+            <span class="portfolio__cat">Energy <span class="portfolio__n">2 products</span></span>
             <span class="portfolio__house">Saras Beverages</span>
-            <span class="portfolio__count"><b>2</b> energy drinks</span>
-            <span class="portfolio__desc">Red Bull, made in Nepal, in Gold and Carbonated.</span>
+            <span class="portfolio__desc">Red Bull, made in Nepal.</span>
             <span class="portfolio__visit">Visit the house</span>
           </span>
         </a>
@@ -419,233 +414,124 @@
 <!--/@portfolio-->
 
 <!--@roster-->
-<section class="hs hs--ice roster" id="roster" aria-labelledby="roster-title">
-  <div class="hs__inner">
-    <header class="roster__head">
-      <p class="hs__label">From the roster</p>
-      <h2 class="hs__title" id="roster-title" data-rise>Everything on the truck</h2>
-      <p class="hs__lede">All 26 products we deliver, from four houses. Filter by what your bar needs, then order them together.</p>
-    </header>
-    <div class="roster__bar">
-      <div class="roster__filters" role="group" aria-label="Filter products">
-        <button type="button" class="roster__filter" data-filter="all" aria-pressed="true">All <span class="roster__count">26</span></button>
-        <button type="button" class="roster__filter" data-filter="beer" aria-pressed="false">Beer <span class="roster__count">12</span></button>
-        <button type="button" class="roster__filter" data-filter="spirits" aria-pressed="false">Spirits <span class="roster__count">6</span></button>
-        <button type="button" class="roster__filter" data-filter="wine" aria-pressed="false">Wine <span class="roster__count">6</span></button>
-        <button type="button" class="roster__filter" data-filter="energy" aria-pressed="false">Energy <span class="roster__count">2</span></button>
+<section class="roster" id="roster" aria-label="From the roster">
+  <div class="container">
+    <!-- The original "From the roster" slider: a CSS marquee. Cards are listed once,
+         then duplicated (aria-hidden) so the loop is seamless. -->
+    <div class="runway-strip">
+      <div class="runway-head">
+        <span class="mono">FROM THE ROSTER</span>
+        <a class="runway-all" href="products.html">View all 26 products</a>
       </div>
-      <p class="roster__status" aria-live="polite">Showing all 26 products</p>
+      <div class="runway-viewport">
+        <div class="runway-track">
+        <article class="runway-card" style="--bg:url('../assets/products/carlsberg-500ml.webp')">
+          <div class="rc-bg"></div><div class="rc-shade"></div>
+          <div class="rc-meta"><div class="cat">Lager · Nepal</div><div class="nm">Carlsberg</div><div class="abv">500 ml</div></div>
+        </article>
+        <article class="runway-card" style="--bg:url('../assets/products/gurkhas-guns.webp')">
+          <div class="rc-bg"></div><div class="rc-shade"></div>
+          <div class="rc-meta"><div class="cat">Premium Spirit · Nepal</div><div class="nm">Gurkhas &amp; Guns</div><div class="abv">Bottle</div></div>
+        </article>
+        <article class="runway-card" style="--bg:url('../assets/products/bandipur-whiskey.webp')">
+          <div class="rc-bg"></div><div class="rc-shade"></div>
+          <div class="rc-meta"><div class="cat">Whisky · Nepal</div><div class="nm">Bandipur</div><div class="abv">Bottle</div></div>
+        </article>
+        <article class="runway-card" style="--bg:url('../assets/products/challenger-whiskey.webp')">
+          <div class="rc-bg"></div><div class="rc-shade"></div>
+          <div class="rc-meta"><div class="cat">Whisky · Nepal</div><div class="nm">Challenger</div><div class="abv">Bottle</div></div>
+        </article>
+        <article class="runway-card" style="--bg:url('../assets/products/yeti-vodka.webp')">
+          <div class="rc-bg"></div><div class="rc-shade"></div>
+          <div class="rc-meta"><div class="cat">Vodka · Nepal</div><div class="nm">Yeti</div><div class="abv">Bottle</div></div>
+        </article>
+        <article class="runway-card" style="--bg:url('../assets/products/tuborg-500ml.webp')">
+          <div class="rc-bg"></div><div class="rc-shade"></div>
+          <div class="rc-meta"><div class="cat">Lager · Nepal</div><div class="nm">Tuborg</div><div class="abv">500 ml</div></div>
+        </article>
+        <article class="runway-card" style="--bg:url('../assets/products/highlander-pure-white.webp')">
+          <div class="rc-bg"></div><div class="rc-shade"></div>
+          <div class="rc-meta"><div class="cat">Vodka · Nepal</div><div class="nm">Highlander</div><div class="abv">Bottle</div></div>
+        </article>
+        <article class="runway-card" style="--bg:url('../assets/products/junge-kaji-rum.webp')">
+          <div class="rc-bg"></div><div class="rc-shade"></div>
+          <div class="rc-meta"><div class="cat">Rum · Nepal</div><div class="nm">Junge Kaji</div><div class="abv">Bottle</div></div>
+        </article>
+        <article class="runway-card" style="--bg:url('../assets/products/big-master-fruity-sweet-red-wine.webp')">
+          <div class="rc-bg"></div><div class="rc-shade"></div>
+          <div class="rc-meta"><div class="cat">Red Wine · Nepal</div><div class="nm">Fruity Sweet Red Wine</div><div class="abv">Bottle</div></div>
+        </article>
+        <article class="runway-card" style="--bg:url('../assets/products/big-master-apple-sweet-white-wine.webp')">
+          <div class="rc-bg"></div><div class="rc-shade"></div>
+          <div class="rc-meta"><div class="cat">White Wine · Nepal</div><div class="nm">Apple Sweet White Wine</div><div class="abv">Bottle</div></div>
+        </article>
+        <article class="runway-card" style="--bg:url('../assets/products/big-master-black-chenin.webp')">
+          <div class="rc-bg"></div><div class="rc-shade"></div>
+          <div class="rc-meta"><div class="cat">White Wine · Nepal</div><div class="nm">Black Chenin</div><div class="abv">Bottle</div></div>
+        </article>
+        <article class="runway-card" style="--bg:url('../assets/products/red-bull-gold-250ml.webp')">
+          <div class="rc-bg"></div><div class="rc-shade"></div>
+          <div class="rc-meta"><div class="cat">Energy · Nepal</div><div class="nm">Red Bull Gold</div><div class="abv">250 ml</div></div>
+        </article>
+        <article class="runway-card" style="--bg:url('../assets/products/red-bull-carbonated-330ml.webp')">
+          <div class="rc-bg"></div><div class="rc-shade"></div>
+          <div class="rc-meta"><div class="cat">Energy · Nepal</div><div class="nm">Red Bull Carbonated</div><div class="abv">330 ml</div></div>
+        </article>
+        <article class="runway-card" aria-hidden="true" style="--bg:url('../assets/products/carlsberg-500ml.webp')">
+          <div class="rc-bg"></div><div class="rc-shade"></div>
+          <div class="rc-meta"><div class="cat">Lager · Nepal</div><div class="nm">Carlsberg</div><div class="abv">500 ml</div></div>
+        </article>
+        <article class="runway-card" aria-hidden="true" style="--bg:url('../assets/products/gurkhas-guns.webp')">
+          <div class="rc-bg"></div><div class="rc-shade"></div>
+          <div class="rc-meta"><div class="cat">Premium Spirit · Nepal</div><div class="nm">Gurkhas &amp; Guns</div><div class="abv">Bottle</div></div>
+        </article>
+        <article class="runway-card" aria-hidden="true" style="--bg:url('../assets/products/bandipur-whiskey.webp')">
+          <div class="rc-bg"></div><div class="rc-shade"></div>
+          <div class="rc-meta"><div class="cat">Whisky · Nepal</div><div class="nm">Bandipur</div><div class="abv">Bottle</div></div>
+        </article>
+        <article class="runway-card" aria-hidden="true" style="--bg:url('../assets/products/challenger-whiskey.webp')">
+          <div class="rc-bg"></div><div class="rc-shade"></div>
+          <div class="rc-meta"><div class="cat">Whisky · Nepal</div><div class="nm">Challenger</div><div class="abv">Bottle</div></div>
+        </article>
+        <article class="runway-card" aria-hidden="true" style="--bg:url('../assets/products/yeti-vodka.webp')">
+          <div class="rc-bg"></div><div class="rc-shade"></div>
+          <div class="rc-meta"><div class="cat">Vodka · Nepal</div><div class="nm">Yeti</div><div class="abv">Bottle</div></div>
+        </article>
+        <article class="runway-card" aria-hidden="true" style="--bg:url('../assets/products/tuborg-500ml.webp')">
+          <div class="rc-bg"></div><div class="rc-shade"></div>
+          <div class="rc-meta"><div class="cat">Lager · Nepal</div><div class="nm">Tuborg</div><div class="abv">500 ml</div></div>
+        </article>
+        <article class="runway-card" aria-hidden="true" style="--bg:url('../assets/products/highlander-pure-white.webp')">
+          <div class="rc-bg"></div><div class="rc-shade"></div>
+          <div class="rc-meta"><div class="cat">Vodka · Nepal</div><div class="nm">Highlander</div><div class="abv">Bottle</div></div>
+        </article>
+        <article class="runway-card" aria-hidden="true" style="--bg:url('../assets/products/junge-kaji-rum.webp')">
+          <div class="rc-bg"></div><div class="rc-shade"></div>
+          <div class="rc-meta"><div class="cat">Rum · Nepal</div><div class="nm">Junge Kaji</div><div class="abv">Bottle</div></div>
+        </article>
+        <article class="runway-card" aria-hidden="true" style="--bg:url('../assets/products/big-master-fruity-sweet-red-wine.webp')">
+          <div class="rc-bg"></div><div class="rc-shade"></div>
+          <div class="rc-meta"><div class="cat">Red Wine · Nepal</div><div class="nm">Fruity Sweet Red Wine</div><div class="abv">Bottle</div></div>
+        </article>
+        <article class="runway-card" aria-hidden="true" style="--bg:url('../assets/products/big-master-apple-sweet-white-wine.webp')">
+          <div class="rc-bg"></div><div class="rc-shade"></div>
+          <div class="rc-meta"><div class="cat">White Wine · Nepal</div><div class="nm">Apple Sweet White Wine</div><div class="abv">Bottle</div></div>
+        </article>
+        <article class="runway-card" aria-hidden="true" style="--bg:url('../assets/products/big-master-black-chenin.webp')">
+          <div class="rc-bg"></div><div class="rc-shade"></div>
+          <div class="rc-meta"><div class="cat">White Wine · Nepal</div><div class="nm">Black Chenin</div><div class="abv">Bottle</div></div>
+        </article>
+        <article class="runway-card" aria-hidden="true" style="--bg:url('../assets/products/red-bull-gold-250ml.webp')">
+          <div class="rc-bg"></div><div class="rc-shade"></div>
+          <div class="rc-meta"><div class="cat">Energy · Nepal</div><div class="nm">Red Bull Gold</div><div class="abv">250 ml</div></div>
+        </article>
+        <article class="runway-card" aria-hidden="true" style="--bg:url('../assets/products/red-bull-carbonated-330ml.webp')">
+          <div class="rc-bg"></div><div class="rc-shade"></div>
+          <div class="rc-meta"><div class="cat">Energy · Nepal</div><div class="nm">Red Bull Carbonated</div><div class="abv">330 ml</div></div>
+        </article>
+        </div>
+      </div>
     </div>
-    <ul class="roster__grid">
-      <li class="roster__item" data-category="beer" style="view-transition-name: rp0">
-        <a class="roster__card" href="brewery-gorkha.html">
-          <span class="roster__frame"><img src="assets/products/carlsberg-650ml.webp" alt="Carlsberg 650ml" width="520" height="932" loading="lazy" decoding="async"></span>
-          <span class="roster__name">Carlsberg</span>
-          <span class="roster__meta">Premium Lager, 650 ml</span>
-          <span class="roster__house">Gorkha Brewery</span>
-        </a>
-      </li>
-      <li class="roster__item" data-category="beer" style="view-transition-name: rp1">
-        <a class="roster__card" href="brewery-gorkha.html">
-          <span class="roster__frame"><img src="assets/products/carlsberg-500ml.webp" alt="Carlsberg 500ml" width="520" height="932" loading="lazy" decoding="async"></span>
-          <span class="roster__name">Carlsberg</span>
-          <span class="roster__meta">Premium Lager, 500 ml</span>
-          <span class="roster__house">Gorkha Brewery</span>
-        </a>
-      </li>
-      <li class="roster__item" data-category="beer" style="view-transition-name: rp2">
-        <a class="roster__card" href="brewery-gorkha.html">
-          <span class="roster__frame"><img src="assets/products/carlsberg-330ml.webp" alt="Carlsberg 330ml" width="520" height="932" loading="lazy" decoding="async"></span>
-          <span class="roster__name">Carlsberg</span>
-          <span class="roster__meta">Premium Lager, 330 ml</span>
-          <span class="roster__house">Gorkha Brewery</span>
-        </a>
-      </li>
-      <li class="roster__item" data-category="beer" style="view-transition-name: rp3">
-        <a class="roster__card" href="brewery-gorkha.html">
-          <span class="roster__frame"><img src="assets/products/tuborg-650ml.webp" alt="Tuborg 650ml" width="520" height="932" loading="lazy" decoding="async"></span>
-          <span class="roster__name">Tuborg</span>
-          <span class="roster__meta">Lager, 650 ml</span>
-          <span class="roster__house">Gorkha Brewery</span>
-        </a>
-      </li>
-      <li class="roster__item" data-category="beer" style="view-transition-name: rp4">
-        <a class="roster__card" href="brewery-gorkha.html">
-          <span class="roster__frame"><img src="assets/products/tuborg-500ml.webp" alt="Tuborg 500ml" width="520" height="932" loading="lazy" decoding="async"></span>
-          <span class="roster__name">Tuborg</span>
-          <span class="roster__meta">Lager, 500 ml</span>
-          <span class="roster__house">Gorkha Brewery</span>
-        </a>
-      </li>
-      <li class="roster__item" data-category="beer" style="view-transition-name: rp5">
-        <a class="roster__card" href="brewery-gorkha.html">
-          <span class="roster__frame"><img src="assets/products/tuborg-330ml.webp" alt="Tuborg 330ml" width="520" height="932" loading="lazy" decoding="async"></span>
-          <span class="roster__name">Tuborg</span>
-          <span class="roster__meta">Lager, 330 ml</span>
-          <span class="roster__house">Gorkha Brewery</span>
-        </a>
-      </li>
-      <li class="roster__item" data-category="beer" style="view-transition-name: rp6">
-        <a class="roster__card" href="brewery-gorkha.html">
-          <span class="roster__frame"><img src="assets/products/carlsberg-elephant-strong-500ml.webp" alt="Carlsberg Elephant Strong 500ml" width="520" height="932" loading="lazy" decoding="async"></span>
-          <span class="roster__name">Carlsberg Elephant Strong</span>
-          <span class="roster__meta">Strong Lager, 500 ml</span>
-          <span class="roster__house">Gorkha Brewery</span>
-        </a>
-      </li>
-      <li class="roster__item" data-category="beer" style="view-transition-name: rp7">
-        <a class="roster__card" href="brewery-gorkha.html">
-          <span class="roster__frame"><img src="assets/products/gorkha-strong-650.webp" alt="Gorkha Strong 650" width="520" height="932" loading="lazy" decoding="async"></span>
-          <span class="roster__name">Gorkha Strong</span>
-          <span class="roster__meta">Strong Beer, 650 ml</span>
-          <span class="roster__house">Gorkha Brewery</span>
-        </a>
-      </li>
-      <li class="roster__item" data-category="beer" style="view-transition-name: rp8">
-        <a class="roster__card" href="brewery-gorkha.html">
-          <span class="roster__frame"><img src="assets/products/gorkha-extra-strong-330.webp" alt="Gorkha Extra Strong 330" width="520" height="932" loading="lazy" decoding="async"></span>
-          <span class="roster__name">Gorkha Extra Strong</span>
-          <span class="roster__meta">Extra Strong Beer, 330 ml</span>
-          <span class="roster__house">Gorkha Brewery</span>
-        </a>
-      </li>
-      <li class="roster__item" data-category="beer" style="view-transition-name: rp9">
-        <a class="roster__card" href="brewery-gorkha.html">
-          <span class="roster__frame"><img src="assets/products/gorkha-can-500.webp" alt="Gorkha Can 500" width="520" height="932" loading="lazy" decoding="async"></span>
-          <span class="roster__name">Gorkha Can</span>
-          <span class="roster__meta">Beer, 500 ml can</span>
-          <span class="roster__house">Gorkha Brewery</span>
-        </a>
-      </li>
-      <li class="roster__item" data-category="beer" style="view-transition-name: rp10">
-        <a class="roster__card" href="brewery-gorkha.html">
-          <span class="roster__frame"><img src="assets/products/gorkha-pilsner.webp" alt="Gorkha Pilsner" width="520" height="932" loading="lazy" decoding="async"></span>
-          <span class="roster__name">Gorkha Pilsner</span>
-          <span class="roster__meta">Pilsner</span>
-          <span class="roster__house">Gorkha Brewery</span>
-        </a>
-      </li>
-      <li class="roster__item" data-category="beer" style="view-transition-name: rp11">
-        <a class="roster__card" href="brewery-gorkha.html">
-          <span class="roster__frame"><img src="assets/products/gorkha-craft.webp" alt="Gorkha Craft" width="520" height="932" loading="lazy" decoding="async"></span>
-          <span class="roster__name">Gorkha Craft</span>
-          <span class="roster__meta">Craft Beer</span>
-          <span class="roster__house">Gorkha Brewery</span>
-        </a>
-      </li>
-      <li class="roster__item" data-category="spirits" style="view-transition-name: rp12">
-        <a class="roster__card" href="brewery-prime.html">
-          <span class="roster__frame"><img src="assets/products/gurkhas-guns.webp" alt="Gurkhas &amp; Guns" width="520" height="932" loading="lazy" decoding="async"></span>
-          <span class="roster__name">Gurkhas &amp; Guns</span>
-          <span class="roster__meta">Spirit</span>
-          <span class="roster__house">Prime International</span>
-        </a>
-      </li>
-      <li class="roster__item" data-category="spirits" style="view-transition-name: rp13">
-        <a class="roster__card" href="brewery-prime.html">
-          <span class="roster__frame"><img src="assets/products/bandipur-whiskey.webp" alt="Bandipur Whiskey" width="520" height="932" loading="lazy" decoding="async"></span>
-          <span class="roster__name">Bandipur Whiskey</span>
-          <span class="roster__meta">Whisky</span>
-          <span class="roster__house">Prime International</span>
-        </a>
-      </li>
-      <li class="roster__item" data-category="spirits" style="view-transition-name: rp14">
-        <a class="roster__card" href="brewery-prime.html">
-          <span class="roster__frame"><img src="assets/products/yeti-vodka.webp" alt="Yeti Vodka" width="520" height="932" loading="lazy" decoding="async"></span>
-          <span class="roster__name">Yeti Vodka</span>
-          <span class="roster__meta">Vodka</span>
-          <span class="roster__house">Prime International</span>
-        </a>
-      </li>
-      <li class="roster__item" data-category="spirits" style="view-transition-name: rp15">
-        <a class="roster__card" href="brewery-prime.html">
-          <span class="roster__frame"><img src="assets/products/highlander-pure-white.webp" alt="Highlander Pure White" width="520" height="932" loading="lazy" decoding="async"></span>
-          <span class="roster__name">Highlander Pure White</span>
-          <span class="roster__meta">Vodka</span>
-          <span class="roster__house">Prime International</span>
-        </a>
-      </li>
-      <li class="roster__item" data-category="spirits" style="view-transition-name: rp16">
-        <a class="roster__card" href="brewery-prime.html">
-          <span class="roster__frame"><img src="assets/products/challenger-whiskey.webp" alt="Challenger Whiskey" width="520" height="932" loading="lazy" decoding="async"></span>
-          <span class="roster__name">Challenger Whiskey</span>
-          <span class="roster__meta">Whisky</span>
-          <span class="roster__house">Prime International</span>
-        </a>
-      </li>
-      <li class="roster__item" data-category="spirits" style="view-transition-name: rp17">
-        <a class="roster__card" href="brewery-prime.html">
-          <span class="roster__frame"><img src="assets/products/junge-kaji-rum.webp" alt="Junge Kaji Rum" width="520" height="932" loading="lazy" decoding="async"></span>
-          <span class="roster__name">Junge Kaji Rum</span>
-          <span class="roster__meta">Rum</span>
-          <span class="roster__house">Prime International</span>
-        </a>
-      </li>
-      <li class="roster__item" data-category="wine" style="view-transition-name: rp18">
-        <a class="roster__card" href="brewery-bigmaster.html">
-          <span class="roster__frame"><img src="assets/products/big-master-fruity-sweet-red-wine.webp" alt="Big Master Fruity Sweet Red Wine" width="520" height="932" loading="lazy" decoding="async"></span>
-          <span class="roster__name">Fruity Sweet Red Wine</span>
-          <span class="roster__meta">Red Wine</span>
-          <span class="roster__house">Big Master</span>
-        </a>
-      </li>
-      <li class="roster__item" data-category="wine" style="view-transition-name: rp19">
-        <a class="roster__card" href="brewery-bigmaster.html">
-          <span class="roster__frame"><img src="assets/products/big-master-apple-sweet-white-wine.webp" alt="Big Master Apple Sweet White Wine" width="520" height="932" loading="lazy" decoding="async"></span>
-          <span class="roster__name">Apple Sweet White Wine</span>
-          <span class="roster__meta">White Wine</span>
-          <span class="roster__house">Big Master</span>
-        </a>
-      </li>
-      <li class="roster__item" data-category="wine" style="view-transition-name: rp20">
-        <a class="roster__card" href="brewery-bigmaster.html">
-          <span class="roster__frame"><img src="assets/products/big-master-black-chenin.webp" alt="Big Master Black Chenin" width="520" height="932" loading="lazy" decoding="async"></span>
-          <span class="roster__name">Black Chenin</span>
-          <span class="roster__meta">White Wine</span>
-          <span class="roster__house">Big Master</span>
-        </a>
-      </li>
-      <li class="roster__item" data-category="wine" style="view-transition-name: rp21">
-        <a class="roster__card" href="brewery-bigmaster.html">
-          <span class="roster__frame"><img src="assets/products/big-master-fruity-sweet-red-wine-4l-box.webp" alt="Big Master Fruity Sweet Red Wine 4L Box" width="520" height="932" loading="lazy" decoding="async"></span>
-          <span class="roster__name">Fruity Sweet Red Wine, 4 L box</span>
-          <span class="roster__meta">Red Wine</span>
-          <span class="roster__house">Big Master</span>
-        </a>
-      </li>
-      <li class="roster__item" data-category="wine" style="view-transition-name: rp22">
-        <a class="roster__card" href="brewery-bigmaster.html">
-          <span class="roster__frame"><img src="assets/products/syrah-wine.webp" alt="Syrah Wine" width="520" height="932" loading="lazy" decoding="async"></span>
-          <span class="roster__name">Syrah Wine</span>
-          <span class="roster__meta">Red Wine</span>
-          <span class="roster__house">Big Master</span>
-        </a>
-      </li>
-      <li class="roster__item" data-category="wine" style="view-transition-name: rp23">
-        <a class="roster__card" href="brewery-bigmaster.html">
-          <span class="roster__frame"><img src="assets/products/nesy-white-sweet-wine.webp" alt="Nesy White Sweet Wine" width="520" height="932" loading="lazy" decoding="async"></span>
-          <span class="roster__name">Nesy White Sweet Wine</span>
-          <span class="roster__meta">White Wine, 750 ml</span>
-          <span class="roster__house">Big Master</span>
-        </a>
-      </li>
-      <li class="roster__item" data-category="energy" style="view-transition-name: rp24">
-        <a class="roster__card" href="brewery-saras.html">
-          <span class="roster__frame"><img src="assets/products/red-bull-gold-250ml.webp" alt="Red Bull Gold 250ml" width="520" height="932" loading="lazy" decoding="async"></span>
-          <span class="roster__name">Red Bull Gold</span>
-          <span class="roster__meta">Energy Drink, 250 ml</span>
-          <span class="roster__house">Saras Beverages</span>
-        </a>
-      </li>
-      <li class="roster__item" data-category="energy" style="view-transition-name: rp25">
-        <a class="roster__card" href="brewery-saras.html">
-          <span class="roster__frame"><img src="assets/products/red-bull-carbonated-330ml.webp" alt="Red Bull Carbonated 330ml" width="520" height="932" loading="lazy" decoding="async"></span>
-          <span class="roster__name">Red Bull Carbonated</span>
-          <span class="roster__meta">Energy Drink, 330 ml</span>
-          <span class="roster__house">Saras Beverages</span>
-        </a>
-      </li>
-    </ul>
   </div>
 </section>
 <!--/@roster-->
@@ -661,7 +547,7 @@
     <div class="visit__info">
       <p class="hs__label">Hello, neighbours</p>
       <h2 class="hs__title" id="visit-title" data-rise>Come say hi</h2>
-      <p class="hs__lede">Stop by our headquarters in Balaju to meet the team, walk the warehouse floor and talk partnerships over a cup of ho-cha.</p>
+      <p class="hs__lede">Stop by the SalesHub headquarters in Kathmandu to meet the team, tour the distribution floor, and talk partnerships over a cup of ho-cha.</p>
 
       <dl class="visit__list">
         <div class="visit__row"><dt>Address</dt><dd>Balaju Industrial District, Ward 16<br>Kathmandu 44600</dd></div>
@@ -671,7 +557,7 @@
       </dl>
 
       <div class="visit__actions">
-        <a class="cc-btn cc-btn--lager" href="https://www.google.com/maps/search/?api=1&amp;query=Balaju+Industrial+District+Kathmandu" target="_blank" rel="noopener">Get directions</a>
+        <a class="cc-btn cc-btn--lager" href="https://www.google.com/maps/search/?api=1&amp;query=Balaju+Industrial+District+Kathmandu" target="_blank" rel="noopener">Open in maps</a>
         <a class="cc-btn cc-btn--glass" href="contact.html">Book a visit</a>
       </div>
     </div>
@@ -753,7 +639,6 @@
 <script src="vendor/gsap.min.js" defer></script>
 <script src="vendor/ScrollTrigger.min.js" defer></script>
 <script src="vendor/SplitText.min.js" defer></script>
-<script src="vendor/lenis.min.js" defer></script>
 <script src="js/frost.js" defer></script>
 <script src="js/hero.js" defer></script>
 <script src="js/home-motion.js" defer></script>

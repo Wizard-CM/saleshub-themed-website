@@ -95,6 +95,12 @@
       frost = window.SHFrost(canvas, video, {
         onFirstFrame: function () { hero.classList.add('gl-ready'); },
         onFirstWipe: hideHint,
+        onTooSlow: function () {
+          // this device can't keep the glass smooth: show the plain video instead
+          frost = null;
+          hero.classList.remove('gl-ready'); hero.classList.add('no-gl');
+          video.play().catch(function () {});
+        },
         onError: function () {
           // e.g. opened from file:// — fall back to the plain video
           frost.stop(); frost = null;
@@ -221,17 +227,4 @@
   });
   window.addEventListener('load', function () { if (hasGsap) ScrollTrigger.refresh(); });
 
-  /* ---------------- Scroll-out ---------------- */
-  if (hasGsap && !reduceMotion) {
-    // fromTo with explicit start values: while the age gate is up the page
-    // content is hidden, so a plain .to() would record opacity 0 as its start
-    gsap.fromTo('.cc-hero__copy', { yPercent: 0, autoAlpha: 1 }, {
-      yPercent: -18, autoAlpha: 0.15, ease: 'none',
-      scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: true }
-    });
-    gsap.fromTo('.cc-hero__media', { yPercent: 0 }, {
-      yPercent: 22, ease: 'none',
-      scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: true }
-    });
-  }
 })();

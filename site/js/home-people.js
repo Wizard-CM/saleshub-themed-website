@@ -1,13 +1,11 @@
-/* SalesHubNepal home: team photo reveal, HQ status chip, HQ photo parallax */
+/* SalesHubNepal home: the visit section's open / closed chip (Kathmandu time).
+   No scroll-linked effects here: they were the main cause of scroll jank. */
 (function () {
   'use strict';
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  /* ---------- open / closed chip (Asia/Kathmandu) ---------- */
   function kathmandu() {
     try {
       var parts = new Intl.DateTimeFormat('en-US', {
-        timeZone: 'Asia/Kathmandu', weekday: 'short', hour: 'numeric', minute: 'numeric', hour12: false
+        timeZone: 'Asia/Kathmandu', weekday: 'short', hour: 'numeric', hour12: false
       }).formatToParts(new Date());
       var o = {};
       parts.forEach(function (p) { o[p.type] = p.value; });
@@ -29,30 +27,4 @@
   }
   updateStatus();
   setInterval(updateStatus, 60000);
-
-  /* ---------- scroll moments ---------- */
-  if (reduce || typeof window.gsap === 'undefined' || typeof window.ScrollTrigger === 'undefined') return;
-  gsap.registerPlugin(ScrollTrigger);
-  var small = window.matchMedia('(max-width: 820px)').matches;
-
-  var frame = document.querySelector('[data-team-photo]');
-  var img = frame && frame.querySelector('img');
-  if (frame && img) {
-    var r = small ? 16 : 22;
-    var from = small ? 'inset(3% 4% round ' + r + 'px)' : 'inset(6% 9% round ' + r + 'px)';
-    var to = 'inset(0% 0% round ' + r + 'px)';
-    var tl = gsap.timeline({
-      scrollTrigger: { trigger: frame, start: 'top 88%', end: 'top 25%', scrub: 0.6, invalidateOnRefresh: true }
-    });
-    tl.fromTo(frame, { clipPath: from }, { clipPath: to, ease: 'none' }, 0)
-      .fromTo(img, { scale: 1.12 }, { scale: 1, ease: 'none' }, 0);
-  }
-
-  var hq = document.querySelector('.visit__photo img');
-  if (hq && !small) {
-    gsap.fromTo(hq, { yPercent: -5 }, {
-      yPercent: 5, ease: 'none',
-      scrollTrigger: { trigger: '.visit__photo', start: 'top bottom', end: 'bottom top', scrub: true }
-    });
-  }
 })();
