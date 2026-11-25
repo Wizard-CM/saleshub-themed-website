@@ -19,6 +19,8 @@
   document.documentElement.classList.add('js');
   // the age gate (js/entry-gate.js) sits over the fogged hero glass on this page
   document.documentElement.setAttribute('data-gate', 'glass');
+  // Capture the system preference before the entry gate overrides matchMedia.
+  window.salesHubPortfolioMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
   window.scrollTo(0, 0);
 </script>
@@ -280,20 +282,9 @@
 
 <!--@team-->
 <section class="hs hs--ice team" id="team" aria-labelledby="team-title">
-  <div class="hs__inner team__layout">
-    <header class="team__copy" data-section-reveal>
-      <p class="hs__label">The team</p>
-      <h2 class="hs__title" id="team-title">The people behind the pour</h2>
-      <p class="hs__lede">Meet the SalesHubNepal crew that gets every bottle from the brewery to the shelf.</p>
-      <a class="cc-btn cc-btn--ink" href="about.html">Meet the team</a>
-    </header>
-
-    <figure class="team__portrait" data-section-reveal>
-      <div class="team__frame">
-        <img src="assets/team/team.webp" width="1400" height="999" loading="lazy" decoding="async" alt="The SalesHubNepal team together at their Balaju office">
-      </div>
-      <figcaption>The full crew in Balaju, Kathmandu</figcaption>
-    </figure>
+  <div class="hs__inner team__banner">
+    <img class="team__photo" src="assets/team/team.webp" width="1400" height="999" loading="lazy" decoding="async" alt="The SalesHubNepal team together at their Balaju office">
+    <h2 class="hs__title team__title" id="team-title" data-section-reveal><a href="about.html">Meet our team</a></h2>
   </div>
 </section>
 <!--/@team-->
@@ -301,64 +292,52 @@
 <!--@portfolio-->
 <section class="hs hs--night portfolio" id="portfolio" aria-labelledby="portfolio-title">
   <div class="hs__inner">
-    <header class="portfolio__heading" data-section-reveal>
-      <div>
-        <p class="hs__label">The portfolio</p>
-        <h2 class="hs__title" id="portfolio-title">Brands we work with</h2>
-      </div>
-      <a class="cc-btn cc-btn--ghost" href="products.html">View all 26 products</a>
+    <header class="portfolio__heading">
+      <p class="hs__label">The portfolio</p>
+      <h2 class="hs__title" id="portfolio-title">Brands we work with</h2>
     </header>
 
-    <ul class="portfolio__grid" role="list">
-      <li data-section-reveal>
-        <a class="portfolio__card" href="brewery-gorkha.html" aria-labelledby="portfolio-gorkha">
-          <span class="portfolio__art">
-            <img src="assets/products/hl-carlsberg-500ml.webp" alt="" width="781" height="1400" loading="lazy" decoding="async">
-          </span>
-          <div class="portfolio__copy">
-            <p class="portfolio__category">Beer <span>12 products</span></p>
-            <h3 id="portfolio-gorkha">Gorkha Brewery</h3>
-            <p class="portfolio__description">Carlsberg, Tuborg and the Gorkha range, brewed in Nepal.</p>
-          </div>
-        </a>
-      </li>
-      <li data-section-reveal>
-        <a class="portfolio__card" href="brewery-prime.html" aria-labelledby="portfolio-prime">
-          <span class="portfolio__art">
-            <img src="assets/products/hl-gurkhas-guns.webp" alt="" width="781" height="1400" loading="lazy" decoding="async">
-          </span>
-          <div class="portfolio__copy">
-            <p class="portfolio__category">Spirits <span>6 products</span></p>
-            <h3 id="portfolio-prime">Prime International</h3>
-            <p class="portfolio__description">Nepali whisky, vodka and rum, from Gurkhas &amp; Guns to Yeti.</p>
-          </div>
-        </a>
-      </li>
-      <li data-section-reveal>
-        <a class="portfolio__card" href="brewery-bigmaster.html" aria-labelledby="portfolio-bigmaster">
-          <span class="portfolio__art">
-            <img src="assets/products/hl-big-master-fruity-sweet-red-wine.webp" alt="" width="781" height="1400" loading="lazy" decoding="async">
-          </span>
-          <div class="portfolio__copy">
-            <p class="portfolio__category">Wine <span>6 products</span></p>
-            <h3 id="portfolio-bigmaster">Big Master</h3>
-            <p class="portfolio__description">Fruity sweet red, apple sweet white and Black Chenin.</p>
-          </div>
-        </a>
-      </li>
-      <li data-section-reveal>
-        <a class="portfolio__card" href="brewery-saras.html" aria-labelledby="portfolio-saras">
-          <span class="portfolio__art">
-            <img src="assets/products/hl-red-bull-carbonated-330ml.webp" alt="" width="781" height="1400" loading="lazy" decoding="async">
-          </span>
-          <div class="portfolio__copy">
-            <p class="portfolio__category">Energy <span>2 products</span></p>
-            <h3 id="portfolio-saras">Saras Beverages</h3>
-            <p class="portfolio__description">Red Bull, made in Nepal.</p>
-          </div>
-        </a>
-      </li>
-    </ul>
+    <div class="portfolio__stage">
+      <div class="portfolio__frame">
+        <div class="portfolio__backdrop"></div>
+        <div class="portfolio__viewport">
+          <ul class="portfolio__cards" role="list">
+            <li class="portfolio__tile">
+              <a href="brewery-gorkha.html" draggable="false">
+                <img src="assets/products/gorkha-craft.webp" alt="" loading="lazy" decoding="async" draggable="false">
+                <span class="portfolio__name"><small>Beer</small>Gorkha Brewery</span>
+              </a>
+            </li>
+            <li class="portfolio__tile">
+              <a href="brewery-prime.html" draggable="false">
+                <img src="assets/products/hl-gurkhas-guns.webp" alt="" loading="lazy" decoding="async" draggable="false">
+                <span class="portfolio__name"><small>Spirits</small>Prime International</span>
+              </a>
+            </li>
+            <li class="portfolio__tile">
+              <a href="brewery-bigmaster.html" draggable="false">
+                <img src="assets/products/hl-big-master-fruity-sweet-red-wine.webp" alt="" loading="lazy" decoding="async" draggable="false">
+                <span class="portfolio__name"><small>Wine</small>Big Master</span>
+              </a>
+            </li>
+            <li class="portfolio__tile">
+              <a href="brewery-saras.html" draggable="false">
+                <img src="assets/products/hl-red-bull-carbonated-330ml.webp" alt="" loading="lazy" decoding="async" draggable="false">
+                <span class="portfolio__name"><small>Energy</small>Saras Beverages</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="portfolio__intro" aria-hidden="true" hidden>
+          <span class="portfolio__mark">SalesHubNepal</span>
+          <span class="portfolio__count"><span class="portfolio__digits"></span><sup>%</sup></span>
+        </div>
+        <div class="portfolio__controls" role="group" aria-label="Portfolio controls" hidden>
+          <button type="button" data-portfolio-step="-1" aria-label="Previous partner" title="Previous partner" hidden>‹</button>
+          <button type="button" data-portfolio-step="1" aria-label="Next partner" title="Next partner" hidden>›</button>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 <!--/@portfolio-->
@@ -597,6 +576,7 @@
 <script src="js/hero.js" defer></script>
 <script src="js/home-motion.js" defer></script>
 <script src="js/home-people.js" defer></script>
+<script src="js/home-portfolio.js" defer></script>
 <script src="js/home.js" defer></script>
 </body>
 </html>
